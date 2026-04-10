@@ -16,11 +16,19 @@
       padding: 30px;
       text-align: center;
     }
+    section {
+      padding: 40px 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      padding: 30px;
     }
     .card {
       background: white;
@@ -41,17 +49,37 @@
       margin-bottom: 15px;
       color: #666;
     }
+    .steps, .materials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+    .faq p {
+      margin-bottom: 15px;
+    }
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 40px 30px;
     }
     .cta {
       background: #0088cc;
       color: white;
-      padding: 15px 25px;
+      padding: 15px 30px;
       border-radius: 30px;
       text-decoration: none;
       font-size: 18px;
+      display: inline-block;
     }
     .cta:hover {
       background: #006fa8;
@@ -65,27 +93,61 @@
   <p>Jakość • Powtarzalność • Realne ceny</p>
 </header>
 
-<main class="gallery">
-
-  <div class="card">
-    <img src="img/1.png">
-    <h3>Obudowa elektroniki</h3>
-    <p>PLA • 4h • ~65 zł</p>
+<section>
+  <h2>📸 Przykładowe realizacje</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="img/1.png">
+      <h3>Obudowa elektroniki</h3>
+      <p>PLA • 4h • ~65 zł</p>
+    </div>
+    <div class="card">
+      <img src="img/2.png">
+      <h3>Uchwyt techniczny</h3>
+      <p>PETG • 6h • ~90 zł</p>
+    </div>
+    <div class="card">
+      <img src="img/3.png">
+      <h3>Element dekoracyjny</h3>
+      <p>PLA • 8h • ~120 zł</p>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <img src="img/2.png">
-    <h3>Uchwyt techniczny</h3>
-    <p>PETG • 6h • ~90 zł</p>
+<section>
+  <h2>⚙️ Jak to działa?</h2>
+  <div class="steps">
+    <div class="box">1️⃣ Wysyłasz plik STL lub opis przez Telegram</div>
+    <div class="box">2️⃣ Otrzymujesz szybką wycenę</div>
+    <div class="box">3️⃣ Drukujemy i wysyłamy / odbiór</div>
   </div>
+</section>
 
-  <div class="card">
-    <img src="img/3.png">
-    <h3>Element dekoracyjny</h3>
-    <p>PLA • 8h • ~120 zł</p>
+<section>
+  <h2>🧪 Materiały</h2>
+  <div class="materials">
+    <div class="box">PLA – estetyczny, najczęściej wybierany</div>
+    <div class="box">PETG – mocniejszy, odporny</div>
+    <div class="box">Inne materiały – na zapytanie</div>
   </div>
+</section>
 
-</main>
+<section>
+  <h2>💰 Od czego zależy cena?</h2>
+  <p style="text-align:center;">
+    Cena zależy od wagi modelu, czasu druku oraz liczby kolorów.<br>
+    Dokładną wycenę otrzymasz w bocie Telegram.
+  </p>
+</section>
+
+<section>
+  <h2>❓ FAQ</h2>
+  <div class="faq">
+    <p><strong>Czy drukujecie z mojego pliku?</strong><br>Tak, wystarczy plik STL.</p>
+    <p><strong>Czy robicie pojedyncze sztuki?</strong><br>Tak, nawet 1 sztukę.</p>
+    <p><strong>Ile trwa realizacja?</strong><br>Zależnie od kolejki – ETA podajemy w bocie.</p>
+  </div>
+</section>
 
 <footer>
   <a class="cta" href="https://t.me/Drukarz3Dbot" target="_blank">
