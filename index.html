@@ -36,6 +36,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       overflow: hidden;
       text-align: center;
+      cursor: pointer;
     }
     .card img {
       width: 100%;
@@ -49,7 +50,7 @@
       margin-bottom: 15px;
       color: #666;
     }
-    .steps, .materials {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
@@ -64,9 +65,6 @@
     .faq {
       max-width: 800px;
       margin: auto;
-    }
-    .faq p {
-      margin-bottom: 15px;
     }
     footer {
       text-align: center;
@@ -84,6 +82,22 @@
     .cta:hover {
       background: #006fa8;
     }
+
+    /* MODAL – powiększanie zdjęć */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -96,17 +110,17 @@
 <section>
   <h2>📸 Przykładowe realizacje</h2>
   <div class="gallery">
-    <div class="card">
+    <div class="card" onclick="openModal('img/kurczak.jpg')">
       <img src="img/kurczak.jpg">
       <h3>Kurczak</h3>
       <p>PLA • 3h • 15 zł</p>
     </div>
-    <div class="card">
+    <div class="card" onclick="openModal('img/baran.jpg')">
       <img src="img/baran.jpg">
       <h3>Baranek 12cm</h3>
       <p>PLA • 2h • 18 zł</p>
     </div>
-    <div class="card">
+    <div class="card" onclick="openModal('img/krolik.jpg')">
       <img src="img/krolik.jpg">
       <h3>Królik 20cm</h3>
       <p>PLA • 7h • 25 zł</p>
@@ -115,29 +129,40 @@
 </section>
 
 <section>
-  <h2>⚙️ Jak to działa?</h2>
-  <div class="steps">
-    <div class="box">1️⃣ Wysyłasz plik STL lub opis przez Telegram</div>
-    <div class="box">2️⃣ Otrzymujesz szybką wycenę</div>
-    <div class="box">3️⃣ Drukujemy i wysyłamy / odbiór</div>
+  <h2>⭐ Dlaczego warto?</h2>
+  <div class="grid">
+    <div class="box">✅ Realna wycena – bez ukrytych kosztów</div>
+    <div class="box">✅ Możliwość zamówienia 1 sztuki</div>
+    <div class="box">✅ Druk sprawdzany przed wydaniem</div>
+    <div class="box">✅ Doświadczenie w wydrukach użytkowych</div>
   </div>
 </section>
 
 <section>
-  <h2>🧪 Materiały</h2>
-  <div class="materials">
-    <div class="box">PLA – estetyczny, najczęściej wybierany</div>
-    <div class="box">PETG – mocniejszy, odporny</div>
-    <div class="box">Inne materiały – na zapytanie</div>
+  <h2>🔧 Typowe zastosowania</h2>
+  <div class="grid">
+    <div class="box">🎁 Figurki i dekoracje</div>
+    <div class="box">🏠 Ozdoby i dodatki do domu</div>
+    <div class="box">🧩 Modele na prezent</div>
+    <div class="box">🛠 Proste elementy użytkowe</div>
   </div>
 </section>
 
 <section>
-  <h2>💰 Od czego zależy cena?</h2>
+  <h2>📁 Masz plik STL?</h2>
   <p style="text-align:center;">
-    Cena zależy od wagi modelu, czasu druku oraz liczby kolorów.<br>
-    Dokładną wycenę otrzymasz w bocie Telegram.
+    Masz gotowy plik STL lub pomysł?  
+    Wyślij go w Telegramie – wycena w kilka minut.
   </p>
+</section>
+
+<section>
+  <h2>💬 Opinie klientów</h2>
+  <div class="grid">
+    <div class="box">„Szybka realizacja i bardzo fajna jakość 👌”</div>
+    <div class="box">„Idealne na prezent – polecam!”</div>
+    <div class="box">„Dobry kontakt i uczciwe ceny.”</div>
+  </div>
 </section>
 
 <section>
@@ -154,6 +179,20 @@
     👉 Zamów przez Telegram
   </a>
 </footer>
+
+<div class="modal" id="modal" onclick="closeModal()">
+  <img id="modalImg">
+</div>
+
+<script>
+  function openModal(src) {
+    document.getElementById("modalImg").src = src;
+    document.getElementById("modal").style.display = "flex";
+  }
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
