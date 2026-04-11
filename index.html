@@ -2,11 +2,12 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Druk 3D – Wiktor3D Realizacje</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f5f5f5;
       color: #333;
       line-height: 1.6;
@@ -63,11 +64,39 @@
       margin: 10px 0 5px;
       font-size: 1.25em;
     }
+
+    /* KOLORY Z KÓŁECZKAMI */
     .card .colors {
       font-size: 0.9em;
       color: #555;
       margin-bottom: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
     }
+    .color-item {
+      display: flex;
+      align-items: center;
+    }
+    .color-circle {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+    }
+    
+    /* Definicje Twoich kolorów */
+    .c-yellow { background-color: #ffd700; }
+    .c-white { background-color: #ffffff; }
+    .c-gold { background-color: #d4af37; }
+    .c-grey { background-color: #808080; }
+    .c-mint { background-color: #98ff98; }
+    .c-pink { background-color: #ffc0cb; }
+
     .card .price {
       font-size: 1.3em;
       font-weight: 800;
@@ -75,7 +104,7 @@
       margin-bottom: 20px;
     }
 
-    /* NOWA SEKCJA MATERIAŁY */
+    /* SEKCJA MATERIAŁY */
     .materials-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -122,9 +151,11 @@
       display: inline-block;
       font-weight: bold;
       box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+      transition: background 0.2s;
     }
     .cta:hover { background: #006fa8; }
 
+    /* MODAL */
     .modal {
       display: none;
       position: fixed;
@@ -136,6 +167,7 @@
     }
     .modal img { max-width: 90%; max-height: 90%; border-radius: 5px; }
 
+    /* RWD */
     @media (max-width: 768px) {
       .materials-grid { grid-template-columns: 1fr; }
       .other-mats { border-left: none; border-top: 2px solid #eee; padding-left: 0; padding-top: 20px; }
@@ -146,35 +178,48 @@
 
 <header>
   <h1>🖨 Wiktor3D – Realizacje</h1>
-  <p>Wybierz gotowy model lub wyślij własny pomysł</p>
+  <p>Zapamiętaj ID modelu i podaj je w bociie Telegram!</p>
 </header>
 
 <section>
   <h2>📸 Przykładowe modele</h2>
   <div class="gallery">
+    
     <div class="card">
-      <img src="img/kurczak.jpg" onclick="openModal(this.src)">
+      <img src="img/kurczak.jpg" alt="Kurczak" onclick="openModal(this.src)">
       <div class="model-id">ID: #001</div>
       <h3>Kurczak Wielkanocny</h3>
-      <div class="colors">Dostępne: Żółty, Biały, Złoty</div>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
+        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
+        <div class="color-item"><span class="color-circle c-gold"></span>Złoty</div>
+      </div>
       <div class="price">15 zł</div>
     </div>
 
     <div class="card">
-      <img src="img/baran.jpg" onclick="openModal(this.src)">
+      <img src="img/baran.jpg" alt="Baranek" onclick="openModal(this.src)">
       <div class="model-id">ID: #002</div>
       <h3>Baranek 12cm</h3>
-      <div class="colors">Dostępne: Biały, Szary</div>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
+        <div class="color-item"><span class="color-circle c-grey"></span>Szary</div>
+      </div>
       <div class="price">18 zł</div>
     </div>
 
     <div class="card">
-      <img src="img/krolik.jpg" onclick="openModal(this.src)">
+      <img src="img/krolik.jpg" alt="Królik" onclick="openModal(this.src)">
       <div class="model-id">ID: #003</div>
       <h3>Królik 20cm</h3>
-      <div class="colors">Dostępne: Miętowy, Różowy, Biały</div>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-mint"></span>Miętowy</div>
+        <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
+        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
+      </div>
       <div class="price">25 zł</div>
     </div>
+
   </div>
 </section>
 
@@ -186,7 +231,7 @@
       <p>Większość naszych modeli (figurki, ozdoby) drukujemy z <b>PLA</b> (polilaktydu). Jest to materiał:</p>
       <ul>
         <li><b>Ekologiczny:</b> W pełni biodegradowalny, wytwarzany z surowców odnawialnych (np. mączki kukurydzianej).</li>
-        <li><b>Bezpieczny:</b> Nie wydziela toksycznych oparów, idealny do domu.</li>
+        <li><b>Bezpieczny:</b> Nie wydziela toksycznych oparów, idealny do domu i dla dzieci.</li>
         <li><b>Estetyczny:</b> Pozwala na uzyskanie bardzo szczegółowych detali i pięknych kolorów.</li>
       </ul>
     </div>
@@ -196,30 +241,30 @@
       <ul>
         <li><b>PETG:</b> Odporny na temperaturę i chemię (idealny do garażu lub ogrodu).</li>
         <li><b>ABS/ASA:</b> Bardzo wysoka wytrzymałość mechaniczna i odporność na słońce (UV).</li>
-        <li><b>TPU:</b> Elastyczny materiał przypominający gumę.</li>
+        <li><b>TPU:</b> Elastyczny materiał przypominający gumę (np. na uszczelki lub odbojniki).</li>
       </ul>
-      <p><i>Potrzebujesz porady w doborze materiału? Zapytaj w bociie!</i></p>
+      <p><i>Nie wiesz co wybrać? Napisz do nas w bociie, doradzimy!</i></p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>❓ Szybkie pytania</h2>
+  <h2>❓ Szybkie informacje</h2>
   <div class="grid">
-    <div class="box"><b>Jak zamówić?</b><br>Podaj ID modelu w bociie na Telegramie.</div>
-    <div class="box"><b>Własny projekt?</b><br>Tak, wyślij nam swój plik STL w wiadomości.</div>
-    <div class="box"><b>Czas oczekiwania?</b><br>Aktualną kolejkę zawsze sprawdzisz w menu bota.</div>
+    <div class="box"><b>Jak zamówić?</b><br>Wybierz model i podaj jego ID w bociie na Telegramie.</div>
+    <div class="box"><b>Własny plik?</b><br>Masz plik STL? Wyślij go nam bezpośrednio w bociie do wyceny.</div>
+    <div class="box"><b>Czas realizacji?</b><br>Aktualny czas oczekiwania sprawdzisz w menu bota.</div>
   </div>
 </section>
 
 <footer>
   <a class="cta" href="https://t.me/Drukarz3DTESTOWYbot" target="_blank">
-    🚀 Przejdź do zamówienia w Telegramie
+    🚀 Przejdź do bota Telegram
   </a>
 </footer>
 
 <div class="modal" id="modal" onclick="closeModal()">
-  <img id="modalImg">
+  <img id="modalImg" src="" alt="Powiększenie">
 </div>
 
 <script>
