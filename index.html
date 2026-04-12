@@ -40,6 +40,8 @@
       overflow: hidden;
       text-align: center;
       transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover {
       transform: translateY(-8px);
@@ -47,7 +49,7 @@
     .card img {
       width: 100%;
       height: 280px;
-      object-fit: cover; /* Powrót do wypełniania całego pola */
+      object-fit: cover;
       cursor: pointer;
     }
     .model-id {
@@ -59,6 +61,7 @@
       font-weight: bold;
       margin-top: 15px;
       font-size: 0.9em;
+      align-self: center;
     }
     .card h3 {
       margin: 10px 0 5px;
@@ -92,11 +95,8 @@
     .c-white { background-color: #ffffff; }
     .c-gold { background-color: #d4af37; }
     .c-grey { background-color: #808080; }
-    .c-mint { background-color: #98ff98; }
     .c-pink { background-color: #ffc0cb; }
     .c-black { background-color: #000000; }
-    .c-red { background-color: #ff0000; }
-    .c-blue { background-color: #0000ff; }
     .c-beige { background-color: #F5F5DC; }
     .c-rainbow { background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); }
 
@@ -104,7 +104,21 @@
       font-size: 1.3em;
       font-weight: 800;
       color: #0088cc;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* NOWA SEKCJA KOMENTARZA / PROMOCJI */
+    .promo-box {
+      background: #fff9e6;
+      border-top: 1px solid #ffeeba;
+      padding: 10px;
+      font-size: 0.85em;
+      color: #856404;
+      font-style: italic;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .materials-grid {
@@ -119,47 +133,21 @@
     .mat-box h4 { color: #0088cc; margin-top: 0; font-size: 1.4em; }
     .other-mats { border-left: 2px solid #eee; padding-left: 20px; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      text-align: center;
-    }
-    .box {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
     footer { text-align: center; padding: 50px 30px; background: #fff; }
     .cta {
-      background: #0088cc;
-      color: white;
-      padding: 18px 40px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 20px;
-      display: inline-block;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
-      transition: background 0.2s;
+      background: #0088cc; color: white; padding: 18px 40px; border-radius: 50px;
+      text-decoration: none; font-size: 20px; display: inline-block; font-weight: bold;
     }
-    .cta:hover { background: #006fa8; }
 
     .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+      justify-content: center; align-items: center; z-index: 999;
     }
-    .modal img { max-width: 90%; max-height: 90%; border-radius: 5px; }
+    .modal img { max-width: 90%; max-height: 90%; }
 
     @media (max-width: 768px) {
       .materials-grid { grid-template-columns: 1fr; }
-      .other-mats { border-left: none; border-top: 2px solid #eee; padding-left: 0; padding-top: 20px; }
+      .other-mats { border-left: none; border-top: 2px solid #eee; padding-top: 20px; }
     }
   </style>
 </head>
@@ -182,6 +170,7 @@
         <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
       </div>
       <div class="price">15 zł</div>
+      <div class="promo-box">Idealny do koszyczka wielkanocnego!</div>
     </div>
 
     <div class="card">
@@ -191,42 +180,9 @@
       <div class="colors">
         <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
         <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
-        <div class="color-item"><span class="color-circle c-beige"></span>Beżowy</div>
       </div>
       <div class="price">18 zł</div>
-    </div>
-
-    <div class="card">
-      <img src="img/krolik20.PNG" alt="Królik" onclick="openModal(this.src)">
-      <div class="model-id">ID: #003</div>
-      <h3>Królik 20cm</h3>
-      <div class="colors">
-        <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
-        <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
-        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
-      </div>
-      <div class="price">25 zł</div>
-    </div>
-
-    <div class="card">
-      <img src="img/lego.jpg" alt="LEGO" onclick="openModal(this.src)">
-      <div class="model-id">ID: #004</div>
-      <h3>Ludzik LEGO</h3>
-      <div class="colors">
-        <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
-        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
-      </div>
-      <div class="price">160 zł</div>
-    </div>
-
-    <div class="card">
-      <img src="img/pi.PNG" alt="Pi" onclick="openModal(this.src)">
-      <div class="model-id">ID: #005</div>
-      <h3>Litera pi</h3>
-      <div class="colors">
-        <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-      </div>
-      <div class="price">45 zł</div>
+      <div class="promo-box">Przy zakupie 3 sztuk - darmowa personalizacja!</div>
     </div>
 
     <div class="card">
@@ -238,6 +194,40 @@
         <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
       </div>
       <div class="price">25 zł</div>
+      <div class="promo-box">💡 PROMOCJA: Weź 5 tulipanów, zapłać za 4!</div>
+    </div>
+
+    <div class="card">
+      <img src="img/krolik20.PNG" alt="Królik" onclick="openModal(this.src)">
+      <div class="model-id">ID: #003</div>
+      <h3>Królik 20cm</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
+      </div>
+      <div class="price">25 zł</div>
+      <div class="promo-box">Dostępny również w wersji XXL (30cm)</div>
+    </div>
+
+    <div class="card">
+      <img src="img/lego.jpg" alt="LEGO" onclick="openModal(this.src)">
+      <div class="model-id">ID: #004</div>
+      <h3>Ludzik LEGO</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
+      </div>
+      <div class="price">160 zł</div>
+      <div class="promo-box">Ruchome ręce i nogi!</div>
+    </div>
+
+    <div class="card">
+      <img src="img/pi.PNG" alt="Pi" onclick="openModal(this.src)">
+      <div class="model-id">ID: #005</div>
+      <h3>Litera pi</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-rainbow"></span>Tęczowy</div>
+      </div>
+      <div class="price">45 zł</div>
+      <div class="promo-box">Fajny gadżet na biurko matematyka.</div>
     </div>
 
   </div>
@@ -248,27 +238,17 @@
   <div class="materials-grid">
     <div class="mat-box">
       <h4>Główny materiał: PLA</h4>
-      <p>Większość naszych modeli drukujemy z <b>PLA</b>. Jest to materiał:</p>
-      <ul>
-        <li><b>Ekologiczny:</b> Biodegradowalny (z kukurydzy).</li>
-        <li><b>Bezpieczny:</b> Nietoksyczny, idealny do domu.</li>
-      </ul>
+      <p>Większość naszych modeli drukujemy z <b>PLA</b>. Jest to materiał ekologiczny i bezpieczny.</p>
     </div>
     <div class="mat-box other-mats">
       <h4>Inne możliwości</h4>
-      <p>Oferujemy również druk z innych materiałów:</p>
-      <ul>
-        <li><b>PETG:</b> Wytrzymały i odporny na słońce.</li>
-        <li><b>TPU:</b> Elastyczny (jak guma).</li>
-      </ul>
+      <p>Oferujemy również druk z <b>PETG</b> oraz <b>TPU</b> (elastyczny).</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <a class="cta" href="https://t.me/Drukarz3DTESTOWYbot" target="_blank">
-    🚀 Przejdź do bota Telegram
-  </a>
+  <a class="cta" href="https://t.me/Drukarz3DTESTOWYbot" target="_blank">🚀 Przejdź do bota Telegram</a>
 </footer>
 
 <div class="modal" id="modal" onclick="closeModal()">
