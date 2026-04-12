@@ -40,6 +40,8 @@
       overflow: hidden;
       text-align: center;
       transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover {
       transform: translateY(-8px);
@@ -47,8 +49,12 @@
     .card img {
       width: 100%;
       height: 280px;
-      object-fit: cover;
+      /* Zmienione na contain, żeby nie przycinało zdjęć */
+      object-fit: contain; 
+      background-color: #fff;
+      padding: 10px;
       cursor: pointer;
+      box-sizing: border-box;
     }
     .model-id {
       background: #0088cc;
@@ -59,13 +65,13 @@
       font-weight: bold;
       margin-top: 15px;
       font-size: 0.9em;
+      align-self: center;
     }
     .card h3 {
       margin: 10px 0 5px;
       font-size: 1.25em;
     }
 
-    /* KOLORY Z KÓŁECZKAMI */
     .card .colors {
       font-size: 0.9em;
       color: #555;
@@ -75,6 +81,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 8px;
+      min-height: 25px; /* Rezerwuje miejsce, nawet jak nie ma kolorów */
     }
     .color-item {
       display: flex;
@@ -89,7 +96,7 @@
       border: 1px solid #ccc;
     }
     
-    /* Biblioteka kolorów - tutaj dodawaj nowe */
+    /* Biblioteka kolorów */
     .c-yellow { background-color: #ffd700; }
     .c-white { background-color: #ffffff; }
     .c-gold { background-color: #d4af37; }
@@ -100,13 +107,7 @@
     .c-red { background-color: #ff0000; }
     .c-blue { background-color: #0000ff; }
     .c-beige { background-color: #F5F5DC; }
-    /* Efekt tęczy (Rainbow) */
     .c-rainbow { background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); }
-
-/* Przykład: Mix dwóch kolorów (np. czarno-złoty) */
-.c-mix-black-gold { 
-  background: linear-gradient(45deg, #000000 50%, #d4af37 50%); 
-}
 
     .card .price {
       font-size: 1.3em;
@@ -115,7 +116,6 @@
       margin-bottom: 20px;
     }
 
-    /* SEKCJA MATERIAŁY */
     .materials-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -166,7 +166,6 @@
     }
     .cta:hover { background: #006fa8; }
 
-    /* MODAL */
     .modal {
       display: none;
       position: fixed;
@@ -178,7 +177,6 @@
     }
     .modal img { max-width: 90%; max-height: 90%; border-radius: 5px; }
 
-    /* RWD */
     @media (max-width: 768px) {
       .materials-grid { grid-template-columns: 1fr; }
       .other-mats { border-left: none; border-top: 2px solid #eee; padding-left: 0; padding-top: 20px; }
@@ -199,12 +197,12 @@
     <div class="card">
       <img src="img/kurczaczek.jpg" alt="Kurczak" onclick="openModal(this.src)">
       <div class="model-id">ID: #001</div>
-      <h3>Kurczak z miejscem na jajko</h3>
+      <h3>Kurczak na jajko</h3>
       <div class="colors">
+        <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
+      </div>
       <div class="price">15 zł</div>
-    </div>
-
-    <div class="card">
+    </div> <div class="card">
       <img src="img/baranek.jpg" alt="Baranek" onclick="openModal(this.src)">
       <div class="model-id">ID: #002</div>
       <h3>Baranek 12cm</h3>
@@ -229,7 +227,7 @@
     </div>
 
     <div class="card">
-      <img src="img/lego.jpg" alt="Opis 4" onclick="openModal(this.src)">
+      <img src="img/lego.jpg" alt="LEGO" onclick="openModal(this.src)">
       <div class="model-id">ID: #004</div>
       <h3>Ludzik LEGO</h3>
       <div class="colors">
@@ -240,7 +238,7 @@
     </div>
 
     <div class="card">
-      <img src="img/pi.PNG" alt="Opis 5" onclick="openModal(this.src)">
+      <img src="img/pi.PNG" alt="Pi" onclick="openModal(this.src)">
       <div class="model-id">ID: #005</div>
       <h3>Litera pi</h3>
       <div class="colors">
@@ -250,7 +248,7 @@
     </div>
 
     <div class="card">
-      <img src="img/tulipan.PNG" alt="Opis 6" onclick="openModal(this.src)">
+      <img src="img/tulipan.PNG" alt="Tulipan" onclick="openModal(this.src)">
       <div class="model-id">ID: #006</div>
       <h3>Tulipan</h3>
       <div class="colors">
@@ -268,21 +266,21 @@
   <div class="materials-grid">
     <div class="mat-box">
       <h4>Główny materiał: PLA</h4>
-      <p>Większość naszych modeli (figurki, ozdoby) drukujemy z <b>PLA</b> (polilaktydu). Jest to materiał:</p>
+      <p>Większość naszych modeli drukujemy z <b>PLA</b>. Jest to materiał:</p>
       <ul>
-        <li><b>Ekologiczny:</b> W pełni biodegradowalny, wytwarzany z surowców odnawialnych (np. mączki kukurydzianej).</li>
-        <li><b>Bezpieczny:</b> Nie wydziela toksycznych oparów, idealny do domu i dla dzieci.</li>
-        <li><b>Estetyczny:</b> Pozwala na uzyskanie bardzo szczegółowych detali i pięknych kolorów.</li>
+        <li><b>Ekologiczny:</b> Biodegradowalny (z kukurydzy).</li>
+        <li><b>Bezpieczny:</b> Nietoksyczny, idealny do domu.</li>
+        <li><b>Estetyczny:</b> Świetne detale i kolory.</li>
       </ul>
     </div>
     <div class="mat-box other-mats">
       <h4>Inne możliwości</h4>
-      <p>Jeśli potrzebujesz czegoś bardziej wytrzymałego, oferujemy również druk z innych materiałów:</p>
+      <p>Oferujemy również druk z materiałów technicznych:</p>
       <ul>
-        <li><b>PETG:</b> Odporny na temperaturę i chemię (idealny do garażu lub ogrodu).</li>
-        <li><b>TPU:</b> Elastyczny materiał przypominający gumę (np. na uszczelki lub odbojniki).</li>
+        <li><b>PETG:</b> Odporny na chemię i słońce.</li>
+        <li><b>TPU:</b> Elastyczny (jak guma).</li>
       </ul>
-      <p><i>Nie wiesz co wybrać? Napisz do nas w bocie, doradzimy!</i></p>
+      <p><i>Doradzimy w doborze materiału bezpośrednio w bocie!</i></p>
     </div>
   </div>
 </section>
@@ -290,9 +288,9 @@
 <section>
   <h2>❓ Szybkie informacje</h2>
   <div class="grid">
-    <div class="box"><b>Jak zamówić?</b><br>Wybierz model i podaj jego ID w bociie na Telegramie.</div>
-    <div class="box"><b>Własny plik?</b><br>Masz plik STL? Wyślij go nam bezpośrednio w bociie do wyceny.</div>
-    <div class="box"><b>Czas realizacji?</b><br>Aktualny czas oczekiwania sprawdzisz w menu bota.</div>
+    <div class="box"><b>Jak zamówić?</b><br>Podaj ID modelu w bociie Telegram.</div>
+    <div class="box"><b>Własny plik?</b><br>Wyślij STL w bocie do wyceny.</div>
+    <div class="box"><b>Czas realizacji?</b><br>Sprawdzisz aktualną kolejkę w menu bota.</div>
   </div>
 </section>
 
