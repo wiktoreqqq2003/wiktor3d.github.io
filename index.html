@@ -40,8 +40,6 @@
       overflow: hidden;
       text-align: center;
       transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
     }
     .card:hover {
       transform: translateY(-8px);
@@ -49,12 +47,8 @@
     .card img {
       width: 100%;
       height: 280px;
-      /* Zmienione na contain, żeby nie przycinało zdjęć */
-      object-fit: contain; 
-      background-color: #fff;
-      padding: 10px;
+      object-fit: cover; /* Powrót do wypełniania całego pola */
       cursor: pointer;
-      box-sizing: border-box;
     }
     .model-id {
       background: #0088cc;
@@ -65,7 +59,6 @@
       font-weight: bold;
       margin-top: 15px;
       font-size: 0.9em;
-      align-self: center;
     }
     .card h3 {
       margin: 10px 0 5px;
@@ -81,7 +74,6 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 8px;
-      min-height: 25px; /* Rezerwuje miejsce, nawet jak nie ma kolorów */
     }
     .color-item {
       display: flex;
@@ -96,7 +88,6 @@
       border: 1px solid #ccc;
     }
     
-    /* Biblioteka kolorów */
     .c-yellow { background-color: #ffd700; }
     .c-white { background-color: #ffffff; }
     .c-gold { background-color: #d4af37; }
@@ -125,15 +116,8 @@
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
-    .mat-box h4 {
-      color: #0088cc;
-      margin-top: 0;
-      font-size: 1.4em;
-    }
-    .other-mats {
-      border-left: 2px solid #eee;
-      padding-left: 20px;
-    }
+    .mat-box h4 { color: #0088cc; margin-top: 0; font-size: 1.4em; }
+    .other-mats { border-left: 2px solid #eee; padding-left: 20px; }
 
     .grid {
       display: grid;
@@ -147,11 +131,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    footer {
-      text-align: center;
-      padding: 50px 30px;
-      background: #fff;
-    }
+    footer { text-align: center; padding: 50px 30px; background: #fff; }
     .cta {
       background: #0088cc;
       color: white;
@@ -202,7 +182,9 @@
         <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
       </div>
       <div class="price">15 zł</div>
-    </div> <div class="card">
+    </div>
+
+    <div class="card">
       <img src="img/baranek.jpg" alt="Baranek" onclick="openModal(this.src)">
       <div class="model-id">ID: #002</div>
       <h3>Baranek 12cm</h3>
@@ -270,27 +252,16 @@
       <ul>
         <li><b>Ekologiczny:</b> Biodegradowalny (z kukurydzy).</li>
         <li><b>Bezpieczny:</b> Nietoksyczny, idealny do domu.</li>
-        <li><b>Estetyczny:</b> Świetne detale i kolory.</li>
       </ul>
     </div>
     <div class="mat-box other-mats">
       <h4>Inne możliwości</h4>
-      <p>Oferujemy również druk z materiałów technicznych:</p>
+      <p>Oferujemy również druk z innych materiałów:</p>
       <ul>
-        <li><b>PETG:</b> Odporny na chemię i słońce.</li>
+        <li><b>PETG:</b> Wytrzymały i odporny na słońce.</li>
         <li><b>TPU:</b> Elastyczny (jak guma).</li>
       </ul>
-      <p><i>Doradzimy w doborze materiału bezpośrednio w bocie!</i></p>
     </div>
-  </div>
-</section>
-
-<section>
-  <h2>❓ Szybkie informacje</h2>
-  <div class="grid">
-    <div class="box"><b>Jak zamówić?</b><br>Podaj ID modelu w bociie Telegram.</div>
-    <div class="box"><b>Własny plik?</b><br>Wyślij STL w bocie do wyceny.</div>
-    <div class="box"><b>Czas realizacji?</b><br>Sprawdzisz aktualną kolejkę w menu bota.</div>
   </div>
 </section>
 
@@ -301,7 +272,7 @@
 </footer>
 
 <div class="modal" id="modal" onclick="closeModal()">
-  <img id="modalImg" src="" alt="Powiększenie">
+  <img id="modalImg" src="">
 </div>
 
 <script>
