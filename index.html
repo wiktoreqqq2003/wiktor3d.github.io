@@ -89,13 +89,16 @@
       border: 1px solid #ccc;
     }
     
-    /* Definicje Twoich kolorów */
+    /* Biblioteka kolorów - tutaj dodawaj nowe */
     .c-yellow { background-color: #ffd700; }
     .c-white { background-color: #ffffff; }
     .c-gold { background-color: #d4af37; }
     .c-grey { background-color: #808080; }
     .c-mint { background-color: #98ff98; }
     .c-pink { background-color: #ffc0cb; }
+    .c-black { background-color: #000000; }
+    .c-red { background-color: #ff0000; }
+    .c-blue { background-color: #0000ff; }
 
     .card .price {
       font-size: 1.3em;
@@ -218,6 +221,39 @@
         <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
       </div>
       <div class="price">25 zł</div>
+    </div>
+
+    <div class="card">
+      <img src="img/zdjecie4.jpg" alt="Opis 4" onclick="openModal(this.src)">
+      <div class="model-id">ID: #004</div>
+      <h3>Nazwa Modelu 4</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
+        <div class="color-item"><span class="color-circle c-red"></span>Czerwony</div>
+      </div>
+      <div class="price">30 zł</div>
+    </div>
+
+    <div class="card">
+      <img src="img/zdjecie5.jpg" alt="Opis 5" onclick="openModal(this.src)">
+      <div class="model-id">ID: #005</div>
+      <h3>Nazwa Modelu 5</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-blue"></span>Niebieski</div>
+        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
+      </div>
+      <div class="price">45 zł</div>
+    </div>
+
+    <div class="card">
+      <img src="img/zdjecie6.jpg" alt="Opis 6" onclick="openModal(this.src)">
+      <div class="model-id">ID: #006</div>
+      <h3>Nazwa Modelu 6</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-grey"></span>Szary</div>
+        <div class="color-item"><span class="color-circle c-gold"></span>Złoty</div>
+      </div>
+      <div class="price">20 zł</div>
     </div>
 
   </div>
