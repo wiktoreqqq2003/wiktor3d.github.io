@@ -99,6 +99,14 @@
     .c-black { background-color: #000000; }
     .c-red { background-color: #ff0000; }
     .c-blue { background-color: #0000ff; }
+    .c-beige { background-color: #F5F5DC; }
+    /* Efekt tęczy (Rainbow) */
+    .c-rainbow { background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); }
+
+/* Przykład: Mix dwóch kolorów (np. czarno-złoty) */
+.c-mix-black-gold { 
+  background: linear-gradient(45deg, #000000 50%, #d4af37 50%); 
+}
 
     .card .price {
       font-size: 1.3em;
@@ -191,12 +199,8 @@
     <div class="card">
       <img src="img/kurczaczek.jpg" alt="Kurczak" onclick="openModal(this.src)">
       <div class="model-id">ID: #001</div>
-      <h3>Kurczak Wielkanocny</h3>
+      <h3>Kurczak z miejscem na jajko</h3>
       <div class="colors">
-        <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
-        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
-        <div class="color-item"><span class="color-circle c-gold"></span>Złoty</div>
-      </div>
       <div class="price">15 zł</div>
     </div>
 
@@ -206,7 +210,8 @@
       <h3>Baranek 12cm</h3>
       <div class="colors">
         <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
-        <div class="color-item"><span class="color-circle c-grey"></span>Szary</div>
+        <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
+        <div class="color-item"><span class="color-circle c-beige"></span>Beżowy</div>
       </div>
       <div class="price">18 zł</div>
     </div>
@@ -216,7 +221,7 @@
       <div class="model-id">ID: #003</div>
       <h3>Królik 20cm</h3>
       <div class="colors">
-        <div class="color-item"><span class="color-circle c-mint"></span>Miętowy</div>
+        <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
         <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
         <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
       </div>
@@ -229,7 +234,7 @@
       <h3>Ludzik LEGO</h3>
       <div class="colors">
         <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
-        <div class="color-item"><span class="color-circle c-red"></span>Czerwony</div>
+        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
       </div>
       <div class="price">160 zł</div>
     </div>
@@ -239,8 +244,7 @@
       <div class="model-id">ID: #005</div>
       <h3>Litera pi</h3>
       <div class="colors">
-        <div class="color-item"><span class="color-circle c-blue"></span>Niebieski</div>
-        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
+        <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
       </div>
       <div class="price">45 zł</div>
     </div>
@@ -250,16 +254,16 @@
       <div class="model-id">ID: #006</div>
       <h3>Tulipan</h3>
       <div class="colors">
-        <div class="color-item"><span class="color-circle c-pink"></span>Szary</div>
-        <div class="color-item"><span class="color-circle c-yellow"></span>Złoty</div>
+        <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
+        <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
       </div>
-      <div class="price">20 zł</div>
+      <div class="price">25 zł</div>
     </div>
 
   </div>
 </section>
 
-<section style="background: #f0f7ff; margin-top: 40px; padding: 60px 30px;">
+<section style="background: #f0f7ff; margin-top: 20px; padding: 60px 30px;">
   <h2>🧪 Z czego drukujemy?</h2>
   <div class="materials-grid">
     <div class="mat-box">
