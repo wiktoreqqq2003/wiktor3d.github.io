@@ -1,291 +1,367 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>awydrukujse.pl – Druk 3D</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>awydrukujse.pl</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    section {
+      padding: 40px 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #111;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .model-id {
+      background: #0088cc;
+      color: white;
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 0.9em;
+      align-self: center;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 1.25em;
+    }
 
-<style>
-/* ==== RESET / PODSTAWY ==== */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background: #f5f5f5;
-  color: #333;
-}
-section {
-  padding: 60px 30px;
-  max-width: 1100px;
-  margin: auto;
-}
-h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
+    .card .colors {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .color-item {
+      display: flex;
+      align-items: center;
+    }
+    .color-circle {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+    }
+    
+    .c-yellow { background-color: #ffd700; }
+    .c-white { background-color: #ffffff; }
+    .c-gold { background-color: #d4af37; }
+    .c-grey { background-color: #808080; }
+    .c-pink { background-color: #ffc0cb; }
+    .c-black { background-color: #000000; }
+    .c-beige { background-color: #F5F5DC; }
+    .c-rainbow { background: linear-gradient(45deg, red, orange, yellow, green, blue); }
 
-/* ==== HEADER ==== */
-header {
-  background: #111;
-  color: white;
-  padding: 30px;
-}
-.header-inner {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
-}
-.logo {
-  height: 70px;
-}
-.header-text h1 {
-  margin: 0;
-  font-size: 2em;
-}
-.header-text p {
-  margin: 5px 0 0;
-  font-size: 0.95em;
-  opacity: 0.85;
-}
+    .card .price {
+      font-size: 1.3em;
+      font-weight: 800;
+      color: #0088cc;
+      margin-bottom: 10px;
+    }
 
-/* ==== GALERIA ==== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-}
-.card {
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s;
-  display: flex;
-  flex-direction: column;
-}
-.card:hover { transform: translateY(-6px); }
+    /* NOWA SEKCJA KOMENTARZA / PROMOCJI */
+    .promo-box {
+      background: #fff9e6;
+      border-top: 1px solid #ffeeba;
+      padding: 10px;
+      font-size: 0.85em;
+      color: #856404;
+      font-style: italic;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.card img {
-  width: 100%;
-  height: 270px;
-  object-fit: cover;
-  cursor: pointer;
-}
+    .materials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .mat-box h4 { color: #0088cc; margin-top: 0; font-size: 1.4em; }
+    .other-mats { border-left: 2px solid #eee; padding-left: 20px; }
 
-.model-id {
-  margin-top: 15px;
-  background: #0088cc;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  align-self: center;
-  font-size: 0.85em;
-}
+    footer { text-align: center; padding: 50px 30px; background: #fff; }
+    .cta {
+      background: #0088cc; color: white; padding: 18px 40px; border-radius: 50px;
+      text-decoration: none; font-size: 20px; display: inline-block; font-weight: bold;
+    }
 
-.card h3 {
-  margin: 10px 0 5px;
-}
+    .modal {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+      justify-content: center; align-items: center; z-index: 999;
+    }
+    .modal img { max-width: 90%; max-height: 90%; }
 
-.colors {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  font-size: 0.85em;
-  color: #555;
-  margin-bottom: 8px;
-}
-.color-circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 4px;
-  border: 1px solid #ccc;
-}
-.c-yellow{background:#ffd700;}
-.c-white{background:#fff;}
-.c-pink{background:#ffc0cb;}
-.c-black{background:#000;}
-.c-rainbow{background:linear-gradient(45deg,red,orange,yellow,green,blue);}
-
-.price {
-  font-size: 1.4em;
-  font-weight: 800;
-  color: #0088cc;
-}
-
-.promo-box {
-  background: #fff9e6;
-  border-top: 1px solid #ffeeba;
-  padding: 10px;
-  font-size: 0.85em;
-  color: #856404;
-  margin-top: auto;
-}
-
-/* ==== GRID INFO ==== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap: 20px;
-}
-.box {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  text-align: center;
-  font-size: 0.95em;
-}
-
-/* ==== MATERIAŁY ==== */
-.materials-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.mat-box {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-}
-.mat-box h4 { color:#0088cc; }
-
-/* ==== STOPKA ==== */
-footer {
-  background: white;
-  padding: 50px 30px;
-  text-align: center;
-}
-.cta {
-  background: #0088cc;
-  color: white;
-  padding: 15px 40px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
-/* ==== MODAL ==== */
-.modal {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
-}
-.modal img {
-  max-width:90%;
-  max-height:90%;
-}
-
-/* ==== STICKY TELEGRAM ==== */
-.tg-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background: #0088cc;
-  color: white;
-  padding: 14px 22px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: bold;
-  z-index: 999;
-}
-
-@media(max-width:768px){
-  .materials-grid { grid-template-columns:1fr; }
-  .header-inner { flex-direction: column; text-align: center; }
-}
-</style>
+    @media (max-width: 768px) {
+      .materials-grid { grid-template-columns: 1fr; }
+      .other-mats { border-left: none; border-top: 2px solid #eee; padding-top: 20px; }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-  <div class="header-inner">
-    <img src="img/logo.png" class="logo" alt="awydrukujse.pl logo">
-    <div class="header-text">
-      <h1>awydrukujse.pl</h1>
-      <p>Wybierz model • zapamiętaj ID • zamów przez Telegram</p>
-    </div>
-  </div>
+  <h1>🖨 awydrukujse.pl 🖨</h1>
+  <p>Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
 </header>
 
 <section>
   <h2>📸 Przykładowe modele</h2>
   <div class="gallery">
-
-    <!-- PRZYKŁADOWA KARTA -->
+    
     <div class="card">
-      <img src="img/kurczaczek.jpg" onclick="openModal(this.src)">
+      <img src="img/kurczaczek.jpg" alt="Kurczak" onclick="openModal(this.src)">
       <div class="model-id">ID: #001</div>
       <h3>Kurczak na jajko</h3>
       <div class="colors">
-        <span class="color-circle c-yellow"></span> Żółty
+        <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
       </div>
       <div class="price">15 zł</div>
-      <div class="promo-box">Idealny do koszyczka wielkanocnego</div>
+      <div class="promo-box">Idealny do koszyczka wielkanocnego!</div>
     </div>
 
-    <!-- kolejne karty możesz kopiować 1:1 -->
-
-  </div>
-</section>
-
-<section>
-  <h2>✅ Jak zamówić?</h2>
-  <div class="grid">
-    <div class="box">1️⃣ Wybierz model i zapamiętaj <b>ID</b></div>
-    <div class="box">2️⃣ Napisz do bota Telegram</div>
-    <div class="box">3️⃣ Podaj ID, ilość i kolor</div>
-  </div>
-</section>
-
-<section style="background:#f0f7ff;">
-  <h2>🧪 Z czego drukujemy?</h2>
-  <div class="materials-grid">
-    <div class="mat-box">
-      <h4>PLA</h4>
-      Ekologiczny i bezpieczny materiał – idealny na dekoracje
+    <div class="card">
+      <img src="img/baranek.jpg" alt="Baranek" onclick="openModal(this.src)">
+      <div class="model-id">ID: #002</div>
+      <h3>Baranek - 12cm</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
+        <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
+      </div>
+      <div class="price">18 zł</div>
+      <div class="promo-box">💡 PROMOCJA: Weź 5, zapłać za 4!</div>
     </div>
-    <div class="mat-box">
-      <h4>PETG / TPU</h4>
-      Trwalsze i elastyczne materiały na życzenie
+
+    <div class="card">
+      <img src="img/tulipan.PNG" alt="Tulipan" onclick="openModal(this.src)">
+      <div class="model-id">ID: #003</div>
+      <h3>Tulipan</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
+        <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
+      </div>
+      <div class="price">25 zł</div>
+      <div class="promo-box">💡 PROMOCJA: Weź 5, zapłać za 4!</div>
+    </div>
+
+    <div class="card">
+      <img src="img/krolik20.PNG" alt="Królik" onclick="openModal(this.src)">
+      <div class="model-id">ID: #004</div>
+      <h3>Królik - 20cm</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
+      </div>
+      <div class="price">25 zł</div>
+      <div class="promo-box">Dostępny również w wersji XXL (26cm)</div>
+    </div>
+
+    <div class="card">
+      <img src="img/lego.jpg" alt="LEGO" onclick="openModal(this.src)">
+      <div class="model-id">ID: #005</div>
+      <h3>Ludzik LEGO - 40cm</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
+      </div>
+      <div class="price">160 zł</div>
+      <div class="promo-box">Ruchome ręce i nogi!</div>
+    </div>
+
+    <div class="card">
+      <img src="img/pi.PNG" alt="Pi" onclick="openModal(this.src)">
+      <div class="model-id">ID: #006</div>
+      <h3>Litera pi - 26cm</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+      </div>
+      <div class="price">45 zł</div>
+      <div class="promo-box">Fajny gadżet na biurko matematyka.</div>
+    </div>
+<div class="card">
+      <img src="img/uchwyt_recznik.PNG" alt="recznik" onclick="openModal(this.src)">
+      <div class="model-id">ID: #007</div>
+      <h3>Uchwyt na ręcznik</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+      </div>
+      <div class="price">5 zł</div>
+      <div class="promo-box">Idealny gadżet do domu</div>
+    </div>
+
+   <div class="card">
+      <img src="img/Pojemniknaleki.PNG" alt="pojemnik" onclick="openModal(this.src)">
+      <div class="model-id">ID: #008</div>
+      <h3>Pojemnik na leki</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+      </div>
+      <div class="price">18 zł</div>
+      <div class="promo-box">Pomocny gadżet do domu!</div>
+    </div>
+
+   <div class="card">
+      <img src="img/klipskawa.PNG" alt="klips" onclick="openModal(this.src)">
+      <div class="model-id">ID: #009</div>
+      <h3>Klips z dzióbkiem i nakrętką</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+      </div>
+      <div class="price">22 zł</div>
+      <div class="promo-box">Idealny gadżet do domu!</div>
+    </div>
+    
+    <div class="card">
+      <img src="img/soon.jpg" alt="soon" onclick="openModal(this.src)">
+      <div class="model-id">ID: #010</div>
+      <h3>Candy dispenser</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+      </div>
+      <div class="price">36 zł</div>
+      <div class="promo-box">Idealny gadżet dla najmłodszych i nie tylko ;)</div>
+    </div>
+    
+    <div class="card">
+      <img src="img/soon.jpg" alt="soon" onclick="openModal(this.src)">
+      <div class="model-id">ID: #011</div>
+      <h3>Dekoracja na Dzień Mamy</h3>
+      <div class="colors">
+        <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+      </div>
+      <div class="price">25 zł</div>
+      <div class="promo-box">Możliwość druku wielokolorowego</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <a class="cta" href="https://t.me/Drukarz3Dbot" target="_blank">
-    🚀 Zamów przez Telegram
-  </a>
+  <a class="cta" href="https://t.me/Drukarz3Dbot" target="_blank">🚀 Przejdź do bota na Telegramie</a>
+</footer>
+  
+<!-- JAK ZAMÓWIĆ -->
+<section style="background:#fff; margin-top: 20px;">
+  <h2>✅ Jak zamówić?</h2>
+  <div class="grid">
+    <div class="box">1️⃣ Wybierz model z listy i zapamiętaj jego <b>ID</b></div>
+    <div class="box">2️⃣ Napisz do naszego <b>bota Telegram</b></div>
+    <div class="box">3️⃣ Podaj ID, ilość oraz kolor wydruku</div>
+  </div>
+  <p style="text-align:center; margin-top:15px;">
+    💡 Jeśli nie znalazłeś modelu – możesz wysłać <b>własny plik STL</b>
+  </p>
+</section>
+
+<!-- SPRZĘT -->
+<section>
+  <h2>🖨 Na czym drukujemy?</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">
+    Drukujemy na nowoczesnych drukarkach <b>FDM</b>, regularnie kalibrowanych.
+    Każdy model jest sprawdzany wizualnie przed wysyłką.
+  </p>
+</section>
+
+<!-- CZAS REALIZACJI -->
+<section style="background:#fff;">
+  <h2>⏱ Czas realizacji i wysyłka</h2>
+  <div class="grid">
+    <div class="box">⏳ Czas realizacji zależny od ilości i kolejki</div>
+    <div class="box">📦 Wysyłka: Paczkomat / Kurier</div>
+    <div class="box">🤝 Możliwy odbiór osobisty (do ustalenia)</div>
+  </div>
+</section>
+
+<!-- OPINIE -->
+<section>
+  <h2>💬 Opinie klientów</h2>
+  <div class="grid">
+    <div class="box">„Szybka realizacja i super jakość wydruku 👍”</div>
+    <div class="box">„Idealne na prezent, bardzo polecam.”</div>
+    <div class="box">„Dobry kontakt, uczciwe ceny.”</div>
+  </div>
+</section>
+  
+<section style="background: #f0f7ff; margin-top: 20px; padding: 60px 30px;">
+  <h2>🧪 Z czego drukujemy?</h2>
+  <div class="materials-grid">
+    <div class="mat-box">
+      <h4>Główny materiał: PLA</h4>
+      <p>Większość naszych modeli drukujemy z <b>PLA</b>. Jest to materiał ekologiczny i bezpieczny.</p>
+    </div>
+    <div class="mat-box other-mats">
+      <h4>Inne możliwości</h4>
+      <p>Oferujemy również druk z <b>PETG</b> oraz <b>TPU</b> (elastyczny).</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="cta" href="https://t.me/Drukarz3Dbot" target="_blank">🚀 Przejdź do bota na Telegramie</a>
 </footer>
 
-<a class="tg-float" href="https://t.me/Drukarz3Dbot" target="_blank">
-  💬 Telegram
-</a>
-
 <div class="modal" id="modal" onclick="closeModal()">
-  <img id="modalImg">
+  <img id="modalImg" src="">
 </div>
 
 <script>
-function openModal(src){
-  document.getElementById("modalImg").src = src;
-  document.getElementById("modal").style.display = "flex";
-}
-function closeModal(){
-  document.getElementById("modal").style.display = "none";
-}
+  function openModal(src) {
+    document.getElementById("modalImg").src = src;
+    document.getElementById("modal").style.display = "flex";
+  }
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
 </script>
 
 </body>
