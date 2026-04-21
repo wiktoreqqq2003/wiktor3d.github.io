@@ -144,6 +144,61 @@
     background: #0088cc; /* Ciemne tło, żeby odciąć od białych sekcji */
     color: white;
   }
+    /* SEKCJA MATERIAŁÓW */
+    .materials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .material-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      text-align: left;
+      border-top: 6px solid #ddd; /* Domyślny pasek na górze */
+      transition: transform 0.3s ease;
+    }
+    
+    .material-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Kolory pasków na górze kart */
+    .mat-pla { border-top-color: #4CAF50; } /* Zielony dla BIO */
+    .mat-petg { border-top-color: #2196F3; } /* Niebieski dla technicznego */
+    .mat-tpu { border-top-color: #FF9800; } /* Pomarańczowy dla gumy */
+
+    .material-icon {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .material-card h3 {
+      margin-top: 0;
+      color: #111;
+      font-size: 1.5em;
+    }
+
+    .material-card p {
+      color: #555;
+      font-size: 0.95em;
+      line-height: 1.7;
+    }
+
+    .bio-badge {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 15px;
+      border: 1px solid #c8e6c9;
+    }
   .social-links {
     display: flex;
     justify-content: center;
@@ -352,7 +407,35 @@
     Każdy model jest sprawdzany wizualnie przed wysyłką.
   </p>
 </section>
+<section style="background: #f0f7ff;">
+  <h2>🧪 Poznaj nasze materiały</h2>
+  <p style="text-align:center; max-width:800px; margin:auto; color:#555;">
+    Do każdego zlecenia podchodzimy indywidualnie. Drukujemy z bezpiecznych, sprawdzonych filamentów.
+  </p>
+  
+  <div class="materials-container">
+    
+    <div class="material-card mat-pla">
+      <div class="material-icon">🌱</div>
+      <div class="bio-badge">🌿 BIO & EKO</div>
+      <h3>PLA (Polilaktyd)</h3>
+      <p>Nasz podstawowy materiał do druku. Jest to w 100% <b>biodegradowalny polimer</b> produkowany z surowców odnawialnych (najczęściej z mączki kukurydzianej). Idealny do figurek, ozdób, makiet i zabawek. Jest całkowicie bezpieczny w dotyku, nietoksyczny i nie wydziela szkodliwych oparów.</p>
+    </div>
 
+    <div class="material-card mat-petg">
+      <div class="material-icon">⚙️</div>
+      <h3>PETG</h3>
+      <p>Szukasz czegoś do zadań specjalnych? PETG to wzmocniona wersja materiału używanego m.in. do produkcji butelek na wodę. Jest bardzo wytrzymały, odporny na uderzenia, chemię oraz wilgoć. Świetnie sprawdza się w przypadku części mechanicznych i uchwytów.</p>
+    </div>
+
+    <div class="material-card mat-tpu">
+      <div class="material-icon">🏀</div>
+      <h3>TPU (Elastyczny)</h3>
+      <p>Materiał, który swoimi właściwościami przypomina mocną gumę. Jeśli potrzebujesz elastycznej uszczelki, opony do modelu RC, etui na telefon czy niestandardowego amortyzatora – TPU będzie idealnym wyborem. Nie pęka przy wyginaniu!</p>
+    </div>
+
+  </div>
+</section>
 <!-- CZAS REALIZACJI -->
 <section style="background:#fff;">
   <h2>⏱ Czas realizacji i wysyłka</h2>
