@@ -138,7 +138,35 @@
       background: #0088cc; color: white; padding: 18px 40px; border-radius: 50px;
       text-decoration: none; font-size: 20px; display: inline-block; font-weight: bold;
     }
-
+    .socials-section {
+    text-align: center;
+    padding: 40px 30px;
+    background: #111; /* Ciemne tło, żeby odciąć od białych sekcji */
+    color: white;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .social-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  .social-item:hover {
+    color: #0088cc;
+  }
+  .social-icon {
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
     .modal {
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
       justify-content: center; align-items: center; z-index: 999;
@@ -359,6 +387,21 @@
   </div>
 </section>
 
+<section class="socials-section">
+  <h2>📱 Znajdź nas w sieci</h2>
+  <p>Obserwuj proces druku i zobacz nasze najnowsze realizacje!</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/awydrukujse/" class="social-item" target="_blank">
+      <span class="social-icon">📸</span>
+      <span>Instagram</span>
+    </a>
+    <a href="https://www.tiktok.com/@awydrukujse.pl" class="social-item" target="_blank">
+      <span class="social-icon">🎵</span>
+      <span>TikTok</span>
+    </a>
+  </div>
+</section>
+  
 <footer>
   <a class="cta" href="https://t.me/Drukarz3Dbot" target="_blank">🚀 Przejdź do bota na Telegramie</a>
 </footer>
