@@ -195,21 +195,19 @@
       border: 1px solid #c8e6c9;
     }
 
-   /* POPRAWIONA SEKCJA SOCIAL MEDIA */
+  /* SEKCJA SOCIAL MEDIA - JASNA */
     .socials-section {
       text-align: center;
       padding: 60px 30px;
-      background: #111; /* Ciemne tło, pasuje do headera */
-      color: white;
+      background: #f5f5f5; /* Jasne tło, spójne z resztą strony */
     }
     
-    /* TO JEST KLUCZOWE - wymusza biały kolor nagłówka na ciemnym tle */
     .socials-section h2 {
-      color: white; 
+      color: #111; /* Ciemny, czytelny nagłówek */
     }
 
     .socials-section p {
-      color: #ddd; /* Trochę jaśniejszy szary, żeby był bardziej czytelny */
+      color: #555;
       margin-bottom: 40px;
       font-size: 1.1em;
     }
@@ -222,8 +220,8 @@
     }
 
     .social-item {
-      background: #2a2a2a; /* Odrobinę jaśniejsze przyciski, żeby odcinały się od tła #111 */
-      color: white;
+      background: white;
+      color: #0088cc; /* Niebieski tekst i ikony */
       text-decoration: none;
       font-size: 1.1em;
       font-weight: bold;
@@ -233,15 +231,15 @@
       padding: 15px 35px;
       border-radius: 50px;
       transition: all 0.3s ease;
-      border: 1px solid #444; /* Delikatna, jaśniejsza ramka */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06); /* Lekki, nowoczesny cień */
+      border: 2px solid transparent;
     }
 
     .social-item:hover {
-      background: #0088cc; /* Główny niebieski po najechaniu */
-      border-color: #0088cc;
-      color: white;
+      background: #0088cc; /* Tło zmienia się na niebieskie */
+      color: white; /* Tekst zmienia się na biały */
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4);
+      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3); /* Poświata w kolorze przycisku */
     }
 
     .social-icon {
