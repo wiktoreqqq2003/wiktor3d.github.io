@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>awydrukujse.pl</title>
   <style>
-    /* NOWOŚĆ: Płynne przewijanie całej strony */
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,42 +12,58 @@
       color: #333;
       line-height: 1.6;
     }
-    
+
+    /* --- POPRAWIONY STYL NAGŁÓWKA --- */
     header {
       background: #111;
       color: white;
       padding: 40px 30px;
-      text-align: center;
-    }
-    
-    /* NOWOŚĆ: Style dla logotypu i nowego przycisku w headerze */
-    .header-logo {
-      max-width: 350px;
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-      display: block;
+      /* Używamy Flexbox dla układu poziomego */
+      display: flex;
+      flex-direction: row; /* Elementy obok siebie */
+      align-items: center; /* Wyrównanie pionowe do środka */
+      justify-content: center; /* Wyśrodkowanie całej grupy poziomo */
+      /* Ograniczenie szerokości nagłówka na dużych ekranach */
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
+      border-radius: 12px;
+      margin-top: 20px;
     }
-    
-    .header-cta {
-      background: #0088cc; 
-      color: white; 
-      padding: 10px 20px; 
-      border-radius: 50px;
-      text-decoration: none; 
-      font-size: 16px; 
-      display: inline-block; 
-      font-weight: bold;
-      margin-top: 15px; 
-      transition: transform 0.2s, box-shadow 0.2s;
+
+    /* Styl dla obrazka logo */
+    .header-logo {
+      /* Ustawiamy maksymalną wysokość, aby pasowała do tekstu */
+      max-height: 100px; 
+      width: auto; /* Zachowanie proporcji */
+      /* Margines boczny, aby stworzyć odstęp od tekstu */
+      margin-right: 30px; 
     }
-    
-    .header-cta:hover {
-      transform: scale(1.05); 
-      box-shadow: 0 5px 15px rgba(0,136,204,0.3);
+
+    /* Styl dla kontenera tekstu obok logo */
+    .header-text {
+      text-align: left; /* Wyśrodkowanie tekstu do lewej */
     }
+
+    /* Usunięcie domyślnych marginesów dla h1 wewnątrz nagłówka */
+    header h1 {
+      margin: 0 0 10px 0; /* Margines dolny dla odstępu od sloganu */
+    }
+
+    /* Styl dla sloganu */
+    .slogan {
+      font-size: 1.1em;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    /* Styl dla instrukcji */
+    .instruction {
+      font-size: 0.9em;
+      opacity: 0.8;
+      margin: 10px 0 0 0;
+    }
+    /* --- KONIEC POPRAWIONEGO STYLU NAGŁÓWKA --- */
 
     section {
       padding: 60px 30px;
@@ -81,19 +92,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-
-    /* NOWOŚĆ: Dodatkowe style ulepszające sekcję opinii */
-    .testimonial-stars { 
-      color: #FFD700; 
-      margin-bottom: 10px; 
-      font-size: 1.3em; 
-    }
-    .testimonial-author { 
-      margin-top: 15px; 
-      font-weight: bold; 
-      font-size: 0.9em; 
-      color: #888; 
     }
 
     .gallery {
@@ -204,7 +202,7 @@
     }
     .material-card {
       background: white;
-      border-radius: 16px;
+      border-radius: 166px;
       padding: 30px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.06);
       text-align: left;
@@ -244,7 +242,7 @@
       border: 1px solid #c8e6c9;
     }
 
-  /* SEKCJA SOCIAL MEDIA - JASNA */
+    /* SEKCJA SOCIAL MEDIA - JASNA */
     .socials-section {
       text-align: center;
       padding: 60px 30px;
@@ -314,7 +312,23 @@
     }
     .modal img { max-width: 90%; max-height: 90%; }
 
+    /* --- RESPNSYWCZNOŚĆ --- */
     @media (max-width: 768px) {
+      /* Na małych ekranach wracamy do układu pionowego */
+      header {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .header-logo {
+        margin-right: 0;
+        margin-bottom: 20px;
+        max-height: 80px;
+      }
+      .header-text {
+        text-align: center;
+      }
+      
       .materials-grid { grid-template-columns: 1fr; }
       .social-item { width: 100%; justify-content: center; } /* Na telefonie na całą szerokość */
     }
@@ -323,15 +337,14 @@
 <body>
 
 <header>
-  <a href="/" style="text-decoration: none;">
-    <img src="img/logosklepu.png" alt="awydrukujse.pl 3D Print - Logo" class="header-logo">
-  </a>
-  <h1>🖨 awydrukujse.pl 🖨</h1>
-  <p style="font-size: 1.2em; font-weight: bold; margin-bottom: 5px; color: #ddd;">Twoje pomysły w 3D - od ręki!</p>
-  <p>Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
-  <a class="header-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Zamów przez bota</a>
+  <img src="img/logo_awydrukujse_transparent.png" alt="awydrukujse.pl 3D Print - Logo" class="header-logo">
+  
+  <div class="header-text">
+    <h1>🖨 awydrukujse.pl 🖨</h1>
+    <p class="slogan">Twoje pomysły w 3D - od ręki!</p>
+    <p class="instruction">Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
+  </div>
 </header>
-
 <section>
   <h2>📸 Przykładowe modele</h2>
   <div class="gallery">
@@ -557,21 +570,9 @@
 <section>
   <h2>💬 Co mówią klienci?</h2>
   <div class="grid">
-    <div class="box">
-      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-      <i>„Szybka realizacja i super jakość wydruku 👍”</i>
-      <div class="testimonial-author">- Zadowolony Klient</div>
-    </div>
-    <div class="box">
-      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-      <i>„Idealne na prezent, bardzo polecam.”</i>
-      <div class="testimonial-author">- Stały Odbiorca</div>
-    </div>
-    <div class="box">
-      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-      <i>„Dobry kontakt, uczciwe ceny.”</i>
-      <div class="testimonial-author">- Nowy Nabywca</div>
-    </div>
+    <div class="box"><i>„Szybka realizacja i super jakość wydruku 👍”</i></div>
+    <div class="box"><i>„Idealne na prezent, bardzo polecam.”</i></div>
+    <div class="box"><i>„Dobry kontakt, uczciwe ceny.”</i></div>
   </div>
 </section>
 
