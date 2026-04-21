@@ -195,26 +195,34 @@
       border: 1px solid #c8e6c9;
     }
 
-    /* POPRAWIONA SEKCJA SOCIAL MEDIA */
+   /* POPRAWIONA SEKCJA SOCIAL MEDIA */
     .socials-section {
       text-align: center;
       padding: 60px 30px;
       background: #111; /* Ciemne tło, pasuje do headera */
       color: white;
     }
+    
+    /* TO JEST KLUCZOWE - wymusza biały kolor nagłówka na ciemnym tle */
+    .socials-section h2 {
+      color: white; 
+    }
+
     .socials-section p {
-      color: #bbb; /* Lekko szary tekst, żeby nie raził po oczach */
+      color: #ddd; /* Trochę jaśniejszy szary, żeby był bardziej czytelny */
       margin-bottom: 40px;
       font-size: 1.1em;
     }
+
     .social-links {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
     }
+
     .social-item {
-      background: #222; /* Ciemnoszare przyciski */
+      background: #2a2a2a; /* Odrobinę jaśniejsze przyciski, żeby odcinały się od tła #111 */
       color: white;
       text-decoration: none;
       font-size: 1.1em;
@@ -223,17 +231,19 @@
       align-items: center;
       gap: 12px;
       padding: 15px 35px;
-      border-radius: 50px; /* Kształt pigułki */
+      border-radius: 50px;
       transition: all 0.3s ease;
-      border: 1px solid #333;
+      border: 1px solid #444; /* Delikatna, jaśniejsza ramka */
     }
+
     .social-item:hover {
       background: #0088cc; /* Główny niebieski po najechaniu */
       border-color: #0088cc;
       color: white;
-      transform: translateY(-5px); /* Unosi się do góry */
-      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4); /* Elegancka poświata */
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4);
     }
+
     .social-icon {
       font-size: 1.6em;
     }
