@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>awydrukujse.pl</title>
   <style>
+    /* NOWOŚĆ: Płynne przewijanie całej strony */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,12 +17,43 @@
       color: #333;
       line-height: 1.6;
     }
+    
     header {
       background: #111;
       color: white;
       padding: 40px 30px;
       text-align: center;
     }
+    
+    /* NOWOŚĆ: Style dla logotypu i nowego przycisku w headerze */
+    .header-logo {
+      max-width: 350px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .header-cta {
+      background: #0088cc; 
+      color: white; 
+      padding: 10px 20px; 
+      border-radius: 50px;
+      text-decoration: none; 
+      font-size: 16px; 
+      display: inline-block; 
+      font-weight: bold;
+      margin-top: 15px; 
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .header-cta:hover {
+      transform: scale(1.05); 
+      box-shadow: 0 5px 15px rgba(0,136,204,0.3);
+    }
+
     section {
       padding: 60px 30px;
       max-width: 1100px;
@@ -45,6 +81,19 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    /* NOWOŚĆ: Dodatkowe style ulepszające sekcję opinii */
+    .testimonial-stars { 
+      color: #FFD700; 
+      margin-bottom: 10px; 
+      font-size: 1.3em; 
+    }
+    .testimonial-author { 
+      margin-top: 15px; 
+      font-weight: bold; 
+      font-size: 0.9em; 
+      color: #888; 
     }
 
     .gallery {
@@ -274,8 +323,13 @@
 <body>
 
 <header>
+  <a href="/" style="text-decoration: none;">
+    <img src="img/logo_awydrukujse_transparent.png" alt="awydrukujse.pl 3D Print - Logo" class="header-logo">
+  </a>
   <h1>🖨 awydrukujse.pl 🖨</h1>
+  <p style="font-size: 1.2em; font-weight: bold; margin-bottom: 5px; color: #ddd;">Twoje pomysły w 3D - od ręki!</p>
   <p>Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
+  <a class="header-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Zamów przez bota</a>
 </header>
 
 <section>
@@ -503,9 +557,21 @@
 <section>
   <h2>💬 Co mówią klienci?</h2>
   <div class="grid">
-    <div class="box"><i>„Szybka realizacja i super jakość wydruku 👍”</i></div>
-    <div class="box"><i>„Idealne na prezent, bardzo polecam.”</i></div>
-    <div class="box"><i>„Dobry kontakt, uczciwe ceny.”</i></div>
+    <div class="box">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <i>„Szybka realizacja i super jakość wydruku 👍”</i>
+      <div class="testimonial-author">- Zadowolony Klient</div>
+    </div>
+    <div class="box">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <i>„Idealne na prezent, bardzo polecam.”</i>
+      <div class="testimonial-author">- Stały Odbiorca</div>
+    </div>
+    <div class="box">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <i>„Dobry kontakt, uczciwe ceny.”</i>
+      <div class="testimonial-author">- Nowy Nabywca</div>
+    </div>
   </div>
 </section>
 
