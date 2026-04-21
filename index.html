@@ -4,28 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>awydrukujse.pl</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800&display=swap" rel="stylesheet">
+
   <style>
-    /* NOWOŚĆ: Płynne przewijanie całej strony */
+    /* Płynne przewijanie całej strony */
     html {
       scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* NOWOŚĆ: Użycie nowej czcionki Poppins */
+      font-family: 'Poppins', sans-serif;
       background: #f5f5f5;
       color: #333;
       line-height: 1.6;
     }
     
     header {
-      background: #111;
+      /* NOWOŚĆ: Ciemne tło z subtelnym wzorem kropek */
+      background-color: #111;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+      background-size: 20px 20px;
       color: white;
       padding: 40px 30px;
       text-align: center;
     }
     
-    /* NOWOŚĆ: Style dla logotypu i nowego przycisku w headerze */
+    /* Style dla logotypu i przycisku w headerze */
     .header-logo {
       max-width: 350px;
       width: 100%;
@@ -44,7 +53,7 @@
       text-decoration: none; 
       font-size: 16px; 
       display: inline-block; 
-      font-weight: bold;
+      font-weight: 600;
       margin-top: 15px; 
       transition: transform 0.2s, box-shadow 0.2s;
     }
@@ -64,6 +73,7 @@
       margin-bottom: 30px;
       color: #111;
       font-size: 2em;
+      font-weight: 800;
     }
     
     /* Zdefiniowany GRID, żeby sekcje info ładnie wyglądały */
@@ -83,7 +93,7 @@
       justify-content: center;
     }
 
-    /* NOWOŚĆ: Dodatkowe style ulepszające sekcję opinii */
+    /* Style ulepszające sekcję opinii */
     .testimonial-stars { 
       color: #FFD700; 
       margin-bottom: 10px; 
@@ -91,7 +101,7 @@
     }
     .testimonial-author { 
       margin-top: 15px; 
-      font-weight: bold; 
+      font-weight: 600; 
       font-size: 0.9em; 
       color: #888; 
     }
@@ -133,7 +143,7 @@
       display: inline-block;
       padding: 3px 12px;
       border-radius: 6px;
-      font-weight: bold;
+      font-weight: 600;
       margin-top: 10px;
       font-size: 0.9em;
       align-self: center;
@@ -141,6 +151,7 @@
     .card h3 {
       margin: 10px 0 5px;
       font-size: 1.25em;
+      font-weight: 600;
     }
 
     .card .colors {
@@ -226,6 +237,7 @@
       margin-top: 0;
       color: #111;
       font-size: 1.5em;
+      font-weight: 600;
     }
     .material-card p {
       color: #555;
@@ -238,21 +250,21 @@
       padding: 6px 12px;
       border-radius: 20px;
       font-size: 0.8em;
-      font-weight: bold;
+      font-weight: 600;
       display: inline-block;
       margin-bottom: 15px;
       border: 1px solid #c8e6c9;
     }
 
-  /* SEKCJA SOCIAL MEDIA - JASNA */
+    /* SEKCJA SOCIAL MEDIA - JASNA */
     .socials-section {
       text-align: center;
       padding: 60px 30px;
-      background: #f5f5f5; /* Jasne tło, spójne z resztą strony */
+      background: #f5f5f5; 
     }
     
     .socials-section h2 {
-      color: #111; /* Ciemny, czytelny nagłówek */
+      color: #111; 
     }
 
     .socials-section p {
@@ -270,36 +282,41 @@
 
     .social-item {
       background: white;
-      color: #0088cc; /* Niebieski tekst i ikony */
+      color: #0088cc; 
       text-decoration: none;
       font-size: 1.1em;
-      font-weight: bold;
+      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 12px;
       padding: 15px 35px;
       border-radius: 50px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06); /* Lekki, nowoczesny cień */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
       border: 2px solid transparent;
     }
 
     .social-item:hover {
-      background: #0088cc; /* Tło zmienia się na niebieskie */
-      color: white; /* Tekst zmienia się na biały */
+      background: #0088cc; 
+      color: white; 
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3); /* Poświata w kolorze przycisku */
+      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3); 
     }
 
     .social-icon {
       font-size: 1.6em;
     }
 
-    /* FOOTER */
-    footer { text-align: center; padding: 60px 30px; background: #fff; }
+    /* NOWOŚĆ: Ciemny, elegancki FOOTER */
+    footer { 
+      text-align: center; 
+      padding: 60px 30px; 
+      background: #111; /* Ciemne tło */
+      color: #fff; /* Biały tekst domyślnie */
+    }
     .cta {
       background: #0088cc; color: white; padding: 18px 40px; border-radius: 50px;
-      text-decoration: none; font-size: 20px; display: inline-block; font-weight: bold;
+      text-decoration: none; font-size: 20px; display: inline-block; font-weight: 600;
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .cta:hover {
@@ -312,13 +329,9 @@
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
       justify-content: center; align-items: center; z-index: 999;
     }
-    .modal img { max-width: 90%; max-height: 90%; }
+    .modal img { max-width: 90%; max-height: 90%; border-radius: 8px; }
 
-    /* ========================================= */
-    /* NOWE STYLE DLA DODANYCH FUNKCJI (1, 2, 5) */
-    /* ========================================= */
-
-    /* 5. MENU NAWIGACYJNE */
+    /* MENU NAWIGACYJNE */
     .top-nav {
       background: #222;
       padding: 15px 0;
@@ -332,7 +345,7 @@
       color: #fff;
       text-decoration: none;
       margin: 0 20px;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1.1em;
       transition: color 0.3s;
     }
@@ -340,7 +353,7 @@
       color: #0088cc;
     }
 
-    /* 2. FAQ (Najczęściej zadawane pytania) */
+    /* FAQ (Najczęściej zadawane pytania) */
     .faq-container {
       max-width: 800px;
       margin: auto;
@@ -354,7 +367,7 @@
       overflow: hidden;
     }
     summary {
-      font-weight: bold;
+      font-weight: 600;
       padding: 20px;
       cursor: pointer;
       font-size: 1.1em;
@@ -372,7 +385,7 @@
       line-height: 1.6;
     }
 
-    /* 1. PŁYWAJĄCY PRZYCISK TELEGRAM (FAB) */
+    /* PŁYWAJĄCY PRZYCISK TELEGRAM (FAB) */
     .fab-button {
       position: fixed;
       bottom: 30px;
@@ -396,14 +409,22 @@
       box-shadow: 0 6px 20px rgba(0,136,204,0.5);
     }
 
+    /* NOWOŚĆ: Klasy do animacji wyłaniania się (Fade-in) */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* MEDIA QUERIES NA TELEFONY */
     @media (max-width: 768px) {
       .materials-grid { grid-template-columns: 1fr; }
-      .social-item { width: 100%; justify-content: center; } /* Na telefonie na całą szerokość */
-      
-      /* Responsywne menu dla telefonów */
+      .social-item { width: 100%; justify-content: center; } 
       .top-nav a { display: block; margin: 10px 0; }
-      /* Mniejszy FAB na telefonie, żeby nie zasłaniał ekranu */
       .fab-button { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; }
     }
   </style>
@@ -415,8 +436,8 @@
     <img src="img/logosklepu.png" alt="awydrukujse.pl 3D Print - Logo" class="header-logo">
   </a>
   <h1>🖨 awydrukujse.pl 🖨</h1>
-  <p style="font-size: 1.2em; font-weight: bold; margin-bottom: 5px; color: #ddd;">Twoje pomysły w 3D - od ręki!</p>
-  <p>Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
+  <p style="font-size: 1.2em; font-weight: 600; margin-bottom: 5px; color: #ddd;">Twoje pomysły w 3D - od ręki!</p>
+  <p style="color: #ccc;">Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
   <a class="header-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Zamów przez bota</a>
 </header>
 
@@ -427,7 +448,7 @@
   <a href="#faq">❓ FAQ</a>
 </nav>
 
-<section id="modele">
+<section id="modele" class="fade-in">
   <h2>📸 Przykładowe modele</h2>
   <div class="gallery">
     
@@ -592,7 +613,7 @@
   </div>
 </section>
   
-<section id="jak-zamowic" style="background:#fff;">
+<section id="jak-zamowic" class="fade-in" style="background:#fff;">
   <h2>✅ Jak zamówić?</h2>
   <div class="grid">
     <div class="box">1️⃣ Wybierz model z listy i zapamiętaj jego <b>ID</b></div>
@@ -604,7 +625,7 @@
   </p>
 </section>
 
-<section>
+<section class="fade-in">
   <h2>🖨 Na czym drukujemy?</h2>
   <p style="text-align:center; max-width:800px; margin:auto; font-size: 1.1em;">
     Drukujemy na nowoczesnych drukarkach <b>FDM</b>, regularnie kalibrowanych.
@@ -612,7 +633,7 @@
   </p>
 </section>
 
-<section id="materialy" style="background: #f0f7ff;">
+<section id="materialy" class="fade-in" style="background: #f0f7ff;">
   <h2>🧪 Poznaj nasze materiały</h2>
   <p style="text-align:center; max-width:800px; margin:auto; color:#555; font-size: 1.1em;">
     Do każdego zlecenia podchodzimy indywidualnie. Drukujemy z bezpiecznych, sprawdzonych filamentów.
@@ -628,19 +649,21 @@
 
     <div class="material-card mat-petg">
       <div class="material-icon">⚙️</div>
+      <div class="bio-badge" style="background: #e3f2fd; color: #1565c0; border-color: #bbdefb;">💪 MOCNY</div>
       <h3>PETG</h3>
       <p>Szukasz czegoś do zadań specjalnych? PETG to wzmocniona wersja materiału używanego m.in. do produkcji butelek na wodę. Jest bardzo wytrzymały, odporny na uderzenia, chemię oraz wilgoć. Świetnie sprawdza się w przypadku części mechanicznych i uchwytów.</p>
     </div>
 
     <div class="material-card mat-tpu">
       <div class="material-icon">🏀</div>
+      <div class="bio-badge" style="background: #fff3e0; color: #ef6c00; border-color: #ffe0b2;">🧽 ELASTYCZNY</div>
       <h3>TPU (Elastyczny)</h3>
       <p>Materiał, który swoimi właściwościami przypomina mocną gumę. Jeśli potrzebujesz elastycznej uszczelki, opony do modelu RC, etui na telefon czy niestandardowego amortyzatora – TPU będzie idealnym wyborem. Nie pęka przy wyginaniu!</p>
     </div>
   </div>
 </section>
 
-<section style="background:#fff;">
+<section class="fade-in" style="background:#fff;">
   <h2>⏱ Czas realizacji i wysyłka</h2>
   <div class="grid">
     <div class="box">⏳ Czas realizacji zależny od ilości i kolejki</div>
@@ -649,7 +672,7 @@
   </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="fade-in">
   <h2>❓ Często zadawane pytania (FAQ)</h2>
   <div class="faq-container">
     
@@ -676,7 +699,7 @@
   </div>
 </section>
 
-<section>
+<section class="fade-in">
   <h2>💬 Co mówią klienci?</h2>
   <div class="grid">
     <div class="box">
@@ -697,7 +720,7 @@
   </div>
 </section>
 
-<section class="socials-section">
+<section class="socials-section fade-in">
   <h2>📱 Znajdź nas w sieci</h2>
   <p>Obserwuj proces powstawania Twoich zamówień i sprawdzaj nowości!</p>
   <div class="social-links">
@@ -714,7 +737,7 @@
 
 <footer>
   <a class="cta" href="https://t.me/Drukarz3Dbot" target="_blank">🚀 Zamów przez Telegram</a>
-  <p style="margin-top:30px; color:#999; font-size:0.9em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
+  <p style="margin-top:30px; color:#888; font-size:0.9em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
 </footer>
 
 <div class="modal" id="modal" onclick="closeModal()">
@@ -724,6 +747,7 @@
 <a href="https://t.me/Drukarz3Dbot" target="_blank" class="fab-button" title="Napisz do nas na Telegramie!">💬</a>
 
 <script>
+  // Obsługa powiększania zdjęć
   function openModal(src) {
     document.getElementById("modalImg").src = src;
     document.getElementById("modal").style.display = "flex";
@@ -731,6 +755,28 @@
   function closeModal() {
     document.getElementById("modal").style.display = "none";
   }
+
+  // NOWOŚĆ: Skrypt obsługujący płynne pojawianie się elementów (Fade-in)
+  document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 // Animacja odpali się gdy 15% elementu będzie widoczne na ekranie
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Przestaje obserwować po pierwszej animacji
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach((element) => {
+      observer.observe(element);
+    });
+  });
 </script>
 
 </body>
