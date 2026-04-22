@@ -18,80 +18,137 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f4f7f6; /* Delikatniejszy, chłodniejszy odcień tła */
+      /* Jasne, przyjemne tło całej strony */
+      background: #f4f7f9; 
       color: #333;
       line-height: 1.6;
     }
     
-    /* ZMODYFIKOWANY HEADER - Układ dwukolumnowy (Hero Section) */
-    header {
-      background: linear-gradient(135deg, #111111 0%, #1a1a2e 100%);
-      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(135deg, #111111 0%, #1a1a2e 100%);
-      background-size: 20px 20px, 100% 100%;
-      color: white;
-      padding: 80px 20px;
-      border-bottom: 2px solid #0088cc;
+    /* GÓRNY PASEK NAWIGACYJNY (Jak na wzorze) */
+    .top-nav {
+      background: #ffffff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    .nav-logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 15px;
+    }
+
+    .nav-logo {
+      height: 60px; /* Zmniejszone logo na pasku */
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-title {
+      font-size: 1.4em;
+      font-weight: 800;
+      color: #1a1a2e;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #444;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a:hover {
+      color: #0088cc;
+    }
+
+    /* SEKCJA GŁÓWNA (HERO) - Wzorowana na screenie */
+    .hero-wrapper {
+      padding: 40px 20px;
       display: flex;
       justify-content: center;
     }
 
-    .header-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .hero-box {
+      background: #ffffff;
       max-width: 1100px;
       width: 100%;
-      gap: 40px;
+      border-radius: 40px; /* Duże zaokrąglenia jak na wzorze */
+      padding: 100px 40px;
+      text-align: center;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.03);
     }
 
-    .header-text {
-      flex: 1;
-      text-align: left;
-    }
-
-    .header-image {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-    }
-    
-    .header-logo {
-      max-width: 100%;
-      width: 350px; /* Zwiększone, bo ma własną przestrzeń */
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-      transition: transform 0.3s ease;
-    }
-
-    .header-logo:hover {
-      transform: scale(1.03) rotate(-2deg);
-    }
-    
-    header h1 {
-      font-size: 3em; /* Większy tytuł dla lepszego efektu */
-      margin: 0 0 15px 0;
+    .hero-badge {
+      background: #fdf6d8; /* Delikatny żółty/beżowy badge */
+      color: #b8860b;
+      padding: 8px 25px;
+      border-radius: 30px;
+      font-size: 0.85em;
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 30px;
       letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 3.5em;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin: 0 0 20px 0;
       line-height: 1.2;
     }
 
-    .header-cta {
+    /* Wyróżniony tekst w tytule */
+    .hero-title span {
+      color: #0088cc;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2em;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+
+    .hero-cta {
       background: #0088cc; 
       color: white; 
-      padding: 14px 32px; 
+      padding: 16px 40px; 
       border-radius: 50px;
       text-decoration: none; 
-      font-size: 18px; 
+      font-size: 1.1em; 
       display: inline-block; 
       font-weight: 600;
-      margin-top: 25px; 
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
     }
     
-    .header-cta:hover {
-      transform: translateY(-3px); 
-      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.6);
+    .hero-cta:hover {
+      transform: translateY(-4px); 
+      box-shadow: 0 12px 30px rgba(0, 136, 204, 0.5);
       background: #0099e6;
     }
 
@@ -352,6 +409,28 @@
       font-size: 1.6em;
     }
 
+    /* KONTAKT GMAIL */
+    .contact-btn {
+      background: #ea4335; /* Kolor kojarzący się z Gmailem */
+      color: white;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 25px rgba(234, 67, 53, 0.3);
+      transition: all 0.3s ease;
+      margin: 30px 0;
+    }
+    .contact-btn:hover {
+      background: #d33828;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(234, 67, 53, 0.4);
+    }
+
     /* FOOTER */
     footer { 
       text-align: center; 
@@ -381,35 +460,10 @@
     /* MODAL */
     .modal {
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
-      justify-content: center; align-items: center; z-index: 1000;
+      justify-content: center; align-items: center; z-index: 2000;
       backdrop-filter: blur(5px);
     }
     .modal img { max-width: 90%; max-height: 90vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
-
-    /* MENU NAWIGACYJNE - Efekt szkła */
-    .top-nav {
-      background: rgba(26, 26, 46, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 18px 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-    .top-nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: 600;
-      font-size: 1.05em;
-      transition: color 0.3s, opacity 0.3s;
-      letter-spacing: 0.5px;
-    }
-    .top-nav a:hover {
-      color: #4db8ff;
-    }
 
     /* FAQ */
     .faq-container {
@@ -484,39 +538,25 @@
 
     /* MEDIA QUERIES NA TELEFONY */
     @media (max-width: 768px) {
-      /* Zmiana na układ pionowy dla komórek (logo ląduje nad tekstem) */
-      .header-wrapper {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 20px;
+      .top-nav {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
       }
-      .header-text {
-        text-align: center;
-      }
-      .header-image {
+      .nav-links {
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 15px;
       }
-      header h1 {
+      .hero-box {
+        padding: 50px 20px;
+        border-radius: 25px;
+      }
+      .hero-title {
         font-size: 2.2em;
       }
-      .header-logo {
-        width: 250px;
-        margin-bottom: 10px;
-      }
-
       .gallery, .materials-container { 
         grid-template-columns: 1fr; 
-      }
-      header {
-        padding: 50px 15px 40px;
-      }
-      .top-nav {
-        padding: 10px 0;
-      }
-      .top-nav a { 
-        display: inline-block; 
-        margin: 5px 10px; 
-        font-size: 0.95em;
       }
       .social-item { width: 100%; justify-content: center; box-sizing: border-box; } 
       .fab-button { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
@@ -530,29 +570,28 @@
 </head>
 <body>
 
-<header>
-  <div class="header-wrapper">
-    <div class="header-text">
-      <h1>🖨 awydrukujse.pl 🖨</h1>
-      <p style="font-size: 1.3em; font-weight: 600; margin-bottom: 10px; color: #4db8ff;">Twoje pomysły w 3D - od ręki!</p>
-      <p style="color: #bbbbbb; font-size: 1.05em; margin-bottom: 20px;">Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
-      <a class="header-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Zamów przez bota</a>
-    </div>
-    
-    <div class="header-image">
-      <a href="/" style="text-decoration: none;">
-        <img src="img/Logoskleputr.png" alt="awydrukujse.pl 3D Print - Logo" class="header-logo">
-      </a>
-    </div>
-  </div>
-</header>
-
 <nav class="top-nav">
-  <a href="#modele">📸 Modele</a>
-  <a href="#jak-zamowic">✅ Jak zamówić</a>
-  <a href="#materialy">🧪 Materiały</a>
-  <a href="#faq">❓ FAQ</a>
+  <a href="/" class="nav-logo-container">
+    <img src="img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
+    <p class="nav-title">awydrukujse.pl</p>
+  </a>
+  <div class="nav-links">
+    <a href="#modele">Modele</a>
+    <a href="#jak-zamowic">Jak zamówić</a>
+    <a href="#materialy">Materiały</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontakt" style="color: #ea4335;">Kontakt</a>
+  </div>
 </nav>
+
+<section class="hero-wrapper">
+  <div class="hero-box">
+    <div class="hero-badge">🖨️ Druk 3D na zamówienie</div>
+    <h1 class="hero-title">Wszystkie <span>pomysły</span><br>w 3D - od ręki!</h1>
+    <p class="hero-subtitle">Wybierz model, zapamiętaj jego ID i zamów wygodnie przez naszego bota na Telegramie.</p>
+    <a class="hero-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Przejdź do zamówienia</a>
+  </div>
+</section>
 
 <section id="modele" class="fade-in">
   <h2>📸 Przykładowe modele</h2>
@@ -731,18 +770,10 @@
   </p>
 </section>
 
-<section class="fade-in">
-  <h2>🖨 Na czym drukujemy?</h2>
-  <p style="text-align:center; max-width:800px; margin:auto; font-size: 1.15em; color: #555;">
-    Drukujemy na nowoczesnych drukarkach <b>FDM</b>, regularnie kalibrowanych.
-    Każdy model jest sprawdzany wizualnie przed wysyłką.
-  </p>
-</section>
-
-<section id="materialy" class="fade-in" style="background: #eef5fb; border-radius: 20px; margin-bottom: 40px;">
+<section id="materialy" class="fade-in" style="background: #eef5fb; border-radius: 20px; margin-bottom: 40px; margin-top: 40px;">
   <h2>🧪 Poznaj nasze materiały</h2>
   <p style="text-align:center; max-width:800px; margin:auto; color:#555; font-size: 1.1em; margin-bottom: 30px;">
-    Do każdego zlecenia podchodzimy indywidualnie. Drukujemy z bezpiecznych, sprawdzonych filamentów.
+    Do każdego zlecenia podchodzimy indywidualnie. Drukujemy z bezpiecznych, sprawdzonych filamentów na nowoczesnych drukarkach <b>FDM</b>.
   </p>
   
   <div class="materials-container">
@@ -781,27 +812,22 @@
 <section id="faq" class="fade-in">
   <h2>❓ Często zadawane pytania (FAQ)</h2>
   <div class="faq-container">
-    
     <details>
       <summary>Czy modele można malować po wydrukowaniu?</summary>
       <p>Tak! Nasze wydruki świetnie przyjmują farby akrylowe. Dla najlepszego efektu polecamy nałożenie wcześniej podkładu modelarskiego (np. w sprayu).</p>
     </details>
-    
     <details>
       <summary>W jakim formacie wysłać do Was własny plik?</summary>
       <p>Najlepiej jeśli podeślesz nam plik w formacie <b>.STL</b> lub <b>.OBJ</b>. Jeśli masz model w innym formacie, po prostu wyślij nam link ze strony (np. Thingiverse, Printables) w bocie Telegram.</p>
     </details>
-    
     <details>
       <summary>Czy te wydruki są wytrzymałe?</summary>
       <p>Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG) i zwiększymy jego gęstość w środku (tzw. wypełnienie).</p>
     </details>
-    
     <details>
       <summary>Co jeśli mój wydruk uszkodzi się w transporcie?</summary>
       <p>Przed wysyłką sprawdzamy każdy detal i solidnie go pakujemy. Jeśli jednak paczka dotrze uszkodzona, daj nam od razu znać na Telegramie – na pewno rozwiążemy ten problem!</p>
     </details>
-
   </div>
 </section>
 
@@ -839,6 +865,21 @@
       <span>TikTok</span>
     </a>
   </div>
+</section>
+
+<section id="kontakt" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 60px; text-align: center; padding-bottom: 50px;">
+  <h2>📧 Kontakt</h2>
+  <p style="font-size: 1.1em; color: #555; max-width: 600px; margin: auto;">
+    Masz własny model do wyceny? A może nietypowe zlecenie? Złapmy się na mailu!
+  </p>
+  
+  <a href="mailto:kontakt.awydrukujse@gmail.com" class="contact-btn">
+    ✉️ Wyślij e-mail do nas
+  </a>
+  
+  <p style="color: #888; font-size: 0.95em;">
+    Lub skopiuj adres: <b style="color:#333;">kontakt.awydrukujse@gmail.com</b>
+  </p>
 </section>
 
 <footer>
