@@ -422,10 +422,21 @@
 
     /* MEDIA QUERIES NA TELEFONY */
     @media (max-width: 768px) {
-      .materials-grid { grid-template-columns: 1fr; }
+      /* Wymuszamy 100% szerokości i układ jednokolumnowy dla zdjęć modeli oraz materiałów */
+      .gallery, .materials-container { 
+        grid-template-columns: 1fr; 
+      }
+      
       .social-item { width: 100%; justify-content: center; } 
       .top-nav a { display: block; margin: 10px 0; }
       .fab-button { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; }
+      
+      /* GWARANCJA WIDOCZNOŚCI: Wyłączamy startowe opacity: 0 na małych ekranach, 
+         na wypadek gdyby telefon blokował skrypty animacji */
+      .fade-in {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
     }
   </style>
 </head>
