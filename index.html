@@ -23,45 +23,68 @@
       line-height: 1.6;
     }
     
+    /* ZMODYFIKOWANY HEADER - Układ dwukolumnowy (Hero Section) */
     header {
-      /* Nowoczesny, głęboki gradient zamiast płaskiej czerni */
       background: linear-gradient(135deg, #111111 0%, #1a1a2e 100%);
       background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(135deg, #111111 0%, #1a1a2e 100%);
       background-size: 20px 20px, 100% 100%;
       color: white;
-      padding: 60px 20px;
-      text-align: center;
+      padding: 80px 20px;
       border-bottom: 2px solid #0088cc;
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      width: 100%;
+      gap: 40px;
+    }
+
+    .header-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .header-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
     }
     
-    /* Style dla logotypu i przycisku w headerze */
     .header-logo {
-      max-width: 260px; /* Zmniejszone dla lepszych proporcji */
-      width: 100%;
+      max-width: 100%;
+      width: 350px; /* Zwiększone, bo ma własną przestrzeń */
       height: auto;
-      margin-bottom: 15px;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); /* Lekki cień pod przezroczystym logo */
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+      transition: transform 0.3s ease;
+    }
+
+    .header-logo:hover {
+      transform: scale(1.03) rotate(-2deg);
     }
     
     header h1 {
-      font-size: 2.2em;
-      margin: 10px 0;
+      font-size: 3em; /* Większy tytuł dla lepszego efektu */
+      margin: 0 0 15px 0;
       letter-spacing: 1px;
+      line-height: 1.2;
     }
 
     .header-cta {
       background: #0088cc; 
       color: white; 
-      padding: 12px 28px; 
+      padding: 14px 32px; 
       border-radius: 50px;
       text-decoration: none; 
       font-size: 18px; 
       display: inline-block; 
       font-weight: 600;
-      margin-top: 20px; 
+      margin-top: 25px; 
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
     }
@@ -87,7 +110,7 @@
       position: relative;
     }
     
-    /* Zdefiniowany GRID, żeby sekcje info ładnie wyglądały */
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -109,7 +132,7 @@
       transform: translateY(-5px);
     }
 
-    /* Style ulepszające sekcję opinii */
+    /* OPINIE */
     .testimonial-stars { 
       color: #FFD700; 
       margin-bottom: 15px; 
@@ -122,6 +145,7 @@
       color: #777; 
     }
 
+    /* GALERIA MODELE */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -387,7 +411,7 @@
       color: #4db8ff;
     }
 
-    /* FAQ (Najczęściej zadawane pytania) */
+    /* FAQ */
     .faq-container {
       max-width: 850px;
       margin: auto;
@@ -447,7 +471,7 @@
       background: #0099e6;
     }
 
-    /* Animacje wyłaniania się (Fade-in) */
+    /* Animacje (Fade-in) */
     .fade-in {
       opacity: 0;
       transform: translateY(40px);
@@ -460,11 +484,31 @@
 
     /* MEDIA QUERIES NA TELEFONY */
     @media (max-width: 768px) {
+      /* Zmiana na układ pionowy dla komórek (logo ląduje nad tekstem) */
+      .header-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 20px;
+      }
+      .header-text {
+        text-align: center;
+      }
+      .header-image {
+        justify-content: center;
+      }
+      header h1 {
+        font-size: 2.2em;
+      }
+      .header-logo {
+        width: 250px;
+        margin-bottom: 10px;
+      }
+
       .gallery, .materials-container { 
         grid-template-columns: 1fr; 
       }
       header {
-        padding: 40px 15px;
+        padding: 50px 15px 40px;
       }
       .top-nav {
         padding: 10px 0;
@@ -487,13 +531,20 @@
 <body>
 
 <header>
-  <a href="/" style="text-decoration: none;">
-    <img src="img/Logoskleputr.png" alt="awydrukujse.pl 3D Print - Logo" class="header-logo">
-  </a>
-  <h1>🖨 awydrukujse.pl 🖨</h1>
-  <p style="font-size: 1.2em; font-weight: 600; margin-bottom: 5px; color: #4db8ff;">Twoje pomysły w 3D - od ręki!</p>
-  <p style="color: #bbbbbb;">Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
-  <a class="header-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Zamów przez bota</a>
+  <div class="header-wrapper">
+    <div class="header-text">
+      <h1>🖨 awydrukujse.pl 🖨</h1>
+      <p style="font-size: 1.3em; font-weight: 600; margin-bottom: 10px; color: #4db8ff;">Twoje pomysły w 3D - od ręki!</p>
+      <p style="color: #bbbbbb; font-size: 1.05em; margin-bottom: 20px;">Zapamiętaj ID modelu i podaj je w bocie Telegram!</p>
+      <a class="header-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Zamów przez bota</a>
+    </div>
+    
+    <div class="header-image">
+      <a href="/" style="text-decoration: none;">
+        <img src="img/Logoskleputr.png" alt="awydrukujse.pl 3D Print - Logo" class="header-logo">
+      </a>
+    </div>
+  </div>
 </header>
 
 <nav class="top-nav">
