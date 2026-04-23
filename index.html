@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="google-site-verification" content="Nw_3i0kBQekvkOqbbmgG3w_P7OKQsgGM94NYEnER3nE" />
+  
   <meta name="description" content="awydrukujse.pl - Druk 3D na zamówienie. Wybierz gotowy model lub wyślij własny plik STL. Szybka realizacja i wysoka jakość.">
   <meta name="keywords" content="druk 3d, drukowanie 3d, modele 3d, wydruk 3d na zamówienie, figurki 3d, PLA, PETG, TPU">
   <title>awydrukujse.pl - Druk 3D na zamówienie</title>
@@ -22,7 +25,6 @@
       font-family: 'Poppins', sans-serif;
       color: #333;
       line-height: 1.6;
-      /* NOWE: Subtelny wzór kropek w tle (Dot Grid) */
       background-color: #f4f7f9;
       background-image: radial-gradient(#d1dce6 1.5px, transparent 1.5px);
       background-size: 30px 30px;
@@ -39,10 +41,9 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: all 0.3s ease; /* Płynne przejście przy scrollowaniu */
+      transition: all 0.3s ease;
     }
 
-    /* NOWE: Klasa dodawana przez JS podczas scrollowania */
     .top-nav.scrolled {
       padding: 8px 40px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -65,7 +66,7 @@
     }
     
     .top-nav.scrolled .nav-logo {
-      height: 45px; /* Mniejsze logo przy scrollu */
+      height: 45px;
     }
 
     .nav-logo:hover {
@@ -138,7 +139,7 @@
     }
 
     .hero-title {
-      font-size: 4em; /* Trochę powiększony */
+      font-size: 4em;
       font-weight: 800;
       color: #1a1a2e;
       margin: 0 0 25px 0;
@@ -286,7 +287,6 @@
       box-shadow: 0 20px 45px rgba(0,0,0,0.1);
     }
 
-    /* NOWE: Wrapper na obrazek dla efektu lupy */
     .image-wrapper {
       position: relative;
       overflow: hidden;
@@ -453,7 +453,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* FAQ - NOWY WYGLĄD */
+    /* FAQ */
     .faq-container {
       max-width: 850px;
       margin: auto;
@@ -480,16 +480,15 @@
       background: #fff;
       transition: background 0.3s, color 0.3s;
       color: #222;
-      list-style: none; /* Ukrywa standardową strzałkę */
+      list-style: none; 
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     summary::-webkit-details-marker {
-      display: none; /* Ukrywa standardową strzałkę w Safari/Chrome */
+      display: none; 
     }
     
-    /* Własna ikona +/- */
     summary::after {
       content: '+';
       font-size: 1.8em;
@@ -499,7 +498,7 @@
       line-height: 1;
     }
     details[open] summary::after {
-      transform: rotate(45deg); /* Zmienia + na x */
+      transform: rotate(45deg); 
       color: #ea4335;
     }
 
@@ -1047,12 +1046,12 @@
     document.getElementById("modal").style.display = "none";
   }
 
-  // Skrypt obsługujący płynne pojawianie się elementów (Fade-in)
+  // Skrypt obsługujący płynne pojawianie się elementów (Fade-in) z poprawką pod urządzenia mobilne!
   document.addEventListener("DOMContentLoaded", function() {
     const observerOptions = {
       root: null,
-      rootMargin: '50px', // Zaczyna łapać 50px szybciej
-      threshold: 0.01     // Wystarczy, że 1% sekcji pojawi się na ekranie, by odpalić animację!
+      rootMargin: '50px', // Zmienione: zaczyna łapać 50px szybciej
+      threshold: 0.01     // Zmienione: wystarczy, że 1% sekcji się pojawi
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
