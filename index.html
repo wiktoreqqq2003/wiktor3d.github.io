@@ -287,6 +287,16 @@
       box-shadow: 0 20px 45px rgba(0,0,0,0.1);
     }
 
+    /* NOWA KARTA: WŁASNY PROJEKT */
+    .card.custom-order {
+      border: 2px dashed #0088cc;
+      background: #f0f9ff;
+    }
+    .custom-order-icon {
+      font-size: 4em;
+      margin-top: 20px;
+    }
+
     .image-wrapper {
       position: relative;
       overflow: hidden;
@@ -398,6 +408,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    /* PRZYCISK PEŁNY KATALOG */
+    .catalog-download {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .btn-download {
+      background: #1a1a2e;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-download:hover {
+      background: #333;
+      transform: scale(1.05);
     }
 
     /* SEKCJA MATERIAŁÓW */
@@ -706,6 +738,17 @@
   <h2>📸 Przykładowe modele</h2>
   <div class="gallery">
     
+    <div class="card custom-order">
+      <div class="custom-order-icon">💡</div>
+      <div class="model-info-container">
+        <div class="model-id">TWÓJ PROJEKT</div>
+        <h3>Masz własny plik?</h3>
+        <p style="font-size: 0.9em; color: #555;">Znajdź model na <b>Thingiverse</b> lub <b>Printables</b> i wyślij nam link w bota Telegram!</p>
+        <div class="price" style="font-size: 1.1em; color: #0088cc;">Wycena indywidualna</div>
+      </div>
+      <a href="https://t.me/Drukarz3Dbot" target="_blank" class="promo-box" style="background: #0088cc; color: white; text-decoration: none; border:none;">Wyślij plik do bota →</a>
+    </div>
+
     <div class="card">
       <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
         <img src="img/kurczaczek.jpg" alt="Kurczak">
@@ -889,18 +932,22 @@
     </div>
       
   </div>
+
+  <div class="catalog-download fade-in">
+    <p style="margin-bottom: 20px; color: #555;">Chcesz zobaczyć więcej naszych projektów?</p>
+    <a href="#" class="btn-download">
+      <span>📂 Zobacz pełny katalog (PDF)</span>
+    </a>
+  </div>
 </section>
   
 <section id="jak-zamowic" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-top: 20px; margin-bottom: 20px;">
   <h2>✅ Jak zamówić?</h2>
   <div class="grid">
-    <div class="box">1️⃣ Wybierz model z listy i zapamiętaj jego <b>ID</b></div>
-    <div class="box">2️⃣ Napisz do naszego <b>bota Telegram</b></div>
-    <div class="box">3️⃣ Podaj ID, ilość oraz kolor wydruku</div>
+    <div class="box">1️⃣ Wybierz model z listy lub znajdź własny na <b>Thingiverse</b></div>
+    <div class="box">2️⃣ Napisz do naszego <b>bota Telegram</b> i podaj ID lub wyślij link</div>
+    <div class="box">3️⃣ Podaj ilość oraz kolor wydruku i czekaj na wycenę</div>
   </div>
-  <p style="text-align:center; margin-top:40px; font-size: 1.15em; color: #444;">
-    💡 Jeśli nie znalazłeś modelu – możesz wysłać <b>własny plik STL</b>
-  </p>
 </section>
 
 <section id="materialy" class="fade-in" style="background: #eef5fb; border-radius: 20px; margin-bottom: 40px; margin-top: 40px;">
@@ -951,11 +998,11 @@
     </details>
     <details>
       <summary>W jakim formacie wysłać do Was własny plik?</summary>
-      <p>Najlepiej jeśli podeślesz nam plik w formacie <b>.STL</b> lub <b>.OBJ</b>. Jeśli masz model w innym formacie, po prostu wyślij nam link ze strony (np. Thingiverse, Printables) w bocie Telegram.</p>
+      <p>Najlepiej jeśli podeślesz nam plik w formacie <b>.STL</b> lub <b>.OBJ</b>. Jeśli nie masz pliku, wyślij nam link ze strony (np. <b>Thingiverse</b>, <b>Printables</b>) w bocie Telegram.</p>
     </details>
     <details>
       <summary>Czy te wydruki są wytrzymałe?</summary>
-      <p>Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG) i zwiększymy jego gęstość w środku (tzw. wypełnienie).</p>
+      <p>Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG).</p>
     </details>
     <details>
       <summary>Co jeśli mój wydruk uszkodzi się w transporcie?</summary>
@@ -1027,7 +1074,7 @@
 <a href="https://t.me/Drukarz3Dbot" target="_blank" class="fab-button" title="Napisz do nas na Telegramie!">💬</a>
 
 <script>
-  // Dynamiczny nagłówek (Sticky Navbar shrink)
+  // Dynamiczny nagłówek
   window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
@@ -1046,26 +1093,21 @@
     document.getElementById("modal").style.display = "none";
   }
 
-  // Skrypt obsługujący płynne pojawianie się elementów (Fade-in) z poprawką pod urządzenia mobilne!
-  document.addEventListener("DOMContentLoaded", function() {
-    const observerOptions = {
-      root: null,
-      rootMargin: '50px', // Zmienione: zaczyna łapać 50px szybciej
-      threshold: 0.01     // Zmienione: wystarczy, że 1% sekcji się pojawi
-    };
+  // Skrypt obsługujący płynne pojawianie się elementów (Fade-in)
+  const observerOptions = {
+    threshold: 0.1
+  };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target); 
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in').forEach((element) => {
-      observer.observe(element);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
   });
 </script>
 
