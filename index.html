@@ -1051,8 +1051,8 @@
   document.addEventListener("DOMContentLoaded", function() {
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.15
+      rootMargin: '50px', // Zaczyna łapać 50px szybciej
+      threshold: 0.01     // Wystarczy, że 1% sekcji pojawi się na ekranie, by odpalić animację!
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
