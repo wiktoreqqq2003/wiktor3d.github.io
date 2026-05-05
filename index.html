@@ -27,6 +27,8 @@
       background-color: #f4f7f9;
       background-image: radial-gradient(#d1dce6 1.5px, transparent 1.5px);
       background-size: 30px 30px;
+      /* Fix dla Safari: zapobiega dziwnym przesunięciom */
+      -webkit-font-smoothing: antialiased;
     }
     
     /* GÓRNY PASEK NAWIGACYJNY */
@@ -279,6 +281,9 @@
       flex-direction: column;
       height: 100%;
       border: 1px solid #f0f4f8;
+      /* Safari Fix: Wymusza renderowanie warstwy */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
     .card:hover {
       transform: translateY(-10px);
@@ -293,20 +298,20 @@
       margin-top: 20px;
     }
 
-    /* 🔥 NAJWAŻNIEJSZY FIX */
-  .image-wrapper {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* zapewnia wysokość */    
-    overflow: hidden;
-    background: #222;
-  }
-
-  .image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+    .image-wrapper {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-bottom: 3px solid #f4f7f6;
+      height: 260px; /* Stała wysokość zapobiega skokom */
+    }
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
     .image-wrapper::after {
       content: '🔍 Powiększ';
       position: absolute;
@@ -321,6 +326,7 @@
       opacity: 0;
       transition: opacity 0.3s ease;
       backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
     }
     .card:hover .image-wrapper img {
       transform: scale(1.08);
@@ -631,6 +637,7 @@
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
       justify-content: center; align-items: center; z-index: 2000;
       backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
     .modal img { max-width: 90%; max-height: 90vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
 
@@ -658,13 +665,18 @@
       background: #0099e6;
     }
 
+    /* POPRAWIONE KLASY FADE-IN */
     .fade-in {
-      opacity: 1;
-      transform: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      /* Zapobiega miganiu w Safari */
+      -webkit-backface-visibility: hidden;
     }
+    
     .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
 
     @media (max-width: 768px) {
@@ -710,7 +722,7 @@
 </nav>
 
 <section class="hero-wrapper">
-  <div class="hero-box fade-in visible">
+  <div class="hero-box fade-in">
     <div class="hero-badge">🖨️ Druk 3D na zamówienie</div>
     <h1 class="hero-title">
       Wszystkie <span class="gradient-text">pomysły</span><br>
@@ -1065,80 +1077,58 @@
 <a href="https://t.me/Drukarz3Dbot" target="_blank" class="fab-button" title="Napisz do nas na Telegramie!">💬</a>
 
 <script>
-  // Dynamiczny nagłówek
-  window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
+  // Dynamiczna nawigacja
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('navbar');
     if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
+      nav.classList.add('scrolled');
     } else {
-      navbar.classList.remove('scrolled');
+      nav.classList.remove('scrolled');
     }
   });
 
-  // Obsługa powiększania zdjęć
+  // Obsługa animacji wchodzenia elementów (Fade In)
+  document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(el => observer.observe(el));
+
+    // FAILSAFE: Jeśli po 2 sekundach elementy są nadal niewidoczne (np. błąd iOS Safari)
+    setTimeout(() => {
+      fadeElements.forEach(el => {
+        if (!el.classList.contains('visible')) {
+          el.classList.add('visible');
+        }
+      });
+    }, 2000);
+  });
+
+  // Obsługa modala (powiększanie zdjęć)
   function openModal(src) {
-    document.getElementById("modalImg").src = src;
-    document.getElementById("modal").style.display = "flex";
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "flex";
+    modalImg.src = src;
+    document.body.style.overflow = 'hidden'; // Blokada przewijania
   }
+
   function closeModal() {
-    document.getElementById("modal").style.display = "none";
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+    document.body.style.overflow = 'auto'; // Przywrócenie przewijania
   }
-
-  // Skrypt obsługujący płynne pojawianie się elementów (Fade-in)
-  const observerOptions = {
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-  });
-</script>
-<script>
-const elements = document.querySelectorAll('.fade-in');
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  });
-
-  elements.forEach(el => observer.observe(el));
-} else {
-  // fallback dla starszych telefonów
-  elements.forEach(el => el.classList.add('visible'));
-}
-</script>
-
-<script>
-function openModal(src) {
-  const modal = document.createElement('div');
-  modal.style.position = 'fixed';
-  modal.style.inset = '0';
-  modal.style.background = 'rgba(0,0,0,0.9)';
-  modal.style.display = 'flex';
-  modal.style.justifyContent = 'center';
-  modal.style.alignItems = 'center';
-  modal.onclick = () => modal.remove();
-
-  const img = document.createElement('img');
-  img.src = src;
-  img.style.maxWidth = '90%';
-  img.style.maxHeight = '90%';
-
-  modal.appendChild(img);
-  document.body.appendChild(modal);
-}
 </script>
 
 </body>
