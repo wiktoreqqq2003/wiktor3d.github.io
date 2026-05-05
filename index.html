@@ -27,7 +27,6 @@
       background-color: #f4f7f9;
       background-image: radial-gradient(#d1dce6 1.5px, transparent 1.5px);
       background-size: 30px 30px;
-      /* Fix dla Safari: zapobiega dziwnym przesunięciom */
       -webkit-font-smoothing: antialiased;
     }
     
@@ -69,21 +68,12 @@
       height: 45px;
     }
 
-    .nav-logo:hover {
-      transform: scale(1.05);
-    }
-
     .nav-title {
       font-size: 1.4em;
       font-weight: 800;
       color: #1a1a2e;
       letter-spacing: 0.5px;
       margin: 0;
-      transition: font-size 0.3s ease;
-    }
-    
-    .top-nav.scrolled .nav-title {
-      font-size: 1.2em;
     }
 
     .nav-links {
@@ -99,14 +89,13 @@
       font-size: 0.95em;
       transition: color 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     .nav-links a:hover {
       color: #0088cc;
     }
 
-    /* SEKCJA GŁÓWNA (HERO) */
+    /* SEKCJA GŁÓWNA */
     .hero-wrapper {
       padding: 60px 20px;
       display: flex;
@@ -121,8 +110,6 @@
       padding: 100px 40px;
       text-align: center;
       box-shadow: 0 20px 60px rgba(0,0,0,0.06);
-      position: relative;
-      overflow: hidden;
     }
 
     .hero-badge {
@@ -134,7 +121,6 @@
       font-weight: 800;
       display: inline-block;
       margin-bottom: 30px;
-      letter-spacing: 1px;
       text-transform: uppercase;
     }
 
@@ -144,34 +130,12 @@
       color: #1a1a2e;
       margin: 0 0 25px 0;
       line-height: 1.15;
-      letter-spacing: -1.5px;
     }
 
     .gradient-text {
       background: linear-gradient(135deg, #0088cc, #00d4ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-
-    .highlight-text {
-      position: relative;
-      display: inline-block;
-      z-index: 1;
-      white-space: nowrap;
-    }
-
-    .highlight-text::after {
-      content: '';
-      position: absolute;
-      bottom: 8px;
-      left: -2%;
-      width: 104%;
-      height: 14px;
-      background: rgba(0, 136, 204, 0.15);
-      z-index: -1;
-      border-radius: 4px;
-      transform: rotate(-1.5deg);
     }
 
     .hero-subtitle {
@@ -179,7 +143,6 @@
       color: #555;
       max-width: 650px;
       margin: 0 auto 40px auto;
-      line-height: 1.7;
     }
 
     .hero-buttons {
@@ -196,36 +159,12 @@
       border-radius: 50px;
       text-decoration: none; 
       font-size: 1.15em; 
-      display: inline-block; 
       font-weight: 600;
       transition: all 0.3s ease;
       box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
     }
-    
-    .hero-cta:hover {
-      transform: translateY(-4px); 
-      box-shadow: 0 12px 30px rgba(0, 136, 204, 0.5);
-      background: #0099e6;
-    }
 
-    .hero-cta-secondary {
-      background: #f4f7f9;
-      color: #333;
-      padding: 16px 35px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.15em;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid #e0e6ed;
-    }
-
-    .hero-cta-secondary:hover {
-      background: #eef2f6;
-      border-color: #d1d9e2;
-      transform: translateY(-4px);
-    }
-
+    /* GALERIA I MODELE */
     section {
       padding: 70px 20px;
       max-width: 1100px;
@@ -252,95 +191,46 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.04);
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      font-size: 1.05em;
       border: 1px solid #f0f4f8;
     }
-    .box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-    }
 
-    /* GALERIA MODELE */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 30px;
     }
+
     .card {
       background: white;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       overflow: hidden;
       text-align: center;
-      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       height: 100%;
       border: 1px solid #f0f4f8;
-      /* Safari Fix: Wymusza renderowanie warstwy */
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.1);
-    }
-    .card.custom-order {
-      border: 2px dashed #0088cc;
-      background: #f0f9ff;
-    }
-    .custom-order-icon {
-      font-size: 4em;
-      margin-top: 20px;
+      position: relative;
     }
 
     .image-wrapper {
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      border-bottom: 3px solid #f4f7f6;
-      height: 260px; /* Stała wysokość zapobiega skokom */
+      height: 260px;
     }
+
     .image-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .image-wrapper::after {
-      content: '🔍 Powiększ';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 136, 204, 0.7);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.3em;
-      font-weight: 600;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
-    }
-    .card:hover .image-wrapper img {
-      transform: scale(1.08);
-    }
-    .card:hover .image-wrapper::after {
-      opacity: 1;
     }
 
     .model-info-container {
       padding: 25px 20px;
       flex-grow: 1;
-      display: flex;
-      flex-direction: column;
     }
+
     .model-id {
       background: rgba(0, 136, 204, 0.1);
       color: #0088cc;
@@ -348,56 +238,14 @@
       padding: 6px 18px;
       border-radius: 8px;
       font-weight: 800;
-      font-size: 0.99em;
-      align-self: center;
       margin-bottom: 15px;
     }
-    .card h3 {
-      margin: 0 0 10px 0;
-      font-size: 1.25em;
-      font-weight: 600;
-      color: #222;
-    }
 
-    .card .colors {
-      font-size: 0.9em;
-      color: #666;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .color-item {
-      display: flex;
-      align-items: center;
-    }
-    .color-circle {
-      display: inline-block;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      margin-right: 6px;
-      border: 1px solid #ddd;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .c-yellow { background-color: #ffd700; }
-    .c-white { background-color: #ffffff; }
-    .c-gold { background-color: #d4af37; }
-    .c-grey { background-color: #808080; }
-    .c-pink { background-color: #ffc0cb; }
-    .c-black { background-color: #222222; }
-    .c-beige { background-color: #F5F5DC; }
-    .c-rainbow { background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff); border: none; }
-
-    .card .price {
+    .price {
       font-size: 1.5em;
       font-weight: 800;
       color: #0088cc;
-      margin-top: auto;
-      margin-bottom: 10px;
+      margin: 15px 0;
     }
 
     .promo-box {
@@ -407,271 +255,87 @@
       font-size: 0.85em;
       color: #b38000;
       font-weight: 600;
-      min-height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .catalog-download {
-      text-align: center;
-      margin-top: 50px;
-    }
-    .btn-download {
-      background: #1a1a2e;
-      color: white;
-      padding: 15px 35px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-    }
-    .btn-download:hover {
-      background: #333;
-      transform: scale(1.05);
     }
 
-    /* SEKCJA MATERIAŁÓW */
-    .materials-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+    /* KOLORY */
+    .colors {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
     }
+    .color-circle {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+    }
+    .c-yellow { background: #ffd700; }
+    .c-white { background: #fff; }
+    .c-pink { background: #ffc0cb; }
+    .c-black { background: #222; }
+    .c-rainbow { background: linear-gradient(45deg, red, yellow, green, blue); }
+
+    /* MATERIAŁY */
     .material-card {
       background: white;
       border-radius: 20px;
       padding: 40px 30px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      text-align: left;
-      border-top: 6px solid #ddd;
-      transition: all 0.3s ease;
-      border: 1px solid #f0f4f8;
-    }
-    .material-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    .mat-pla { border-top-color: #4CAF50; }
-    .mat-petg { border-top-color: #2196F3; }
-    .mat-tpu { border-top-color: #FF9800; }
-
-    .material-icon {
-      font-size: 3.5em;
-      margin-bottom: 20px;
-    }
-    .material-card h3 {
-      margin-top: 0;
-      color: #111;
-      font-size: 1.5em;
-      font-weight: 800;
-    }
-    .material-card p {
-      color: #555;
-      font-size: 0.95em;
-      line-height: 1.7;
-    }
-    .bio-badge {
-      background: #e8f5e9;
-      color: #2e7d32;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.8em;
-      font-weight: 800;
-      display: inline-block;
-      margin-bottom: 15px;
-      border: 1px solid #c8e6c9;
-      letter-spacing: 0.5px;
+      border-top: 6px solid #0088cc;
     }
 
     /* FAQ */
-    .faq-container {
-      max-width: 850px;
-      margin: auto;
-      text-align: left;
-    }
     details {
       background: white;
       margin-bottom: 18px;
       border-radius: 16px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-      overflow: hidden;
       border: 1px solid #f0f4f8;
-      transition: all 0.3s ease;
-    }
-    details[open] {
-      box-shadow: 0 10px 30px rgba(0,136,204,0.1);
-      border-color: #cce7f5;
     }
     summary {
       font-weight: 600;
       padding: 22px 25px;
       cursor: pointer;
-      font-size: 1.15em;
-      background: #fff;
-      transition: background 0.3s, color 0.3s;
-      color: #222;
-      list-style: none; 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      list-style: none;
     }
-    summary::-webkit-details-marker {
-      display: none; 
-    }
-    
-    summary::after {
-      content: '+';
-      font-size: 1.8em;
-      color: #0088cc;
-      font-weight: 300;
-      transition: transform 0.3s ease;
-      line-height: 1;
-    }
-    details[open] summary::after {
-      transform: rotate(45deg); 
-      color: #ea4335;
-    }
-
-    summary:hover {
-      background: #fcfcfc;
-      color: #0088cc;
-    }
-    details p {
-      padding: 0 25px 25px 25px;
-      margin: 0;
-      color: #666;
-      line-height: 1.7;
-    }
-
-    /* SEKCJA SOCIAL MEDIA */
-    .socials-section {
-      text-align: center;
-      padding: 80px 20px;
-      background: transparent; 
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .social-item {
-      background: white;
-      color: #0088cc; 
-      text-decoration: none;
-      font-size: 1.1em;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 15px 40px;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
-      border: 2px solid #f0f0f0;
-    }
-
-    .social-item:hover {
-      background: #0088cc; 
-      color: white; 
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0, 136, 204, 0.3); 
-      border-color: #0088cc;
-    }
-
-    /* KONTAKT GMAIL */
-    .contact-btn {
-      background: #ea4335; 
-      color: white;
-      padding: 18px 45px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.2em;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 8px 25px rgba(234, 67, 53, 0.3);
-      transition: all 0.3s ease;
-      margin: 30px 0;
-    }
-    .contact-btn:hover {
-      background: #d33828;
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(234, 67, 53, 0.4);
-    }
-
-    /* FOOTER */
-    footer { 
-      text-align: center; 
-      padding: 80px 20px 60px; 
-      background: #111; 
-      color: #fff;
-      border-top: 5px solid #0088cc;
-    }
-    .footer-cta {
-      background: #0088cc; 
-      color: white; 
-      padding: 18px 45px; 
-      border-radius: 50px;
-      text-decoration: none; 
-      font-size: 20px; 
-      display: inline-block; 
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(0,136,204,0.4);
-    }
-    .footer-cta:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,136,204,0.6);
-      background: #0099e6;
-    }
+    details p { padding: 0 25px 25px; color: #666; }
 
     /* MODAL */
     .modal {
-      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
       justify-content: center; align-items: center; z-index: 2000;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
     }
-    .modal img { max-width: 90%; max-height: 90vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
+    .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
 
+    /* KONTAKT */
+    .contact-btn {
+      background: #ea4335; color: white; padding: 18px 45px; border-radius: 50px;
+      text-decoration: none; font-weight: 600; display: inline-block;
+    }
+
+    /* PRZYCISK PŁYWAJĄCY */
     .fab-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #0088cc;
-      color: white;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 32px;
-      text-decoration: none;
-      box-shadow: 0 8px 25px rgba(0,136,204,0.5);
-      z-index: 999;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .fab-button:hover {
-      transform: scale(1.15) rotate(5deg);
-      box-shadow: 0 12px 30px rgba(0,136,204,0.6);
-      background: #0099e6;
+      position: fixed; bottom: 30px; right: 30px; background: #0088cc;
+      color: white; width: 65px; height: 65px; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center;
+      font-size: 32px; text-decoration: none; z-index: 999;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
 
-    /* POPRAWIONE KLASY FADE-IN */
+    /* POPRAWKA DLA IPHONE - ODWRÓCONY MECHANIZM ANIMACJI */
     .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 1; /* DOMYŚLNIE WIDOCZNE DLA KAŻDEGO */
+      transform: none;
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      /* Zapobiega miganiu w Safari */
-      -webkit-backface-visibility: hidden;
+    }
+
+    /* Tylko jeśli przeglądarka wspiera animacje i JS zadziała, lekko ukryjemy na start */
+    @media (prefers-reduced-motion: no-preference) {
+       .js-ready .fade-in:not(.visible) {
+          opacity: 0;
+          transform: translateY(20px);
+       }
     }
     
     .fade-in.visible {
@@ -680,32 +344,17 @@
     }
 
     @media (max-width: 768px) {
-      .top-nav {
-        flex-direction: column;
-        padding: 15px 20px;
-        gap: 15px;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-      }
-      .hero-box {
-        padding: 50px 20px;
-        border-radius: 25px;
-      }
-      .hero-title {
-        font-size: 2.5em;
-      }
-      .gallery, .materials-container { 
-        grid-template-columns: 1fr; 
-      }
-      .social-item { width: 100%; justify-content: center; box-sizing: border-box; } 
-      .fab-button { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
+      .top-nav { flex-direction: column; padding: 15px; }
+      .hero-title { font-size: 2.5em; }
     }
   </style>
 </head>
 <body>
+
+<script>
+  // Informujemy CSS, że JS jest gotowy do obsługi animacji
+  document.documentElement.classList.add('js-ready');
+</script>
 
 <nav class="top-nav" id="navbar">
   <a href="/" class="nav-logo-container">
@@ -724,411 +373,236 @@
 <section class="hero-wrapper">
   <div class="hero-box fade-in">
     <div class="hero-badge">🖨️ Druk 3D na zamówienie</div>
-    <h1 class="hero-title">
-      Wszystkie <span class="gradient-text">pomysły</span><br>
-      w 3D <span class="highlight-text">- od ręki!</span>
-    </h1>
-    <p class="hero-subtitle">Wybierz model, zapamiętaj jego ID i zamów wygodnie przez naszego bota na Telegramie. Tworzymy z pasją do każdego detalu.</p>
-    
+    <h1 class="hero-title">Wszystkie <span class="gradient-text">pomysły</span> w 3D <span class="highlight-text">- od ręki!</span></h1>
+    <p class="hero-subtitle">Wybierz model, zapamiętaj jego ID i zamów przez bota na Telegramie.</p>
     <div class="hero-buttons">
-      <a class="hero-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Zamów przez bota</a>
-      <a class="hero-cta-secondary" href="#modele">Zobacz modele 👇</a>
+      <a class="hero-cta" href="https://t.me/Drukarz3Dbot">💬 Zamów przez bota</a>
     </div>
   </div>
 </section>
 
-<section id="modele" class="fade-in">
+<section id="modele">
   <h2>📸 Przykładowe modele</h2>
   <div class="gallery">
     
-    <div class="card custom-order">
-      <div class="custom-order-icon">💡</div>
-      <div class="model-info-container">
-        <div class="model-id">TWÓJ PROJEKT</div>
-        <h3>Masz własny plik?</h3>
-        <p style="font-size: 0.9em; color: #555;">Znajdź model na <b>Thingiverse</b>, <b>MakerWorld</b> lub <b>Printables</b> i wyślij nam link w bota Telegram!</p>
-        <div class="price" style="font-size: 1.1em; color: #0088cc;">Wycena indywidualna</div>
-      </div>
-      <a href="https://t.me/Drukarz3Dbot" target="_blank" class="promo-box" style="background: #0088cc; color: white; text-decoration: none; border:none;">Wyślij plik do bota →</a>
-    </div>
-
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/kurczaczek.jpg')">
         <img src="img/kurczaczek.jpg" alt="Kurczak">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #001</div>
         <h3>Kurczak na jajko</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
-        </div>
+        <div class="colors"><span class="color-circle c-yellow"></span> Żółty</div>
         <div class="price">15 zł</div>
       </div>
-      <div class="promo-box">Idealny do koszyczka wielkanocnego!</div>
+      <div class="promo-box">Idealny na Wielkanoc!</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/baranek.jpg')">
         <img src="img/baranek.jpg" alt="Baranek">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #002</div>
         <h3>Baranek - 12cm</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
-          <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
-        </div>
+        <div class="colors"><span class="color-circle c-white"></span> Biały</div>
         <div class="price">18 zł</div>
       </div>
-      <div class="promo-box">💡 PROMOCJA: Weź 5, zapłać za 4!</div>
+      <div class="promo-box">💡 Promocja: 5 za 4!</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/tulipan.PNG')">
         <img src="img/tulipan.PNG" alt="Tulipan">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #003</div>
         <h3>Tulipan</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
-          <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
-        </div>
+        <div class="colors"><span class="color-circle c-pink"></span> Różowy</div>
         <div class="price">25 zł</div>
       </div>
-      <div class="promo-box">💡 PROMOCJA: Weź 5, zapłać za 4!</div>
+      <div class="promo-box">Zawsze świeży!</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/krolik20.PNG')">
         <img src="img/krolik20.PNG" alt="Królik">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #004</div>
         <h3>Królik - 20cm</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
-        </div>
+        <div class="colors"><span class="color-circle c-black"></span> Czarny</div>
         <div class="price">25 zł</div>
       </div>
-      <div class="promo-box">Dostępny również w wersji XXL (26cm)</div>
+      <div class="promo-box">Dostępne różne rozmiary</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/lego.jpg')">
         <img src="img/lego.jpg" alt="LEGO">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #005</div>
         <h3>Ludzik LEGO - 40cm</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
-        </div>
+        <div class="colors"><span class="color-circle c-black"></span> Czarny</div>
         <div class="price">160 zł</div>
       </div>
-      <div class="promo-box">Ruchome ręce i nogi!</div>
+      <div class="promo-box">Ruchome elementy!</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/pi.PNG')">
         <img src="img/pi.PNG" alt="Pi">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #006</div>
-        <h3>Litera pi - 26cm</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-        </div>
+        <h3>Litera Pi - 26cm</h3>
+        <div class="colors"><span class="color-circle c-rainbow"></span> Kolorowy</div>
         <div class="price">45 zł</div>
       </div>
-      <div class="promo-box">Fajny gadżet na biurko matematyka.</div>
+      <div class="promo-box">Dla fanów matematyki</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/uchwyt_recznik.PNG')">
         <img src="img/uchwyt_recznik.PNG" alt="recznik">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #007</div>
         <h3>Uchwyt na ręcznik</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-        </div>
+        <div class="colors"><span class="color-circle c-white"></span> Dowolny</div>
         <div class="price">5 zł</div>
       </div>
-      <div class="promo-box">Idealny gadżet do domu</div>
+      <div class="promo-box">Praktyczny gadżet</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/Pojemniknaleki.PNG')">
         <img src="img/Pojemniknaleki.PNG" alt="pojemnik">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #008</div>
         <h3>Pojemnik na leki</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-        </div>
+        <div class="colors"><span class="color-circle c-rainbow"></span> Mix</div>
         <div class="price">18 zł</div>
       </div>
-      <div class="promo-box">Pomocny gadżet do domu!</div>
+      <div class="promo-box">Organizuj swoje zdrowie</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/klipskawa.PNG')">
         <img src="img/klipskawa.PNG" alt="klips">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #009</div>
-        <h3>Klips z dzióbkiem i nakrętką</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-        </div>
+        <h3>Klips z nakrętką</h3>
+        <div class="colors"><span class="color-circle c-black"></span> Dowolny</div>
         <div class="price">22 zł</div>
       </div>
-      <div class="promo-box">Idealny gadżet do domu!</div>
+      <div class="promo-box">Do kawy i płatków</div>
     </div>
 
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+    <div class="card fade-in">
+      <div class="image-wrapper" onclick="openModal('img/brelok_pies.jpg')">
         <img src="img/brelok_pies.jpg" alt="brelok">
       </div>
       <div class="model-info-container">
         <div class="model-id">ID: #010</div>
-        <h3>Identyfikator dla zwierzaka</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-        </div>
+        <h3>Adresówka dla psa</h3>
+        <div class="colors"><span class="color-circle c-yellow"></span> Mix</div>
         <div class="price">15 zł</div>
       </div>
-      <div class="promo-box">Napisz do mnie po twój wymarzony kolor</div>
+      <div class="promo-box">Zadbaj o pupila</div>
     </div>
-    
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
-        <img src="img/soon.jpg" alt="soon">
-      </div>
-      <div class="model-info-container">
-        <div class="model-id">ID: #011</div>
-        <h3>Maszynka do cukierków</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-        </div>
-        <div class="price">36 zł</div>
-      </div>
-      <div class="promo-box">Idealny gadżet dla najmłodszych!</div>
-    </div>
-    
-    <div class="card">
-      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
-        <img src="img/soon.jpg" alt="soon">
-      </div>
-      <div class="model-info-container">
-        <div class="model-id">ID: #012</div>
-        <h3>Dekoracja na Dzień Mamy</h3>
-        <div class="colors">
-          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-        </div>
-        <div class="price">25 zł</div>
-      </div>
-      <div class="promo-box">Możliwość druku wielokolorowego</div>
-    </div>
-      
-  </div>
 
-  <div class="catalog-download fade-in">
-    <p style="margin-bottom: 20px; color: #555;">Chcesz zobaczyć więcej naszych projektów?</p>
-    <a href="#" class="btn-download">
-      <span>📂 Zobacz pełny katalog (PDF)</span>
-    </a>
   </div>
 </section>
-  
-<section id="jak-zamowic" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-top: 20px; margin-bottom: 20px;">
+
+<section id="jak-zamowic" class="fade-in">
   <h2>✅ Jak zamówić?</h2>
   <div class="grid">
-    <div class="box">1️⃣ Wybierz model z listy lub znajdź własny na Thingiverse, MakerWorld, itd.</div>
-    <div class="box">2️⃣ Napisz do naszego <b>bota Telegram</b> i podaj ID lub wyślij link</div>
-    <div class="box">3️⃣ Podaj ilość oraz kolor wydruku i czekaj na wycenę</div>
+    <div class="box">1️⃣ Wybierz model z listy lub wyślij własny link</div>
+    <div class="box">2️⃣ Napisz do bota Telegram i podaj ID</div>
+    <div class="box">3️⃣ Czekaj na błyskawiczną wycenę i druk!</div>
   </div>
 </section>
 
-<section id="materialy" class="fade-in" style="background: #eef5fb; border-radius: 20px; margin-bottom: 40px; margin-top: 40px;">
-  <h2>🧪 Poznaj nasze materiały</h2>
-  <p style="text-align:center; max-width:800px; margin:auto; color:#555; font-size: 1.1em; margin-bottom: 40px;">
-    Do każdego zlecenia podchodzimy indywidualnie. Drukujemy z bezpiecznych, sprawdzonych filamentów na nowoczesnych drukarkach <b>FDM</b>.
-  </p>
-  
-  <div class="materials-container">
-    <div class="material-card mat-pla">
-      <div class="material-icon">🌱</div>
-      <div class="bio-badge">🌿 BIO & EKO</div>
-      <h3>PLA (Polilaktyd)</h3>
-      <p>Nasz podstawowy materiał do druku. Jest to w 100% <b>biodegradowalny polimer</b> produkowany z surowców odnawialnych (najczęściej z mączki kukurydzianej). Idealny do figurek, ozdób, makiet i zabawek. Jest całkowicie bezpieczny w dotyku, nietoksyczny i nie wydziela szkodliwych oparów.</p>
-    </div>
-
-    <div class="material-card mat-petg">
-      <div class="material-icon">⚙️</div>
-      <div class="bio-badge" style="background: #e3f2fd; color: #1565c0; border-color: #bbdefb;">💪 MOCNY</div>
-      <h3>PETG</h3>
-      <p>Szukasz czegoś do zadań specjalnych? PETG to wzmocniona wersja materiału używanego m.in. do produkcji butelek na wodę. Jest bardzo wytrzymały, odporny na uderzenia, chemię oraz wilgoć. Świetnie sprawdza się w przypadku części mechanicznych i uchwytów.</p>
-    </div>
-
-    <div class="material-card mat-tpu">
-      <div class="material-icon">🏀</div>
-      <div class="bio-badge" style="background: #fff3e0; color: #ef6c00; border-color: #ffe0b2;">🧽 ELASTYCZNY</div>
-      <h3>TPU (Elastyczny)</h3>
-      <p>Materiał, który swoimi właściwościami przypomina mocną gumę. Jeśli potrzebujesz elastycznej uszczelki, opony do modelu RC, etui na telefon czy niestandardowego amortyzatora – TPU będzie idealnym wyborem. Nie pęka przy wyginaniu!</p>
-    </div>
-  </div>
-</section>
-
-<section class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 40px;">
-  <h2>⏱ Czas realizacji i wysyłka</h2>
+<section id="materialy" class="fade-in">
+  <h2>🧪 Materiały</h2>
   <div class="grid">
-    <div class="box">⏳ Czas realizacji zależny od ilości i kolejki</div>
-    <div class="box">📦 Wysyłka: Paczkomat / Kurier</div>
-    <div class="box">🤝 Możliwy odbiór osobisty (do ustalenia)</div>
+    <div class="material-card">
+      <h3>PLA (Eko)</h3>
+      <p>Biodegradowalny materiał z kukurydzy. Bezpieczny i estetyczny.</p>
+    </div>
+    <div class="material-card">
+      <h3>PETG (Mocny)</h3>
+      <p>Wytrzymały jak butelka wody. Odporny na słońce i chemię.</p>
+    </div>
   </div>
 </section>
 
 <section id="faq" class="fade-in">
-  <h2>❓ Często zadawane pytania (FAQ)</h2>
-  <div class="faq-container">
-    <details>
-      <summary>Czy modele można malować po wydrukowaniu?</summary>
-      <p>Tak! Nasze wydruki świetnie przyjmują farby akrylowe. Dla najlepszego efektu polecamy nałożenie wcześniej podkładu modelarskiego (np. w sprayu).</p>
-    </details>
-    <details>
-      <summary>W jakim formacie wysłać do Was własny plik?</summary>
-      <p>Najlepiej jeśli podeślesz nam plik w formacie <b>.STL</b> lub <b>.OBJ</b>. Jeśli nie masz pliku, wyślij nam link ze strony (np. <b>Thingiverse</b>, <b>Printables</b>) w bocie Telegram.</p>
-    </details>
-    <details>
-      <summary>Czy te wydruki są wytrzymałe?</summary>
-      <p>Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG).</p>
-    </details>
-    <details>
-      <summary>Co jeśli mój wydruk uszkodzi się w transporcie?</summary>
-      <p>Przed wysyłką sprawdzamy każdy detal i solidnie go pakujemy. Jeśli jednak paczka dotrze uszkodzona, daj nam od razu znać na Telegramie – na pewno rozwiążemy ten problem!</p>
-    </details>
-  </div>
+  <h2>❓ FAQ</h2>
+  <details>
+    <summary>Czy można malować wydruki?</summary>
+    <p>Tak, farby akrylowe działają idealnie.</p>
+  </details>
+  <details>
+    <summary>Jaki format pliku wysłać?</summary>
+    <p>Najlepiej .STL lub link do Thingiverse.</p>
+  </details>
 </section>
 
-<section class="fade-in">
-  <h2>💬 Co mówią klienci?</h2>
-  <div class="grid">
-    <div class="box">
-      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-      <i>„Szybka realizacja i super jakość wydruku 👍”</i>
-      <div class="testimonial-author">- Zadowolony Klient</div>
-    </div>
-    <div class="box">
-      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-      <i>„Idealne na prezent, bardzo polecam.”</i>
-      <div class="testimonial-author">- Stały Odbiorca</div>
-    </div>
-    <div class="box">
-      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-      <i>„Dobry kontakt, uczciwe ceny.”</i>
-      <div class="testimonial-author">- Nowy Nabywca</div>
-    </div>
-  </div>
-</section>
-
-<section class="socials-section fade-in">
-  <h2>📱 Znajdź nas w sieci</h2>
-  <p style="color: #666; font-size: 1.1em; margin-bottom: 40px;">Obserwuj proces powstawania Twoich zamówień i sprawdzaj nowości!</p>
-  <div class="social-links">
-    <a href="https://www.instagram.com/awydrukujse/" class="social-item" target="_blank">
-      <span class="social-icon">📸</span>
-      <span>Instagram</span>
-    </a>
-    <a href="https://www.tiktok.com/@awydrukujse.pl" class="social-item" target="_blank">
-      <span class="social-icon">🎵</span>
-      <span>TikTok</span>
-    </a>
-  </div>
-</section>
-
-<section id="kontakt" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 60px; text-align: center; padding-bottom: 50px;">
+<section id="kontakt" class="fade-in" style="text-align: center;">
   <h2>📧 Kontakt</h2>
-  <p style="font-size: 1.1em; color: #555; max-width: 600px; margin: auto;">
-    Masz własny model do wyceny? A może nietypowe zlecenie? Złapmy się na mailu!
-  </p>
-  
-  <a href="mailto:awydrukujse@gmail.com" class="contact-btn">
-    ✉️ Wyślij e-mail do nas
-  </a>
-  
-  <p style="color: #888; font-size: 0.95em;">
-    Lub skopiuj adres: <b style="color:#333;">awydrukujse@gmail.com</b>
-  </p>
+  <a href="mailto:awydrukujse@gmail.com" class="contact-btn">✉️ Napisz do nas</a>
 </section>
 
 <footer>
-  <a class="footer-cta" href="https://t.me/Drukarz3Dbot" target="_blank">🚀 Zamów przez Telegram</a>
-  <p style="margin-top:40px; color:#666; font-size:0.95em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
+  <p style="text-align: center; padding: 40px; color: #888;">&copy; 2026 awydrukujse.pl</p>
 </footer>
 
 <div class="modal" id="modal" onclick="closeModal()">
   <img id="modalImg" src="">
 </div>
 
-<a href="https://t.me/Drukarz3Dbot" target="_blank" class="fab-button" title="Napisz do nas na Telegramie!">💬</a>
+<a href="https://t.me/Drukarz3Dbot" class="fab-button">💬</a>
 
 <script>
-  // Dynamiczna nawigacja
+  // Scroll navbar
   window.addEventListener('scroll', function() {
     const nav = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
+    if (window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
   });
 
-  // Obsługa animacji wchodzenia elementów (Fade In)
-  document.addEventListener("DOMContentLoaded", function() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
+  // Modal logic
+  function openModal(src) {
+    const modal = document.getElementById("modal");
+    document.getElementById("modalImg").src = src;
+    modal.style.display = "flex";
+  }
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
 
+  // Animation observer
+  document.addEventListener("DOMContentLoaded", function() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => observer.observe(el));
-
-    // FAILSAFE: Jeśli po 2 sekundach elementy są nadal niewidoczne (np. błąd iOS Safari)
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    
+    // Failsafe: Pokazujemy wszystko po 1.5s nawet jeśli skrypt zawiedzie
     setTimeout(() => {
-      fadeElements.forEach(el => {
-        if (!el.classList.contains('visible')) {
-          el.classList.add('visible');
-        }
-      });
-    }, 2000);
+      document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    }, 1500);
   });
-
-  // Obsługa modala (powiększanie zdjęć)
-  function openModal(src) {
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    modal.style.display = "flex";
-    modalImg.src = src;
-    document.body.style.overflow = 'hidden'; // Blokada przewijania
-  }
-
-  function closeModal() {
-    const modal = document.getElementById("modal");
-    modal.style.display = "none";
-    document.body.style.overflow = 'auto'; // Przywrócenie przewijania
-  }
 </script>
 
 </body>
