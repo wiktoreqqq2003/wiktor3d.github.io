@@ -1101,6 +1101,23 @@
     observer.observe(el);
   });
 </script>
+<script>
+const elements = document.querySelectorAll('.fade-in');
 
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  elements.forEach(el => observer.observe(el));
+} else {
+  // fallback dla starszych telefonów
+  elements.forEach(el => el.classList.add('visible'));
+}
+</script>
 </body>
 </html>
