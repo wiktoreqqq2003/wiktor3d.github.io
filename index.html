@@ -3,564 +3,242 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="google-site-verification" content="Nw_3i0kBQekvkOqbbmgG3w_P7OKQsgGM94NYEnER3nE" />
-  
-  <meta name="description" content="awydrukujse.pl - Druk 3D na zamówienie. Wybierz gotowy model lub wyślij własny plik STL. Szybka realizacja i wysoka jakość.">
-  <meta name="keywords" content="druk 3d, drukowanie 3d, modele 3d, wydruk 3d na zamówienie, figurki 3d, PLA, PETG, TPU">
   <title>awydrukujse.pl - Druk 3D na zamówienie</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* RESET I PODSTAWY - USUNIĘTO WSZYSTKIE ANIMACJE */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       color: #333;
-      line-height: 1.6;
       background-color: #f4f7f9;
-      background-image: radial-gradient(#d1dce6 1.5px, transparent 1.5px);
-      background-size: 30px 30px;
       -webkit-font-smoothing: antialiased;
     }
-    
-    /* GÓRNY PASEK NAWIGACYJNY */
+
+    /* NAWIGACJA */
     .top-nav {
       background: #ffffff;
-      padding: 15px 40px;
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    .top-nav.scrolled {
-      padding: 8px 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      background: rgba(255, 255, 255, 0.98);
-    }
+    .nav-logo { height: 50px; width: auto; }
+    .nav-links { display: flex; gap: 15px; }
+    .nav-links a { text-decoration: none; color: #444; font-weight: 600; font-size: 0.8em; text-transform: uppercase; }
 
-    .nav-logo-container {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      gap: 15px;
-    }
-
-    .nav-logo {
-      height: 60px;
-      width: auto;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-      transition: all 0.3s ease;
-    }
-    
-    .top-nav.scrolled .nav-logo {
-      height: 45px;
-    }
-
-    .nav-title {
-      font-size: 1.4em;
-      font-weight: 800;
-      color: #1a1a2e;
-      letter-spacing: 0.5px;
-      margin: 0;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: #444;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95em;
-      transition: color 0.3s ease;
-      text-transform: uppercase;
-    }
-
-    .nav-links a:hover {
-      color: #0088cc;
-    }
-
-    /* SEKCJA GŁÓWNA */
-    .hero-wrapper {
-      padding: 60px 20px;
-      display: flex;
-      justify-content: center;
-    }
-
+    /* HERO BOX */
+    .hero-wrapper { padding: 40px 20px; text-align: center; }
     .hero-box {
-      background: #ffffff;
-      max-width: 1100px;
-      width: 100%;
-      border-radius: 40px;
-      padding: 100px 40px;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
+    .hero-title { font-size: 2.5em; color: #1a1a2e; margin: 10px 0; }
+    .gradient-text { color: #0088cc; }
 
-    .hero-badge {
-      background: #fdf6d8; 
-      color: #b8860b;
-      padding: 8px 25px;
-      border-radius: 30px;
-      font-size: 0.85em;
-      font-weight: 800;
-      display: inline-block;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-    }
-
-    .hero-title {
-      font-size: 4em;
-      font-weight: 800;
-      color: #1a1a2e;
-      margin: 0 0 25px 0;
-      line-height: 1.15;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #0088cc, #00d4ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25em;
-      color: #555;
-      max-width: 650px;
-      margin: 0 auto 40px auto;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .hero-cta {
-      background: #0088cc; 
-      color: white; 
-      padding: 16px 45px; 
-      border-radius: 50px;
-      text-decoration: none; 
-      font-size: 1.15em; 
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
-    }
-
-    /* GALERIA I MODELE */
-    section {
-      padding: 70px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+    /* GALERIA - KLUCZOWE POPRAWKI */
+    section { padding: 40px 20px; max-width: 1100px; margin: auto; }
     
-    h2 {
-      text-align: center;
-      margin-bottom: 50px;
-      color: #1a1a2e;
-      font-size: 2.4em;
-      font-weight: 800;
-    }
-    
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    
-    .box {
-      background: white;
-      padding: 35px 25px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-      text-align: center;
-      border: 1px solid #f0f4f8;
-    }
-
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
 
+    /* KARTA PRODUKTU - CAŁKOWICIE WIDOCZNA */
     .card {
-      background: white;
+      background: #ffffff !important;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #e0e6ed;
       overflow: hidden;
-      text-align: center;
       display: flex;
       flex-direction: column;
-      height: 100%;
-      border: 1px solid #f0f4f8;
-      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      /* WYMUSZENIE WIDOCZNOŚCI */
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
     }
 
     .image-wrapper {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      height: 260px;
+      width: 100%;
+      height: 250px;
+      background: #eee; /* Tło na wypadek gdyby zdjęcie się ładowało długo */
     }
 
     .image-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    .model-info-container {
-      padding: 25px 20px;
-      flex-grow: 1;
-    }
-
-    .model-id {
-      background: rgba(0, 136, 204, 0.1);
-      color: #0088cc;
-      display: inline-block;
-      padding: 6px 18px;
-      border-radius: 8px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .price {
-      font-size: 1.5em;
-      font-weight: 800;
-      color: #0088cc;
-      margin: 15px 0;
-    }
-
-    .promo-box {
-      background: #fffdf5;
-      border-top: 1px solid #ffecb3;
-      padding: 12px;
-      font-size: 0.85em;
-      color: #b38000;
-      font-weight: 600;
-    }
+    .model-info-container { padding: 20px; text-align: center; }
+    .model-id { background: #e0f2fe; color: #0088cc; padding: 4px 12px; border-radius: 6px; font-weight: 800; font-size: 0.9em; }
+    .price { font-size: 1.4em; font-weight: 800; color: #0088cc; margin: 10px 0; }
+    
+    .promo-box { background: #fffdf5; padding: 10px; font-size: 0.8em; color: #b38000; border-top: 1px solid #ffecb3; text-align: center; }
 
     /* KOLORY */
-    .colors {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .color-circle {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 1px solid #ddd;
-    }
-    .c-yellow { background: #ffd700; }
-    .c-white { background: #fff; }
-    .c-pink { background: #ffc0cb; }
-    .c-black { background: #222; }
-    .c-rainbow { background: linear-gradient(45deg, red, yellow, green, blue); }
-
-    /* MATERIAŁY */
-    .material-card {
-      background: white;
-      border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border-top: 6px solid #0088cc;
-    }
-
-    /* FAQ */
-    details {
-      background: white;
-      margin-bottom: 18px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-      border: 1px solid #f0f4f8;
-    }
-    summary {
-      font-weight: 600;
-      padding: 22px 25px;
-      cursor: pointer;
-      list-style: none;
-    }
-    details p { padding: 0 25px 25px; color: #666; }
+    .colors { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+    .color-circle { width: 15px; height: 15px; border-radius: 50%; border: 1px solid #ccc; }
 
     /* MODAL */
     .modal {
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
       justify-content: center; align-items: center; z-index: 2000;
     }
-    .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
+    .modal img { max-width: 90%; max-height: 80%; border-radius: 10px; }
 
-    /* KONTAKT */
-    .contact-btn {
-      background: #ea4335; color: white; padding: 18px 45px; border-radius: 50px;
-      text-decoration: none; font-weight: 600; display: inline-block;
-    }
-
-    /* PRZYCISK PŁYWAJĄCY */
     .fab-button {
-      position: fixed; bottom: 30px; right: 30px; background: #0088cc;
-      color: white; width: 65px; height: 65px; border-radius: 50%;
-      display: flex; justify-content: center; align-items: center;
-      font-size: 32px; text-decoration: none; z-index: 999;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      position: fixed; bottom: 20px; right: 20px; background: #0088cc;
+      color: white; width: 60px; height: 60px; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center; font-size: 25px;
+      text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1001;
     }
 
-    /* POPRAWKA DLA IPHONE - ODWRÓCONY MECHANIZM ANIMACJI */
-    .fade-in {
-      opacity: 1; /* DOMYŚLNIE WIDOCZNE DLA KAŻDEGO */
-      transform: none;
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    /* Tylko jeśli przeglądarka wspiera animacje i JS zadziała, lekko ukryjemy na start */
-    @media (prefers-reduced-motion: no-preference) {
-       .js-ready .fade-in:not(.visible) {
-          opacity: 0;
-          transform: translateY(20px);
-       }
-    }
-    
-    .fade-in.visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-
-    @media (max-width: 768px) {
-      .top-nav { flex-direction: column; padding: 15px; }
-      .hero-title { font-size: 2.5em; }
-    }
+    /* USUNIĘTO WSZYSTKIE KLASY .fade-in I .visible DLA PEWNOŚCI */
   </style>
 </head>
 <body>
 
-<script>
-  // Informujemy CSS, że JS jest gotowy do obsługi animacji
-  document.documentElement.classList.add('js-ready');
-</script>
-
-<nav class="top-nav" id="navbar">
-  <a href="/" class="nav-logo-container">
-    <img src="img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
-    <p class="nav-title">awydrukujse.pl</p>
-  </a>
+<nav class="top-nav">
+  <div class="nav-logo-container">
+    <img src="img/Logoskleputr.png" alt="Logo" class="nav-logo">
+  </div>
   <div class="nav-links">
     <a href="#modele">Modele</a>
-    <a href="#jak-zamowic">Jak zamówić</a>
-    <a href="#materialy">Materiały</a>
-    <a href="#faq">FAQ</a>
-    <a href="#kontakt" style="color: #ea4335;">Kontakt</a>
+    <a href="#kontakt">Kontakt</a>
   </div>
 </nav>
 
 <section class="hero-wrapper">
-  <div class="hero-box fade-in">
-    <div class="hero-badge">🖨️ Druk 3D na zamówienie</div>
-    <h1 class="hero-title">Wszystkie <span class="gradient-text">pomysły</span> w 3D <span class="highlight-text">- od ręki!</span></h1>
-    <p class="hero-subtitle">Wybierz model, zapamiętaj jego ID i zamów przez bota na Telegramie.</p>
-    <div class="hero-buttons">
-      <a class="hero-cta" href="https://t.me/Drukarz3Dbot">💬 Zamów przez bota</a>
-    </div>
+  <div class="hero-box">
+    <h1 class="hero-title">Wydruki <span class="gradient-text">3D</span></h1>
+    <p>Wybierz model i napisz do nas na Telegramie!</p>
+    <a href="https://t.me/Drukarz3Dbot" style="background:#0088cc; color:white; padding:12px 25px; border-radius:50px; text-decoration:none; font-weight:600;">Zamów przez bota</a>
   </div>
 </section>
 
 <section id="modele">
-  <h2>📸 Przykładowe modele</h2>
+  <h2>📸 Katalog modeli</h2>
   <div class="gallery">
     
-    <div class="card fade-in">
+    <div class="card">
       <div class="image-wrapper" onclick="openModal('img/kurczaczek.jpg')">
         <img src="img/kurczaczek.jpg" alt="Kurczak">
       </div>
       <div class="model-info-container">
-        <div class="model-id">ID: #001</div>
+        <span class="model-id">ID: #001</span>
         <h3>Kurczak na jajko</h3>
-        <div class="colors"><span class="color-circle c-yellow"></span> Żółty</div>
         <div class="price">15 zł</div>
       </div>
-      <div class="promo-box">Idealny na Wielkanoc!</div>
+      <div class="promo-box">Idealny na stół!</div>
     </div>
 
-    <div class="card fade-in">
+    <div class="card">
       <div class="image-wrapper" onclick="openModal('img/baranek.jpg')">
         <img src="img/baranek.jpg" alt="Baranek">
       </div>
       <div class="model-info-container">
-        <div class="model-id">ID: #002</div>
-        <h3>Baranek - 12cm</h3>
-        <div class="colors"><span class="color-circle c-white"></span> Biały</div>
+        <span class="model-id">ID: #002</span>
+        <h3>Baranek 12cm</h3>
         <div class="price">18 zł</div>
       </div>
-      <div class="promo-box">💡 Promocja: 5 za 4!</div>
+      <div class="promo-box">Promocja: 5 za 4!</div>
     </div>
 
-    <div class="card fade-in">
+    <div class="card">
       <div class="image-wrapper" onclick="openModal('img/tulipan.PNG')">
         <img src="img/tulipan.PNG" alt="Tulipan">
       </div>
       <div class="model-info-container">
-        <div class="model-id">ID: #003</div>
-        <h3>Tulipan</h3>
-        <div class="colors"><span class="color-circle c-pink"></span> Różowy</div>
+        <span class="model-id">ID: #003</span>
+        <h3>Tulipan 3D</h3>
         <div class="price">25 zł</div>
       </div>
-      <div class="promo-box">Zawsze świeży!</div>
+      <div class="promo-box">Szybka realizacja</div>
     </div>
 
-    <div class="card fade-in">
+    <div class="card">
       <div class="image-wrapper" onclick="openModal('img/krolik20.PNG')">
         <img src="img/krolik20.PNG" alt="Królik">
       </div>
       <div class="model-info-container">
-        <div class="model-id">ID: #004</div>
-        <h3>Królik - 20cm</h3>
-        <div class="colors"><span class="color-circle c-black"></span> Czarny</div>
+        <span class="model-id">ID: #004</span>
+        <h3>Królik 20cm</h3>
         <div class="price">25 zł</div>
       </div>
-      <div class="promo-box">Dostępne różne rozmiary</div>
+      <div class="promo-box">Dostępny od ręki</div>
     </div>
 
-    <div class="card fade-in">
+    <div class="card">
       <div class="image-wrapper" onclick="openModal('img/lego.jpg')">
-        <img src="img/lego.jpg" alt="LEGO">
+        <img src="img/lego.jpg" alt="Lego">
       </div>
       <div class="model-info-container">
-        <div class="model-id">ID: #005</div>
-        <h3>Ludzik LEGO - 40cm</h3>
-        <div class="colors"><span class="color-circle c-black"></span> Czarny</div>
+        <span class="model-id">ID: #005</span>
+        <h3>Ludzik LEGO 40cm</h3>
         <div class="price">160 zł</div>
       </div>
-      <div class="promo-box">Ruchome elementy!</div>
+      <div class="promo-box">Ruchome części</div>
     </div>
 
-    <div class="card fade-in">
+    <div class="card">
       <div class="image-wrapper" onclick="openModal('img/pi.PNG')">
         <img src="img/pi.PNG" alt="Pi">
       </div>
       <div class="model-info-container">
-        <div class="model-id">ID: #006</div>
-        <h3>Litera Pi - 26cm</h3>
-        <div class="colors"><span class="color-circle c-rainbow"></span> Kolorowy</div>
+        <span class="model-id">ID: #006</span>
+        <h3>Litera Pi 26cm</h3>
         <div class="price">45 zł</div>
       </div>
-      <div class="promo-box">Dla fanów matematyki</div>
+      <div class="promo-box">Dla pasjonatów</div>
     </div>
 
-    <div class="card fade-in">
+    <div class="card">
       <div class="image-wrapper" onclick="openModal('img/uchwyt_recznik.PNG')">
-        <img src="img/uchwyt_recznik.PNG" alt="recznik">
+        <img src="img/uchwyt_recznik.PNG" alt="uchwyt">
       </div>
       <div class="model-info-container">
-        <div class="model-id">ID: #007</div>
+        <span class="model-id">ID: #007</span>
         <h3>Uchwyt na ręcznik</h3>
-        <div class="colors"><span class="color-circle c-white"></span> Dowolny</div>
         <div class="price">5 zł</div>
       </div>
-      <div class="promo-box">Praktyczny gadżet</div>
+      <div class="promo-box">Praktyczne</div>
     </div>
 
-    <div class="card fade-in">
+    <div class="card">
       <div class="image-wrapper" onclick="openModal('img/Pojemniknaleki.PNG')">
         <img src="img/Pojemniknaleki.PNG" alt="pojemnik">
       </div>
       <div class="model-info-container">
-        <div class="model-id">ID: #008</div>
+        <span class="model-id">ID: #008</span>
         <h3>Pojemnik na leki</h3>
-        <div class="colors"><span class="color-circle c-rainbow"></span> Mix</div>
         <div class="price">18 zł</div>
       </div>
-      <div class="promo-box">Organizuj swoje zdrowie</div>
-    </div>
-
-    <div class="card fade-in">
-      <div class="image-wrapper" onclick="openModal('img/klipskawa.PNG')">
-        <img src="img/klipskawa.PNG" alt="klips">
-      </div>
-      <div class="model-info-container">
-        <div class="model-id">ID: #009</div>
-        <h3>Klips z nakrętką</h3>
-        <div class="colors"><span class="color-circle c-black"></span> Dowolny</div>
-        <div class="price">22 zł</div>
-      </div>
-      <div class="promo-box">Do kawy i płatków</div>
-    </div>
-
-    <div class="card fade-in">
-      <div class="image-wrapper" onclick="openModal('img/brelok_pies.jpg')">
-        <img src="img/brelok_pies.jpg" alt="brelok">
-      </div>
-      <div class="model-info-container">
-        <div class="model-id">ID: #010</div>
-        <h3>Adresówka dla psa</h3>
-        <div class="colors"><span class="color-circle c-yellow"></span> Mix</div>
-        <div class="price">15 zł</div>
-      </div>
-      <div class="promo-box">Zadbaj o pupila</div>
+      <div class="promo-box">Przydatne w domu</div>
     </div>
 
   </div>
 </section>
 
-<section id="jak-zamowic" class="fade-in">
-  <h2>✅ Jak zamówić?</h2>
-  <div class="grid">
-    <div class="box">1️⃣ Wybierz model z listy lub wyślij własny link</div>
-    <div class="box">2️⃣ Napisz do bota Telegram i podaj ID</div>
-    <div class="box">3️⃣ Czekaj na błyskawiczną wycenę i druk!</div>
-  </div>
-</section>
-
-<section id="materialy" class="fade-in">
-  <h2>🧪 Materiały</h2>
-  <div class="grid">
-    <div class="material-card">
-      <h3>PLA (Eko)</h3>
-      <p>Biodegradowalny materiał z kukurydzy. Bezpieczny i estetyczny.</p>
-    </div>
-    <div class="material-card">
-      <h3>PETG (Mocny)</h3>
-      <p>Wytrzymały jak butelka wody. Odporny na słońce i chemię.</p>
-    </div>
-  </div>
-</section>
-
-<section id="faq" class="fade-in">
-  <h2>❓ FAQ</h2>
-  <details>
-    <summary>Czy można malować wydruki?</summary>
-    <p>Tak, farby akrylowe działają idealnie.</p>
-  </details>
-  <details>
-    <summary>Jaki format pliku wysłać?</summary>
-    <p>Najlepiej .STL lub link do Thingiverse.</p>
-  </details>
-</section>
-
-<section id="kontakt" class="fade-in" style="text-align: center;">
+<section id="kontakt" style="text-align: center;">
   <h2>📧 Kontakt</h2>
-  <a href="mailto:awydrukujse@gmail.com" class="contact-btn">✉️ Napisz do nas</a>
+  <p>awydrukujse@gmail.com</p>
+  <a href="mailto:awydrukujse@gmail.com" style="background:#ea4335; color:white; padding:15px 30px; border-radius:50px; text-decoration:none; font-weight:600; display:inline-block;">Napisz maila</a>
 </section>
-
-<footer>
-  <p style="text-align: center; padding: 40px; color: #888;">&copy; 2026 awydrukujse.pl</p>
-</footer>
 
 <div class="modal" id="modal" onclick="closeModal()">
   <img id="modalImg" src="">
@@ -569,40 +247,13 @@
 <a href="https://t.me/Drukarz3Dbot" class="fab-button">💬</a>
 
 <script>
-  // Scroll navbar
-  window.addEventListener('scroll', function() {
-    const nav = document.getElementById('navbar');
-    if (window.scrollY > 50) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  });
-
-  // Modal logic
   function openModal(src) {
-    const modal = document.getElementById("modal");
+    document.getElementById("modal").style.display = "flex";
     document.getElementById("modalImg").src = src;
-    modal.style.display = "flex";
   }
   function closeModal() {
     document.getElementById("modal").style.display = "none";
   }
-
-  // Animation observer
-  document.addEventListener("DOMContentLoaded", function() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    
-    // Failsafe: Pokazujemy wszystko po 1.5s nawet jeśli skrypt zawiedzie
-    setTimeout(() => {
-      document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-    }, 1500);
-  });
 </script>
 
 </body>
