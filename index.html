@@ -637,7 +637,7 @@
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: #0088cc;
+      background: #1976d2; /* Zmieniłem na ciemniejszy niebieski, pasujący do formularza */
       color: white;
       width: 65px;
       height: 65px;
@@ -647,8 +647,8 @@
       align-items: center;
       font-size: 32px;
       text-decoration: none;
-      box-shadow: 0 8px 25px rgba(0,136,204,0.5);
-      z-index: 999;
+      box-shadow: 0 8px 25px rgba(25,118,210,0.4);
+      z-index: 2001; /* Zwiększyłem z 999, żeby dymek był ZAWSZE nad wszystkim innym */
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .fab-button:hover {
@@ -1167,7 +1167,9 @@
   <img id="modalImg" src="">
 </div>
 
-<a href="https://t.me/Drukarz3Dbot" target="_blank" class="fab-button" title="Napisz do nas na Telegramie!">💬</a>
+<a href="#zamowienie" class="fab-button">
+  💬
+</a>
 
 <script>
   // Dynamiczny nagłówek
