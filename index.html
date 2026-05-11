@@ -1031,48 +1031,61 @@
   </div>
 </section>
 
-<section id="zamow-teraz" class="fade-in">
-    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f4f8;">
-        <h2 style="margin-top: 0; text-align: center;">📝 Szybkie zapytanie</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 30px;">Nie masz Telegrama? Żaden problem. Wypełnij poniższe pola, a dostanę powiadomienie natychmiast!</p>
+<section id="zamowienie" class="fade-in" style="padding: 60px 0;">
+    <div style="max-width: 850px; margin: auto; background: white; padding: 40px; border-radius: 25px; box-shadow: 0 15px 45px rgba(0,0,0,0.08); border: 2px solid #1976d2;">
         
-        <form id="orderForm" style="max-width: 600px; margin: auto;">
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: 600; margin-bottom: 5px;">Twoje Imię / Nick</label>
-                <input type="text" id="name" placeholder="Np. Marek" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit;">
-            </div>
+        <div style="text-align: center; margin-bottom: 35px;">
+            <h2 style="margin: 0; font-size: 2.4em; color: #1a1a1a;">🛒 Formularz Zamówienia</h2>
+            <p style="color: #666; font-size: 1.1em; margin-top: 10px;">Znasz cenę? Świetnie! Wypełnij dane, a ja zajmę się resztą.</p>
+        </div>
+
+        <form id="orderForm" style="display: grid; gap: 20px;">
             
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: 600; margin-bottom: 5px;">Adres e-mail lub Telefon</label>
-                <input type="text" id="contact" placeholder="Żebym mógł Ci odpowiedzieć z wyceną" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit;">
+            <div style="padding: 20px; border: 1px solid #e0e6ed; border-radius: 15px; background: #fafafa;">
+                <h3 style="margin-top: 0; font-size: 1.1em; color: #1976d2;">📦 Szczegóły Produktu</h3>
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px; margin-top: 10px;">
+                    <div>
+                        <label style="display: block; font-size: 0.85em; font-weight: 700; margin-bottom: 5px;">ID Produktu / Nazwa / Link</label>
+                        <input type="text" id="modelId" placeholder="Np. Figurka #04" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.85em; font-weight: 700; margin-bottom: 5px;">Kolor</label>
+                        <input type="text" id="modelColor" placeholder="Np. Czerwony" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.85em; font-weight: 700; margin-bottom: 5px;">Ilość sztuk</label>
+                        <input type="number" id="modelCount" value="1" min="1" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                    </div>
+                </div>
             </div>
 
-            <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-                <div style="flex: 2;">
-                    <label style="display: block; font-weight: 600; margin-bottom: 5px;">ID modelu / Link</label>
-                    <input type="text" id="modelId" placeholder="Np. #001 lub link" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="padding: 20px; border: 1px solid #e0e6ed; border-radius: 15px;">
+                    <h3 style="margin-top: 0; font-size: 1.1em;">👤 Dane Odbiorcy</h3>
+                    <input type="text" id="name" placeholder="Imię i Nazwisko" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px;">
+                    <input type="text" id="contact" placeholder="Nr telefonu / Email" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
                 </div>
-                <div style="flex: 1;">
-                    <label style="display: block; font-weight: 600; margin-bottom: 5px;">Kolor</label>
-                    <input type="text" id="modelColor" placeholder="Np. Czarny" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit;">
+                <div style="padding: 20px; border: 1px solid #e0e6ed; border-radius: 15px;">
+                    <h3 style="margin-top: 0; font-size: 1.1em;">🚚 Dostawa i Płatność</h3>
+                    <select id="delivery" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px; background: white;">
+                        <option value="InPost Paczkomat">InPost Paczkomat</option>
+                        <option value="Kurier">Kurier DPD / InPost</option>
+                        <option value="Odbiór osobisty">Odbiór osobisty</option>
+                    </select>
+                    <select id="payment" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; background: white;">
+                        <option value="BLIK / Przelew">Płatność: BLIK / Przelew</option>
+                        <option value="Przy odbiorze">Płatność: Przy odbiorze</option>
+                    </select>
                 </div>
             </div>
 
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: 600; margin-bottom: 5px;">Liczba sztuk</label>
-                <input type="number" id="modelCount" value="1" min="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit;">
-            </div>
-            
-            <div style="margin-bottom: 20px;">
-                <label style="display: block; font-weight: 600; margin-bottom: 5px;">Dodatkowe uwagi (materiał, wypełnienie)</label>
-                <textarea id="desc" placeholder="Opisz swój pomysł lub podaj dodatkowe szczegóły..." required style="width: 100%; height: 100px; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; resize: vertical;"></textarea>
-            </div>
-            
-            <button type="submit" id="submitBtn" class="hero-cta" style="width: 100%; border: none; cursor: pointer; font-size: 1.1em;">
-                Wyślij zapytanie do wyceny 🚀
+            <textarea id="desc" placeholder="Dodatkowe informacje dla drukującego (np. adres paczkomatu, wymagania techniczne)..." style="width: 100%; height: 80px; padding: 15px; border: 1px solid #ccc; border-radius: 15px; resize: vertical; font-family: inherit;"></textarea>
+
+            <button type="submit" id="submitBtn" style="width: 100%; padding: 20px; border: none; border-radius: 15px; background: #1976d2; color: white; font-size: 1.3em; font-weight: 800; cursor: pointer; transition: 0.3s; box-shadow: 0 8px 25px rgba(25, 118, 210, 0.3);">
+                POTWIERDZAM ZAMÓWIENIE 🚀
             </button>
         </form>
-        <p id="responseMsg" style="text-align: center; margin-top: 20px; font-weight: 600;"></p>
+        <p id="responseMsg" style="text-align: center; margin-top: 20px; font-weight: 700; display: none; padding: 20px; border-radius: 15px;"></p>
     </div>
 </section>
   
