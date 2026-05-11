@@ -624,29 +624,65 @@
     }
     .modal img { max-width: 90%; max-height: 90vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
 
-    .fab-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #1976d2; 
-      color: white;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 32px;
-      text-decoration: none;
-      box-shadow: 0 8px 25px rgba(25,118,210,0.4);
-      z-index: 2001;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .fab-button:hover {
-      transform: scale(1.15) rotate(5deg);
-      box-shadow: 0 12px 30px rgba(0,136,204,0.6);
-      background: #0099e6;
-    }
+   /* Kontener dymka */
+.fab-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 2001;
+}
+
+/* Etykieta tekstowa */
+.fab-label {
+  background: white;
+  color: #1976d2;
+  padding: 10px 18px;
+  border-radius: 12px;
+  margin-right: 15px;
+  font-weight: 600;
+  font-size: 0.9em;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  border: 1px solid #eef2f6;
+  white-space: nowrap;
+  pointer-events: none;
+  
+  /* Animacja */
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Pokazywanie etykiety po najechaniu */
+.fab-container:hover .fab-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fab-button {
+  position: relative; 
+  bottom: auto;
+  right: auto;
+  background: #1976d2;
+  color: white;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(25,118,210,0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (max-width: 600px) {
+  .fab-label {
+    display: none;
+  }
+}
 
     .fade-in {
       opacity: 1;
@@ -1153,9 +1189,12 @@
   <img id="modalImg" src="">
 </div>
 
-<a href="#zamowienie" class="fab-button">
-  💬
-</a>
+<div class="fab-container">
+  <span class="fab-label">Złóż zamówienie tutaj! ✨</span>
+  <a href="#zamowienie" class="fab-button">
+    💬
+  </a>
+</div>
 
 <script>
   window.addEventListener('scroll', () => {
