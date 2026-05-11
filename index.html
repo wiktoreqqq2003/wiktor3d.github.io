@@ -712,16 +712,16 @@
   <div class="hero-box fade-in visible">
     <div class="hero-badge">🖨️ Druk 3D na zamówienie</div>
     <h1 class="hero-title">
-      Wszystkie <span class="gradient-text">pomysły</span><br>
-      w 3D <span class="highlight-text">- od ręki!</span>
+        Wszystkie <span class="gradient-text">pomysły</span><br>
+        w 3D <span class="highlight-text">- od ręki!</span>
     </h1>
-    <p class="hero-subtitle">Wybierz model, zapamiętaj jego ID i zamów wygodnie przez naszego bota na Telegramie. Tworzymy z pasją do każdego detalu.</p>
+    <p class="hero-subtitle">Wybierz model i zamów w 30 sekund przez formularz na stronie lub naszego bota na Telegramie.</p>
     
     <div class="hero-buttons">
-      <a class="hero-cta" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Zamów przez bota</a>
-      <a class="hero-cta-secondary" href="#modele">Zobacz modele 👇</a>
+        <a class="hero-cta" href="#zamow-teraz">📝 Wypełnij formularz</a>
+        <a class="hero-cta-secondary" href="https://t.me/Drukarz3Dbot" target="_blank">💬 Bot Telegram</a>
     </div>
-  </div>
+</div>
 </section>
 
 <section id="modele" class="fade-in">
@@ -961,13 +961,13 @@
   </div>
 </section>
   
-<section id="jak-zamowic" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-top: 20px; margin-bottom: 20px;">
-  <h2>✅ Jak zamówić?</h2>
-  <div class="grid">
-    <div class="box">1️⃣ Wybierz model z listy lub znajdź własny na Thingiverse, MakerWorld, itd.</div>
-    <div class="box">2️⃣ Napisz do naszego <b>bota Telegram</b> i podaj ID lub wyślij link</div>
-    <div class="box">3️⃣ Podaj ilość oraz kolor wydruku i czekaj na wycenę</div>
-  </div>
+<<section id="jak-zamowic" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-top: 20px; margin-bottom: 20px;">
+    <h2>✅ Jak zamówić?</h2>
+    <div class="grid">
+        <div class="box">1️⃣ Wybierz model z listy powyżej lub znajdź własny (np. na Thingiverse)</div>
+        <div class="box">2️⃣ Wypełnij <b>formularz poniżej</b> lub napisz do bota na Telegramie</div>
+        <div class="box">3️⃣ Podaj szczegóły (kolor, ilość) i czekaj na błyskawiczną wycenę!</div>
+    </div>
 </section>
 
 <section id="materialy" class="fade-in" style="background: #eef5fb; border-radius: 20px; margin-bottom: 40px; margin-top: 40px;">
@@ -1031,6 +1031,35 @@
   </div>
 </section>
 
+<section id="zamow-teraz" class="fade-in">
+    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f4f8;">
+        <h2 style="margin-top: 0;">📝 Szybkie zapytanie</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">Nie masz Telegrama? Żaden problem. Wypełnij poniższe pola, a dostanę powiadomienie natychmiast!</p>
+        
+        <form id="orderForm" style="max-width: 600px; margin: auto;">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 5px;">Twoje Imię / Nick</label>
+                <input type="text" id="name" placeholder="Np. Marek" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 5px;">Adres e-mail lub Telefon</label>
+                <input type="text" id="contact" placeholder="Żebym mógł Ci odpowiedzieć z wyceną" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 5px;">Co chcesz wydrukować?</label>
+                <textarea id="desc" placeholder="Podaj ID modelu (np. #001), link do pliku lub opisz swój pomysł..." required style="width: 100%; height: 120px; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; resize: vertical;"></textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn" class="hero-cta" style="width: 100%; border: none; cursor: pointer; font-size: 1.1em;">
+                Wyślij zapytanie do wyceny 🚀
+            </button>
+        </form>
+        <p id="responseMsg" style="text-align: center; margin-top: 20px; font-weight: 600;"></p>
+    </div>
+</section>
+  
 <section class="fade-in">
   <h2>💬 Co mówią klienci?</h2>
   <div class="grid">
@@ -1170,5 +1199,55 @@ function openModal(src) {
 }
 </script>
 
+<script>
+    const form = document.getElementById('orderForm');
+    const msg = document.getElementById('responseMsg');
+    const btn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        btn.disabled = true;
+        btn.innerText = "Wysyłanie...";
+        msg.innerText = "";
+        
+        const data = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('contact').value, // używamy 'email' jako klucza dla workera
+            desc: document.getElementById('desc').value
+        };
+
+        try {
+            // TUTAJ WKLEJ LINK ZE SWOJEGO CLOUDFLARE WORKER
+            const response = await fetch('https://small-pond-c873.awydrukujse.workers.dev/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                msg.style.color = "#2e7d32";
+                msg.innerText = "✅ Sukces! Twoja wiadomość jest już na moim Telegramie. Odezwę się niedługo!";
+                form.reset();
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            msg.style.color = "#ea4335";
+            msg.innerText = "❌ Coś poszło nie tak. Spróbuj napisać bezpośrednio na maila.";
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "Wyślij zapytanie do wyceny 🚀";
+        }
+    });
+
+    // Kod do obsługi scrollowania nawigacji (który już masz, zostaw go)
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+</script>
+  
 </body>
 </html>
