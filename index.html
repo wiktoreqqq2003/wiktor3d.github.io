@@ -1259,7 +1259,6 @@ function openModal(src) {
         msg.innerText = "";
         msg.style.display = "none";
         
-        // KLUCZOWE: Te nazwy po lewej (np. modelId) muszą być TAKIE SAME jak w Workerze
         const data = {
             name: document.getElementById('name').value,
             contact: document.getElementById('contact').value,
@@ -1282,7 +1281,7 @@ function openModal(src) {
                 msg.style.background = "#e8f5e9";
                 msg.style.padding = "15px";
                 msg.style.borderRadius = "10px";
-                msg.innerText = "✅ Sukces! Zamówienie wylądowało na moim Telegramie. Zaraz je sprawdzę!";
+                msg.innerText = "✅ Sukces! Zamówienie wylądowało u nas, bierzemy się za robotę!";
                 form.reset();
             } else {
                 throw new Error();
