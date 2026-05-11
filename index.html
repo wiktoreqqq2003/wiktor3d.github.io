@@ -29,7 +29,6 @@
       background-size: 30px 30px;
     }
     
-    /* GÓRNY PASEK NAWIGACYJNY */
     .top-nav {
       background: #ffffff;
       padding: 15px 40px;
@@ -104,7 +103,6 @@
       color: #0088cc;
     }
 
-    /* SEKCJA GŁÓWNA (HERO) */
     .hero-wrapper {
       padding: 60px 20px;
       display: flex;
@@ -262,7 +260,6 @@
       box-shadow: 0 15px 40px rgba(0,0,0,0.08);
     }
 
-    /* GALERIA MODELE */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -426,7 +423,6 @@
       transform: scale(1.05);
     }
 
-    /* SEKCJA MATERIAŁÓW */
     .materials-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -479,7 +475,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* FAQ */
     .faq-container {
       max-width: 850px;
       margin: auto;
@@ -539,7 +534,6 @@
       line-height: 1.7;
     }
 
-    /* SEKCJA SOCIAL MEDIA */
     .socials-section {
       text-align: center;
       padding: 80px 20px;
@@ -577,7 +571,6 @@
       border-color: #0088cc;
     }
 
-    /* KONTAKT GMAIL */
     .contact-btn {
       background: #ea4335; 
       color: white;
@@ -599,7 +592,6 @@
       box-shadow: 0 12px 30px rgba(234, 67, 53, 0.4);
     }
 
-    /* FOOTER */
     footer { 
       text-align: center; 
       padding: 80px 20px 60px; 
@@ -625,7 +617,6 @@
       background: #0099e6;
     }
 
-    /* MODAL */
     .modal {
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
       justify-content: center; align-items: center; z-index: 2000;
@@ -637,7 +628,7 @@
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: #1976d2; /* Zmieniłem na ciemniejszy niebieski, pasujący do formularza */
+      background: #1976d2; 
       color: white;
       width: 65px;
       height: 65px;
@@ -648,7 +639,7 @@
       font-size: 32px;
       text-decoration: none;
       box-shadow: 0 8px 25px rgba(25,118,210,0.4);
-      z-index: 2001; /* Zwiększyłem z 999, żeby dymek był ZAWSZE nad wszystkim innym */
+      z-index: 2001;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .fab-button:hover {
@@ -964,8 +955,8 @@
 <<section id="jak-zamowic" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-top: 20px; margin-bottom: 20px;">
     <h2>✅ Jak zamówić?</h2>
     <div class="grid">
-        <div class="box">1️⃣ Wybierz model z listy powyżej lub znajdź własny (np. na Thingiverse)</div>
-        <div class="box">2️⃣ Wypełnij <b>formularz poniżej</b> lub napisz do bota na Telegramie</div>
+        <div class="box">1️⃣ Wybierz model z listy powyżej lub znajdź własny</div>
+        <div class="box">2️⃣ Wypełnij <b>formularz poniżej</b> </div>
         <div class="box">3️⃣ Podaj szczegóły (kolor, ilość) i czekaj na błyskawiczną wycenę!</div>
     </div>
 </section>
@@ -1172,7 +1163,6 @@
 </a>
 
 <script>
-  // Dynamiczny nagłówek
   window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
@@ -1182,7 +1172,6 @@
     }
   });
 
-  // Obsługa powiększania zdjęć
   function openModal(src) {
     document.getElementById("modalImg").src = src;
     document.getElementById("modal").style.display = "flex";
@@ -1191,7 +1180,6 @@
     document.getElementById("modal").style.display = "none";
   }
 
-  // Skrypt obsługujący płynne pojawianie się elementów (Fade-in)
   const observerOptions = {
     threshold: 0.1
   };
@@ -1222,7 +1210,6 @@ if ('IntersectionObserver' in window) {
 
   elements.forEach(el => observer.observe(el));
 } else {
-  // fallback dla starszych telefonów
   elements.forEach(el => el.classList.add('visible'));
 }
 </script>
@@ -1301,13 +1288,11 @@ function openModal(src) {
         }
     });
 
-    // Obsługa scrollowania
     window.addEventListener('scroll', () => {
         const nav = document.getElementById('navbar');
         if (nav && window.scrollY > 50) nav.classList.add('scrolled');
         else if (nav) nav.classList.remove('scrolled');
     });
-</script>
-  
+</script> 
 </body>
 </html>
