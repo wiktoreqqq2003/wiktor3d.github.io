@@ -142,7 +142,49 @@
       line-height: 1.15;
       letter-spacing: -1.5px;
     }
+    .hero-hint {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(25, 118, 210, 0.05); /* Delikatny niebieski podkład */
+    border-left: 4px solid #1976d2;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
 
+.hero-hint p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+.hint-icon {
+    font-size: 1.5em;
+}
+
+.hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(25, 118, 210, 0.2);
+    background: #1565c0;
+}
+
+.hero-cta-secondary:hover {
+    background: #f8fafc;
+    border-color: #cbd5e0;
+}
+
+@media (max-width: 768px) {
+    .hero-hint {
+        flex-direction: column;
+        text-align: center;
+    }
+}
     .gradient-text {
       background: linear-gradient(135deg, #0088cc, #00d4ff);
       -webkit-background-clip: text;
@@ -737,13 +779,32 @@
 
 <section class="hero-wrapper">
   <div class="hero-box fade-in visible">
-    <div class="hero-badge">🖨️ Druk 3D na zamówienie</div>
+    <div class="hero-badge">🖨️ DRUK 3D NA ZAMÓWIENIE</div>
+    
     <h1 class="hero-title">
-        Wszystkie <span class="gradient-text">pomysły</span><br>
-        w 3D <span class="highlight-text">- od ręki!</span>
+        Twoje pomysły nabierają<br>
+        <span class="gradient-text">wymiaru!</span>
     </h1>
-    <p class="hero-subtitle">Wybierz model i zamów przez formularz na stronie.</p>
-</div>
+    
+    <p class="hero-subtitle">
+      Drukujemy wszystko – od rzadkich części zamiennych, przez gadżety domowe, aż po unikalne figurki. 
+      Wybierz wzór z galerii lub prześlij własny projekt do wyceny.
+    </p>
+
+    <div class="hero-hint">
+      <span class="hint-icon">💡</span>
+      <p><b>Wskazówka:</b> Ten niebieski dymek w rogu zawsze podąża za Tobą – kliknij go, aby błyskawicznie przejść do zamówienia!</p>
+    </div>
+
+    <div class="hero-buttons" style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+      <a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #1976d2; color: white; padding: 15px 30px; border-radius: 12px; font-weight: bold; transition: 0.3s;">
+        Złóż zamówienie
+      </a>
+      <a href="#kontakt" class="hero-cta-secondary" style="text-decoration: none; color: #4a5568; padding: 15px 30px; border-radius: 12px; font-weight: bold; border: 1.5px solid #e2e8f0; transition: 0.3s;">
+        Masz pytania?
+      </a>
+    </div>
+  </div>
 </section>
 
 <section id="modele" class="fade-in">
