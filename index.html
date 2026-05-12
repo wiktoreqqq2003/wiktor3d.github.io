@@ -1,702 +1,1381 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>awydrukujse.pl — Profesjonalny druk 3D na zamówienie</title>
-<meta name="description" content="Nowoczesny druk 3D na zamówienie. Figurki, dekoracje, części użytkowe i indywidualne projekty STL. Szybka realizacja i wysoka jakość.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
---bg:#0b1120;
---card:#111827;
---card2:#1f2937;
---accent:#3b82f6;
---accent2:#06b6d4;
---text:#f8fafc;
---muted:#94a3b8;
---border:rgba(255,255,255,0.08);
---shadow:0 20px 60px rgba(0,0,0,0.45);
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Inter',sans-serif;
-background:
-radial-gradient(circle at top left,#1e3a8a 0%,transparent 30%),
-radial-gradient(circle at bottom right,#0891b2 0%,transparent 30%),
-var(--bg);
-color:var(--text);
-line-height:1.6;
-overflow-x:hidden;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-.container{
-width:min(1200px,92%);
-margin:auto;
-}
-
-nav{
-position:fixed;
-width:100%;
-backdrop-filter:blur(18px);
-background:rgba(11,17,32,0.75);
-border-bottom:1px solid var(--border);
-z-index:1000;
-}
-
-.nav-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:14px;
-font-weight:800;
-font-size:1.15rem;
-}
-
-.logo img{
-height:52px;
-}
-
-.nav-links{
-display:flex;
-gap:32px;
-align-items:center;
-}
-
-.nav-links a{
-color:#cbd5e1;
-font-weight:500;
-transition:.3s;
-}
-
-.nav-links a:hover{
-color:white;
-}
-
-.nav-btn{
-padding:12px 22px;
-border-radius:14px;
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-font-weight:700;
-color:white;
-box-shadow:0 10px 30px rgba(59,130,246,.35);
-}
-
-.hero{
-padding:180px 0 120px;
-position:relative;
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:60px;
-align-items:center;
-}
-
-.badge{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:10px 18px;
-background:rgba(255,255,255,0.06);
-border:1px solid var(--border);
-border-radius:999px;
-margin-bottom:30px;
-color:#cbd5e1;
-font-size:.95rem;
-}
-
-.hero h1{
-font-size:4.5rem;
-line-height:1;
-margin-bottom:30px;
-font-weight:800;
-letter-spacing:-3px;
-}
-
-.gradient{
-background:linear-gradient(135deg,#60a5fa,#22d3ee);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{
-font-size:1.15rem;
-color:#cbd5e1;
-margin-bottom:40px;
-max-width:650px;
-}
-
-.hero-buttons{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.primary-btn{
-padding:18px 32px;
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-border-radius:16px;
-font-weight:700;
-color:white;
-box-shadow:0 15px 35px rgba(59,130,246,.35);
-transition:.35s;
-}
-
-.primary-btn:hover{
-transform:translateY(-4px);
-}
-
-.secondary-btn{
-padding:18px 32px;
-border-radius:16px;
-border:1px solid var(--border);
-background:rgba(255,255,255,0.04);
-color:white;
-transition:.35s;
-}
-
-.secondary-btn:hover{
-background:rgba(255,255,255,0.08);
-}
-
-.hero-card{
-background:rgba(255,255,255,0.05);
-border:1px solid var(--border);
-border-radius:30px;
-padding:30px;
-backdrop-filter:blur(18px);
-box-shadow:var(--shadow);
-}
-
-.hero-card img{
-width:100%;
-border-radius:22px;
-}
-
-section{
-padding:110px 0;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:70px;
-}
-
-.section-title h2{
-font-size:3rem;
-margin-bottom:20px;
-}
-
-.section-title p{
-color:#94a3b8;
-max-width:700px;
-margin:auto;
-}
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
-
-.feature-card{
-background:rgba(255,255,255,0.05);
-border:1px solid var(--border);
-padding:35px;
-border-radius:24px;
-transition:.35s;
-}
-
-.feature-card:hover{
-transform:translateY(-8px);
-background:rgba(255,255,255,0.07);
-}
-
-.feature-icon{
-font-size:2.5rem;
-margin-bottom:18px;
-}
-
-.feature-card h3{
-margin-bottom:12px;
-font-size:1.3rem;
-}
-
-.feature-card p{
-color:#94a3b8;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.product-card{
-background:rgba(255,255,255,0.05);
-border:1px solid var(--border);
-border-radius:28px;
-overflow:hidden;
-transition:.35s;
-backdrop-filter:blur(14px);
-}
-
-.product-card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 50px rgba(0,0,0,.35);
-}
-
-.product-card img{
-width:100%;
-height:320px;
-object-fit:cover;
-}
-
-.product-content{
-padding:28px;
-}
-
-.product-id{
-display:inline-block;
-padding:8px 14px;
-border-radius:999px;
-background:rgba(59,130,246,.15);
-color:#60a5fa;
-font-size:.85rem;
-font-weight:700;
-margin-bottom:18px;
-}
-
-.product-content h3{
-font-size:1.4rem;
-margin-bottom:12px;
-}
-
-.product-content p{
-color:#94a3b8;
-margin-bottom:18px;
-}
-
-.price{
-font-size:2rem;
-font-weight:800;
-background:linear-gradient(135deg,#60a5fa,#22d3ee);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.how-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.step{
-background:rgba(255,255,255,0.05);
-padding:35px;
-border-radius:24px;
-border:1px solid var(--border);
-position:relative;
-}
-
-.step-number{
-position:absolute;
-top:20px;
-right:20px;
-font-size:3rem;
-font-weight:800;
-opacity:.08;
-}
-
-.cta-section{
-text-align:center;
-padding:120px 0;
-}
-
-.cta-box{
-background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(6,182,212,.12));
-border:1px solid rgba(255,255,255,.08);
-padding:70px 40px;
-border-radius:40px;
-backdrop-filter:blur(18px);
-}
-
-.cta-box h2{
-font-size:3rem;
-margin-bottom:20px;
-}
-
-.cta-box p{
-max-width:700px;
-margin:auto;
-margin-bottom:35px;
-color:#cbd5e1;
-}
-
-footer{
-padding:60px 0;
-border-top:1px solid var(--border);
-}
-
-.footer-grid{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:30px;
-}
-
-.footer-links{
-display:flex;
-gap:20px;
-color:#94a3b8;
-}
-
-.floating-order{
-position:fixed;
-bottom:30px;
-right:30px;
-z-index:999;
-}
-
-.floating-order a{
-display:flex;
-align-items:center;
-gap:12px;
-padding:18px 24px;
-border-radius:18px;
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-color:white;
-font-weight:700;
-box-shadow:0 20px 40px rgba(59,130,246,.45);
-}
-
-@media(max-width:900px){
-.hero-grid{
-grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:3.2rem;
-}
-
-.nav-links{
-display:none;
-}
-}
-
-@media(max-width:600px){
-.hero{
-padding-top:150px;
-}
-
-.hero h1{
-font-size:2.5rem;
-}
-
-.section-title h2{
-font-size:2.2rem;
-}
-
-.cta-box h2{
-font-size:2.2rem;
-}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="google-site-verification" content="Nw_3i0kBQekvkOqbbmgG3w_P7OKQsgGM94NYEnER3nE" />
+  
+  <meta name="description" content="awydrukujse.pl - Druk 3D na zamówienie. Wybierz gotowy model lub wyślij własny plik STL. Szybka realizacja i wysoka jakość.">
+  <meta name="keywords" content="druk 3d, drukowanie 3d, modele 3d, wydruk 3d na zamówienie, figurki 3d, PLA, PETG, TPU">
+  <title>awydrukujse.pl - Druk 3D na zamówienie</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f4f7f9;
+      background-image: radial-gradient(#d1dce6 1.5px, transparent 1.5px);
+      background-size: 30px 30px;
+    }
+    
+    .top-nav {
+      background: #ffffff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .top-nav.scrolled {
+      padding: 8px 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .nav-logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 15px;
+    }
+
+    .nav-logo {
+      height: 60px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: all 0.3s ease;
+    }
+    
+    .top-nav.scrolled .nav-logo {
+      height: 45px;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-title {
+      font-size: 1.4em;
+      font-weight: 800;
+      color: #1a1a2e;
+      letter-spacing: 0.5px;
+      margin: 0;
+      transition: font-size 0.3s ease;
+    }
+    
+    .top-nav.scrolled .nav-title {
+      font-size: 1.2em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #444;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a:hover {
+      color: #0088cc;
+    }
+
+    .hero-wrapper {
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-box {
+      background: #ffffff;
+      max-width: 1100px;
+      width: 100%;
+      border-radius: 40px;
+      padding: 100px 40px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      background: #fdf6d8; 
+      color: #b8860b;
+      padding: 8px 25px;
+      border-radius: 30px;
+      font-size: 0.85em;
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 4em;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin: 0 0 25px 0;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+    .hero-hint {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(25, 118, 210, 0.05); /* Delikatny niebieski podkład */
+    border-left: 4px solid #1976d2;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.hero-hint p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+.hint-icon {
+    font-size: 1.5em;
+}
+
+.hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(25, 118, 210, 0.2);
+    background: #1565c0;
+}
+
+.hero-cta-secondary:hover {
+    background: #f8fafc;
+    border-color: #cbd5e0;
+}
+
+@media (max-width: 768px) {
+    .hero-hint {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+    .gradient-text {
+      background: linear-gradient(135deg, #0088cc, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .highlight-text {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    .highlight-text::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: -2%;
+      width: 104%;
+      height: 14px;
+      background: rgba(0, 136, 204, 0.15);
+      z-index: -1;
+      border-radius: 4px;
+      transform: rotate(-1.5deg);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25em;
+      color: #555;
+      max-width: 650px;
+      margin: 0 auto 40px auto;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-cta {
+      background: #0088cc; 
+      color: white; 
+      padding: 16px 45px; 
+      border-radius: 50px;
+      text-decoration: none; 
+      font-size: 1.15em; 
+      display: inline-block; 
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
+    }
+    
+    .hero-cta:hover {
+      transform: translateY(-4px); 
+      box-shadow: 0 12px 30px rgba(0, 136, 204, 0.5);
+      background: #0099e6;
+    }
+
+    .hero-cta-secondary {
+      background: #f4f7f9;
+      color: #333;
+      padding: 16px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.15em;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid #e0e6ed;
+    }
+
+    .hero-cta-secondary:hover {
+      background: #eef2f6;
+      border-color: #d1d9e2;
+      transform: translateY(-4px);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #1a1a2e;
+      font-size: 2.4em;
+      font-weight: 800;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .box {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.05em;
+      border: 1px solid #f0f4f8;
+    }
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 1px solid #f0f4f8;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+    }
+    .card.custom-order {
+      border: 2px dashed #0088cc;
+      background: #f0f9ff;
+    }
+    .custom-order-icon {
+      font-size: 4em;
+      margin-top: 20px;
+    }
+
+    .image-wrapper {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-bottom: 3px solid #f4f7f6;
+    }
+    .image-wrapper img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .image-wrapper::after {
+      content: '🔍 Powiększ';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 136, 204, 0.7);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3em;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(2px);
+    }
+    .card:hover .image-wrapper img {
+      transform: scale(1.08);
+    }
+    .card:hover .image-wrapper::after {
+      opacity: 1;
+    }
+
+    .model-info-container {
+      padding: 25px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .model-id {
+      background: rgba(0, 136, 204, 0.1);
+      color: #0088cc;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.99em;
+      align-self: center;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.25em;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .card .colors {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .color-item {
+      display: flex;
+      align-items: center;
+    }
+    .color-circle {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-right: 6px;
+      border: 1px solid #ddd;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .c-yellow { background-color: #ffd700; }
+    .c-white { background-color: #ffffff; }
+    .c-gold { background-color: #d4af37; }
+    .c-grey { background-color: #808080; }
+    .c-pink { background-color: #ffc0cb; }
+    .c-black { background-color: #222222; }
+    .c-beige { background-color: #F5F5DC; }
+    .c-rainbow { background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff); border: none; }
+
+    .card .price {
+      font-size: 1.5em;
+      font-weight: 800;
+      color: #0088cc;
+      margin-top: auto;
+      margin-bottom: 10px;
+    }
+
+    .promo-box {
+      background: #fffdf5;
+      border-top: 1px solid #ffecb3;
+      padding: 12px;
+      font-size: 0.85em;
+      color: #b38000;
+      font-weight: 600;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .catalog-download {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .btn-download {
+      background: #1a1a2e;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-download:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    .materials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .material-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: left;
+      border-top: 6px solid #ddd;
+      transition: all 0.3s ease;
+      border: 1px solid #f0f4f8;
+    }
+    .material-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .mat-pla { border-top-color: #4CAF50; }
+    .mat-petg { border-top-color: #2196F3; }
+    .mat-tpu { border-top-color: #FF9800; }
+
+    .material-icon {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+    }
+    .material-card h3 {
+      margin-top: 0;
+      color: #111;
+      font-size: 1.5em;
+      font-weight: 800;
+    }
+    .material-card p {
+      color: #555;
+      font-size: 0.95em;
+      line-height: 1.7;
+    }
+    .bio-badge {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 15px;
+      border: 1px solid #c8e6c9;
+      letter-spacing: 0.5px;
+    }
+
+    .faq-container {
+      max-width: 850px;
+      margin: auto;
+      text-align: left;
+    }
+    details {
+      background: white;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      overflow: hidden;
+      border: 1px solid #f0f4f8;
+      transition: all 0.3s ease;
+    }
+    details[open] {
+      box-shadow: 0 10px 30px rgba(0,136,204,0.1);
+      border-color: #cce7f5;
+    }
+    summary {
+      font-weight: 600;
+      padding: 22px 25px;
+      cursor: pointer;
+      font-size: 1.15em;
+      background: #fff;
+      transition: background 0.3s, color 0.3s;
+      color: #222;
+      list-style: none; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker {
+      display: none; 
+    }
+    
+    summary::after {
+      content: '+';
+      font-size: 1.8em;
+      color: #0088cc;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+      line-height: 1;
+    }
+    details[open] summary::after {
+      transform: rotate(45deg); 
+      color: #ea4335;
+    }
+
+    summary:hover {
+      background: #fcfcfc;
+      color: #0088cc;
+    }
+    details p {
+      padding: 0 25px 25px 25px;
+      margin: 0;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .socials-section {
+      text-align: center;
+      padding: 80px 20px;
+      background: transparent; 
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-item {
+      background: white;
+      color: #0088cc; 
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 40px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+      border: 2px solid #f0f0f0;
+    }
+
+    .social-item:hover {
+      background: #0088cc; 
+      color: white; 
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 136, 204, 0.3); 
+      border-color: #0088cc;
+    }
+
+    .contact-btn {
+      background: #ea4335; 
+      color: white;
+      padding: 18px 45px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 25px rgba(234, 67, 53, 0.3);
+      transition: all 0.3s ease;
+      margin: 30px 0;
+    }
+    .contact-btn:hover {
+      background: #d33828;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(234, 67, 53, 0.4);
+    }
+
+    footer { 
+      text-align: center; 
+      padding: 80px 20px 60px; 
+      background: #111; 
+      color: #fff;
+      border-top: 5px solid #0088cc;
+    }
+    .footer-cta {
+      background: #0088cc; 
+      color: white; 
+      padding: 18px 45px; 
+      border-radius: 50px;
+      text-decoration: none; 
+      font-size: 20px; 
+      display: inline-block; 
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0,136,204,0.4);
+    }
+    .footer-cta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,136,204,0.6);
+      background: #0099e6;
+    }
+
+    .modal {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      justify-content: center; align-items: center; z-index: 2000;
+      backdrop-filter: blur(5px);
+    }
+    .modal img { max-width: 90%; max-height: 90vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
+
+.fab-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 2001;
+}
+
+.fab-label {
+  background: white;
+  color: #4285f4;
+  padding: 10px 18px;
+  border-radius: 12px;
+  margin-right: 15px;
+  font-weight: 600;
+  font-size: 0.9em;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  border: 1px solid #eef2f6;
+  white-space: nowrap;
+  pointer-events: none;
+  
+  /* Animacja */
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fab-container:hover .fab-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fab-button {
+  position: relative; 
+  bottom: auto;
+  right: auto;
+  background: #e3f2fd;
+  color: white;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(25,118,210,0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (max-width: 600px) {
+  .fab-label {
+    display: none;
+  }
+}
+
+    .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      .hero-box {
+        padding: 50px 20px;
+        border-radius: 25px;
+      }
+      .hero-title {
+        font-size: 2.5em;
+      }
+      .gallery, .materials-container { 
+        grid-template-columns: 1fr; 
+      }
+      .social-item { width: 100%; justify-content: center; box-sizing: border-box; } 
+      .fab-button { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-<div class="container nav-inner">
-<a class="logo" href="#">
-<img src="img/Logoskleputr.png" alt="logo">
-<span>awydrukujse.pl</span>
-</a>
-
-<div class="nav-links">
-<a href="#modele">Modele</a>
-<a href="#jak">Jak to działa</a>
-<a href="#materialy">Materiały</a>
-<a href="#kontakt">Kontakt</a>
-<a href="#zamowienie" class="nav-btn">Zamów teraz</a>
-</div>
-</div>
+<nav class="top-nav" id="navbar">
+  <a href="/" class="nav-logo-container">
+    <img src="img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
+    <p class="nav-title">awydrukujse.pl</p>
+  </a>
+  <div class="nav-links">
+    <a href="#modele">Modele</a>
+    <a href="#materialy">Materiały</a>
+    <a href="#faq">FAQ</a>
+    <a href="#zamowienie" style="color: #4285f4;">Zamów teraz</a>
+    <a href="#kontakt" style="color: #ea4335;">Kontakt</a>
+  </div>
 </nav>
 
-<section class="hero">
-<div class="container hero-grid">
+<section class="hero-wrapper">
+  <div class="hero-box fade-in visible">
+    <div class="hero-badge">🖨️ DRUK 3D NA ZAMÓWIENIE</div>
+    
+    <h1 class="hero-title">
+        Twoje pomysły nabierają<br>
+        <span class="gradient-text">wymiaru!</span>
+    </h1>
+    
+    <p class="hero-subtitle">
+      Drukujemy wszystko – od rzadkich części zamiennych, przez gadżety domowe, aż po unikalne figurki. 
+      Wybierz wzór z galerii lub prześlij własny projekt do wyceny.
+    </p>
 
-<div>
-<div class="badge">
-🖨️ Profesjonalny druk 3D premium
-</div>
+    <div class="hero-hint">
+      <span class="hint-icon">💡</span>
+      <p><b>Wskazówka:</b> Ten niebieski koszyk w rogu zawsze podąża za Tobą – kliknij go, aby błyskawicznie przejść do zamówienia!</p>
+    </div>
 
-<h1>
-Tworzymy
-<span class="gradient">wydruki 3D</span>
-które robią wrażenie.
-</h1>
-
-<p>
-Od figurek kolekcjonerskich i dekoracji, po części użytkowe oraz indywidualne projekty STL. Szybka realizacja, nowoczesne drukarki FDM i wysoka jakość wykonania.
-</p>
-
-<div class="hero-buttons">
-<a href="#zamowienie" class="primary-btn">Złóż zamówienie</a>
-<a href="#modele" class="secondary-btn">Zobacz modele</a>
-</div>
-</div>
-
-<div class="hero-card">
-<img src="img/lego.jpg" alt="druk 3d">
-</div>
-
-</div>
+    <div class="hero-buttons" style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+      <a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #1976d2; color: white; padding: 15px 30px; border-radius: 12px; font-weight: bold; transition: 0.3s;">
+        Złóż zamówienie
+      </a>
+      <a href="#kontakt" class="hero-cta-secondary" style="text-decoration: none; color: #4a5568; padding: 15px 30px; border-radius: 12px; font-weight: bold; border: 1.5px solid #e2e8f0; transition: 0.3s;">
+        Masz pytania?
+      </a>
+    </div>
+  </div>
 </section>
 
-<section>
-<div class="container">
-<div class="section-title">
-<h2>Dlaczego właśnie my?</h2>
-<p>
-Łączymy nowoczesny design, szybki kontakt i wysoką jakość druku 3D.
-</p>
-</div>
+<section id="modele" class="fade-in">
+  <h2>📸 Przykładowe modele</h2>
+  <div class="gallery">
+    
+    <div class="card custom-order">
+      <div class="custom-order-icon">💡</div>
+      <div class="model-info-container">
+        <div class="model-id">TWÓJ PROJEKT</div>
+        <h3>Masz własny plik?</h3>
+        <p style="font-size: 0.9em; color: #555;">Znajdź model na <b>Thingiverse</b>, <b>MakerWorld</b> lub <b>Printables</b> i wyślij nam link w formularzu</p>
+        <div class="price" style="font-size: 1.1em; color: #0088cc;">Wycena indywidualna</div>
+      </div>
+      <a href="https://t.me/Drukarz3Dbot" target="_blank" class="promo-box" style="background: #0088cc; color: white; text-decoration: none; border:none;">Wyślij plik do bota →</a>
+    </div>
 
-<div class="features">
-<div class="feature-card">
-<div class="feature-icon">⚡</div>
-<h3>Szybka realizacja</h3>
-<p>Zamówienia realizujemy sprawnie i na bieżąco informujemy o postępach.</p>
-</div>
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/kurczaczek.jpg" alt="Kurczak">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #001</div>
+        <h3>Kurczak na jajko</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
+        </div>
+        <div class="price">15 zł</div>
+      </div>
+      <div class="promo-box">Idealny do koszyczka wielkanocnego!</div>
+    </div>
 
-<div class="feature-card">
-<div class="feature-icon">🎯</div>
-<h3>Dokładne wydruki</h3>
-<p>Dbamy o estetykę, wytrzymałość i precyzję każdego modelu.</p>
-</div>
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/baranek.jpg" alt="Baranek">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #002</div>
+        <h3>Baranek - 12cm</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-white"></span>Biały</div>
+          <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
+        </div>
+        <div class="price">18 zł</div>
+      </div>
+      <div class="promo-box">💡 PROMOCJA: Weź 5, zapłać za 4!</div>
+    </div>
 
-<div class="feature-card">
-<div class="feature-icon">🧠</div>
-<h3>Indywidualne projekty</h3>
-<p>Masz własny plik STL? Wydrukujemy go specjalnie dla Ciebie.</p>
-</div>
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/tulipan.PNG" alt="Tulipan">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #003</div>
+        <h3>Tulipan</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-pink"></span>Różowy</div>
+          <div class="color-item"><span class="color-circle c-yellow"></span>Żółty</div>
+        </div>
+        <div class="price">25 zł</div>
+      </div>
+      <div class="promo-box">💡 PROMOCJA: Weź 5, zapłać za 4!</div>
+    </div>
 
-<div class="feature-card">
-<div class="feature-icon">📦</div>
-<h3>Bezpieczna wysyłka</h3>
-<p>Każdy model jest odpowiednio zabezpieczony do transportu.</p>
-</div>
-</div>
-</div>
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/krolik20.PNG" alt="Królik">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #004</div>
+        <h3>Królik - 20cm</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
+        </div>
+        <div class="price">25 zł</div>
+      </div>
+      <div class="promo-box">Dostępny również w wersji XXL (26cm)</div>
+    </div>
+
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/lego.jpg" alt="LEGO">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #005</div>
+        <h3>Ludzik LEGO - 40cm</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-black"></span>Czarny</div>
+        </div>
+        <div class="price">160 zł</div>
+      </div>
+      <div class="promo-box">Ruchome ręce i nogi!</div>
+    </div>
+
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/pi.PNG" alt="Pi">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #006</div>
+        <h3>Litera pi - 26cm</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">45 zł</div>
+      </div>
+      <div class="promo-box">Fajny gadżet na biurko matematyka.</div>
+    </div>
+
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/uchwyt_recznik.PNG" alt="recznik">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #007</div>
+        <h3>Uchwyt na ręcznik</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">5 zł</div>
+      </div>
+      <div class="promo-box">Idealny gadżet do domu</div>
+    </div>
+
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/Pojemniknaleki.PNG" alt="pojemnik">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #008</div>
+        <h3>Pojemnik na leki</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">18 zł</div>
+      </div>
+      <div class="promo-box">Pomocny gadżet do domu!</div>
+    </div>
+
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/klipskawa.PNG" alt="klips">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #009</div>
+        <h3>Klips z dzióbkiem i nakrętką</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">22 zł</div>
+      </div>
+      <div class="promo-box">Idealny gadżet do domu!</div>
+    </div>
+
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/brelok_pies.jpg" alt="brelok">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #010</div>
+        <h3>Identyfikator dla zwierzaka</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">15 zł</div>
+      </div>
+      <div class="promo-box">Napisz do mnie po twój wymarzony kolor</div>
+    </div>
+    
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/cukierki.jpg" alt="soon">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #011</div>
+        <h3>Maszynka do cukierków</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">36 zł</div>
+      </div>
+      <div class="promo-box">Idealny gadżet dla najmłodszych!</div>
+    </div>
+    
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/dzienmamy.jpg" alt="soon">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #012</div>
+        <h3>Dekoracja na Dzień Mamy</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">25 zł</div>
+      </div>
+      <div class="promo-box">Możliwość druku wielokolorowego</div>
+    </div>
+
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/dziecko.jpg" alt="Baranek">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #013</div>
+        <h3>Plakietka z narodzin dziecka</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">50 zł</div>
+      </div>
+      <div class="promo-box">Magiczna pamiątka która pozostaje na zawsze!</div>
+    </div>
+
+    <div class="card">
+      <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
+        <img src="img/wazon1.jpg" alt="Baranek">
+      </div>
+      <div class="model-info-container">
+        <div class="model-id">ID: #014</div>
+        <h3>Wazon</h3>
+        <div class="colors">
+          <div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
+        </div>
+        <div class="price">36 zł</div>
+      </div>
+      <div class="promo-box">Rozmiar ze zdjęcia: 20 cm. Robimy też na wymiar(max. 26 cm). Daj znać, jaki potrzebujesz! ✨</div>
+    </div>
+
+  </div>
+
+  <div class="catalog-download fade-in">
+    <p style="margin-bottom: 20px; color: #555;">Chcesz zobaczyć więcej naszych projektów?</p>
+    <a href="#" class="btn-download">
+      <span>📂 Zobacz pełny katalog (PDF)</span>
+    </a>
+  </div>
 </section>
 
-<section id="modele">
-<div class="container">
-<div class="section-title">
-<h2>Przykładowe modele</h2>
-<p>Wybrane realizacje i najpopularniejsze produkty.</p>
-</div>
+<section id="materialy" class="fade-in" style="background: #eef5fb; border-radius: 20px; margin-bottom: 40px; margin-top: 40px;">
+  <h2>🧪 Poznaj nasze materiały</h2>
+  <p style="text-align:center; max-width:800px; margin:auto; color:#555; font-size: 1.1em; margin-bottom: 40px;">
+    Do każdego zlecenia podchodzimy indywidualnie. Drukujemy z bezpiecznych, sprawdzonych filamentów na nowoczesnych drukarkach <b>FDM</b>.
+  </p>
+  
+  <div class="materials-container">
+    <div class="material-card mat-pla">
+      <div class="material-icon">🌱</div>
+      <div class="bio-badge">🌿 BIO & EKO</div>
+      <h3>PLA (Polilaktyd)</h3>
+      <p>Nasz podstawowy materiał do druku. Jest to w 100% <b>biodegradowalny polimer</b> produkowany z surowców odnawialnych (najczęściej z mączki kukurydzianej). Idealny do figurek, ozdób, makiet i zabawek. Jest całkowicie bezpieczny w dotyku, nietoksyczny i nie wydziela szkodliwych oparów.</p>
+    </div>
 
-<div class="gallery">
+    <div class="material-card mat-petg">
+      <div class="material-icon">⚙️</div>
+      <div class="bio-badge" style="background: #e3f2fd; color: #1565c0; border-color: #bbdefb;">💪 MOCNY</div>
+      <h3>PETG</h3>
+      <p>Szukasz czegoś do zadań specjalnych? PETG to wzmocniona wersja materiału używanego m.in. do produkcji butelek na wodę. Jest bardzo wytrzymały, odporny na uderzenia, chemię oraz wilgoć. Świetnie sprawdza się w przypadku części mechanicznych i uchwytów.</p>
+    </div>
 
-<div class="product-card">
-<img src="img/kurczaczek.jpg" alt="kurczak">
-<div class="product-content">
-<div class="product-id">ID #001</div>
-<h3>Kurczak na jajko</h3>
-<p>Idealny dodatek wielkanocny drukowany w wysokiej jakości PLA.</p>
-<div class="price">15 zł</div>
-</div>
-</div>
-
-<div class="product-card">
-<img src="img/baranek.jpg" alt="baranek">
-<div class="product-content">
-<div class="product-id">ID #002</div>
-<h3>Baranek 12 cm</h3>
-<p>Nowoczesna dekoracja świąteczna dostępna w wielu kolorach.</p>
-<div class="price">18 zł</div>
-</div>
-</div>
-
-<div class="product-card">
-<img src="img/tulipan.PNG" alt="tulipan">
-<div class="product-content">
-<div class="product-id">ID #003</div>
-<h3>Tulipan</h3>
-<p>Elegancka dekoracja drukowana warstwowo z dbałością o detale.</p>
-<div class="price">25 zł</div>
-</div>
-</div>
-
-<div class="product-card">
-<img src="img/krolik20.PNG" alt="królik">
-<div class="product-content">
-<div class="product-id">ID #004</div>
-<h3>Królik 20 cm</h3>
-<p>Minimalistyczna ozdoba dostępna również w wersji XXL.</p>
-<div class="price">25 zł</div>
-</div>
-</div>
-
-<div class="product-card">
-<img src="img/lego.jpg" alt="lego">
-<div class="product-content">
-<div class="product-id">ID #005</div>
-<h3>Ludzik LEGO 40 cm</h3>
-<p>Duży model kolekcjonerski z ruchomymi elementami.</p>
-<div class="price">160 zł</div>
-</div>
-</div>
-
-<div class="product-card">
-<img src="img/wazon1.jpg" alt="wazon">
-<div class="product-content">
-<div class="product-id">ID #014</div>
-<h3>Nowoczesny wazon</h3>
-<p>Drukowany w dowolnym kolorze oraz rozmiarze.</p>
-<div class="price">36 zł</div>
-</div>
-</div>
-
-</div>
-</div>
+    <div class="material-card mat-tpu">
+      <div class="material-icon">🏀</div>
+      <div class="bio-badge" style="background: #fff3e0; color: #ef6c00; border-color: #ffe0b2;">🧽 ELASTYCZNY</div>
+      <h3>TPU (Elastyczny)</h3>
+      <p>Materiał, który swoimi właściwościami przypomina mocną gumę. Jeśli potrzebujesz elastycznej uszczelki, opony do modelu RC, etui na telefon czy niestandardowego amortyzatora – TPU będzie idealnym wyborem. Nie pęka przy wyginaniu!</p>
+    </div>
+  </div>
 </section>
 
-<section id="jak">
-<div class="container">
-<div class="section-title">
-<h2>Jak wygląda zamówienie?</h2>
-<p>Cały proces zajmuje tylko kilka minut.</p>
-</div>
-
-<div class="how-grid">
-<div class="step">
-<div class="step-number">01</div>
-<h3>Wybierz model</h3>
-<p>Możesz wybrać model z galerii lub wysłać własny plik STL.</p>
-</div>
-
-<div class="step">
-<div class="step-number">02</div>
-<h3>Skontaktuj się</h3>
-<p>Napisz do nas przez formularz, Telegram lub e-mail.</p>
-</div>
-
-<div class="step">
-<div class="step-number">03</div>
-<h3>Drukujemy</h3>
-<p>Rozpoczynamy produkcję na profesjonalnych drukarkach FDM.</p>
-</div>
-
-<div class="step">
-<div class="step-number">04</div>
-<h3>Wysyłka</h3>
-<p>Bezpiecznie pakujemy model i wysyłamy go do Ciebie.</p>
-</div>
-</div>
-</div>
+<section class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 40px;">
+  <h2>⏱ Czas realizacji i wysyłka</h2>
+  <div class="grid">
+    <div class="box">⏳ Czas realizacji zależny od ilości i kolejki</div>
+    <div class="box">📦 Wysyłka: Paczkomat / Kurier</div>
+    <div class="box">🤝 Możliwy odbiór osobisty (do ustalenia)</div>
+  </div>
 </section>
 
-<section id="materialy">
-<div class="container">
-<div class="section-title">
-<h2>Materiały premium</h2>
-<p>Dobieramy filament do konkretnego zastosowania.</p>
-</div>
-
-<div class="features">
-<div class="feature-card">
-<div class="feature-icon">🌱</div>
-<h3>PLA</h3>
-<p>Ekologiczny i estetyczny materiał idealny do dekoracji i figurek.</p>
-</div>
-
-<div class="feature-card">
-<div class="feature-icon">⚙️</div>
-<h3>PETG</h3>
-<p>Wytrzymały materiał odporny na uszkodzenia i wilgoć.</p>
-</div>
-
-<div class="feature-card">
-<div class="feature-icon">🏀</div>
-<h3>TPU</h3>
-<p>Elastyczny filament przypominający gumę.</p>
-</div>
-</div>
-</div>
+<section id="faq" class="fade-in">
+  <h2>❓ Często zadawane pytania (FAQ)</h2>
+  <div class="faq-container">
+    <details>
+      <summary>Czy modele można malować po wydrukowaniu?</summary>
+      <p>Tak! Nasze wydruki świetnie przyjmują farby akrylowe. Dla najlepszego efektu polecamy nałożenie wcześniej podkładu modelarskiego (np. w sprayu).</p>
+    </details>
+    <details>
+      <summary>W jakim formacie wysłać do Was własny plik?</summary>
+      <p>Najlepiej jeśli podeślesz nam plik w formacie <b>.STL</b> lub <b>.OBJ</b>. Jeśli nie masz pliku, wyślij nam link ze strony (np. <b>Thingiverse</b>, <b>Printables</b>) w bocie Telegram.</p>
+    </details>
+    <details>
+      <summary>Czy te wydruki są wytrzymałe?</summary>
+      <p>Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG).</p>
+    </details>
+    <details>
+      <summary>Co jeśli mój wydruk uszkodzi się w transporcie?</summary>
+      <p>Przed wysyłką sprawdzamy każdy detal i solidnie go pakujemy. Jeśli jednak paczka dotrze uszkodzona, daj nam od razu znać na Telegramie – na pewno rozwiążemy ten problem!</p>
+    </details>
+  </div>
 </section>
 
-<section class="cta-section" id="zamowienie">
-<div class="container">
-<div class="cta-box">
-<h2>Masz pomysł?
-<br>My go wydrukujemy.</h2>
+<section id="zamowienie" class="fade-in" style="padding: 80px 0; background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);">
+    <div style="max-width: 800px; margin: auto; background: white; padding: 50px; border-radius: 30px; box-shadow: 0 20px 60px rgba(25, 118, 210, 0.08); border: 1px solid #eef2f6; position: relative; overflow: hidden;">
+        
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #1976d2, #64b5f6);"></div>
 
-<p>
-Wyślij swój model STL lub wybierz produkt z galerii. Odpowiemy szybko i przygotujemy indywidualną wycenę.
-</p>
+        <div style="text-align: center; margin-bottom: 45px;">
+            <div style="background: #e3f2fd; width: 60px; height: 60px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 25px;">🛒</div>
+            <h2 style="margin: 0; font-size: 2.5em; color: #1a1a1a; letter-spacing: -1px;">Finalizacja Zamówienia</h2>
+            <p style="color: #66788a; font-size: 1.1em; margin-top: 10px; font-weight: 400;">Kilka szczegółów i Twoje wydruki trafią na stół roboczy!</p>
+        </div>
 
-<div class="hero-buttons" style="justify-content:center;">
-<a href="https://t.me/Drukarz3Dbot" target="_blank" class="primary-btn">Zamów przez Telegram</a>
-<a href="mailto:awydrukujse@gmail.com" class="secondary-btn">Napisz e-mail</a>
-</div>
-</div>
-</div>
+        <form id="orderForm" style="display: grid; gap: 30px;">
+            
+            <div style="background: #ffffff; padding: 25px; border-radius: 20px; border: 1px solid #edf2f7; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+                <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 1.1em; color: #1976d2; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: #1976d2; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">1</span>
+                    Szczegóły Produktu
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px;">
+                    <div class="input-group">
+                        <label style="display: block; font-size: 0.85em; font-weight: 700; margin-bottom: 8px; color: #4a5568;">Nazwa + ID modelu</label>
+                        <input type="text" id="modelId" placeholder="Np. Królik #004" required style="width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 12px; font-size: 0.95em; transition: all 0.3s ease;">
+                    </div>
+                    <div class="input-group">
+                        <label style="display: block; font-size: 0.85em; font-weight: 700; margin-bottom: 8px; color: #4a5568;">Kolor</label>
+                        <input type="text" id="modelColor" placeholder="Czerwony" required style="width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 12px; font-size: 0.95em;">
+                    </div>
+                    <div class="input-group">
+                        <label style="display: block; font-size: 0.85em; font-weight: 700; margin-bottom: 8px; color: #4a5568;">Ilość</label>
+                        <input type="number" id="modelCount" value="1" min="1" style="width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 12px; font-size: 0.95em; font-weight: bold;">
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #ffffff; padding: 25px; border-radius: 20px; border: 1px solid #edf2f7; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+                <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 1.1em; color: #1976d2; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: #1976d2; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">2</span>
+                    Dane Odbiorcy
+                </h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <input type="text" id="name" placeholder="Twoje Imię i Nazwisko" required style="width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 12px;">
+                    <input type="text" id="contact" placeholder="Email / Nr telefonu" required style="width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 12px;">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label style="display: block; font-size: 0.85em; font-weight: 700; margin-bottom: 8px; color: #4a5568; padding-left: 5px;">Dodatkowe uwagi dla operatora</label>
+                <textarea id="desc" placeholder="..." style="width: 100%; height: 100px; padding: 15px; border: 1.5px solid #e2e8f0; border-radius: 15px; resize: vertical; font-family: inherit; font-size: 0.95em;"></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn" style="width: 100%; padding: 22px; border: none; border-radius: 18px; background: #1976d2; color: white; font-size: 1.2em; font-weight: 800; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(25, 118, 210, 0.25); text-transform: uppercase; letter-spacing: 1px;">
+                Zatwierdź Zamówienie 🚀
+            </button>
+        </form>
+        <p id="responseMsg" style="text-align: center; margin-top: 25px; font-weight: 700; display: none; padding: 20px; border-radius: 15px;"></p>
+    </div>
 </section>
 
-<footer id="kontakt">
-<div class="container footer-grid">
+<style>
+    input:focus, textarea:focus {
+        border-color: #1976d2 !important;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.1);
+        background-color: #fff;
+    }
+    #submitBtn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(25, 118, 210, 0.4);
+        background: #1565c0;
+    }
+    #submitBtn:active {
+        transform: translateY(0);
+    }
+</style>
+  
+<section class="fade-in">
+  <h2>💬 Co mówią klienci?</h2>
+  <div class="grid">
+    <div class="box">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <i>„Szybka realizacja i super jakość wydruku 👍”</i>
+      <div class="testimonial-author">- Zadowolony Klient</div>
+    </div>
+    <div class="box">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <i>„Idealne na prezent, bardzo polecam.”</i>
+      <div class="testimonial-author">- Stały Odbiorca</div>
+    </div>
+    <div class="box">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <i>„Dobry kontakt, uczciwe ceny.”</i>
+      <div class="testimonial-author">- Nowy Nabywca</div>
+    </div>
+  </div>
+</section>
 
-<div>
-<h3 style="margin-bottom:10px;">awydrukujse.pl</h3>
-<p style="color:#94a3b8;max-width:400px;">
-Nowoczesny druk 3D premium dla klientów indywidualnych i firm.
-</p>
-</div>
+<section class="socials-section fade-in">
+  <h2>📱 Znajdź nas w sieci</h2>
+  <p style="color: #666; font-size: 1.1em; margin-bottom: 40px;">Obserwuj proces powstawania Twoich zamówień i sprawdzaj nowości!</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/awydrukujse/" class="social-item" target="_blank">
+      <span class="social-icon">📸</span>
+      <span>Instagram</span>
+    </a>
+    <a href="https://www.tiktok.com/@awydrukujse.pl" class="social-item" target="_blank">
+      <span class="social-icon">🎵</span>
+      <span>TikTok</span>
+    </a>
+  </div>
+</section>
 
-<div class="footer-links">
-<a href="https://instagram.com/awydrukujse">Instagram</a>
-<a href="https://tiktok.com/@awydrukujse.pl">TikTok</a>
-<a href="mailto:awydrukujse@gmail.com">E-mail</a>
-</div>
+<section id="kontakt" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 60px; text-align: center; padding-bottom: 50px;">
+  <h2>📧 Kontakt</h2>
+  <p style="font-size: 1.1em; color: #555; max-width: 600px; margin: auto;">
+    Masz własny model do wyceny? A może nietypowe zlecenie? Złapmy się na mailu!
+  </p>
+  
+  <a href="mailto:awydrukujse@gmail.com" class="contact-btn">
+    ✉️ Wyślij e-mail do nas
+  </a>
+  
+  <p style="color: #888; font-size: 0.95em;">
+    Lub skopiuj adres: <b style="color:#333;">awydrukujse@gmail.com</b>
+  </p>
+</section>
 
-</div>
+<footer>
+  <a class="footer-cta" href="https://t.me/Drukarz3Dbot" target="_blank">🚀 Zamów przez Telegram</a>
+  <p style="margin-top:40px; color:#666; font-size:0.95em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
 </footer>
 
-<div class="floating-order">
-<a href="#zamowienie">
-🛒 Zamów teraz
-</a>
+<div class="modal" id="modal" onclick="closeModal()">
+  <img id="modalImg" src="">
 </div>
 
+<div class="fab-container">
+  <span class="fab-label">Złóż zamówienie tutaj! ✨</span>
+  <a href="#zamowienie" class="fab-button">
+    🛒
+  </a>
+</div>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  function openModal(src) {
+    document.getElementById("modalImg").src = src;
+    document.getElementById("modal").style.display = "flex";
+  }
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+<script>
+const elements = document.querySelectorAll('.fade-in');
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  elements.forEach(el => observer.observe(el));
+} else {
+  elements.forEach(el => el.classList.add('visible'));
+}
+</script>
+
+<script>
+function openModal(src) {
+  const modal = document.createElement('div');
+  modal.style.position = 'fixed';
+  modal.style.inset = '0';
+  modal.style.background = 'rgba(0,0,0,0.9)';
+  modal.style.display = 'flex';
+  modal.style.justifyContent = 'center';
+  modal.style.alignItems = 'center';
+  modal.onclick = () => modal.remove();
+
+  const img = document.createElement('img');
+  img.src = src;
+  img.style.maxWidth = '90%';
+  img.style.maxHeight = '90%';
+
+  modal.appendChild(img);
+  document.body.appendChild(modal);
+}
+</script>
+
+<script>
+    const form = document.getElementById('orderForm');
+    const msg = document.getElementById('responseMsg');
+    const btn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        btn.disabled = true;
+        btn.innerText = "Wysyłanie zamówienia...";
+        msg.innerText = "";
+        msg.style.display = "none";
+        
+        const data = {
+            name: document.getElementById('name').value,
+            contact: document.getElementById('contact').value,
+            modelId: document.getElementById('modelId').value,
+            color: document.getElementById('modelColor').value,
+            count: document.getElementById('modelCount').value,
+            desc: document.getElementById('desc').value
+        };
+
+        try {
+            const response = await fetch('https://small-pond-c873.awydrukujse.workers.dev/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                msg.style.display = "block";
+                msg.style.color = "#2e7d32";
+                msg.style.background = "#e8f5e9";
+                msg.style.padding = "15px";
+                msg.style.borderRadius = "10px";
+                msg.innerText = "✅ Sukces! Zamówienie wylądowało u nas, bierzemy się za robotę!";
+                form.reset();
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            msg.style.display = "block";
+            msg.style.color = "#ea4335";
+            msg.style.background = "#ffebee";
+            msg.style.padding = "15px";
+            msg.style.borderRadius = "10px";
+            msg.innerText = "❌ Coś poszło nie tak. Sprawdź połączenie lub napisz bezpośrednio.";
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "POTWIERDZAM ZAMÓWIENIE 🚀";
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (nav && window.scrollY > 50) nav.classList.add('scrolled');
+        else if (nav) nav.classList.remove('scrolled');
+    });
+</script> 
 </body>
 </html>
