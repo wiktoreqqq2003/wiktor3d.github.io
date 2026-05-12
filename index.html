@@ -1,703 +1,702 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>awydrukujse.pl — Profesjonalny druk 3D na zamówienie</title>
+<meta name="description" content="Nowoczesny druk 3D na zamówienie. Figurki, dekoracje, części użytkowe i indywidualne projekty STL. Szybka realizacja i wysoka jakość.">
 
-<title>awydrukujse.pl - Druk 3D na zamówienie</title>
-
-<meta name="description" content="Profesjonalny druk 3D na zamówienie. Figurki, dekoracje, części użytkowe i własne projekty STL.">
-<meta name="keywords" content="druk 3d, drukowanie 3d, wydruki 3d, PLA, PETG, TPU, modele STL">
-<meta name="robots" content="index, follow">
-
-<meta property="og:title" content="awydrukujse.pl - Druk 3D na zamówienie">
-<meta property="og:description" content="Szybki druk 3D z PLA, PETG i TPU.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="img/kurczaczek.jpg">
-
-<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+--bg:#0b1120;
+--card:#111827;
+--card2:#1f2937;
+--accent:#3b82f6;
+--accent2:#06b6d4;
+--text:#f8fafc;
+--muted:#94a3b8;
+--border:rgba(255,255,255,0.08);
+--shadow:0 20px 60px rgba(0,0,0,0.45);
 }
 
-html {
-  scroll-behavior: smooth;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f4f7f9;
-  color: #222;
-  line-height: 1.6;
+html{
+scroll-behavior:smooth;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+body{
+font-family:'Inter',sans-serif;
+background:
+radial-gradient(circle at top left,#1e3a8a 0%,transparent 30%),
+radial-gradient(circle at bottom right,#0891b2 0%,transparent 30%),
+var(--bg);
+color:var(--text);
+line-height:1.6;
+overflow-x:hidden;
 }
 
-.top-nav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+a{
+text-decoration:none;
+color:inherit;
 }
 
-.nav-logo-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
+.container{
+width:min(1200px,92%);
+margin:auto;
 }
 
-.nav-logo {
-  width: 55px;
+nav{
+position:fixed;
+width:100%;
+backdrop-filter:blur(18px);
+background:rgba(11,17,32,0.75);
+border-bottom:1px solid var(--border);
+z-index:1000;
 }
 
-.nav-title {
-  font-size: 1.3em;
-  font-weight: 800;
-  color: #111827;
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
 }
 
-.nav-links {
-  display: flex;
-  gap: 25px;
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+font-weight:800;
+font-size:1.15rem;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #444;
-  font-weight: 600;
+.logo img{
+height:52px;
 }
 
-.hero-wrapper {
-  padding: 80px 20px;
+.nav-links{
+display:flex;
+gap:32px;
+align-items:center;
 }
 
-.hero-box {
-  max-width: 1150px;
-  margin: auto;
-  background: white;
-  border-radius: 35px;
-  padding: 90px 40px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+.nav-links a{
+color:#cbd5e1;
+font-weight:500;
+transition:.3s;
 }
 
-.hero-badge {
-  display: inline-block;
-  background: #fff4d6;
-  color: #c08400;
-  padding: 8px 22px;
-  border-radius: 30px;
-  font-weight: 700;
-  margin-bottom: 30px;
+.nav-links a:hover{
+color:white;
 }
 
-.hero-title {
-  font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: 25px;
-  font-weight: 800;
+.nav-btn{
+padding:12px 22px;
+border-radius:14px;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+font-weight:700;
+color:white;
+box-shadow:0 10px 30px rgba(59,130,246,.35);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg,#1976d2,#00b4ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.hero{
+padding:180px 0 120px;
+position:relative;
 }
 
-.hero-subtitle {
-  max-width: 750px;
-  margin: auto;
-  color: #555;
-  font-size: 1.15rem;
+.hero-grid{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:60px;
+align-items:center;
 }
 
-.hero-buttons {
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 18px;
+background:rgba(255,255,255,0.06);
+border:1px solid var(--border);
+border-radius:999px;
+margin-bottom:30px;
+color:#cbd5e1;
+font-size:.95rem;
 }
 
-.hero-cta,
-.hero-cta-secondary {
-  padding: 16px 30px;
-  border-radius: 16px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: .3s;
+.hero h1{
+font-size:4.5rem;
+line-height:1;
+margin-bottom:30px;
+font-weight:800;
+letter-spacing:-3px;
 }
 
-.hero-cta {
-  background: #1976d2;
-  color: white;
+.gradient{
+background:linear-gradient(135deg,#60a5fa,#22d3ee);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.hero-cta:hover {
-  transform: translateY(-3px);
+.hero p{
+font-size:1.15rem;
+color:#cbd5e1;
+margin-bottom:40px;
+max-width:650px;
 }
 
-.hero-cta-secondary {
-  border: 1px solid #dbe3ea;
-  color: #333;
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.trust-bar {
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+.primary-btn{
+padding:18px 32px;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+border-radius:16px;
+font-weight:700;
+color:white;
+box-shadow:0 15px 35px rgba(59,130,246,.35);
+transition:.35s;
 }
 
-.trust-bar div {
-  background: #f8fbff;
-  padding: 12px 18px;
-  border-radius: 14px;
-  font-weight: 600;
+.primary-btn:hover{
+transform:translateY(-4px);
 }
 
-section {
-  max-width: 1150px;
-  margin: auto;
-  padding: 70px 20px;
+.secondary-btn{
+padding:18px 32px;
+border-radius:16px;
+border:1px solid var(--border);
+background:rgba(255,255,255,0.04);
+color:white;
+transition:.35s;
 }
 
-h2 {
-  text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 45px;
+.secondary-btn:hover{
+background:rgba(255,255,255,0.08);
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 25px;
+.hero-card{
+background:rgba(255,255,255,0.05);
+border:1px solid var(--border);
+border-radius:30px;
+padding:30px;
+backdrop-filter:blur(18px);
+box-shadow:var(--shadow);
 }
 
-.card {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-  transition: .3s;
+.hero-card img{
+width:100%;
+border-radius:22px;
 }
 
-.card:hover {
-  transform: translateY(-6px);
+section{
+padding:110px 0;
 }
 
-.image-wrapper {
-  overflow: hidden;
+.section-title{
+text-align:center;
+margin-bottom:70px;
 }
 
-.image-wrapper img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  transition: .4s;
+.section-title h2{
+font-size:3rem;
+margin-bottom:20px;
 }
 
-.card:hover img {
-  transform: scale(1.05);
+.section-title p{
+color:#94a3b8;
+max-width:700px;
+margin:auto;
 }
 
-.model-info-container {
-  padding: 25px;
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
 
-.model-id {
-  display: inline-block;
-  background: #e3f2fd;
-  color: #1976d2;
-  padding: 6px 15px;
-  border-radius: 10px;
-  font-weight: 700;
-  margin-bottom: 15px;
+.feature-card{
+background:rgba(255,255,255,0.05);
+border:1px solid var(--border);
+padding:35px;
+border-radius:24px;
+transition:.35s;
 }
 
-.price {
-  margin-top: 20px;
-  color: #1976d2;
-  font-size: 1.5rem;
-  font-weight: 800;
+.feature-card:hover{
+transform:translateY(-8px);
+background:rgba(255,255,255,0.07);
 }
 
-.promo-box {
-  background: #f8fbff;
-  padding: 14px;
-  text-align: center;
-  font-size: .9rem;
+.feature-icon{
+font-size:2.5rem;
+margin-bottom:18px;
 }
 
-.materials-container,
-.steps-grid,
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 25px;
+.feature-card h3{
+margin-bottom:12px;
+font-size:1.3rem;
 }
 
-.material-card,
-.box,
-.step-box {
-  background: white;
-  padding: 35px 25px;
-  border-radius: 22px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+.feature-card p{
+color:#94a3b8;
 }
 
-.step-number {
-  width: 60px;
-  height: 60px;
-  background: #1976d2;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  font-weight: 800;
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
 
-.faq-container details {
-  background: white;
-  border-radius: 16px;
-  margin-bottom: 18px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+.product-card{
+background:rgba(255,255,255,0.05);
+border:1px solid var(--border);
+border-radius:28px;
+overflow:hidden;
+transition:.35s;
+backdrop-filter:blur(14px);
 }
 
-summary {
-  padding: 20px;
-  cursor: pointer;
-  font-weight: 700;
+.product-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,.35);
 }
 
-details p {
-  padding: 0 20px 20px;
-  color: #555;
+.product-card img{
+width:100%;
+height:320px;
+object-fit:cover;
 }
 
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+.product-content{
+padding:28px;
 }
 
-.social-item {
-  background: white;
-  padding: 16px 30px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: #1976d2;
-  font-weight: 700;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+.product-id{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:rgba(59,130,246,.15);
+color:#60a5fa;
+font-size:.85rem;
+font-weight:700;
+margin-bottom:18px;
 }
 
-.order-box {
-  background: white;
-  padding: 50px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+.product-content h3{
+font-size:1.4rem;
+margin-bottom:12px;
 }
 
-.order-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px;
+.product-content p{
+color:#94a3b8;
+margin-bottom:18px;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 15px;
-  border-radius: 14px;
-  border: 1px solid #dbe3ea;
-  font-family: inherit;
+.price{
+font-size:2rem;
+font-weight:800;
+background:linear-gradient(135deg,#60a5fa,#22d3ee);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-button {
-  background: #1976d2;
-  color: white;
-  border: none;
-  padding: 18px;
-  border-radius: 16px;
-  font-weight: 800;
-  cursor: pointer;
+.how-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.seo-section {
-  background: white;
-  border-radius: 24px;
-  padding: 50px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+.step{
+background:rgba(255,255,255,0.05);
+padding:35px;
+border-radius:24px;
+border:1px solid var(--border);
+position:relative;
 }
 
-footer {
-  background: #111827;
-  color: white;
-  text-align: center;
-  padding: 70px 20px;
+.step-number{
+position:absolute;
+top:20px;
+right:20px;
+font-size:3rem;
+font-weight:800;
+opacity:.08;
 }
 
-.footer-cta {
-  background: #1976d2;
-  color: white;
-  text-decoration: none;
-  padding: 18px 30px;
-  border-radius: 16px;
-  display: inline-block;
-  font-weight: 700;
+.cta-section{
+text-align:center;
+padding:120px 0;
 }
 
-.mobile-order-bar {
-  display: none;
+.cta-box{
+background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(6,182,212,.12));
+border:1px solid rgba(255,255,255,.08);
+padding:70px 40px;
+border-radius:40px;
+backdrop-filter:blur(18px);
 }
 
-@media(max-width:768px) {
-
-.top-nav {
-  flex-direction: column;
-  gap: 15px;
+.cta-box h2{
+font-size:3rem;
+margin-bottom:20px;
 }
 
-.hero-title {
-  font-size: 2.5rem;
+.cta-box p{
+max-width:700px;
+margin:auto;
+margin-bottom:35px;
+color:#cbd5e1;
 }
 
-.order-grid {
-  grid-template-columns: 1fr;
+footer{
+padding:60px 0;
+border-top:1px solid var(--border);
 }
 
-.mobile-order-bar {
-  display: block;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  padding: 12px;
-  z-index: 9999;
-  box-shadow: 0 -5px 20px rgba(0,0,0,0.08);
+.footer-grid{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:30px;
 }
 
-.mobile-order-bar a {
-  display: block;
-  background: #1976d2;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  padding: 15px;
-  border-radius: 14px;
-  font-weight: 700;
+.footer-links{
+display:flex;
+gap:20px;
+color:#94a3b8;
 }
 
+.floating-order{
+position:fixed;
+bottom:30px;
+right:30px;
+z-index:999;
+}
+
+.floating-order a{
+display:flex;
+align-items:center;
+gap:12px;
+padding:18px 24px;
+border-radius:18px;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+color:white;
+font-weight:700;
+box-shadow:0 20px 40px rgba(59,130,246,.45);
+}
+
+@media(max-width:900px){
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:3.2rem;
+}
+
+.nav-links{
+display:none;
+}
+}
+
+@media(max-width:600px){
+.hero{
+padding-top:150px;
+}
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.section-title h2{
+font-size:2.2rem;
+}
+
+.cta-box h2{
+font-size:2.2rem;
+}
 }
 </style>
 </head>
 <body>
 
-<nav class="top-nav">
-<a href="#" class="nav-logo-container">
-<img src="img/Logoskleputr.png" class="nav-logo">
-<div class="nav-title">awydrukujse.pl</div>
+<nav>
+<div class="container nav-inner">
+<a class="logo" href="#">
+<img src="img/Logoskleputr.png" alt="logo">
+<span>awydrukujse.pl</span>
 </a>
 
 <div class="nav-links">
 <a href="#modele">Modele</a>
+<a href="#jak">Jak to działa</a>
 <a href="#materialy">Materiały</a>
-<a href="#faq">FAQ</a>
-<a href="#zamowienie">Zamów</a>
+<a href="#kontakt">Kontakt</a>
+<a href="#zamowienie" class="nav-btn">Zamów teraz</a>
+</div>
 </div>
 </nav>
 
-<section class="hero-wrapper">
-<div class="hero-box">
+<section class="hero">
+<div class="container hero-grid">
 
-<div class="hero-badge">🖨️ DRUK 3D NA ZAMÓWIENIE</div>
+<div>
+<div class="badge">
+🖨️ Profesjonalny druk 3D premium
+</div>
 
-<h1 class="hero-title">
-Druk 3D na zamówienie<br>
-<span class="gradient-text">dla domu, hobby i firm</span>
+<h1>
+Tworzymy
+<span class="gradient">wydruki 3D</span>
+które robią wrażenie.
 </h1>
 
-<p class="hero-subtitle">
-Szybkie wydruki 3D z PLA, PETG i TPU.
-Tworzymy figurki, dekoracje, organizery,
-części użytkowe oraz realizujemy własne projekty STL.
+<p>
+Od figurek kolekcjonerskich i dekoracji, po części użytkowe oraz indywidualne projekty STL. Szybka realizacja, nowoczesne drukarki FDM i wysoka jakość wykonania.
 </p>
 
 <div class="hero-buttons">
-<a href="#zamowienie" class="hero-cta">🚀 Złóż zamówienie</a>
-<a href="#kontakt" class="hero-cta-secondary">📧 Kontakt</a>
+<a href="#zamowienie" class="primary-btn">Złóż zamówienie</a>
+<a href="#modele" class="secondary-btn">Zobacz modele</a>
+</div>
 </div>
 
-<div class="trust-bar">
-<div>⚡ Realizacja od 24h</div>
-<div>📦 Wysyłka na całą Polskę</div>
-<div>⭐ Wysoka jakość wydruków</div>
+<div class="hero-card">
+<img src="img/lego.jpg" alt="druk 3d">
 </div>
 
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="section-title">
+<h2>Dlaczego właśnie my?</h2>
+<p>
+Łączymy nowoczesny design, szybki kontakt i wysoką jakość druku 3D.
+</p>
+</div>
+
+<div class="features">
+<div class="feature-card">
+<div class="feature-icon">⚡</div>
+<h3>Szybka realizacja</h3>
+<p>Zamówienia realizujemy sprawnie i na bieżąco informujemy o postępach.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🎯</div>
+<h3>Dokładne wydruki</h3>
+<p>Dbamy o estetykę, wytrzymałość i precyzję każdego modelu.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🧠</div>
+<h3>Indywidualne projekty</h3>
+<p>Masz własny plik STL? Wydrukujemy go specjalnie dla Ciebie.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">📦</div>
+<h3>Bezpieczna wysyłka</h3>
+<p>Każdy model jest odpowiednio zabezpieczony do transportu.</p>
+</div>
+</div>
 </div>
 </section>
 
 <section id="modele">
-<h2>📸 Przykładowe modele</h2>
+<div class="container">
+<div class="section-title">
+<h2>Przykładowe modele</h2>
+<p>Wybrane realizacje i najpopularniejsze produkty.</p>
+</div>
 
 <div class="gallery">
 
-<div class="card">
-<div class="image-wrapper">
-<img src="img/kurczaczek.jpg" loading="lazy">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID #001</div>
+<div class="product-card">
+<img src="img/kurczaczek.jpg" alt="kurczak">
+<div class="product-content">
+<div class="product-id">ID #001</div>
 <h3>Kurczak na jajko</h3>
+<p>Idealny dodatek wielkanocny drukowany w wysokiej jakości PLA.</p>
 <div class="price">15 zł</div>
 </div>
-<div class="promo-box">Idealny do koszyczka wielkanocnego</div>
 </div>
 
-<div class="card">
-<div class="image-wrapper">
-<img src="img/baranek.jpg" loading="lazy">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID #002</div>
-<h3>Baranek</h3>
+<div class="product-card">
+<img src="img/baranek.jpg" alt="baranek">
+<div class="product-content">
+<div class="product-id">ID #002</div>
+<h3>Baranek 12 cm</h3>
+<p>Nowoczesna dekoracja świąteczna dostępna w wielu kolorach.</p>
 <div class="price">18 zł</div>
 </div>
-<div class="promo-box">Promocja 5 za 4</div>
 </div>
 
-<div class="card">
-<div class="image-wrapper">
-<img src="img/lego.jpg" loading="lazy">
+<div class="product-card">
+<img src="img/tulipan.PNG" alt="tulipan">
+<div class="product-content">
+<div class="product-id">ID #003</div>
+<h3>Tulipan</h3>
+<p>Elegancka dekoracja drukowana warstwowo z dbałością o detale.</p>
+<div class="price">25 zł</div>
 </div>
-<div class="model-info-container">
-<div class="model-id">ID #003</div>
-<h3>Ludzik LEGO</h3>
+</div>
+
+<div class="product-card">
+<img src="img/krolik20.PNG" alt="królik">
+<div class="product-content">
+<div class="product-id">ID #004</div>
+<h3>Królik 20 cm</h3>
+<p>Minimalistyczna ozdoba dostępna również w wersji XXL.</p>
+<div class="price">25 zł</div>
+</div>
+</div>
+
+<div class="product-card">
+<img src="img/lego.jpg" alt="lego">
+<div class="product-content">
+<div class="product-id">ID #005</div>
+<h3>Ludzik LEGO 40 cm</h3>
+<p>Duży model kolekcjonerski z ruchomymi elementami.</p>
 <div class="price">160 zł</div>
 </div>
-<div class="promo-box">Ruchome ręce i nogi</div>
 </div>
 
+<div class="product-card">
+<img src="img/wazon1.jpg" alt="wazon">
+<div class="product-content">
+<div class="product-id">ID #014</div>
+<h3>Nowoczesny wazon</h3>
+<p>Drukowany w dowolnym kolorze oraz rozmiarze.</p>
+<div class="price">36 zł</div>
+</div>
+</div>
+
+</div>
 </div>
 </section>
 
-<section>
-<h2>🛒 Jak zamówić?</h2>
+<section id="jak">
+<div class="container">
+<div class="section-title">
+<h2>Jak wygląda zamówienie?</h2>
+<p>Cały proces zajmuje tylko kilka minut.</p>
+</div>
 
-<div class="steps-grid">
-
-<div class="step-box">
-<div class="step-number">1</div>
+<div class="how-grid">
+<div class="step">
+<div class="step-number">01</div>
 <h3>Wybierz model</h3>
-<p>Wybierz model z galerii lub wyślij własny STL.</p>
+<p>Możesz wybrać model z galerii lub wysłać własny plik STL.</p>
 </div>
 
-<div class="step-box">
-<div class="step-number">2</div>
-<h3>Podaj szczegóły</h3>
-<p>Kolor, ilość i materiał wydruku.</p>
+<div class="step">
+<div class="step-number">02</div>
+<h3>Skontaktuj się</h3>
+<p>Napisz do nas przez formularz, Telegram lub e-mail.</p>
 </div>
 
-<div class="step-box">
-<div class="step-number">3</div>
+<div class="step">
+<div class="step-number">03</div>
 <h3>Drukujemy</h3>
-<p>Rozpoczynamy produkcję Twojego modelu.</p>
+<p>Rozpoczynamy produkcję na profesjonalnych drukarkach FDM.</p>
 </div>
 
-<div class="step-box">
-<div class="step-number">4</div>
+<div class="step">
+<div class="step-number">04</div>
 <h3>Wysyłka</h3>
-<p>Gotowy wydruk trafia do Ciebie.</p>
+<p>Bezpiecznie pakujemy model i wysyłamy go do Ciebie.</p>
 </div>
-
+</div>
 </div>
 </section>
 
 <section id="materialy">
-<h2>🧪 Poznaj nasze materiały</h2>
-
-<div class="materials-container">
-
-<div class="material-card">
-<h3>🌱 PLA</h3>
-<p>Biodegradowalny materiał idealny do figurek i dekoracji.</p>
+<div class="container">
+<div class="section-title">
+<h2>Materiały premium</h2>
+<p>Dobieramy filament do konkretnego zastosowania.</p>
 </div>
 
-<div class="material-card">
-<h3>⚙️ PETG</h3>
-<p>Mocny materiał odporny na wilgoć i uderzenia.</p>
+<div class="features">
+<div class="feature-card">
+<div class="feature-icon">🌱</div>
+<h3>PLA</h3>
+<p>Ekologiczny i estetyczny materiał idealny do dekoracji i figurek.</p>
 </div>
 
-<div class="material-card">
-<h3>🏀 TPU</h3>
-<p>Elastyczny materiał przypominający gumę.</p>
+<div class="feature-card">
+<div class="feature-icon">⚙️</div>
+<h3>PETG</h3>
+<p>Wytrzymały materiał odporny na uszkodzenia i wilgoć.</p>
 </div>
 
+<div class="feature-card">
+<div class="feature-icon">🏀</div>
+<h3>TPU</h3>
+<p>Elastyczny filament przypominający gumę.</p>
 </div>
-</section>
-
-<section id="zamowienie">
-<div class="order-box">
-
-<h2>🚀 Finalizacja zamówienia</h2>
-
-<form id="orderForm">
-
-<div class="order-grid">
-<input type="text" placeholder="Model + ID" required>
-<input type="text" placeholder="Kolor" required>
-<input type="number" placeholder="Ilość" required>
 </div>
-
-<br>
-
-<input type="text" placeholder="Imię i nazwisko" required>
-<br><br>
-<input type="text" placeholder="Email / Telefon" required>
-<br><br>
-<textarea placeholder="Dodatkowe uwagi"></textarea>
-<br><br>
-
-<button type="submit">POTWIERDZAM ZAMÓWIENIE 🚀</button>
-
-</form>
 </div>
 </section>
 
-<section>
-<h2>💬 Opinie klientów</h2>
-
-<div class="grid">
-
-<div class="box">
-⭐⭐⭐⭐⭐
-<p>„Mega jakość wydruku i szybka realizacja.”</p>
-<b>- Michał, Wrocław</b>
-</div>
-
-<div class="box">
-⭐⭐⭐⭐⭐
-<p>„Świetny kontakt i uczciwe ceny.”</p>
-<b>- Klaudia, Poznań</b>
-</div>
-
-<div class="box">
-⭐⭐⭐⭐⭐
-<p>„Figurka wygląda lepiej niż na zdjęciach.”</p>
-<b>- Adam, Kraków</b>
-</div>
-
-</div>
-</section>
-
-<section id="faq">
-<h2>❓ FAQ</h2>
-
-<div class="faq-container">
-
-<details>
-<summary>Czy modele można malować?</summary>
-<p>Tak, świetnie przyjmują farby akrylowe.</p>
-</details>
-
-<details>
-<summary>Jak wysłać własny model?</summary>
-<p>Najlepiej w formacie STL lub OBJ.</p>
-</details>
-
-<details>
-<summary>Czy wydruki są wytrzymałe?</summary>
-<p>Tak, szczególnie przy wykorzystaniu PETG.</p>
-</details>
-
-</div>
-</section>
-
-<section class="seo-section">
-<h2>Druk 3D na zamówienie</h2>
+<section class="cta-section" id="zamowienie">
+<div class="container">
+<div class="cta-box">
+<h2>Masz pomysł?
+<br>My go wydrukujemy.</h2>
 
 <p>
-Realizujemy profesjonalny druk 3D z materiałów PLA, PETG i TPU.
-Tworzymy figurki, dekoracje, organizery,
-prototypy i części użytkowe.
+Wyślij swój model STL lub wybierz produkt z galerii. Odpowiemy szybko i przygotujemy indywidualną wycenę.
 </p>
 
-<p>
-Możesz wybrać gotowy model lub przesłać własny projekt STL.
-</p>
-</section>
-
-<section id="kontakt">
-<h2>📧 Kontakt</h2>
-
-<div class="social-links">
-<a href="https://www.instagram.com/awydrukujse/" class="social-item">📸 Instagram</a>
-<a href="https://www.tiktok.com/@awydrukujse.pl" class="social-item">🎵 TikTok</a>
-<a href="mailto:awydrukujse@gmail.com" class="social-item">✉️ Email</a>
+<div class="hero-buttons" style="justify-content:center;">
+<a href="https://t.me/Drukarz3Dbot" target="_blank" class="primary-btn">Zamów przez Telegram</a>
+<a href="mailto:awydrukujse@gmail.com" class="secondary-btn">Napisz e-mail</a>
+</div>
+</div>
 </div>
 </section>
 
-<footer>
-<a href="https://t.me/Drukarz3Dbot" class="footer-cta">🚀 Zamów przez Telegram</a>
+<footer id="kontakt">
+<div class="container footer-grid">
 
-<p style="margin-top:40px;color:#aaa;">
-© 2026 awydrukujse.pl
+<div>
+<h3 style="margin-bottom:10px;">awydrukujse.pl</h3>
+<p style="color:#94a3b8;max-width:400px;">
+Nowoczesny druk 3D premium dla klientów indywidualnych i firm.
 </p>
+</div>
+
+<div class="footer-links">
+<a href="https://instagram.com/awydrukujse">Instagram</a>
+<a href="https://tiktok.com/@awydrukujse.pl">TikTok</a>
+<a href="mailto:awydrukujse@gmail.com">E-mail</a>
+</div>
+
+</div>
 </footer>
 
-<div class="mobile-order-bar">
-<a href="#zamowienie">🚀 Zamów wydruk 3D</a>
+<div class="floating-order">
+<a href="#zamowienie">
+🛒 Zamów teraz
+</a>
 </div>
-
-<script>
-const form = document.getElementById('orderForm');
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  alert('✅ Zamówienie zostało wysłane!');
-});
-</script>
-
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [
-{
-"@type": "Question",
-"name": "Czy modele można malować?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Tak, nasze wydruki świetnie przyjmują farby akrylowe."
-}
-}
-]
-}
-</script>
 
 </body>
 </html>
-
