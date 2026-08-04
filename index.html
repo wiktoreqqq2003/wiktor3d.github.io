@@ -1147,166 +1147,159 @@
 </section>
 
 <section id="zamowienie" class="fade-in" style="padding:80px 0;background:linear-gradient(180deg,#f8faff 0%,#ffffff 100%);">
-  <div style="max-width:900px;margin:auto;background:white;padding:50px;border-radius:30px;box-shadow:0 20px 60px rgba(25,118,210,.08);">
 
-    <div style="text-align:center;margin-bottom:40px;">
-      <div style="font-size:50px;">🛒</div>
-      <h2 style="margin:10px 0;font-size:2.4rem;">
-        Zamów wydruk 3D
-      </h2>
-      <p style="color:#666;">
-        Wypełnij formularz. Skontaktuję się z Tobą i potwierdzę szczegóły zamówienia.
-      </p>
-    </div>
+<div style="max-width:900px;margin:auto;background:white;padding:50px;border-radius:30px;box-shadow:0 20px 60px rgba(25,118,210,.08);">
 
-    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px;">
-      <div style="background:#e8f5e9;padding:10px 15px;border-radius:999px;">
-        ✅ Szybka wycena
-      </div>
-      <div style="background:#e3f2fd;padding:10px 15px;border-radius:999px;">
-        ✅ Wysyłka w całej Polsce
-      </div>
-      <div style="background:#fff3e0;padding:10px 15px;border-radius:999px;">
-        ✅ Indywidualne projekty
-      </div>
-    </div>
+<div style="text-align:center;margin-bottom:40px;">
+<div style="font-size:50px;">🛒</div>
 
-    <form id="orderForm" style="display:grid;gap:25px;">
+<h2 style="margin:10px 0;font-size:2.4rem;">
+Zamów wydruk 3D
+</h2>
 
-      <div>
-        <label><strong>Model + ID</strong></label>
-        <input
-          type="text"
-          id="modelId"
-          placeholder="Np. Królik #004"
-          required
-          style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"
-        >
-      </div>
+<p style="color:#666;">
+Wypełnij formularz. Otrzymam zamówienie na Telegramie i skontaktuję się z Tobą.
+</p>
+</div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px;">
+<div style="background:#e8f5e9;padding:10px 15px;border-radius:999px;">
+✅ Szybka wycena
+</div>
 
-        <div>
-          <label><strong>Kolor</strong></label>
-          <select id="modelColor"
-            style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
-            <option>Biały</option>
-            <option>Czarny</option>
-            <option>Czerwony</option>
-            <option>Niebieski</option>
-            <option>Zielony</option>
-            <option>Żółty</option>
-            <option>Różowy</option>
-            <option>Inny (w uwagach)</option>
-          </select>
-        </div>
+<div style="background:#e3f2fd;padding:10px 15px;border-radius:999px;">
+✅ Wysyłka w całej Polsce
+</div>
 
-        <div>
-          <label><strong>Ilość</strong></label>
-          <input
-            type="number"
-            id="modelCount"
-            min="1"
-            value="1"
-            style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"
-          >
-        </div>
+<div style="background:#fff3e0;padding:10px 15px;border-radius:999px;">
+✅ Projekty indywidualne
+</div>
+</div>
 
-      </div>
+<form id="orderForm" style="display:grid;gap:25px;">
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+<div>
+<label><strong>Model + ID</strong></label>
+<input
+type="text"
+id="modelId"
+required
+placeholder="Np. Królik #004"
+style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+</div>
 
-        <div>
-          <label><strong>Imię i nazwisko</strong></label>
-          <input
-            type="text"
-            id="name"
-            required
-            style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"
-          >
-        </div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
 
-        <div>
-          <label><strong>Email</strong></label>
-          <input
-            type="email"
-            id="email"
-            required
-            style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"
-          >
-        </div>
+<div>
+<label><strong>Kolor</strong></label>
+<select id="modelColor"
+style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+<option>Biały</option>
+<option>Czarny</option>
+<option>Czerwony</option>
+<option>Niebieski</option>
+<option>Zielony</option>
+<option>Żółty</option>
+<option>Różowy</option>
+<option>Inny (opisać w uwagach)</option>
+</select>
+</div>
 
-      </div>
+<div>
+<label><strong>Ilość</strong></label>
+<input
+type="number"
+id="modelCount"
+value="1"
+min="1"
+style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+</div>
 
-      <div>
-        <label><strong>Telefon</strong></label>
-        <input
-          type="tel"
-          id="phone"
-          placeholder="Np. 600123456"
-          style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"
-        >
-      </div>
+</div>
 
-      <div>
-        <label><strong>Sposób dostawy</strong></label>
-        <select
-          id="delivery"
-          style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
-          <option>Paczkomat InPost</option>
-          <option>Kurier</option>
-          <option>Odbiór osobisty</option>
-        </select>
-      </div>
+<div>
+<label><strong>Imię i nazwisko</strong></label>
+<input
+type="text"
+id="name"
+required
+placeholder="Jan Kowalski"
+style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+</div>
 
-      <div>
-        <label><strong>Paczkomat / Adres dostawy</strong></label>
-        <input
-          type="text"
-          id="address"
-          placeholder="Np. WRO123M lub adres dostawy"
-          style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"
-        >
-      </div>
+<div>
+<label><strong>Email lub telefon</strong></label>
+<input
+type="text"
+id="contact"
+required
+placeholder="jan@gmail.com lub 600123456"
+style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+</div>
 
-      <div>
-        <label><strong>Dodatkowe uwagi</strong></label>
-        <textarea
-          id="desc"
-          placeholder="Np. większy rozmiar, konkretny kolor, pilne zamówienie..."
-          style="width:100%;height:120px;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"></textarea>
-      </div>
+<div>
+<label><strong>Dostawa</strong></label>
+<select
+style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"
+id="deliveryInfo">
+<option>Paczkomat InPost</option>
+<option>Kurier</option>
+<option>Odbiór osobisty</option>
+</select>
+</div>
 
-      <div style="background:#f7f9fc;padding:20px;border-radius:15px;border:1px solid #e5e7eb;">
-        <strong>📌 Co dalej?</strong>
-        <ul style="margin-top:10px;">
-          <li>Sprawdzam zamówienie</li>
-          <li>Kontaktuję się z Tobą</li>
-          <li>Potwierdzamy szczegóły i cenę</li>
-          <li>Rozpoczynam druk</li>
-        </ul>
-      </div>
+<div>
+<label><strong>Paczkomat / adres dostawy</strong></label>
+<input
+type="text"
+id="addressInfo"
+placeholder="Np. WRO123M"
+style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+</div>
 
-      <button
-        type="submit"
-        style="
-          padding:20px;
-          border:none;
-          border-radius:16px;
-          background:#1976d2;
-          color:white;
-          font-size:1.1rem;
-          font-weight:700;
-          cursor:pointer;
-          box-shadow:0 10px 30px rgba(25,118,210,.25);
-        ">
-        🚀 Wyślij zamówienie
-      </button>
+<div>
+<label><strong>Dodatkowe uwagi</strong></label>
+<textarea
+id="desc"
+placeholder="Np. większy rozmiar, konkretny kolor, pilne zamówienie..."
+style="width:100%;height:120px;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"></textarea>
+</div>
 
-    </form>
+<div style="background:#f7f9fc;padding:20px;border-radius:15px;border:1px solid #e5e7eb;">
+<strong>📌 Co dalej?</strong>
+<ul>
+<li>Sprawdzam zamówienie</li>
+<li>Kontaktuję się z Tobą</li>
+<li>Potwierdzamy szczegóły</li>
+<li>Rozpoczynam druk</li>
+</ul>
+</div>
 
-    <p id="responseMsg" style="display:none;text-align:center;margin-top:20px;"></p>
-  </div>
+<button
+type="submit"
+id="submitBtn"
+style="
+padding:20px;
+border:none;
+border-radius:16px;
+background:#1976d2;
+color:white;
+font-size:1.1rem;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(25,118,210,.25);
+">
+🚀 Wyślij zamówienie
+</button>
+
+</form>
+
+<p id="responseMsg"
+style="display:none;text-align:center;margin-top:20px;">
+</p>
+
+</div>
+
 </section>
 
 <style>
