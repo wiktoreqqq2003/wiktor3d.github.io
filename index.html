@@ -1473,111 +1473,131 @@
 </div>
 </section>
 
+
+
 <!-- SEKCJA ZAMÓWIENIE -->
-<section id="zamowienie" class="fade-in" style="padding:80px 0; background:linear-gradient(180deg, #f8faff 0%, #ffffff 100%);">
-<div style="max-width:900px; margin:auto; background:white; padding:50px 40px; border-radius:30px; box-shadow:0 20px 60px rgba(25,118,210,.08);">
-<div style="text-align:center; margin-bottom:40px;">
-<div style="font-size:50px;">🛒</div>
-<h2 style="margin:10px 0; font-size:2.4rem;">Złóż zamówienie</h2>
-<p style="color:#666;">Wybierz model z listy lub prześlij własny projekt. Otrzymam wiadomość na Telegramie i zaraz się odezwę!</p>
+<section id="zamowienie" class="fade-in" style="padding: 80px 15px; background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%); font-family: system-ui, -apple-system, sans-serif;">
+<div style="max-width: 850px; margin: auto; background: #ffffff; padding: 45px 35px; border-radius: 24px; box-shadow: 0 15px 45px rgba(25, 118, 210, 0.06); border: 1px solid #eef2f6;">
+<!-- Nagłówek -->
+<div style="text-align: center; margin-bottom: 35px;">
+<span style="background: #e3f2fd; color: #1976d2; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Prosty proces</span>
+<h2 style="margin: 12px 0 8px 0; font-size: 2.2rem; color: #1e293b; font-weight: 800;">Złóż zamówienie na druk 3D</h2>
+<p style="color: #64748b; font-size: 1rem; margin: 0; max-width: 500px; margin: auto;">Wybierz opcję, uzupełnij szczegóły i wyślij zgłoszenie. Otrzymasz natychmiastowe potwierdzenie.</p>
 </div>
-<!-- Przełącznik typu zamówienia -->
-<div style="display:flex; justify-content:center; gap:15px; margin-bottom:30px; flex-wrap:wrap;">
-<button type="button" id="btnCatalog" onclick="switchType('catalog')" style="padding:12px 24px; border-radius:30px; border:2px solid #1976d2; background:#1976d2; color:white; font-weight:700; cursor:pointer; transition:0.3s;">
-       📦 Wybierz z katalogu
+<!-- Wybór typu zamówienia -->
+<div style="background: #f1f5f9; padding: 6px; border-radius: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 35px;">
+<button type="button" id="btnCatalog" onclick="switchType('catalog')" style="padding: 14px 20px; border-radius: 12px; border: none; background: #ffffff; color: #1976d2; font-weight: 700; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+<span>📦</span> Katalog modeli
 </button>
-<button type="button" id="btnCustom" onclick="switchType('custom')" style="padding:12px 24px; border-radius:30px; border:2px solid #1976d2; background:transparent; color:#1976d2; font-weight:700; cursor:pointer; transition:0.3s;">
-       💡 Własny projekt / plik STL
+<button type="button" id="btnCustom" onclick="switchType('custom')" style="padding: 14px 20px; border-radius: 12px; border: none; background: transparent; color: #64748b; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+<span>💡</span> Własny projekt / STL
 </button>
 </div>
-<form id="orderForm" style="display:grid; gap:22px;">
-<!-- UKŁAD DLA WYBORU Z KATALOGU -->
-<div id="catalogFields" style="display:grid; gap:22px;">
+<form id="orderForm" style="display: grid; gap: 28px;">
+<!-- KROK 1: WYBÓR MODELU -->
+<div style="background: #fafafa; padding: 24px; border-radius: 18px; border: 1px solid #f1f5f9;">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+<span style="background: #1976d2; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">1</span>
+<h3 style="margin: 0; font-size: 1.1rem; color: #334155;">Co drukujemy?</h3>
+</div>
+<!-- Opcja Katalog -->
+<div id="catalogFields" style="display: grid; gap: 16px;">
 <div>
-<label><strong>Wybierz model z oferty</strong></label>
-<select id="modelSelect" onchange="updateModelInfo()" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
-<option value="Kurczak na jajko (#001)" data-price="15 zł">Kurczak na jajko (#001) - 15 zł</option>
-<option value="Baranek 12cm (#002)" data-price="18 zł">Baranek 12cm (#002) - 18 zł</option>
-<option value="Tulipan (#003)" data-price="25 zł">Tulipan (#003) - 25 zł</option>
-<option value="Królik 20cm (#004)" data-price="25 zł">Królik 20cm (#004) - 25 zł</option>
-<option value="Ludzik LEGO 40cm (#005)" data-price="160 zł">Ludzik LEGO 40cm (#005) - 160 zł</option>
-<option value="Litera PI 26cm (#006)" data-price="45 zł">Litera PI 26cm (#006) - 45 zł</option>
-<option value="Uchwyt na ręcznik (#007)" data-price="5 zł">Uchwyt na ręcznik (#007) - 5 zł</option>
-<option value="Pojemnik na leki (#008)" data-price="18 zł">Pojemnik na leki (#008) - 18 zł</option>
-<option value="Klips do kawy (#009)" data-price="22 zł">Klips do kawy (#009) - 22 zł</option>
-<option value="Identyfikator dla psa (#010)" data-price="15 zł">Identyfikator dla psa (#010) - 15 zł</option>
-<option value="Maszynka do cukierków (#011)" data-price="36 zł">Maszynka do cukierków (#011) - 36 zł</option>
-<option value="Dekoracja Dzień Mamy (#012)" data-price="25 zł">Dekoracja Dzień Mamy (#012) - 25 zł</option>
-<option value="Plakietka narodzin (#013)" data-price="50 zł">Plakietka narodzin (#013) - 50 zł</option>
-<option value="Wazon 20cm (#014)" data-price="36 zł">Wazon 20cm (#014) - 36 zł</option>
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Model z oferty</label>
+<select id="modelSelect" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.95rem; color: #1e293b; outline: none; box-sizing: border-box;">
+<option value="Kurczak na jajko (#001)">Kurczak na jajko (#001) - 15 zł</option>
+<option value="Baranek 12cm (#002)">Baranek 12cm (#002) - 18 zł</option>
+<option value="Tulipan (#003)">Tulipan (#003) - 25 zł</option>
+<option value="Królik 20cm (#004)">Królik 20cm (#004) - 25 zł</option>
+<option value="Ludzik LEGO 40cm (#005)">Ludzik LEGO 40cm (#005) - 160 zł</option>
+<option value="Litera PI 26cm (#006)">Litera PI 26cm (#006) - 45 zł</option>
+<option value="Uchwyt na ręcznik (#007)">Uchwyt na ręcznik (#007) - 5 zł</option>
+<option value="Pojemnik na leki (#008)">Pojemnik na leki (#008) - 18 zł</option>
+<option value="Klips do kawy (#009)">Klips do kawy (#009) - 22 zł</option>
+<option value="Identyfikator dla psa (#010)">Identyfikator dla psa (#010) - 15 zł</option>
+<option value="Maszynka do cukierków (#011)">Maszynka do cukierków (#011) - 36 zł</option>
+<option value="Dekoracja Dzień Mamy (#012)">Dekoracja Dzień Mamy (#012) - 25 zł</option>
+<option value="Plakietka narodzin (#013)">Plakietka narodzin (#013) - 50 zł</option>
+<option value="Wazon 20cm (#014)">Wazon 20cm (#014) - 36 zł</option>
 </select>
 </div>
 </div>
-<!-- UKŁAD DLA WŁASNEGO PROJEKTU -->
-<div id="customFields" style="display:none; grid-gap:22px;">
+<!-- Opcja Własny Projekt -->
+<div id="customFields" style="display: none; grid-gap: 16px;">
 <div>
-<label><strong>Link do pliku / nazwa modelu</strong></label>
-<input type="text" id="customModelInput" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Link do pliku / Nazwa elementu</label>
+<input type="text" id="customModelInput" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
 </div>
 </div>
-<!-- POLE KOLORU I ILOŚCI -->
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+<!-- Warianty Druków -->
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 16px;">
 <div>
-<label><strong>Kolor</strong></label>
-<select id="modelColor" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
-<option value="Biały">Biały</option>
-<option value="Czarny">Czarny</option>
-<option value="Czerwony">Czerwony</option>
-<option value="Niebieski">Niebieski</option>
-<option value="Zielony">Zielony</option>
-<option value="Żółty">Żółty</option>
-<option value="Różowy">Różowy</option>
-<option value="Inny (opisz w uwagach)">Inny (opisz w uwagach)</option>
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Wybrany kolor</label>
+<select id="modelColor" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.95rem; outline: none; box-sizing: border-box;">
+<option value="Biały">⚪ Biały</option>
+<option value="Czarny">⚫ Czarny</option>
+<option value="Czerwony">🔴 Czerwony</option>
+<option value="Niebieski">🔵 Niebieski</option>
+<option value="Zielony">🟢 Zielony</option>
+<option value="Żółty">🟡 Żółty</option>
+<option value="Różowy">🌸 Różowy</option>
+<option value="Inny (opisz w uwagach)">🎨 Inny (opis w uwagach)</option>
 </select>
 </div>
 <div>
-<label><strong>Sztuk</strong></label>
-<input type="number" id="modelCount" value="1" min="1" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Ilość sztuk</label>
+<input type="number" id="modelCount" value="1" min="1" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; text-align: center; outline: none; box-sizing: border-box;">
 </div>
 </div>
-<!-- DANE OSOBOWE I DOSTAWA -->
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+</div>
+<!-- KROK 2: DANE DOKĄD I DLA KOGO -->
+<div style="background: #fafafa; padding: 24px; border-radius: 18px; border: 1px solid #f1f5f9;">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+<span style="background: #1976d2; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">2</span>
+<h3 style="margin: 0; font-size: 1.1rem; color: #334155;">Dane kontaktowe i dostawa</h3>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
 <div>
-<label><strong>Imię i nazwisko</strong></label>
-<input type="text" id="name" required placeholder="Jan Kowalski" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Imię i nazwisko *</label>
+<input type="text" id="name" required placeholder="Jan Kowalski" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
 </div>
 <div>
-<label><strong>Email lub telefon</strong></label>
-<input type="text" id="contact" required placeholder="jan@gmail.com lub 600123456" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">E-mail lub telefon *</label>
+<input type="text" id="contact" required placeholder="jan@gmail.com / 600123456" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
 </div>
 </div>
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
 <div>
-<label><strong>Forma dostawy</strong></label>
-<select id="deliveryInfo" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
-<option value="Paczkomat InPost">Paczkomat InPost</option>
-<option value="Kurier">Kurier</option>
-<option value="Odbiór osobisty">Odbiór osobisty</option>
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Metoda odbioru</label>
+<select id="deliveryInfo" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.95rem; outline: none; box-sizing: border-box;">
+<option value="Paczkomat InPost">📦 Paczkomat InPost</option>
+<option value="Kurier">🚚 Kurier</option>
+<option value="Odbiór osobisty">🤝 Odbiór osobisty</option>
 </select>
 </div>
 <div>
-<label><strong>Paczkomat / Adres</strong></label>
-<input type="text" id="addressInfo" placeholder="Np. Kod paczkomatu WRO123M" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Paczkomat lub adres</label>
+<input type="text" id="addressInfo" placeholder="Kod np. WRO123M lub adres" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
 </div>
 </div>
+</div>
+<!-- UWAGI -->
 <div>
-<label><strong>Uwagi do zamówienia</strong></label>
-<textarea id="desc" placeholder="Wymiary, specjalne życzenia, dodatkowe informacje..." style="width:100%; height:100px; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;"></textarea>
+<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Uwagi lub szczegółowe wymagania (opcjonalnie)</label>
+<textarea id="desc" placeholder="Wpisz specyficzne wymiary, wypełnienie lub terminy..." style="width: 100%; height: 90px; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; resize: vertical; box-sizing: border-box;"></textarea>
 </div>
-<!-- PRZYCISK WYSYŁKI -->
-<button type="submit" id="submitBtn" style="padding:18px; border:none; border-radius:16px; background:#1976d2; color:white; font-size:1.1rem; font-weight:700; cursor:pointer; box-shadow:0 10px 30px rgba(25,118,210,.25); transition:0.3s;">
-       🚀 Wyślij zamówienie
+<!-- PRZYCISK I INFORMACJA -->
+<div>
+<button type="submit" id="submitBtn" style="width: 100%; padding: 18px; border: none; border-radius: 14px; background: #1976d2; color: white; font-size: 1.05rem; font-weight: 700; cursor: pointer; box-shadow: 0 8px 20px rgba(25, 118, 210, 0.25); transition: background 0.2s ease;">
+         🚀 Wyślij zapytanie o druk
 </button>
+<p style="text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 10px; margin-bottom: 0;">Wysyłka nie zobowiązuje do natychmiastowej płatności. Najpierw potwierdzimy szczegóły.</p>
+</div>
 </form>
-<p id="responseMsg" style="display:none; text-align:center; margin-top:20px; font-weight:600;"></p>
+<p id="responseMsg" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; border-radius: 12px; font-size: 0.95rem;"></p>
 </div>
 </section>
-<!-- SKRYPT LOGIKI I OBSŁUGI FORMA -->
+<!-- SKRYPT LOGIKI -->
 <script>
  let currentMode = 'catalog';
  function switchType(mode) {
@@ -1587,17 +1607,25 @@
    const catFields = document.getElementById('catalogFields');
    const cusFields = document.getElementById('customFields');
    if (mode === 'catalog') {
-     btnCat.style.background = '#1976d2';
-     btnCat.style.color = 'white';
+     btnCat.style.background = '#ffffff';
+     btnCat.style.color = '#1976d2';
+     btnCat.style.fontWeight = '700';
+     btnCat.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
      btnCus.style.background = 'transparent';
-     btnCus.style.color = '#1976d2';
+     btnCus.style.color = '#64748b';
+     btnCus.style.fontWeight = '600';
+     btnCus.style.boxShadow = 'none';
      catFields.style.display = 'grid';
      cusFields.style.display = 'none';
    } else {
-     btnCus.style.background = '#1976d2';
-     btnCus.style.color = 'white';
+     btnCus.style.background = '#ffffff';
+     btnCus.style.color = '#1976d2';
+     btnCus.style.fontWeight = '700';
+     btnCus.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
      btnCat.style.background = 'transparent';
-     btnCat.style.color = '#1976d2';
+     btnCat.style.color = '#64748b';
+     btnCat.style.fontWeight = '600';
+     btnCat.style.boxShadow = 'none';
      catFields.style.display = 'none';
      cusFields.style.display = 'grid';
    }
@@ -1608,10 +1636,10 @@
  form.addEventListener('submit', async (e) => {
    e.preventDefault();
    btn.disabled = true;
+   btn.style.opacity = "0.7";
    btn.innerText = "Wysyłanie zamówienia...";
    msg.innerText = "";
    msg.style.display = "none";
-   // Wybieramy odpowiednią nazwę modelu w zależności od trybu
    const selectedModel = (currentMode === 'catalog')
      ? document.getElementById('modelSelect').value
      : (document.getElementById('customModelInput').value || "Własny projekt / plik");
@@ -1633,28 +1661,32 @@
      });
      if (response.ok) {
        msg.style.display = "block";
-       msg.style.color = "#2e7d32";
-       msg.style.background = "#e8f5e9";
-       msg.style.padding = "15px";
-       msg.style.borderRadius = "10px";
-       msg.innerText = "✅ Sukces! Zamówienie wylądowało u nas, bierzemy się za robotę!";
+       msg.style.color = "#15803d";
+       msg.style.background = "#f0fdf4";
+       msg.style.border = "1px solid #bbf7d0";
+       msg.style.padding = "16px";
+       msg.innerText = "✅ Dziękujemy! Zamówienie zostało wysłane. Skontaktuję się z Tobą najszybciej jak to możliwe.";
        form.reset();
      } else {
        throw new Error();
      }
    } catch (error) {
      msg.style.display = "block";
-     msg.style.color = "#ea4335";
-     msg.style.background = "#ffebee";
-     msg.style.padding = "15px";
-     msg.style.borderRadius = "10px";
-     msg.innerText = "❌ Coś poszło nie tak. Sprawdź połączenie lub napisz bezpośrednio.";
+     msg.style.color = "#b91c1c";
+     msg.style.background = "#fef2f2";
+     msg.style.border = "1px solid #fecaca";
+     msg.style.padding = "16px";
+     msg.innerText = "❌ Wystąpił błąd podczas wysyłania. Sprawdź połączenie lub spróbuj ponownie.";
    } finally {
      btn.disabled = false;
-     btn.innerText = "🚀 Wyślij zamówienie";
+     btn.style.opacity = "1";
+     btn.innerText = "🚀 Wyślij zapytanie o druk";
    }
  });
 </script>
+
+
+   
 <style>
    input:focus, textarea:focus {
        border-color: #1976d2 !important;
