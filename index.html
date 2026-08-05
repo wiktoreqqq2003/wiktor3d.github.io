@@ -1474,84 +1474,134 @@
 </section>
 
 <!-- SEKCJA ZAMÓWIENIE -->
-<section id="zamowienie" class="fade-in" style="padding:80px 0;background:linear-gradient(180deg,#f8faff 0%,#ffffff 100%);">
-<div style="max-width:900px;margin:auto;background:white;padding:50px;border-radius:30px;box-shadow:0 20px 60px rgba(25,118,210,.08);">
-<div style="text-align:center;margin-bottom:40px;">
+<section id="zamowienie" class="fade-in" style="padding:80px 0; background:linear-gradient(180deg, #f8faff 0%, #ffffff 100%);">
+<div style="max-width:900px; margin:auto; background:white; padding:50px 40px; border-radius:30px; box-shadow:0 20px 60px rgba(25,118,210,.08);">
+<div style="text-align:center; margin-bottom:40px;">
 <div style="font-size:50px;">🛒</div>
-<h2 style="margin:10px 0;font-size:2.4rem;">Zamów wydruk 3D</h2>
-<p style="color:#666;">Wypełnij formularz. Otrzymam zamówienie na Telegramie i skontaktuję się z Tobą.</p>
+<h2 style="margin:10px 0; font-size:2.4rem;">Złóż zamówienie</h2>
+<p style="color:#666;">Wybierz model z listy lub prześlij własny projekt. Otrzymam wiadomość na Telegramie i zaraz się odezwę!</p>
 </div>
-<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px;">
-<div style="background:#e8f5e9;padding:10px 15px;border-radius:999px;">✅ Szybka wycena</div>
-<div style="background:#e3f2fd;padding:10px 15px;border-radius:999px;">✅ Wysyłka w całej Polsce</div>
-<div style="background:#fff3e0;padding:10px 15px;border-radius:999px;">✅ Projekty indywidualne</div>
+<!-- Przełącznik typu zamówienia -->
+<div style="display:flex; justify-content:center; gap:15px; margin-bottom:30px; flex-wrap:wrap;">
+<button type="button" id="btnCatalog" onclick="switchType('catalog')" style="padding:12px 24px; border-radius:30px; border:2px solid #1976d2; background:#1976d2; color:white; font-weight:700; cursor:pointer; transition:0.3s;">
+       📦 Wybierz z katalogu
+</button>
+<button type="button" id="btnCustom" onclick="switchType('custom')" style="padding:12px 24px; border-radius:30px; border:2px solid #1976d2; background:transparent; color:#1976d2; font-weight:700; cursor:pointer; transition:0.3s;">
+       💡 Własny projekt / plik STL
+</button>
 </div>
-<form id="orderForm" style="display:grid;gap:25px;">
+<form id="orderForm" style="display:grid; gap:22px;">
+<!-- UKŁAD DLA WYBORU Z KATALOGU -->
+<div id="catalogFields" style="display:grid; gap:22px;">
 <div>
-<label><strong>Model + ID</strong></label>
-<input type="text" id="modelId" required placeholder="Np. Królik #004" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+<label><strong>Wybierz model z oferty</strong></label>
+<select id="modelSelect" onchange="updateModelInfo()" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+<option value="Kurczak na jajko (#001)" data-price="15 zł">Kurczak na jajko (#001) - 15 zł</option>
+<option value="Baranek 12cm (#002)" data-price="18 zł">Baranek 12cm (#002) - 18 zł</option>
+<option value="Tulipan (#003)" data-price="25 zł">Tulipan (#003) - 25 zł</option>
+<option value="Królik 20cm (#004)" data-price="25 zł">Królik 20cm (#004) - 25 zł</option>
+<option value="Ludzik LEGO 40cm (#005)" data-price="160 zł">Ludzik LEGO 40cm (#005) - 160 zł</option>
+<option value="Litera PI 26cm (#006)" data-price="45 zł">Litera PI 26cm (#006) - 45 zł</option>
+<option value="Uchwyt na ręcznik (#007)" data-price="5 zł">Uchwyt na ręcznik (#007) - 5 zł</option>
+<option value="Pojemnik na leki (#008)" data-price="18 zł">Pojemnik na leki (#008) - 18 zł</option>
+<option value="Klips do kawy (#009)" data-price="22 zł">Klips do kawy (#009) - 22 zł</option>
+<option value="Identyfikator dla psa (#010)" data-price="15 zł">Identyfikator dla psa (#010) - 15 zł</option>
+<option value="Maszynka do cukierków (#011)" data-price="36 zł">Maszynka do cukierków (#011) - 36 zł</option>
+<option value="Dekoracja Dzień Mamy (#012)" data-price="25 zł">Dekoracja Dzień Mamy (#012) - 25 zł</option>
+<option value="Plakietka narodzin (#013)" data-price="50 zł">Plakietka narodzin (#013) - 50 zł</option>
+<option value="Wazon 20cm (#014)" data-price="36 zł">Wazon 20cm (#014) - 36 zł</option>
+</select>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+</div>
+<!-- UKŁAD DLA WŁASNEGO PROJEKTU -->
+<div id="customFields" style="display:none; grid-gap:22px;">
+<div>
+<label><strong>Link do pliku / nazwa modelu</strong></label>
+<input type="text" id="customModelInput" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+</div>
+</div>
+<!-- POLE KOLORU I ILOŚCI -->
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
 <div>
 <label><strong>Kolor</strong></label>
-<select id="modelColor" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
-<option>Biały</option>
-<option>Czarny</option>
-<option>Czerwony</option>
-<option>Niebieski</option>
-<option>Zielony</option>
-<option>Żółty</option>
-<option>Różowy</option>
-<option>Inny (opisać w uwagach)</option>
+<select id="modelColor" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+<option value="Biały">Biały</option>
+<option value="Czarny">Czarny</option>
+<option value="Czerwony">Czerwony</option>
+<option value="Niebieski">Niebieski</option>
+<option value="Zielony">Zielony</option>
+<option value="Żółty">Żółty</option>
+<option value="Różowy">Różowy</option>
+<option value="Inny (opisz w uwagach)">Inny (opisz w uwagach)</option>
 </select>
 </div>
 <div>
-<label><strong>Ilość</strong></label>
-<input type="number" id="modelCount" value="1" min="1" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+<label><strong>Sztuk</strong></label>
+<input type="number" id="modelCount" value="1" min="1" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
 </div>
 </div>
+<!-- DANE OSOBOWE I DOSTAWA -->
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
 <div>
 <label><strong>Imię i nazwisko</strong></label>
-<input type="text" id="name" required placeholder="Jan Kowalski" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+<input type="text" id="name" required placeholder="Jan Kowalski" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
 </div>
 <div>
 <label><strong>Email lub telefon</strong></label>
-<input type="text" id="contact" required placeholder="jan@gmail.com lub 600123456" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+<input type="text" id="contact" required placeholder="jan@gmail.com lub 600123456" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
 </div>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
 <div>
-<label><strong>Dostawa</strong></label>
-<select id="deliveryInfo" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
-<option>Paczkomat InPost</option>
-<option>Kurier</option>
-<option>Odbiór osobisty</option>
+<label><strong>Forma dostawy</strong></label>
+<select id="deliveryInfo" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+<option value="Paczkomat InPost">Paczkomat InPost</option>
+<option value="Kurier">Kurier</option>
+<option value="Odbiór osobisty">Odbiór osobisty</option>
 </select>
 </div>
 <div>
-<label><strong>Paczkomat / adres dostawy</strong></label>
-<input type="text" id="addressInfo" placeholder="Np. WRO123M" style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+<label><strong>Paczkomat / Adres</strong></label>
+<input type="text" id="addressInfo" placeholder="Np. Kod paczkomatu WRO123M" style="width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;">
+</div>
 </div>
 <div>
-<label><strong>Dodatkowe uwagi</strong></label>
-<textarea id="desc" placeholder="Np. większy rozmiar, konkretny kolor, pilne zamówienie..." style="width:100%;height:120px;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"></textarea>
+<label><strong>Uwagi do zamówienia</strong></label>
+<textarea id="desc" placeholder="Wymiary, specjalne życzenia, dodatkowe informacje..." style="width:100%; height:100px; padding:14px; border-radius:12px; border:1px solid #ddd; margin-top:6px;"></textarea>
 </div>
-<div style="background:#f7f9fc;padding:20px;border-radius:15px;border:1px solid #e5e7eb;">
-<strong>📌 Co dalej?</strong>
-<ul style="margin:10px 0 0 20px;padding:0;">
-<li>Sprawdzam zamówienie</li>
-<li>Kontaktuję się z Tobą</li>
-<li>Potwierdzamy szczegóły</li>
-<li>Rozpoczynam druk</li>
-</ul>
-</div>
-<button type="submit" id="submitBtn" style="padding:20px;border:none;border-radius:16px;background:#1976d2;color:white;font-size:1.1rem;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(25,118,210,.25);">
+<!-- PRZYCISK WYSYŁKI -->
+<button type="submit" id="submitBtn" style="padding:18px; border:none; border-radius:16px; background:#1976d2; color:white; font-size:1.1rem; font-weight:700; cursor:pointer; box-shadow:0 10px 30px rgba(25,118,210,.25); transition:0.3s;">
        🚀 Wyślij zamówienie
 </button>
 </form>
-<p id="responseMsg" style="display:none;text-align:center;margin-top:20px;"></p>
+<p id="responseMsg" style="display:none; text-align:center; margin-top:20px; font-weight:600;"></p>
 </div>
 </section>
-<!-- SKRYPT WYSYŁAJĄCY ZAMÓWIENIE DO CLOUDFLARE WORKERA -->
+<!-- SKRYPT LOGIKI I OBSŁUGI FORMA -->
 <script>
+ let currentMode = 'catalog';
+ function switchType(mode) {
+   currentMode = mode;
+   const btnCat = document.getElementById('btnCatalog');
+   const btnCus = document.getElementById('btnCustom');
+   const catFields = document.getElementById('catalogFields');
+   const cusFields = document.getElementById('customFields');
+   if (mode === 'catalog') {
+     btnCat.style.background = '#1976d2';
+     btnCat.style.color = 'white';
+     btnCus.style.background = 'transparent';
+     btnCus.style.color = '#1976d2';
+     catFields.style.display = 'grid';
+     cusFields.style.display = 'none';
+   } else {
+     btnCus.style.background = '#1976d2';
+     btnCus.style.color = 'white';
+     btnCat.style.background = 'transparent';
+     btnCat.style.color = '#1976d2';
+     catFields.style.display = 'none';
+     cusFields.style.display = 'grid';
+   }
+ }
  const form = document.getElementById('orderForm');
  const msg = document.getElementById('responseMsg');
  const btn = document.getElementById('submitBtn');
@@ -1561,10 +1611,14 @@
    btn.innerText = "Wysyłanie zamówienia...";
    msg.innerText = "";
    msg.style.display = "none";
+   // Wybieramy odpowiednią nazwę modelu w zależności od trybu
+   const selectedModel = (currentMode === 'catalog')
+     ? document.getElementById('modelSelect').value
+     : (document.getElementById('customModelInput').value || "Własny projekt / plik");
    const data = {
      name: document.getElementById('name').value,
      contact: document.getElementById('contact').value,
-     modelId: document.getElementById('modelId').value,
+     modelId: selectedModel,
      color: document.getElementById('modelColor').value,
      count: document.getElementById('modelCount').value,
      delivery: document.getElementById('deliveryInfo').value,
@@ -1601,7 +1655,6 @@
    }
  });
 </script>
-   
 <style>
    input:focus, textarea:focus {
        border-color: #1976d2 !important;
