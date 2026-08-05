@@ -1474,9 +1474,7 @@
 </section>
 
 
-   
-
-<section id="zamowienie" class="fade-in">
+   <section id="zamowienie" class="fade-in">
 <style>
    .order-wrapper {
      display: grid;
@@ -1485,7 +1483,38 @@
      margin-top: 25px;
      align-items: start;
    }
-   /* Lewa strona - Formularz krok po kroku */
+   /* Przełącznik opcji (Tabs) */
+   .tab-switcher {
+     display: flex;
+     gap: 12px;
+     margin-bottom: 25px;
+     background: #f1f5f9;
+     padding: 6px;
+     border-radius: 18px;
+   }
+   .tab-btn {
+     flex: 1;
+     padding: 14px 20px;
+     border: none;
+     border-radius: 14px;
+     background: transparent;
+     color: #64748b;
+     font-family: inherit;
+     font-size: 0.95em;
+     font-weight: 700;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+   }
+   .tab-btn.active {
+     background: #ffffff;
+     color: #1565c0;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+   }
+   /* Formularze */
    .order-form-card {
      background: #ffffff;
      border-radius: 28px;
@@ -1493,28 +1522,11 @@
      border: 1px solid rgba(0, 0, 0, 0.06);
      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
    }
-   .form-step {
-     margin-bottom: 25px;
+   .form-panel {
+     display: none;
    }
-   .step-title {
-     display: flex;
-     align-items: center;
-     gap: 12px;
-     font-size: 1.1em;
-     font-weight: 800;
-     color: #1e293b;
-     margin-bottom: 15px;
-   }
-   .step-number {
-     background: #e2e8f0;
-     color: #334155;
-     width: 28px;
-     height: 28px;
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     font-size: 0.85em;
+   .form-panel.active {
+     display: block;
    }
    .form-row {
      display: grid;
@@ -1525,7 +1537,7 @@
      display: flex;
      flex-direction: column;
      gap: 6px;
-     margin-bottom: 15px;
+     margin-bottom: 18px;
    }
    .input-group label {
      font-size: 0.85em;
@@ -1561,7 +1573,7 @@
      border: none;
      padding: 16px;
      border-radius: 16px;
-     font-size: 1.1em;
+     font-size: 1.05em;
      font-weight: 800;
      cursor: pointer;
      box-shadow: 0 8px 20px rgba(13, 71, 161, 0.25);
@@ -1570,12 +1582,13 @@
      justify-content: center;
      align-items: center;
      gap: 10px;
+     margin-top: 10px;
    }
    .submit-btn:hover {
      transform: translateY(-2px);
      box-shadow: 0 12px 25px rgba(13, 71, 161, 0.35);
    }
-   /* Prawa strona - Panel informacyjny i kontakt */
+   /* Prawa strona */
    .order-info-side {
      display: flex;
      flex-direction: column;
@@ -1592,9 +1605,6 @@
      font-size: 1.3em;
      margin: 0 0 15px 0;
      color: #0d47a1;
-     display: flex;
-     align-items: center;
-     gap: 10px;
    }
    .benefits-list {
      list-style: none;
@@ -1635,131 +1645,144 @@
      display: flex;
      align-items: center;
      gap: 15px;
-     margin-bottom: 15px;
+     margin-bottom: 12px;
      text-decoration: none;
      color: #1e293b;
      font-weight: 600;
      font-size: 0.95em;
-     transition: color 0.3s ease;
    }
-   .contact-item:last-child {
-     margin-bottom: 0;
-   }
-   .contact-item:hover {
-     color: #1565c0;
-   }
+   .contact-item:last-child { margin-bottom: 0; }
    .contact-icon {
      background: #ffffff;
-     width: 42px;
-     height: 42px;
+     width: 40px;
+     height: 40px;
      border-radius: 12px;
      display: flex;
      align-items: center;
      justify-content: center;
-     font-size: 1.2em;
+     font-size: 1.1em;
      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
    }
    @media (max-width: 900px) {
-     .order-wrapper {
-       grid-template-columns: 1fr;
-     }
-     .form-row {
-       grid-template-columns: 1fr;
-     }
-     .order-form-card {
-       padding: 25px;
-     }
+     .order-wrapper { grid-template-columns: 1fr; }
+     .form-row { grid-template-columns: 1fr; }
+     .order-form-card { padding: 25px; }
+     .tab-switcher { flex-direction: column; }
    }
 </style>
-<h2>🛒 Złóż Zamówienie lub Zapytaj</h2>
+<h2>🛒 Składanie Zamówienia i Kontakt</h2>
 <div class="order-wrapper">
-<!-- Lewa strona: Formularz -->
+<!-- Lewa strona: Karty z przełącznikiem -->
 <div class="order-form-card">
-<form action="https://formspree.io/f/TWOJ_FORM_ID" method="POST">
-<!-- Krok 1 -->
-<div class="form-step">
-<div class="step-title">
-<span class="step-number">1</span>
-           Twoje Dane
+<!-- Przełącznik Kategori -->
+<div class="tab-switcher">
+<button class="tab-btn active" onclick="switchOrderTab('zdecydowany')">
+         ✅ Jestem zdecydowany
+</button>
+<button class="tab-btn" onclick="switchOrderTab('zapytanie')">
+         💬 Zapytanie / Własny model
+</button>
+</div>
+<!-- FORMULARZ 1: Jestem Zdecydowany -->
+<form id="panel-zdecydowany" class="form-panel active" action="https://formspree.io/f/TWOJ_FORM_ID" method="POST">
+<input type="hidden" name="typ_zgloszenia" value="Złożenie Zamówienia">
+<div class="form-row">
+<div class="input-group">
+<label for="z-name">Imię i Nazwisko *</label>
+<input type="text" id="z-name" name="imie" placeholder="np. Jan Kowalski" required>
+</div>
+<div class="input-group">
+<label for="z-email">Adres E-mail *</label>
+<input type="email" id="z-email" name="email" placeholder="np. jan@gmail.com" required>
+</div>
 </div>
 <div class="form-row">
 <div class="input-group">
-<label for="name">Imię i Nazwisko *</label>
-<input type="text" id="name" name="name" placeholder="np. Jan Kowalski" required>
+<label for="z-model">ID Modelu lub Nazwa *</label>
+<input type="text" id="z-model" name="model" placeholder="np. #JES-01 lub Wazon Modern" required>
 </div>
 <div class="input-group">
-<label for="email">Adres E-mail *</label>
-<input type="email" id="email" name="email" placeholder="np. jan@gmail.com" required>
+<label for="z-quantity">Ilość sztuk *</label>
+<input type="number" id="z-quantity" name="ilosc" min="1" value="1" required>
 </div>
-</div>
-</div>
-<!-- Krok 2 -->
-<div class="form-step">
-<div class="step-title">
-<span class="step-number">2</span>
-           Co chcesz zamówić?
 </div>
 <div class="form-row">
 <div class="input-group">
-<label for="model-id">ID Modelu lub Nazwa</label>
-<input type="text" id="model-id" name="model_id" placeholder="np. #JES-01 lub własny pomysł">
-</div>
-<div class="input-group">
-<label for="material">Preferowany Materiał</label>
-<select id="material" name="material">
-<option value="PLA">PLA (Dekoracje / Standard)</option>
-<option value="PETG">PETG (Trwały / Wodoodporny)</option>
+<label for="z-material">Wybór Materiału *</label>
+<select id="z-material" name="material" required>
+<option value="PLA">PLA (Standard / Dekoracje)</option>
+<option value="PETG">PETG (Trwałość / Woda)</option>
 <option value="TPU">TPU (Guma / Elastyczny)</option>
-<option value="ASA">ASA (Na zewnątrz / UV)</option>
-<option value="Inny">Nie wiem – doradź mi</option>
+<option value="ASA">ASA (Odporny na UV / Zewnątrz)</option>
 </select>
 </div>
+<div class="input-group">
+<label for="z-color">Preferowany Kolor *</label>
+<input type="text" id="z-color" name="kolor" placeholder="np. Biały Mat, Czarny, Złoty" required>
 </div>
-</div>
-<!-- Krok 3 -->
-<div class="form-step">
-<div class="step-title">
-<span class="step-number">3</span>
-           Szczegóły Zamówienia
 </div>
 <div class="input-group">
-<label for="message">Opis zamówienia, wymiary lub kolor *</label>
-<textarea id="message" name="message" rows="4" placeholder="Opisz dokładnie, czego potrzebujesz (kolor, ilość, rozmiar, link do projektu 3D itp.)..." required></textarea>
-</div>
+<label for="z-notes">Dodatkowe uwagi (opcjonalnie)</label>
+<textarea id="z-notes" name="uwagi" rows="3" placeholder="Informacje o dostawie, szczegółowe wymagania..."></textarea>
 </div>
 <button type="submit" class="submit-btn">
-         🚀 Wyślij zapytanie o wycenę
+         🚀 Wyślij zamówienie
+</button>
+</form>
+<!-- FORMULARZ 2: Zapytanie / Własny Link -->
+<form id="panel-zapytanie" class="form-panel" action="https://formspree.io/f/TWOJ_FORM_ID" method="POST">
+<input type="hidden" name="typ_zgloszenia" value="Zapytanie / Własny Link">
+<div class="form-row">
+<div class="input-group">
+<label for="q-name">Imię i Nazwisko *</label>
+<input type="text" id="q-name" name="imie" placeholder="np. Anna Nowak" required>
+</div>
+<div class="input-group">
+<label for="q-email">Adres E-mail *</label>
+<input type="email" id="q-email" name="email" placeholder="np. anna@gmail.com" required>
+</div>
+</div>
+<div class="input-group">
+<label for="q-link">Link do modelu (Printables, Thingiverse, MakerWorld itp.)</label>
+<input type="url" id="q-link" name="link_do_modelu" placeholder="https://www.printables.com/model/...">
+</div>
+<div class="input-group">
+<label for="q-message">Treść pytania / Opis projektu *</label>
+<textarea id="q-message" name="wiadomosc" rows="4" placeholder="Napisz w czym możemy pomóc, podaj wymiary lub opisz swój pomysł..." required></textarea>
+</div>
+<button type="submit" class="submit-btn">
+         📩 Wyślij zapytanie
 </button>
 </form>
 </div>
 <!-- Prawa strona: Informacje & Kontakt -->
 <div class="order-info-side">
 <div class="info-card">
-<h3>⚡ Jak to działa?</h3>
+<h3>⚡ Jak realizujemy zgłoszenia?</h3>
 <ul class="benefits-list">
 <li>
 <span>1</span>
-<div><strong>Wysyłasz zgłoszenie:</strong> Opisujesz co chcesz wydrukować lub podajesz ID gotowego modelu.</div>
+<div><strong>Odbiór wiadomości:</strong> Po wysłaniu formularza od razu sprawdzamy szczegóły zamówienia lub link do projektu.</div>
 </li>
 <li>
 <span>2</span>
-<div><strong>Szybka wycena:</strong> W ciągu kilku godzin wracamy do Ciebie z wyceną oraz czasem realizacji.</div>
+<div><strong>Szybka odpowiedź:</strong> Wracamy do Ciebie z potwierdzeniem, ceną i przewidywanym czasem wysyłki.</div>
 </li>
 <li>
 <span>3</span>
-<div><strong>Druk i Wysyłka:</strong> Po akceptacji drukujemy Twój przedmiot i bezpiecznie go pakujemy.</div>
+<div><strong>Start druku:</strong> Po Twojej akceptacji przechodzimy do drukowania i bezpiecznego pakowania paczki.</div>
 </li>
 </ul>
 </div>
 <div class="direct-contact-box">
-<h3 style="margin: 0 0 15px 0; font-size: 1.1em; color: #1e293b;">💬 Preferujesz szybki kontakt?</h3>
+<h3 style="margin: 0 0 15px 0; font-size: 1.1em; color: #1e293b;">💬 Chcesz napisać bezpośrednio?</h3>
 <a href="mailto:kontakt@awydrukujse.pl" class="contact-item">
 <div class="contact-icon">✉️</div>
 <div>kontakt@awydrukujse.pl</div>
 </a>
 <a href="https://instagram.com" target="_blank" class="contact-item">
 <div class="contact-icon">📸</div>
-<div>Napisz na Instagramie</div>
+<div>Wiadomość na Instagramie</div>
 </a>
 <a href="https://facebook.com" target="_blank" class="contact-item">
 <div class="contact-icon">📱</div>
@@ -1768,7 +1791,24 @@
 </div>
 </div>
 </div>
+<script>
+   function switchOrderTab(tabName) {
+     // Przyciski
+     const buttons = document.querySelectorAll('.tab-btn');
+     buttons.forEach(btn => btn.classList.remove('active'));
+     event.currentTarget.classList.add('active');
+     // Panele
+     document.getElementById('panel-zdecydowany').classList.remove('active');
+     document.getElementById('panel-zapytanie').classList.remove('active');
+     if (tabName === 'zdecydowany') {
+       document.getElementById('panel-zdecydowany').classList.add('active');
+     } else {
+       document.getElementById('panel-zapytanie').classList.add('active');
+     }
+   }
+</script>
 </section>
+
 
    
 <style>
