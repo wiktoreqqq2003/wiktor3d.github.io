@@ -1210,232 +1210,238 @@
 </a>
 </div>
 </section>
+
+
 <section id="materialy" class="fade-in">
 <style>
-   .mat-intro {
-     text-align: center;
-     max-width: 750px;
-     margin: 0 auto 40px auto;
-     color: #5a6e7f;
-     font-size: 1.1em;
-     line-height: 1.6;
-   }
-   .mat-grid {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-     gap: 25px;
-     margin-bottom: 40px;
-   }
-   .mat-card {
-     background: #ffffff;
-     border-radius: 24px;
-     padding: 30px 25px;
-     border: 1px solid rgba(0, 0, 0, 0.06);
-     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-     transition: all 0.3s ease;
+   .materialy-container {
      display: flex;
      flex-direction: column;
-     position: relative;
-     overflow: hidden;
+     gap: 30px;
+     margin-top: 25px;
    }
-   .mat-card:hover {
-     transform: translateY(-8px);
-     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-   }
-   .mat-card::before {
-     content: '';
-     position: absolute;
-     top: 0;
-     left: 0;
-     right: 0;
-     height: 6px;
-   }
-   /* Paski kolorystyczne */
-   .theme-pla::before { background: linear-gradient(90deg, #4caf50, #81c784); }
-   .theme-silk::before { background: linear-gradient(90deg, #ffb300, #ff8f00); }
-   .theme-petg::before { background: linear-gradient(90deg, #1e88e5, #64b5f6); }
-   .theme-bambu::before { background: linear-gradient(90deg, #00e676, #00b0ff); }
-   .mat-header {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     margin-bottom: 18px;
-   }
-   .mat-icon {
-     font-size: 2em;
-     background: #f8fafc;
-     width: 55px;
-     height: 55px;
-     border-radius: 16px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-   }
-   .mat-tag {
-     font-size: 0.75em;
-     font-weight: 800;
-     padding: 6px 14px;
-     border-radius: 20px;
-     text-transform: uppercase;
-     letter-spacing: 0.5px;
-   }
-   .theme-pla .mat-tag { background: #e8f5e9; color: #2e7d32; }
-   .theme-silk .mat-tag { background: #fff8e1; color: #f57f17; }
-   .theme-petg .mat-tag { background: #e3f2fd; color: #1565c0; }
-   .theme-bambu .mat-tag { background: #e0f2f1; color: #00796b; }
-   .mat-card h3 {
-     font-size: 1.5em;
-     margin: 0 0 10px 0;
-     color: #1e293b;
-   }
-   .mat-card p {
-     color: #64748b;
-     font-size: 0.95em;
-     line-height: 1.6;
-     margin-bottom: 20px;
-   }
-   .mat-features {
-     list-style: none;
-     padding: 0;
-     margin: auto 0 0 0;
-     border-top: 1px solid #f1f5f9;
-     padding-top: 18px;
-   }
-   .mat-features li {
-     display: flex;
-     align-items: center;
-     gap: 10px;
-     font-size: 0.9em;
-     color: #334155;
-     font-weight: 600;
-     margin-bottom: 8px;
-   }
-   .mat-features li:last-child {
-     margin-bottom: 0;
-   }
-   /* Banner ekologiczny na dole */
-   .eco-banner {
-     background: linear-gradient(135deg, #111d0e, #1c2e17);
-     color: #ffffff;
+   .mat-banner-card {
+     display: grid;
+     grid-template-columns: 1fr 1.2fr;
+     background: #ffffff;
      border-radius: 28px;
+     overflow: hidden;
+     border: 1px solid rgba(0, 0, 0, 0.06);
+     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+     position: relative;
+   }
+   .mat-banner-card:hover {
+     transform: translateY(-5px) scale(1.005);
+     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+   }
+   /* Lewa strona - Treść */
+   .mat-content {
      padding: 35px 40px;
      display: flex;
-     align-items: center;
-     justify-content: space-between;
-     gap: 30px;
-     border-top: 5px solid #4caf50;
+     flex-direction: column;
+     justify-content: center;
    }
-   .eco-text h3 {
-     font-size: 1.6em;
-     margin: 0 0 8px 0;
-     color: #a5d6a7;
+   .mat-badge {
+     align-self: flex-start;
+     padding: 6px 16px;
+     border-radius: 20px;
+     font-size: 0.8em;
+     font-weight: 800;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+     margin-bottom: 12px;
    }
-   .eco-text p {
-     color: #c8e6c9;
-     margin: 0;
-     font-size: 0.95em;
+   .mat-title {
+     font-size: 2em;
+     font-weight: 800;
+     margin: 0 0 10px 0;
+     line-height: 1.2;
+   }
+   .mat-desc {
+     font-size: 0.98em;
+     color: #5a6e7f;
+     margin-bottom: 20px;
      line-height: 1.6;
    }
-   .eco-badge-large {
-     font-size: 3.5em;
-     background: rgba(255, 255, 255, 0.05);
-     width: 90px;
-     height: 90px;
-     border-radius: 50%;
+   .mat-bullets {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+   }
+   .mat-bullet-item {
+     background: #f8fafc;
+     border: 1px solid #e2e8f0;
+     padding: 6px 14px;
+     border-radius: 12px;
+     font-size: 0.85em;
+     font-weight: 700;
+     color: #334155;
+   }
+   /* Prawa strona - Wizualizacja cech */
+   .mat-visual-side {
+     padding: 30px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     gap: 15px;
+     position: relative;
+     border-left: 1px solid #f1f5f9;
+   }
+   .mat-feature-box {
+     background: #ffffff;
+     border-radius: 18px;
+     padding: 16px 20px;
      display: flex;
      align-items: center;
-     justify-content: center;
-     flex-shrink: 0;
+     gap: 15px;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+     border: 1px solid rgba(0, 0, 0, 0.04);
    }
-   @media (max-width: 768px) {
-     .eco-banner {
-       flex-direction: column;
-       text-align: center;
-       padding: 30px 20px;
+   .mat-feature-box span {
+     font-size: 1.6em;
+   }
+   .mat-feature-box div {
+     font-size: 0.9em;
+     color: #475569;
+     font-weight: 600;
+   }
+   /* Motywy kolorystyczne */
+   /* PLA */
+   .mat-pla { background: linear-gradient(135deg, #ffffff, #f4fbf7); }
+   .mat-pla .mat-badge { background: #e8f5e9; color: #2e7d32; }
+   .mat-pla .mat-title { color: #1b4332; }
+   /* PETG */
+   .mat-petg { background: linear-gradient(135deg, #ffffff, #f0f7ff); }
+   .mat-petg .mat-badge { background: #e3f2fd; color: #1565c0; }
+   .mat-petg .mat-title { color: #0d47a1; }
+   /* TPU */
+   .mat-tpu { background: linear-gradient(135deg, #ffffff, #fffdf0); }
+   .mat-tpu .mat-badge { background: #fff8e1; color: #f57f17; }
+   .mat-tpu .mat-title { color: #e65100; }
+   /* ASA */
+   .mat-asa { background: linear-gradient(135deg, #ffffff, #fcf8ff); }
+   .mat-asa .mat-badge { background: #f3e5f5; color: #7b1fa2; }
+   .mat-asa .mat-title { color: #4a148c; }
+   @media (max-width: 850px) {
+     .mat-banner-card {
+       grid-template-columns: 1fr;
+     }
+     .mat-visual-side {
+       border-left: none;
+       border-top: 1px solid #f1f5f9;
+       padding: 20px 25px 30px;
+     }
+     .mat-content {
+       padding: 30px 25px 20px;
      }
    }
 </style>
-<h2>🧵 Materiały i Technologia</h2>
-<p class="mat-intro">
-   Stawiamy na trwałość, precyzję i ekologię. Poznaj filamenty oraz sprzęt, z których tworzymy nasze wydruki 3D.
-</p>
-<div class="mat-grid">
+<h2>🧵 Poznaj Nasze Materiały</h2>
+<div class="materialy-container">
 <!-- PLA -->
-<div class="mat-card theme-pla">
-<div class="mat-header">
-<div class="mat-icon">🌱</div>
-<span class="mat-tag">Ekologiczny</span>
-</div>
-<h3>PLA / PLA+</h3>
-<p>
-       Podstawowy, biodegradowalny materiał pozyskiwany z surowców naturalnych (kukurydza). Idealny do dekoracji.
+<div class="mat-banner-card mat-pla">
+<div class="mat-content">
+<span class="mat-badge">🌱 Najpopularniejszy & Eko</span>
+<h3 class="mat-title">PLA</h3>
+<p class="mat-desc">
+         Ekologiczne tworzywo pozyskiwane z odnawialnych surowców (np. mączki kukurydzianej). Idealne do wszystkich dekoracji domowych, figurek i wazonów. Posiada świetne wykończenie i bogatą paletę kolorów.
 </p>
-<ul class="mat-features">
-<li>✅ Bezpieczny dla środowiska</li>
-<li>✅ Precyzyjne detale</li>
-<li>✅ Świetny do użytku domowego</li>
-</ul>
+<div class="mat-bullets">
+<span class="mat-bullet-item">🌿 Biodegradowalny</span>
+<span class="mat-bullet-item">✨ Wysoka estetyka</span>
+<span class="mat-bullet-item">🎨 Bardzo dużo kolorów</span>
 </div>
-<!-- SILK PLA -->
-<div class="mat-card theme-silk">
-<div class="mat-header">
-<div class="mat-icon">✨</div>
-<span class="mat-tag">Efekt Błysku</span>
 </div>
-<h3>Silk PLA</h3>
-<p>
-       Odmiana PLA z dodatkiem jedwabistego połysku. Nadaje figurkom i wazonom niesamowity, metaliczny blask.
-</p>
-<ul class="mat-features">
-<li>✅ Jedwabisty, lśniący efekt</li>
-<li>✅ Maskowanie warstw druku</li>
-<li>✅ Unikalny, elegancki wygląd</li>
-</ul>
+<div class="mat-visual-side">
+<div class="mat-feature-box">
+<span>🏠</span>
+<div>Dedykowany do dekoracji wnętrz i na półkę</div>
+</div>
+<div class="mat-feature-box">
+<span>🎯</span>
+<div>Idealne odwzorowanie drobnych detali</div>
+</div>
+</div>
 </div>
 <!-- PETG -->
-<div class="mat-card theme-petg">
-<div class="mat-header">
-<div class="mat-icon">🛡️</div>
-<span class="mat-tag">Wytrzymały</span>
-</div>
-<h3>PETG</h3>
-<p>
-       Materiał o podwyższonej odporności na uderzenia, wilgoć oraz wyższe temperatury. Idealny do akcesoriów użytkowych.
+<div class="mat-banner-card mat-petg">
+<div class="mat-content">
+<span class="mat-badge">🛡️ Trwały & Użytkowy</span>
+<h3 class="mat-title">PETG</h3>
+<p class="mat-desc">
+         Wytrzymały i odporny na uderzenia materiał, który dobrze radzi sobie z wilgocią oraz wyższymi temperaturami. Świetny wybór na przedmioty codziennego użytku, uchwyty i organizery.
 </p>
-<ul class="mat-features">
-<li>✅ Odporność na wodę i UV</li>
-<li>✅ Elastyczny i niełamliwy</li>
-<li>✅ Trwałość na lata</li>
-</ul>
+<div class="mat-bullets">
+<span class="mat-bullet-item">💧 Odporny na wodę</span>
+<span class="mat-bullet-item">💪 Bardzo mocny</span>
+<span class="mat-bullet-item">☀️ Odporniejszy na ciepło</span>
 </div>
-<!-- JAKOŚĆ / BAMBU LAB -->
-<div class="mat-card theme-bambu">
-<div class="mat-header">
-<div class="mat-icon">⚡</div>
-<span class="mat-tag">Jakość Druku</span>
 </div>
-<h3>Bambu Lab</h3>
-<p>
-       Drukujemy na nowoczesnych maszynach Bambu Lab, co gwarantuje niesamowitą powtarzalność i gładkie wykończenie.
+<div class="mat-visual-side">
+<div class="mat-feature-box">
+<span>🔑</span>
+<div>Na breloki, uchwyty i akcesoria biurkowe</div>
+</div>
+<div class="mat-feature-box">
+<span>🛠️</span>
+<div>Wysoka odporność na pęknięcia i zarysowania</div>
+</div>
+</div>
+</div>
+<!-- TPU -->
+<div class="mat-banner-card mat-tpu">
+<div class="mat-content">
+<span class="mat-badge">🌀 Elastyczny jak Guma</span>
+<h3 class="mat-title">TPU</h3>
+<p class="mat-desc">
+         Unikalny, giętki materiał o właściwościach gumy. Elementy z TPU można zginać i ściskać, a i tak wrócą do swojego pierwotnego kształtu.
 </p>
-<ul class="mat-features">
-<li>✅ Ekstremalna dokładność</li>
-<li>✅ Wielokolorowe wydruki</li>
-<li>✅ Gładka powierzchnia</li>
-</ul>
+<div class="mat-bullets">
+<span class="mat-bullet-item">🔄 Pełna elastyczność</span>
+<span class="mat-bullet-item">🛡️ Amortyzuje uderzenia</span>
+<span class="mat-bullet-item">⛓️ Trudny do zniszczenia</span>
 </div>
 </div>
-<!-- Baner Ekologiczny -->
-<div class="eco-banner">
-<div class="eco-text">
-<h3>🌍 Ekologiczne podejście</h3>
-<p>
-       Dbamy o planetę! Większość naszych dekoracji powstaje z biodegradowalnego tworzywa PLA. Dodatkowo pakujemy zamówienia w bezpieczny, ekologiczny sposób.
+<div class="mat-visual-side">
+<div class="mat-feature-box">
+<span>📱</span>
+<div>Na etui, odbojniki, podkładki i uszczelki</div>
+</div>
+<div class="mat-feature-box">
+<span>💥</span>
+<div>Absorbuje wstrząsy i uderzenia</div>
+</div>
+</div>
+</div>
+<!-- ASA -->
+<div class="mat-banner-card mat-asa">
+<div class="mat-content">
+<span class="mat-badge">☀️ Odporny na Warunki Zewnętrzne</span>
+<h3 class="mat-title">ASA</h3>
+<p class="mat-desc">
+         Materiał klasy premium przeznaczony do zadań specjalnych. Charakteryzuje się pełną odpornością na promieniowanie UV oraz zmienne warunki atmosferyczne, dzięki czemu nie blaknie na słońcu.
 </p>
+<div class="mat-bullets">
+<span class="mat-bullet-item">☀️ Odporny na słońce / UV</span>
+<span class="mat-bullet-item">🌧️ Na zewnątrz budynku</span>
+<span class="mat-bullet-item">🔥 Wysoka wytrzymałość</span>
 </div>
-<div class="eco-badge-large">♻️</div>
+</div>
+<div class="mat-visual-side">
+<div class="mat-feature-box">
+<span>🏡</span>
+<div>Na dekoracje ogrodowe, tabliczki i elementy zewnętrzne</div>
+</div>
+<div class="mat-feature-box">
+<span>🎨</span>
+<div>Kolory nie żółkną i nie blakną z czasem</div>
+</div>
+</div>
+</div>
 </div>
 </section>
+   
 <section class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 40px;">
 <h2>⏱ Czas realizacji i wysyłka</h2>
 <div class="grid">
