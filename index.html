@@ -700,6 +700,7 @@
 <p class="nav-title">awydrukujse.pl</p>
 </a>
 <div class="nav-links">
+<a href="#kategorie">Kategorie</a>
 <a href="#modele">Modele</a>
 <a href="#materialy">Materiały</a>
 <a href="#faq">FAQ</a>
@@ -1471,137 +1472,305 @@
 </details>
 </div>
 </section>
-<section id="zamowienie" class="fade-in" style="padding:80px 0;background:linear-gradient(180deg,#f8faff 0%,#ffffff 100%);">
-<div style="max-width:900px;margin:auto;background:white;padding:50px;border-radius:30px;box-shadow:0 20px 60px rgba(25,118,210,.08);">
-<div style="text-align:center;margin-bottom:40px;">
-<div style="font-size:50px;">🛒</div>
-<h2 style="margin:10px 0;font-size:2.4rem;">
-Zamów wydruk 3D
-</h2>
-<p style="color:#666;">
-Wypełnij formularz. Otrzymam zamówienie na Telegramie i skontaktuję się z Tobą.
-</p>
+
+
+   
+
+<section id="zamowienie" class="fade-in">
+<style>
+   .order-wrapper {
+     display: grid;
+     grid-template-columns: 1.2fr 0.8fr;
+     gap: 35px;
+     margin-top: 25px;
+     align-items: start;
+   }
+   /* Lewa strona - Formularz krok po kroku */
+   .order-form-card {
+     background: #ffffff;
+     border-radius: 28px;
+     padding: 40px;
+     border: 1px solid rgba(0, 0, 0, 0.06);
+     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+   }
+   .form-step {
+     margin-bottom: 25px;
+   }
+   .step-title {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     font-size: 1.1em;
+     font-weight: 800;
+     color: #1e293b;
+     margin-bottom: 15px;
+   }
+   .step-number {
+     background: #e2e8f0;
+     color: #334155;
+     width: 28px;
+     height: 28px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 0.85em;
+   }
+   .form-row {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 15px;
+   }
+   .input-group {
+     display: flex;
+     flex-direction: column;
+     gap: 6px;
+     margin-bottom: 15px;
+   }
+   .input-group label {
+     font-size: 0.85em;
+     font-weight: 700;
+     color: #64748b;
+   }
+   .input-group input,
+   .input-group select,
+   .input-group textarea {
+     width: 100%;
+     padding: 12px 16px;
+     border-radius: 14px;
+     border: 1.5px solid #e2e8f0;
+     font-family: inherit;
+     font-size: 0.95em;
+     background: #f8fafc;
+     color: #1e293b;
+     box-sizing: border-box;
+     transition: all 0.3s ease;
+   }
+   .input-group input:focus,
+   .input-group select:focus,
+   .input-group textarea:focus {
+     outline: none;
+     border-color: #1565c0;
+     background: #ffffff;
+     box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.1);
+   }
+   .submit-btn {
+     width: 100%;
+     background: linear-gradient(135deg, #1565c0, #0d47a1);
+     color: white;
+     border: none;
+     padding: 16px;
+     border-radius: 16px;
+     font-size: 1.1em;
+     font-weight: 800;
+     cursor: pointer;
+     box-shadow: 0 8px 20px rgba(13, 71, 161, 0.25);
+     transition: all 0.3s ease;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+   }
+   .submit-btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 12px 25px rgba(13, 71, 161, 0.35);
+   }
+   /* Prawa strona - Panel informacyjny i kontakt */
+   .order-info-side {
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+   }
+   .info-card {
+     background: #ffffff;
+     border-radius: 24px;
+     padding: 30px;
+     border: 1px solid rgba(0, 0, 0, 0.06);
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+   }
+   .info-card h3 {
+     font-size: 1.3em;
+     margin: 0 0 15px 0;
+     color: #0d47a1;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+   }
+   .benefits-list {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+   }
+   .benefits-list li {
+     display: flex;
+     align-items: flex-start;
+     gap: 12px;
+     font-size: 0.9em;
+     color: #475569;
+     line-height: 1.5;
+   }
+   .benefits-list span {
+     background: #e8eaf6;
+     color: #1565c0;
+     width: 24px;
+     height: 24px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 0.8em;
+     font-weight: 800;
+     flex-shrink: 0;
+   }
+   .direct-contact-box {
+     background: linear-gradient(135deg, #f8fafc, #edf2f7);
+     border-radius: 24px;
+     padding: 25px;
+     border: 1px solid #e2e8f0;
+   }
+   .contact-item {
+     display: flex;
+     align-items: center;
+     gap: 15px;
+     margin-bottom: 15px;
+     text-decoration: none;
+     color: #1e293b;
+     font-weight: 600;
+     font-size: 0.95em;
+     transition: color 0.3s ease;
+   }
+   .contact-item:last-child {
+     margin-bottom: 0;
+   }
+   .contact-item:hover {
+     color: #1565c0;
+   }
+   .contact-icon {
+     background: #ffffff;
+     width: 42px;
+     height: 42px;
+     border-radius: 12px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.2em;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+   }
+   @media (max-width: 900px) {
+     .order-wrapper {
+       grid-template-columns: 1fr;
+     }
+     .form-row {
+       grid-template-columns: 1fr;
+     }
+     .order-form-card {
+       padding: 25px;
+     }
+   }
+</style>
+<h2>🛒 Złóż Zamówienie lub Zapytaj</h2>
+<div class="order-wrapper">
+<!-- Lewa strona: Formularz -->
+<div class="order-form-card">
+<form action="https://formspree.io/f/TWOJ_FORM_ID" method="POST">
+<!-- Krok 1 -->
+<div class="form-step">
+<div class="step-title">
+<span class="step-number">1</span>
+           Twoje Dane
 </div>
-<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px;">
-<div style="background:#e8f5e9;padding:10px 15px;border-radius:999px;">
-✅ Szybka wycena
+<div class="form-row">
+<div class="input-group">
+<label for="name">Imię i Nazwisko *</label>
+<input type="text" id="name" name="name" placeholder="np. Jan Kowalski" required>
 </div>
-<div style="background:#e3f2fd;padding:10px 15px;border-radius:999px;">
-✅ Wysyłka w całej Polsce
-</div>
-<div style="background:#fff3e0;padding:10px 15px;border-radius:999px;">
-✅ Projekty indywidualne
+<div class="input-group">
+<label for="email">Adres E-mail *</label>
+<input type="email" id="email" name="email" placeholder="np. jan@gmail.com" required>
 </div>
 </div>
-<form id="orderForm" style="display:grid;gap:25px;">
-<div>
-<label><strong>Model + ID</strong></label>
-<input
-type="text"
-id="modelId"
-required
-placeholder="Np. Królik #004"
-style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-<div>
-<label><strong>Kolor</strong></label>
-<select id="modelColor"
-style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
-<option>Biały</option>
-<option>Czarny</option>
-<option>Czerwony</option>
-<option>Niebieski</option>
-<option>Zielony</option>
-<option>Żółty</option>
-<option>Różowy</option>
-<option>Inny (opisać w uwagach)</option>
+<!-- Krok 2 -->
+<div class="form-step">
+<div class="step-title">
+<span class="step-number">2</span>
+           Co chcesz zamówić?
+</div>
+<div class="form-row">
+<div class="input-group">
+<label for="model-id">ID Modelu lub Nazwa</label>
+<input type="text" id="model-id" name="model_id" placeholder="np. #JES-01 lub własny pomysł">
+</div>
+<div class="input-group">
+<label for="material">Preferowany Materiał</label>
+<select id="material" name="material">
+<option value="PLA">PLA (Dekoracje / Standard)</option>
+<option value="PETG">PETG (Trwały / Wodoodporny)</option>
+<option value="TPU">TPU (Guma / Elastyczny)</option>
+<option value="ASA">ASA (Na zewnątrz / UV)</option>
+<option value="Inny">Nie wiem – doradź mi</option>
 </select>
 </div>
-<div>
-<label><strong>Ilość</strong></label>
-<input
-type="number"
-id="modelCount"
-value="1"
-min="1"
-style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
 </div>
 </div>
-<div>
-<label><strong>Imię i nazwisko</strong></label>
-<input
-type="text"
-id="name"
-required
-placeholder="Jan Kowalski"
-style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+<!-- Krok 3 -->
+<div class="form-step">
+<div class="step-title">
+<span class="step-number">3</span>
+           Szczegóły Zamówienia
 </div>
-<div>
-<label><strong>Email lub telefon</strong></label>
-<input
-type="text"
-id="contact"
-required
-placeholder="jan@gmail.com lub 600123456"
-style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
+<div class="input-group">
+<label for="message">Opis zamówienia, wymiary lub kolor *</label>
+<textarea id="message" name="message" rows="4" placeholder="Opisz dokładnie, czego potrzebujesz (kolor, ilość, rozmiar, link do projektu 3D itp.)..." required></textarea>
 </div>
-<div>
-<label><strong>Dostawa</strong></label>
-<select
-style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"
-id="deliveryInfo">
-<option>Paczkomat InPost</option>
-<option>Kurier</option>
-<option>Odbiór osobisty</option>
-</select>
 </div>
-<div>
-<label><strong>Paczkomat / adres dostawy</strong></label>
-<input
-type="text"
-id="addressInfo"
-placeholder="Np. WRO123M"
-style="width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;">
-</div>
-<div>
-<label><strong>Dodatkowe uwagi</strong></label>
-<textarea
-id="desc"
-placeholder="Np. większy rozmiar, konkretny kolor, pilne zamówienie..."
-style="width:100%;height:120px;padding:14px;border-radius:12px;border:1px solid #ddd;margin-top:6px;"></textarea>
-</div>
-<div style="background:#f7f9fc;padding:20px;border-radius:15px;border:1px solid #e5e7eb;">
-<strong>📌 Co dalej?</strong>
-<ul>
-<li>Sprawdzam zamówienie</li>
-<li>Kontaktuję się z Tobą</li>
-<li>Potwierdzamy szczegóły</li>
-<li>Rozpoczynam druk</li>
-</ul>
-</div>
-<button
-type="submit"
-id="submitBtn"
-style="
-padding:20px;
-border:none;
-border-radius:16px;
-background:#1976d2;
-color:white;
-font-size:1.1rem;
-font-weight:700;
-cursor:pointer;
-box-shadow:0 10px 30px rgba(25,118,210,.25);
-">
-🚀 Wyślij zamówienie
+<button type="submit" class="submit-btn">
+         🚀 Wyślij zapytanie o wycenę
 </button>
 </form>
-<p id="responseMsg"
-style="display:none;text-align:center;margin-top:20px;">
-</p>
+</div>
+<!-- Prawa strona: Informacje & Kontakt -->
+<div class="order-info-side">
+<div class="info-card">
+<h3>⚡ Jak to działa?</h3>
+<ul class="benefits-list">
+<li>
+<span>1</span>
+<div><strong>Wysyłasz zgłoszenie:</strong> Opisujesz co chcesz wydrukować lub podajesz ID gotowego modelu.</div>
+</li>
+<li>
+<span>2</span>
+<div><strong>Szybka wycena:</strong> W ciągu kilku godzin wracamy do Ciebie z wyceną oraz czasem realizacji.</div>
+</li>
+<li>
+<span>3</span>
+<div><strong>Druk i Wysyłka:</strong> Po akceptacji drukujemy Twój przedmiot i bezpiecznie go pakujemy.</div>
+</li>
+</ul>
+</div>
+<div class="direct-contact-box">
+<h3 style="margin: 0 0 15px 0; font-size: 1.1em; color: #1e293b;">💬 Preferujesz szybki kontakt?</h3>
+<a href="mailto:kontakt@awydrukujse.pl" class="contact-item">
+<div class="contact-icon">✉️</div>
+<div>kontakt@awydrukujse.pl</div>
+</a>
+<a href="https://instagram.com" target="_blank" class="contact-item">
+<div class="contact-icon">📸</div>
+<div>Napisz na Instagramie</div>
+</a>
+<a href="https://facebook.com" target="_blank" class="contact-item">
+<div class="contact-icon">📱</div>
+<div>Wiadomość na Facebooku</div>
+</a>
+</div>
+</div>
 </div>
 </section>
+
+   
 <style>
    input:focus, textarea:focus {
        border-color: #1976d2 !important;
