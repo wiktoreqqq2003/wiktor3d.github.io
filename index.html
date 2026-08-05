@@ -1473,8 +1473,7 @@
 </div>
 </section>
 
-
-   <section id="zamowienie" class="fade-in">
+<section id="zamowienie" class="fade-in">
 <style>
    .order-wrapper {
      display: grid;
@@ -1483,7 +1482,6 @@
      margin-top: 25px;
      align-items: start;
    }
-   /* Przełącznik opcji (Tabs) */
    .tab-switcher {
      display: flex;
      gap: 12px;
@@ -1514,7 +1512,6 @@
      color: #1565c0;
      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
    }
-   /* Formularze */
    .order-form-card {
      background: #ffffff;
      border-radius: 28px;
@@ -1588,7 +1585,32 @@
      transform: translateY(-2px);
      box-shadow: 0 12px 25px rgba(13, 71, 161, 0.35);
    }
-   /* Prawa strona */
+   .submit-btn:disabled {
+     background: #94a3b8;
+     cursor: not-allowed;
+     box-shadow: none;
+   }
+   .form-status {
+     margin-top: 15px;
+     padding: 12px;
+     border-radius: 12px;
+     font-size: 0.9em;
+     font-weight: 600;
+     display: none;
+     text-align: center;
+   }
+   .form-status.success {
+     display: block;
+     background: #e8f5e9;
+     color: #2e7d32;
+     border: 1px solid #c8e6c9;
+   }
+   .form-status.error {
+     display: block;
+     background: #ffebee;
+     color: #c62828;
+     border: 1px solid #ffcdd2;
+   }
    .order-info-side {
      display: flex;
      flex-direction: column;
@@ -1672,44 +1694,41 @@
 </style>
 <h2>🛒 Składanie Zamówienia i Kontakt</h2>
 <div class="order-wrapper">
-<!-- Lewa strona: Karty z przełącznikiem -->
 <div class="order-form-card">
-<!-- Przełącznik Kategori -->
 <div class="tab-switcher">
-<button class="tab-btn active" onclick="switchOrderTab('zdecydowany')">
+<button type="button" class="tab-btn active" onclick="switchOrderTab('zdecydowany', event)">
          ✅ Jestem zdecydowany
 </button>
-<button class="tab-btn" onclick="switchOrderTab('zapytanie')">
+<button type="button" class="tab-btn" onclick="switchOrderTab('zapytanie', event)">
          💬 Zapytanie / Własny model
 </button>
 </div>
 <!-- FORMULARZ 1: Jestem Zdecydowany -->
-<form id="panel-zdecydowany" class="form-panel active" action="https://formspree.io/f/TWOJ_FORM_ID" method="POST">
-<input type="hidden" name="typ_zgloszenia" value="Złożenie Zamówienia">
+<form id="panel-zdecydowany" class="form-panel active" onsubmit="sendToTelegram(event, 'zdecydowany')">
 <div class="form-row">
 <div class="input-group">
 <label for="z-name">Imię i Nazwisko *</label>
-<input type="text" id="z-name" name="imie" placeholder="np. Jan Kowalski" required>
+<input type="text" id="z-name" required placeholder="np. Jan Kowalski">
 </div>
 <div class="input-group">
-<label for="z-email">Adres E-mail *</label>
-<input type="email" id="z-email" name="email" placeholder="np. jan@gmail.com" required>
+<label for="z-email">Adres E-mail / Telefon *</label>
+<input type="text" id="z-email" required placeholder="np. jan@gmail.com lub 123456789">
 </div>
 </div>
 <div class="form-row">
 <div class="input-group">
 <label for="z-model">ID Modelu lub Nazwa *</label>
-<input type="text" id="z-model" name="model" placeholder="np. #JES-01 lub Wazon Modern" required>
+<input type="text" id="z-model" required placeholder="np. #JES-01 lub Wazon Modern">
 </div>
 <div class="input-group">
 <label for="z-quantity">Ilość sztuk *</label>
-<input type="number" id="z-quantity" name="ilosc" min="1" value="1" required>
+<input type="number" id="z-quantity" min="1" value="1" required>
 </div>
 </div>
 <div class="form-row">
 <div class="input-group">
 <label for="z-material">Wybór Materiału *</label>
-<select id="z-material" name="material" required>
+<select id="z-material" required>
 <option value="PLA">PLA (Standard / Dekoracje)</option>
 <option value="PETG">PETG (Trwałość / Woda)</option>
 <option value="TPU">TPU (Guma / Elastyczny)</option>
@@ -1718,51 +1737,51 @@
 </div>
 <div class="input-group">
 <label for="z-color">Preferowany Kolor *</label>
-<input type="text" id="z-color" name="kolor" placeholder="np. Biały Mat, Czarny, Złoty" required>
+<input type="text" id="z-color" required placeholder="np. Biały Mat, Czarny, Złoty">
 </div>
 </div>
 <div class="input-group">
 <label for="z-notes">Dodatkowe uwagi (opcjonalnie)</label>
-<textarea id="z-notes" name="uwagi" rows="3" placeholder="Informacje o dostawie, szczegółowe wymagania..."></textarea>
+<textarea id="z-notes" rows="3" placeholder="Informacje o dostawie, szczegółowe wymagania..."></textarea>
 </div>
-<button type="submit" class="submit-btn">
+<button type="submit" class="submit-btn" id="btn-zdecydowany">
          🚀 Wyślij zamówienie
 </button>
+<div id="status-zdecydowany" class="form-status"></div>
 </form>
 <!-- FORMULARZ 2: Zapytanie / Własny Link -->
-<form id="panel-zapytanie" class="form-panel" action="https://formspree.io/f/TWOJ_FORM_ID" method="POST">
-<input type="hidden" name="typ_zgloszenia" value="Zapytanie / Własny Link">
+<form id="panel-zapytanie" class="form-panel" onsubmit="sendToTelegram(event, 'zapytanie')">
 <div class="form-row">
 <div class="input-group">
 <label for="q-name">Imię i Nazwisko *</label>
-<input type="text" id="q-name" name="imie" placeholder="np. Anna Nowak" required>
+<input type="text" id="q-name" required placeholder="np. Anna Nowak">
 </div>
 <div class="input-group">
-<label for="q-email">Adres E-mail *</label>
-<input type="email" id="q-email" name="email" placeholder="np. anna@gmail.com" required>
+<label for="q-email">Adres E-mail / Telefon *</label>
+<input type="text" id="q-email" required placeholder="np. anna@gmail.com lub 123456789">
 </div>
 </div>
 <div class="input-group">
-<label for="q-link">Link do modelu (Printables, Thingiverse, MakerWorld itp.)</label>
-<input type="url" id="q-link" name="link_do_modelu" placeholder="https://www.printables.com/model/...">
+<label for="q-link">Link do modelu (Printables, Thingiverse itp.)</label>
+<input type="url" id="q-link" placeholder="https://www.printables.com/model/...">
 </div>
 <div class="input-group">
 <label for="q-message">Treść pytania / Opis projektu *</label>
-<textarea id="q-message" name="wiadomosc" rows="4" placeholder="Napisz w czym możemy pomóc, podaj wymiary lub opisz swój pomysł..." required></textarea>
+<textarea id="q-message" rows="4" required placeholder="Napisz w czym możemy pomóc, podaj wymiary lub opisz swój pomysł..."></textarea>
 </div>
-<button type="submit" class="submit-btn">
+<button type="submit" class="submit-btn" id="btn-zapytanie">
          📩 Wyślij zapytanie
 </button>
+<div id="status-zapytanie" class="form-status"></div>
 </form>
 </div>
-<!-- Prawa strona: Informacje & Kontakt -->
 <div class="order-info-side">
 <div class="info-card">
 <h3>⚡ Jak realizujemy zgłoszenia?</h3>
 <ul class="benefits-list">
 <li>
 <span>1</span>
-<div><strong>Odbiór wiadomości:</strong> Po wysłaniu formularza od razu sprawdzamy szczegóły zamówienia lub link do projektu.</div>
+<div><strong>Odbiór wiadomości:</strong> Po wysłaniu formularza zgłoszenie natychmiast trafia na nasz komunikator.</div>
 </li>
 <li>
 <span>2</span>
@@ -1792,18 +1811,80 @@
 </div>
 </div>
 <script>
-   function switchOrderTab(tabName) {
-     // Przyciski
+   // PODMIEŃ TE DWIE ZMIENNE NA SWOJE DANE Z TELEGRAMA:
+   const TELEGRAM_BOT_TOKEN = 'TWÓJ_BOT_TOKEN_TUTAJ';
+   const TELEGRAM_CHAT_ID = 'TWÓJ_CHAT_ID_TUTAJ';
+   function switchOrderTab(tabName, evt) {
      const buttons = document.querySelectorAll('.tab-btn');
      buttons.forEach(btn => btn.classList.remove('active'));
-     event.currentTarget.classList.add('active');
-     // Panele
+     evt.currentTarget.classList.add('active');
      document.getElementById('panel-zdecydowany').classList.remove('active');
      document.getElementById('panel-zapytanie').classList.remove('active');
      if (tabName === 'zdecydowany') {
        document.getElementById('panel-zdecydowany').classList.add('active');
      } else {
        document.getElementById('panel-zapytanie').classList.add('active');
+     }
+   }
+   async function sendToTelegram(event, formType) {
+     event.preventDefault();
+     const btn = document.getElementById(`btn-${formType}`);
+     const statusDiv = document.getElementById(`status-${formType}`);
+     btn.disabled = true;
+     btn.innerText = 'Wysyłanie...';
+     statusDiv.className = 'form-status';
+     let textMessage = '';
+     if (formType === 'zdecydowany') {
+       const name = document.getElementById('z-name').value;
+       const contact = document.getElementById('z-email').value;
+       const model = document.getElementById('z-model').value;
+       const quantity = document.getElementById('z-quantity').value;
+       const material = document.getElementById('z-material').value;
+       const color = document.getElementById('z-color').value;
+       const notes = document.getElementById('z-notes').value || 'Brak';
+       textMessage = `🛒 *NOWE ZAMÓWIENIE!*\n\n` +
+                     `👤 *Imię i Nazwisko:* ${name}\n` +
+                     `📞 *Kontakt:* ${contact}\n` +
+                     `📦 *Model/ID:* ${model}\n` +
+                     `🔢 *Ilość:* ${quantity} szt.\n` +
+                     `🧵 *Materiał:* ${material}\n` +
+                     `🎨 *Kolor:* ${color}\n` +
+                     `📝 *Uwagi:* ${notes}`;
+     } else {
+       const name = document.getElementById('q-name').value;
+       const contact = document.getElementById('q-email').value;
+       const link = document.getElementById('q-link').value || 'Brak linku';
+       const message = document.getElementById('q-message').value;
+       textMessage = `💬 *NOWE ZAPYTANIE / WŁASNY MODEL*\n\n` +
+                     `👤 *Imię i Nazwisko:* ${name}\n` +
+                     `📞 *Kontakt:* ${contact}\n` +
+                     `🔗 *Link:* ${link}\n` +
+                     `📝 *Wiadomość:* ${message}`;
+     }
+     try {
+       const response = await fetch(`https://api.telegram.org/bot${8715622133:AAFP8g_4dv2NUsexprOCcwlWNRNG2wsnUYc}/sendMessage`, {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({
+           chat_id: 1175954447,
+           text: textMessage,
+           parse_mode: 'Markdown'
+         })
+       });
+       const data = await response.json();
+       if (data.ok) {
+         statusDiv.innerText = '✅ Dziękujemy! Twoje zgłoszenie zostało wysłane.';
+         statusDiv.classList.add('success');
+         event.target.reset();
+       } else {
+         throw new Error(data.description || 'Błąd wysyłki');
+       }
+     } catch (err) {
+       statusDiv.innerText = '❌ Wystąpił błąd podczas wysyłania. Spróbuj ponowne lub napisz bezpośrednio na e-mail.';
+       statusDiv.classList.add('error');
+     } finally {
+       btn.disabled = false;
+       btn.innerText = formType === 'zdecydowany' ? '🚀 Wyślij zamówienie' : '📩 Wyślij zapytanie';
      }
    }
 </script>
