@@ -1210,30 +1210,230 @@
 </a>
 </div>
 </section>
-<section id="materialy" class="fade-in" style="background: #eef5fb; border-radius: 20px; margin-bottom: 40px; margin-top: 40px;">
-<h2>🧪 Poznaj nasze materiały</h2>
-<p style="text-align:center; max-width:800px; margin:auto; color:#555; font-size: 1.1em; margin-bottom: 40px;">
-   Do każdego zlecenia podchodzimy indywidualnie. Drukujemy z bezpiecznych, sprawdzonych filamentów na nowoczesnych drukarkach <b>FDM</b>.
+<section id="materialy" class="fade-in">
+<style>
+   .mat-intro {
+     text-align: center;
+     max-width: 750px;
+     margin: 0 auto 40px auto;
+     color: #5a6e7f;
+     font-size: 1.1em;
+     line-height: 1.6;
+   }
+   .mat-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     gap: 25px;
+     margin-bottom: 40px;
+   }
+   .mat-card {
+     background: #ffffff;
+     border-radius: 24px;
+     padding: 30px 25px;
+     border: 1px solid rgba(0, 0, 0, 0.06);
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+     transition: all 0.3s ease;
+     display: flex;
+     flex-direction: column;
+     position: relative;
+     overflow: hidden;
+   }
+   .mat-card:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+   }
+   .mat-card::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 6px;
+   }
+   /* Paski kolorystyczne */
+   .theme-pla::before { background: linear-gradient(90deg, #4caf50, #81c784); }
+   .theme-silk::before { background: linear-gradient(90deg, #ffb300, #ff8f00); }
+   .theme-petg::before { background: linear-gradient(90deg, #1e88e5, #64b5f6); }
+   .theme-bambu::before { background: linear-gradient(90deg, #00e676, #00b0ff); }
+   .mat-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 18px;
+   }
+   .mat-icon {
+     font-size: 2em;
+     background: #f8fafc;
+     width: 55px;
+     height: 55px;
+     border-radius: 16px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   .mat-tag {
+     font-size: 0.75em;
+     font-weight: 800;
+     padding: 6px 14px;
+     border-radius: 20px;
+     text-transform: uppercase;
+     letter-spacing: 0.5px;
+   }
+   .theme-pla .mat-tag { background: #e8f5e9; color: #2e7d32; }
+   .theme-silk .mat-tag { background: #fff8e1; color: #f57f17; }
+   .theme-petg .mat-tag { background: #e3f2fd; color: #1565c0; }
+   .theme-bambu .mat-tag { background: #e0f2f1; color: #00796b; }
+   .mat-card h3 {
+     font-size: 1.5em;
+     margin: 0 0 10px 0;
+     color: #1e293b;
+   }
+   .mat-card p {
+     color: #64748b;
+     font-size: 0.95em;
+     line-height: 1.6;
+     margin-bottom: 20px;
+   }
+   .mat-features {
+     list-style: none;
+     padding: 0;
+     margin: auto 0 0 0;
+     border-top: 1px solid #f1f5f9;
+     padding-top: 18px;
+   }
+   .mat-features li {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     font-size: 0.9em;
+     color: #334155;
+     font-weight: 600;
+     margin-bottom: 8px;
+   }
+   .mat-features li:last-child {
+     margin-bottom: 0;
+   }
+   /* Banner ekologiczny na dole */
+   .eco-banner {
+     background: linear-gradient(135deg, #111d0e, #1c2e17);
+     color: #ffffff;
+     border-radius: 28px;
+     padding: 35px 40px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 30px;
+     border-top: 5px solid #4caf50;
+   }
+   .eco-text h3 {
+     font-size: 1.6em;
+     margin: 0 0 8px 0;
+     color: #a5d6a7;
+   }
+   .eco-text p {
+     color: #c8e6c9;
+     margin: 0;
+     font-size: 0.95em;
+     line-height: 1.6;
+   }
+   .eco-badge-large {
+     font-size: 3.5em;
+     background: rgba(255, 255, 255, 0.05);
+     width: 90px;
+     height: 90px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-shrink: 0;
+   }
+   @media (max-width: 768px) {
+     .eco-banner {
+       flex-direction: column;
+       text-align: center;
+       padding: 30px 20px;
+     }
+   }
+</style>
+<h2>🧵 Materiały i Technologia</h2>
+<p class="mat-intro">
+   Stawiamy na trwałość, precyzję i ekologię. Poznaj filamenty oraz sprzęt, z których tworzymy nasze wydruki 3D.
 </p>
-<div class="materials-container">
-<div class="material-card mat-pla">
-<div class="material-icon">🌱</div>
-<div class="bio-badge">🌿 BIO & EKO</div>
-<h3>PLA (Polilaktyd)</h3>
-<p>Nasz podstawowy materiał do druku. Jest to w 100% <b>biodegradowalny polimer</b> produkowany z surowców odnawialnych (najczęściej z mączki kukurydzianej). Idealny do figurek, ozdób, makiet i zabawek. Jest całkowicie bezpieczny w dotyku, nietoksyczny i nie wydziela szkodliwych oparów.</p>
+<div class="mat-grid">
+<!-- PLA -->
+<div class="mat-card theme-pla">
+<div class="mat-header">
+<div class="mat-icon">🌱</div>
+<span class="mat-tag">Ekologiczny</span>
 </div>
-<div class="material-card mat-petg">
-<div class="material-icon">⚙️</div>
-<div class="bio-badge" style="background: #e3f2fd; color: #1565c0; border-color: #bbdefb;">💪 MOCNY</div>
+<h3>PLA / PLA+</h3>
+<p>
+       Podstawowy, biodegradowalny materiał pozyskiwany z surowców naturalnych (kukurydza). Idealny do dekoracji.
+</p>
+<ul class="mat-features">
+<li>✅ Bezpieczny dla środowiska</li>
+<li>✅ Precyzyjne detale</li>
+<li>✅ Świetny do użytku domowego</li>
+</ul>
+</div>
+<!-- SILK PLA -->
+<div class="mat-card theme-silk">
+<div class="mat-header">
+<div class="mat-icon">✨</div>
+<span class="mat-tag">Efekt Błysku</span>
+</div>
+<h3>Silk PLA</h3>
+<p>
+       Odmiana PLA z dodatkiem jedwabistego połysku. Nadaje figurkom i wazonom niesamowity, metaliczny blask.
+</p>
+<ul class="mat-features">
+<li>✅ Jedwabisty, lśniący efekt</li>
+<li>✅ Maskowanie warstw druku</li>
+<li>✅ Unikalny, elegancki wygląd</li>
+</ul>
+</div>
+<!-- PETG -->
+<div class="mat-card theme-petg">
+<div class="mat-header">
+<div class="mat-icon">🛡️</div>
+<span class="mat-tag">Wytrzymały</span>
+</div>
 <h3>PETG</h3>
-<p>Szukasz czegoś do zadań specjalnych? PETG to wzmocniona wersja materiału używanego m.in. do produkcji butelek na wodę. Jest bardzo wytrzymały, odporny na uderzenia, chemię oraz wilgoć. Świetnie sprawdza się w przypadku części mechanicznych i uchwytów.</p>
+<p>
+       Materiał o podwyższonej odporności na uderzenia, wilgoć oraz wyższe temperatury. Idealny do akcesoriów użytkowych.
+</p>
+<ul class="mat-features">
+<li>✅ Odporność na wodę i UV</li>
+<li>✅ Elastyczny i niełamliwy</li>
+<li>✅ Trwałość na lata</li>
+</ul>
 </div>
-<div class="material-card mat-tpu">
-<div class="material-icon">🏀</div>
-<div class="bio-badge" style="background: #fff3e0; color: #ef6c00; border-color: #ffe0b2;">🧽 ELASTYCZNY</div>
-<h3>TPU (Elastyczny)</h3>
-<p>Materiał, który swoimi właściwościami przypomina mocną gumę. Jeśli potrzebujesz elastycznej uszczelki, opony do modelu RC, etui na telefon czy niestandardowego amortyzatora – TPU będzie idealnym wyborem. Nie pęka przy wyginaniu!</p>
+<!-- JAKOŚĆ / BAMBU LAB -->
+<div class="mat-card theme-bambu">
+<div class="mat-header">
+<div class="mat-icon">⚡</div>
+<span class="mat-tag">Jakość Druku</span>
 </div>
+<h3>Bambu Lab</h3>
+<p>
+       Drukujemy na nowoczesnych maszynach Bambu Lab, co gwarantuje niesamowitą powtarzalność i gładkie wykończenie.
+</p>
+<ul class="mat-features">
+<li>✅ Ekstremalna dokładność</li>
+<li>✅ Wielokolorowe wydruki</li>
+<li>✅ Gładka powierzchnia</li>
+</ul>
+</div>
+</div>
+<!-- Baner Ekologiczny -->
+<div class="eco-banner">
+<div class="eco-text">
+<h3>🌍 Ekologiczne podejście</h3>
+<p>
+       Dbamy o planetę! Większość naszych dekoracji powstaje z biodegradowalnego tworzywa PLA. Dodatkowo pakujemy zamówienia w bezpieczny, ekologiczny sposób.
+</p>
+</div>
+<div class="eco-badge-large">♻️</div>
 </div>
 </section>
 <section class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 40px;">
