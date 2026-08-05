@@ -1,71 +1,154 @@
-<!-- SEKCJA ORGANIZACJA -->
-<section id="organizacja" class="fade-in" style="padding: 60px 0;">
-<div style="text-align: center; margin-bottom: 40px;">
-<span style="background: #e3f2fd; color: #1976d2; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase;">Porządek w domu i biurze</span>
-<h2 style="margin: 10px 0; font-size: 2.2rem; color: #1e293b;">Organizatory i Akcesoria</h2>
-<p style="color: #64748b; margin: 0;">Praktyczne wydruki 3D, które ułatwią Ci codzienne funkcjonowanie.</p>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizatory i Akcesoria - A Wydrukuj Se</title>
+<style>
+   body {
+     margin: 0;
+     font-family: system-ui, -apple-system, sans-serif;
+     background: #f8faff;
+     color: #1e293b;
+   }
+   .header-bar {
+     background: #ffffff;
+     padding: 20px 0;
+     border-bottom: 1px solid #eef2f6;
+     box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+   }
+   .container {
+     max-width: 1100px;
+     margin: 0 auto;
+     padding: 0 20px;
+   }
+   .back-link {
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     color: #1976d2;
+     text-decoration: none;
+     font-weight: 700;
+     margin-bottom: 20px;
+     transition: opacity 0.2s;
+   }
+   .back-link:hover {
+     opacity: 0.8;
+   }
+   .gallery {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     gap: 25px;
+     margin: 40px 0;
+   }
+   .card {
+     background: #ffffff;
+     border-radius: 20px;
+     border: 1px solid #eef2f6;
+     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     padding: 24px;
+     transition: transform 0.2s, box-shadow 0.2s;
+   }
+   .card:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 15px 35px rgba(25, 118, 210, 0.08);
+   }
+   .model-id {
+     color: #1976d2;
+     font-weight: 700;
+     font-size: 0.85rem;
+     margin-bottom: 6px;
+   }
+   .card h3 {
+     margin: 0 0 10px 0;
+     font-size: 1.25rem;
+   }
+   .card p {
+     color: #64748b;
+     font-size: 0.9rem;
+     line-height: 1.5;
+     margin: 0 0 16px 0;
+   }
+   .price-tag {
+     font-size: 1.3rem;
+     font-weight: 800;
+     color: #1976d2;
+     margin-bottom: 14px;
+   }
+   .btn-order {
+     width: 100%;
+     padding: 12px;
+     border: none;
+     border-radius: 10px;
+     background: #1976d2;
+     color: #ffffff;
+     font-weight: 700;
+     font-size: 0.95rem;
+     cursor: pointer;
+     transition: background 0.2s;
+   }
+   .btn-order:hover {
+     background: #1565c0;
+   }
+</style>
+</head>
+<body>
+<header class="header-bar">
+<div class="container">
+<a href="../index.html" class="back-link">← Powrót do strony głównej</a>
+<h1 style="margin: 0; font-size: 2rem;">🗂️ Organizatory i Akcesoria</h1>
+<p style="color: #64748b; margin: 8px 0 0 0;">Praktyczne rozwiązania do domu, biura i warsztatu poprawiające organizację przestrzeni.</p>
 </div>
-<div class="gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1100px; margin: auto; padding: 0 20px;">
-<!-- KARTA 1: UCHWYT NA RĘCZNIK -->
-<div class="card" style="background: white; border-radius: 20px; border: 1px solid #eef2f6; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; padding: 24px; transition: transform 0.2s;">
-<div class="model-info-container">
-<div class="model-id" style="color: #1976d2; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">#007</div>
-<h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: #1e293b;">Uchwyt na ręcznik</h3>
-<p style="color: #64748b; font-size: 0.9rem; line-height: 1.4; margin-bottom: 16px;">Praktyczny wieszak montowany do ściany lub szafki. Wytrzymały i odporny na wilgoć.</p>
+</header>
+<main class="container">
+<div class="gallery">
+<!-- MODEL #007 -->
+<div class="card">
+<div>
+<div class="model-id">MODEL #007</div>
+<h3>Uchwyt na ręcznik</h3>
+<p>Praktyczny wieszak ścienny. Odporny na wilgoć, idealny do łazienki lub kuchni.</p>
 </div>
 <div>
-<div class="promo-box" style="font-size: 1.3rem; font-weight: 800; color: #1976d2; margin-bottom: 14px;">5 zł</div>
-<button onclick="quickOrder('Uchwyt na ręcznik (#007)')" style="width: 100%; padding: 12px; border: none; border-radius: 10px; background: #f1f5f9; color: #1976d2; font-weight: 700; cursor: pointer; transition: background 0.2s;">
-         🛒 Zamów ten model
-</button>
+<div class="price-tag">5 zł</div>
+<button class="btn-order" onclick="redirectToOrder('Uchwyt na ręcznik (#007)')">🛒 Zamów ten model</button>
 </div>
 </div>
-<!-- KARTA 2: POJEMNIK NA LEKI -->
-<div class="card" style="background: white; border-radius: 20px; border: 1px solid #eef2f6; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; padding: 24px; transition: transform 0.2s;">
-<div class="model-info-container">
-<div class="model-id" style="color: #1976d2; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">#008</div>
-<h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: #1e293b;">Pojemnik na leki</h3>
-<p style="color: #64748b; font-size: 0.9rem; line-height: 1.4; margin-bottom: 16px;">Kompaktowy organizer ze szczelnym zamknięciem. Idealny do torby, plecaka lub podróży.</p>
+<!-- MODEL #008 -->
+<div class="card">
+<div>
+<div class="model-id">MODEL #008</div>
+<h3>Pojemnik na leki</h3>
+<p>Kompaktowy organizer podróżny ze szczelnym zamknięciem na klik.</p>
 </div>
 <div>
-<div class="promo-box" style="font-size: 1.3rem; font-weight: 800; color: #1976d2; margin-bottom: 14px;">18 zł</div>
-<button onclick="quickOrder('Pojemnik na leki (#008)')" style="width: 100%; padding: 12px; border: none; border-radius: 10px; background: #f1f5f9; color: #1976d2; font-weight: 700; cursor: pointer; transition: background 0.2s;">
-         🛒 Zamów ten model
-</button>
+<div class="price-tag">18 zł</div>
+<button class="btn-order" onclick="redirectToOrder('Pojemnik na leki (#008)')">🛒 Zamów ten model</button>
 </div>
 </div>
-<!-- KARTA 3: KLIPS DO KAWY -->
-<div class="card" style="background: white; border-radius: 20px; border: 1px solid #eef2f6; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; padding: 24px; transition: transform 0.2s;">
-<div class="model-info-container">
-<div class="model-id" style="color: #1976d2; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">#009</div>
-<h3 style="margin: 0 0 10px 0; font-size: 1.25rem; color: #1e293b;">Klips do kawy / żywności</h3>
-<p style="color: #64748b; font-size: 0.9rem; line-height: 1.4; margin-bottom: 16px;">Solidna klamra uszczelniająca opakowania. Chroni żywność przed utratą świeżości.</p>
+<!-- MODEL #009 -->
+<div class="card">
+<div>
+<div class="model-id">MODEL #009</div>
+<h3>Klips do kawy i żywności</h3>
+<p>Mocny klips uszczelniający otwarte opakowania kawiarniane i spożywcze.</p>
 </div>
 <div>
-<div class="promo-box" style="font-size: 1.3rem; font-weight: 800; color: #1976d2; margin-bottom: 14px;">22 zł</div>
-<button onclick="quickOrder('Klips do kawy (#009)')" style="width: 100%; padding: 12px; border: none; border-radius: 10px; background: #f1f5f9; color: #1976d2; font-weight: 700; cursor: pointer; transition: background 0.2s;">
-         🛒 Zamów ten model
-</button>
+<div class="price-tag">22 zł</div>
+<button class="btn-order" onclick="redirectToOrder('Klips do kawy (#009)')">🛒 Zamów ten model</button>
 </div>
 </div>
 </div>
-</section>
-<!-- FUNKCJA SZYBKIEGO ZAMÓWIENIA (Podepnij pod koniec kodu JS) -->
+</main>
 <script>
- function quickOrder(modelValue) {
-   // 1. Przełącz na tryb katalogu jeśli był własny projekt
-   if (typeof switchType === 'function') {
-     switchType('catalog');
+   function redirectToOrder(modelName) {
+     // Zapisujemy wybrany model w pamięci przeglądarki i przechodzimy do formularza na stronie głównej
+     localStorage.setItem('selectedModel', modelName);
+     window.location.href = '../index.html#zamowienie';
    }
-   // 2. Wybierz odpowiednią opcję w select
-   const select = document.getElementById('modelSelect');
-   if (select) {
-     select.value = modelValue;
-   }
-   // 3. Płynnie przewiń do sekcji zamówienia
-   const target = document.getElementById('zamowienie');
-   if (target) {
-     target.scrollIntoView({ behavior: 'smooth' });
-   }
- }
 </script>
+</body>
+</html>
