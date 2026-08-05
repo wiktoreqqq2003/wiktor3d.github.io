@@ -126,55 +126,26 @@
      margin: auto;
    }
 
-   /* --- KAFELEK PERSONALIZACJI Z PALETĄ KOLORÓW --- */
+   /* --- KAFELEK PERSONALIZACJI Z POWIĘKSZONĄ PALETĄ PO PRAWEJ STRONIE --- */
    .custom-banner {
      background: linear-gradient(135deg, #ffffff 0%, #fff8f3 100%);
      border: 1px solid #fceade;
      border-left: 6px solid #b85c38;
      border-radius: 24px;
-     padding: 25px 30px;
+     padding: 30px;
      margin-bottom: 40px;
      box-shadow: 0 10px 30px rgba(184, 92, 56, 0.06);
      display: flex;
      align-items: center;
-     gap: 25px;
+     justify-content: space-between;
+     gap: 30px;
    }
-   .color-swatches-box {
-     display: grid;
-     grid-template-columns: repeat(4, 1fr);
-     gap: 8px;
-     background: #ffffff;
-     padding: 12px;
-     border-radius: 20px;
-     border: 1px solid #f2e9e1;
-     box-shadow: 0 4px 15px rgba(184, 92, 56, 0.08);
-     flex-shrink: 0;
-     align-items: center;
-     justify-items: center;
+   .custom-banner-content {
+     flex: 1;
    }
-   .swatch {
-     width: 20px;
-     height: 20px;
-     border-radius: 50%;
-     box-shadow: inset 0 0 2px rgba(0,0,0,0.2), 0 2px 5px rgba(0,0,0,0.1);
-     transition: transform 0.2s ease, box-shadow 0.2s ease;
-     cursor: pointer;
-   }
-   .swatch:hover {
-     transform: scale(1.3);
-     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-   }
-   .swatch.white  { background-color: #ffffff; border: 1px solid #dcdcdc; }
-   .swatch.black  { background-color: #1a1a1a; }
-   .swatch.beige  { background-color: #e5cca9; }
-   .swatch.orange { background-color: #e06d39; }
-   .swatch.green  { background-color: #2d4a3e; }
-   .swatch.gray   { background-color: #808080; }
-   .swatch.brown  { background-color: #5c3d2e; }
-
    .custom-banner-content h2 {
-     margin: 0 0 6px 0;
-     font-size: 1.3em;
+     margin: 0 0 8px 0;
+     font-size: 1.35em;
      color: #2c1810;
      font-weight: 800;
    }
@@ -184,14 +155,64 @@
      font-size: 0.98em;
      line-height: 1.6;
    }
-   @media (max-width: 650px) {
+
+   .color-swatches-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     flex-shrink: 0;
+   }
+   .swatches-title {
+     font-size: 0.85em;
+     font-weight: 800;
+     color: #b85c38;
+     text-transform: uppercase;
+     letter-spacing: 0.8px;
+     margin-bottom: 10px;
+   }
+   .color-swatches-box {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 12px;
+     background: #ffffff;
+     padding: 16px 20px;
+     border-radius: 20px;
+     border: 1px solid #f2e9e1;
+     box-shadow: 0 4px 15px rgba(184, 92, 56, 0.08);
+     align-items: center;
+     justify-items: center;
+   }
+   .swatch {
+     width: 32px;
+     height: 32px;
+     border-radius: 50%;
+     box-shadow: inset 0 0 3px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.12);
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+     cursor: pointer;
+   }
+   .swatch:hover {
+     transform: scale(1.25);
+     box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+   }
+   .swatch.white  { background-color: #ffffff; border: 1px solid #dcdcdc; }
+   .swatch.black  { background-color: #1a1a1a; }
+   .swatch.beige  { background-color: #e5cca9; }
+   .swatch.orange { background-color: #e06d39; }
+   .swatch.green  { background-color: #2d4a3e; }
+   .swatch.gray   { background-color: #808080; }
+   .swatch.brown  { background-color: #5c3d2e; }
+
+   @media (max-width: 768px) {
      .custom-banner {
        flex-direction: column;
        text-align: center;
        padding: 25px 20px;
      }
+     .color-swatches-container {
+       margin-top: 15px;
+     }
    }
-   /* ------------------------------------------------ */
+   /* ------------------------------------------------------------------ */
 
    .gallery {
      display: grid;
@@ -363,20 +384,24 @@
 </section>
 
 <section>
-<!-- KAFELEK PERSONALIZACJI Z PRÓBKAMI KOLORÓW -->
+<!-- KAFELEK PERSONALIZACJI -->
 <div class="custom-banner">
-  <div class="color-swatches-box" title="Dostępne kolory">
-    <span class="swatch white" title="Biały"></span>
-    <span class="swatch black" title="Czarny"></span>
-    <span class="swatch beige" title="Beżowy"></span>
-    <span class="swatch orange" title="Pomarańczowy"></span>
-    <span class="swatch green" title="Ciemny zielony"></span>
-    <span class="swatch gray" title="Szary"></span>
-    <span class="swatch brown" title="Brązowy"></span>
-  </div>
   <div class="custom-banner-content">
     <h2>Stwórz dynię idealnie dopasowaną do siebie!</h2>
     <p>Każdy model może zostać spersonalizowany – wybierz rozmiar i kolor.<br>Istnieje również możliwość przygotowania miejsca na świeczkę LED typu tealight.<br>Najlepszy efekt podświetlenia uzyskasz w jaśniejszych kolorach.</p>
+  </div>
+  
+  <div class="color-swatches-container">
+    <div class="swatches-title">Dostępne kolory</div>
+    <div class="color-swatches-box">
+      <span class="swatch white" title="Biały"></span>
+      <span class="swatch black" title="Czarny"></span>
+      <span class="swatch beige" title="Beżowy"></span>
+      <span class="swatch orange" title="Pomarańczowy"></span>
+      <span class="swatch green" title="Ciemny zielony"></span>
+      <span class="swatch gray" title="Szary"></span>
+      <span class="swatch brown" title="Brązowy"></span>
+    </div>
   </div>
 </div>
 
