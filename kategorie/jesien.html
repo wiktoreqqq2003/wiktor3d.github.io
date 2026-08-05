@@ -3,78 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jesienne dekoracje 3D</title>
+<title>Jesienne dekoracje 3D - awydrukujse.pl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800&display=swap" rel="stylesheet">
 <style>
-body {
- font-family: Arial, sans-serif;
- background: #f4f7f9;
- padding: 40px;
-}
-.gallery {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
- gap: 20px;
-}
-.card {
- background: white;
- border-radius: 15px;
- overflow: hidden;
- box-shadow: 0 5px 15px rgba(0,0,0,.1);
-}
-.card img {
- width: 100%;
- height: 250px;
- object-fit: cover;
-}
-.info {
- padding: 20px;
-}
-.price {
- font-size: 24px;
- font-weight: bold;
- color: #0088cc;
-}
-.back-link {
- display: inline-block;
- margin-bottom: 20px;
- color: #0088cc;
- text-decoration: none;
- font-weight: bold;
-}
+   html {
+     scroll-behavior: smooth;
+   }
+   body {
+     margin: 0;
+     font-family: 'Poppins', sans-serif;
+     color: #3e2723;
+     line-height: 1.6;
+     background-color: #fdfbf7;
+     background-image: radial-gradient(#e0d5c1 1.5px, transparent 1.5px);
+     background-size: 30px 30px;
+   }
+   .top-nav {
+     background: #ffffff;
+     padding: 15px 40px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+     box-shadow: 0 4px 20px rgba(184, 92, 56, 0.08);
+     transition: all 0.3s ease;
+   }
+   .top-nav.scrolled {
+     padding: 8px 40px;
+     box-shadow: 0 10px 30px rgba(184, 92, 56, 0.12);
+     background: rgba(255, 255, 255, 0.98);
+   }
+   .nav-logo-container {
+     display: flex;
+     align-items: center;
+     text-decoration: none;
+     gap: 15px;
+   }
+   .nav-logo {
+     height: 60px;
+     width: auto;
+     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+     transition: all 0.3s ease;
+   }
+   .top-nav.scrolled .nav-logo {
+     height: 45px;
+   }
+   .nav-title {
+     font-size: 1.4em;
+     font-weight: 800;
+     color: #3e2723;
+     letter-spacing: 0.5px;
+     margin: 0;
+   }
+   .back-btn {
+     color: #b85c38;
+     text-decoration: none;
+     font-weight: 600;
+     font-size: 0.95em;
+     transition: color 0.3s ease;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+   }
+   .back-btn:hover {
+     color: #e27d60;
+   }
+   .hero-wrapper {
+     padding: 60px 20px;
+     display: flex;
+     justify-content: center;
+   }
+   .hero-box {
+     background: #ffffff;
+     max-width: 1100px;
+     width: 100%;
+     border-radius: 40px;
+     padding: 80px 40px;
+     text-align: center;
+     box-shadow: 0 20px 60px rgba(184, 92, 56, 0.06);
+     border: 1px solid #f2e9e1;
+   }
+   .hero-badge {
+     background: #fceade;
+     color: #b85c38;
+     padding: 8px 25px;
+     border-radius: 30px;
+     font-size: 0.85em;
+     font-weight: 800;
+     display: inline-block;
+     margin-bottom: 25px;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+   }
+   .hero-title {
+     font-size: 3.5em;
+     font-weight: 800;
+     color: #2c1810;
+     margin: 0 0 20px 0;
+     line-height: 1.15;
+     letter-spacing: -1.5px;
+   }
+   .gradient-text {
+     background: linear-gradient(135deg, #b85c38, #e27d60);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     display: inline-block;
+   }
+   .hero-subtitle {
+     font-size: 1.2em;
+     color: #6d4c41;
+     max-width: 650px;
+     margin: 0 auto 30px auto;
+     line-height: 1.7;
+   }
+   section {
+     padding: 40px 20px 70px;
+     max-width: 1100px;
+     margin: auto;
+   }
+   .gallery {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+     gap: 30px;
+   }
+   .card {
+     background: white;
+     border-radius: 20px;
+     box-shadow: 0 10px 30px rgba(184, 92, 56, 0.05);
+     overflow: hidden;
+     text-align: center;
+     transition: all 0.3s ease;
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+     border: 1px solid #f4ece4;
+   }
+   .card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 20px 45px rgba(184, 92, 56, 0.12);
+   }
+   .image-wrapper {
+     position: relative;
+     overflow: hidden;
+     cursor: pointer;
+     border-bottom: 3px solid #fdfbf7;
+   }
+   .image-wrapper img {
+     width: 100%;
+     height: 320px;
+     object-fit: cover;
+     display: block;
+     transition: transform 0.5s ease;
+   }
+   .image-wrapper::after {
+     content: '🔍 Powiększ';
+     position: absolute;
+     inset: 0;
+     background: rgba(184, 92, 56, 0.75);
+     color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 1.3em;
+     font-weight: 600;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+     backdrop-filter: blur(2px);
+   }
+   .card:hover .image-wrapper img {
+     transform: scale(1.08);
+   }
+   .card:hover .image-wrapper::after {
+     opacity: 1;
+   }
+   .model-info-container {
+     padding: 25px 20px;
+     flex-grow: 1;
+     display: flex;
+     flex-direction: column;
+   }
+   .model-id {
+     background: rgba(184, 92, 56, 0.1);
+     color: #b85c38;
+     display: inline-block;
+     padding: 6px 18px;
+     border-radius: 8px;
+     font-weight: 800;
+     font-size: 0.9em;
+     align-self: center;
+     margin-bottom: 15px;
+   }
+   .card h3 {
+     margin: 0 0 10px 0;
+     font-size: 1.25em;
+     font-weight: 600;
+     color: #2c1810;
+   }
+   .card .price {
+     font-size: 1.5em;
+     font-weight: 800;
+     color: #b85c38;
+     margin-top: auto;
+     margin-bottom: 10px;
+   }
+   .promo-box {
+     background: #fff8f3;
+     border-top: 1px solid #fceade;
+     padding: 12px;
+     font-size: 0.85em;
+     color: #8c4327;
+     font-weight: 600;
+     min-height: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   .fab-container {
+     position: fixed;
+     bottom: 30px;
+     right: 30px;
+     display: flex;
+     align-items: center;
+     z-index: 2001;
+   }
+   .fab-button {
+     background: #b85c38;
+     color: white;
+     width: 65px;
+     height: 65px;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 32px;
+     text-decoration: none;
+     box-shadow: 0 8px 25px rgba(184, 92, 56, 0.4);
+     transition: all 0.3s ease;
+   }
+   .fab-button:hover {
+     transform: scale(1.08);
+     background: #a04e2e;
+   }
+   footer {
+     text-align: center;
+     padding: 60px 20px;
+     background: #1c100b;
+     color: #fff;
+     border-top: 5px solid #b85c38;
+   }
+   .footer-cta {
+     background: #b85c38;
+     color: white;
+     padding: 16px 40px;
+     border-radius: 50px;
+     text-decoration: none;
+     font-size: 18px;
+     display: inline-block;
+     font-weight: 600;
+     transition: all 0.3s ease;
+   }
+   .footer-cta:hover {
+     background: #d46a43;
+     transform: translateY(-3px);
+   }
 </style>
 </head>
 <body>
-<a href="../index.html" class="back-link">← Powrót do strony głównej</a>
-<h1>🍂 Jesienne dekoracje 3D</h1>
+<nav class="top-nav" id="navbar">
+<a href="../index.html" class="nav-logo-container">
+<img src="../img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
+<p class="nav-title">awydrukujse.pl</p>
+</a>
+<a href="../index.html" class="back-btn">
+   ← Powrót do strony głównej
+</a>
+</nav>
+<section class="hero-wrapper">
+<div class="hero-box">
+<div class="hero-badge">🍁 KOLEKCJA SEZONOWA</div>
+<h1 class="hero-title">
+       Jesienne Dekoracje <span class="gradient-text">3D</span>
+</h1>
+<p class="hero-subtitle">
+     Ociepl swoje wnętrze wyjątkowymi akcesoriami. Od klimatycznych dyń po stylowe wazony – wszystko drukowane z dbałością o każdy detal.
+</p>
+</div>
+</section>
+<section>
 <div class="gallery">
 <div class="card">
+<div class="image-wrapper" onclick="openModal('../img/wazon1.jpg')">
 <img src="../img/wazon1.jpg" alt="Wazon">
-<div class="info">
-<h3>Wazon</h3>
+</div>
+<div class="model-info-container">
+<div class="model-id">ID: #JES-01</div>
+<h3>Wazon Jesienny</h3>
 <div class="price">36 zł</div>
 </div>
+<div class="promo-box">Dostępny od ręki w opcji 20 cm</div>
 </div>
 <div class="card">
+<div class="image-wrapper" onclick="openModal('../img/soon.jpg')">
 <img src="../img/soon.jpg" alt="Dynia">
-<div class="info">
-<h3>Dynia</h3>
+</div>
+<div class="model-info-container">
+<div class="model-id">ID: #JES-02</div>
+<h3>Klasyczna Dynia</h3>
 <div class="price">Wkrótce</div>
 </div>
+<div class="promo-box">Zapisz się na powiadomienie!</div>
 </div>
 <div class="card">
+<div class="image-wrapper" onclick="openModal('../img/soon.jpg')">
 <img src="../img/soon.jpg" alt="Dynia Modern">
-<div class="info">
+</div>
+<div class="model-info-container">
+<div class="model-id">ID: #JES-03</div>
 <h3>Dynia Modern</h3>
 <div class="price">Wkrótce</div>
 </div>
+<div class="promo-box">Nowoczesny, geometryczny wzór</div>
 </div>
 <div class="card">
+<div class="image-wrapper" onclick="openModal('../img/soon.jpg')">
 <img src="../img/soon.jpg" alt="Grzybki">
-<div class="info">
-<h3>Grzybki</h3>
+</div>
+<div class="model-info-container">
+<div class="model-id">ID: #JES-04</div>
+<h3>Zestaw Grzybków</h3>
 <div class="price">Wkrótce</div>
 </div>
+<div class="promo-box">Idealne do ozdób stołowych</div>
 </div>
 </div>
+</section>
+<footer>
+<a class="footer-cta" href="../index.html#zamowienie">🛒 Złóż zamówienie na te modele</a>
+<p style="margin-top:30px; color:#8d786d; font-size:0.9em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
+</footer>
+<div class="fab-container">
+<a href="../index.html#zamowienie" class="fab-button" title="Złóż zamówienie">
+   🛒
+</a>
+</div>
+<script>
+ window.addEventListener('scroll', () => {
+   const navbar = document.getElementById('navbar');
+   if (window.scrollY > 50) {
+     navbar.classList.add('scrolled');
+   } else {
+     navbar.classList.remove('scrolled');
+   }
+ });
+ function openModal(src) {
+   const modal = document.createElement('div');
+   modal.style.position = 'fixed';
+   modal.style.inset = '0';
+   modal.style.background = 'rgba(0,0,0,0.85)';
+   modal.style.display = 'flex';
+   modal.style.justifyContent = 'center';
+   modal.style.alignItems = 'center';
+   modal.style.zIndex = '3000';
+   modal.onclick = () => modal.remove();
+   const img = document.createElement('img');
+   img.src = src;
+   img.style.maxWidth = '90%';
+   img.style.maxHeight = '90vh';
+   img.style.borderRadius = '15px';
+   img.style.boxShadow = '0 10px 40px rgba(0,0,0,0.5)';
+   modal.appendChild(img);
+   document.body.appendChild(modal);
+ }
+</script>
 </body>
 </html>
