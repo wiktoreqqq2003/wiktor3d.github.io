@@ -735,100 +735,215 @@
 
 <section id="kategorie" class="fade-in">
 <style>
-   .cat-preview-grid {
+   .kategorie-container {
+     display: flex;
+     flex-direction: column;
+     gap: 35px;
+     margin-top: 25px;
+   }
+   .cat-banner-card {
      display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     gap: 6px;
-     padding: 10px;
-     background: #fdfdfd;
+     grid-template-columns: 1fr 1.2fr;
+     background: #ffffff;
+     border-radius: 28px;
+     overflow: hidden;
+     text-decoration: none;
+     color: inherit;
+     border: 1px solid rgba(0, 0, 0, 0.06);
+     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+     position: relative;
    }
-   .cat-preview-grid img {
+   .cat-banner-card:hover {
+     transform: translateY(-6px) scale(1.01);
+     box-shadow: 0 22px 50px rgba(0, 0, 0, 0.12);
+   }
+   /* Lewa strona - Treść */
+   .cat-content {
+     padding: 40px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     z-index: 2;
+   }
+   .cat-badge {
+     align-self: flex-start;
+     padding: 6px 16px;
+     border-radius: 20px;
+     font-size: 0.8em;
+     font-weight: 800;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+     margin-bottom: 15px;
+   }
+   .cat-title {
+     font-size: 2.2em;
+     font-weight: 800;
+     margin: 0 0 12px 0;
+     line-height: 1.2;
+   }
+   .cat-desc {
+     font-size: 1em;
+     color: #5a6e7f;
+     margin-bottom: 25px;
+     line-height: 1.6;
+   }
+   .cat-btn {
+     display: inline-flex;
+     align-items: center;
+     gap: 10px;
+     font-weight: 700;
+     font-size: 1.05em;
+     transition: gap 0.3s ease;
+   }
+   .cat-banner-card:hover .cat-btn {
+     gap: 16px;
+   }
+   /* Prawa strona - Zjawiskowa Galeria Zmiksowana */
+   .cat-media-showcase {
+     display: grid;
+     grid-template-columns: 1.4fr 1fr;
+     gap: 12px;
+     padding: 18px;
+     background: #f8fafc;
+     position: relative;
+     align-items: center;
+   }
+   .cat-img-main {
      width: 100%;
-     height: 75px;
+     height: 100%;
+     min-height: 240px;
      object-fit: cover;
-     border-radius: 8px;
-     transition: transform 0.3s ease;
+     border-radius: 20px;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+     transition: transform 0.5s ease;
    }
-   .card:hover .cat-preview-grid img {
+   .cat-img-stack {
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+     height: 100%;
+   }
+   .cat-img-sub {
+     width: 100%;
+     height: calc(50% - 6px);
+     object-fit: cover;
+     border-radius: 16px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+     transition: transform 0.5s ease;
+   }
+   .cat-banner-card:hover .cat-img-main {
+     transform: scale(1.03);
+   }
+   .cat-banner-card:hover .cat-img-sub {
      transform: scale(1.05);
    }
+   /* Stylistyka poszczególnych motywów */
+   /* Jesień */
+   .theme-jesien .cat-badge { background: #fceade; color: #b85c38; }
+   .theme-jesien .cat-title { color: #2c1810; }
+   .theme-jesien .cat-btn { color: #b85c38; }
+   .theme-jesien:hover { border-color: rgba(184, 92, 56, 0.3); }
+   /* Wielkanoc */
+   .theme-wielkanoc .cat-badge { background: #e8f5e9; color: #2e7d32; }
+   .theme-wielkanoc .cat-title { color: #1b3017; }
+   .theme-wielkanoc .cat-btn { color: #2e7d32; }
+   .theme-wielkanoc:hover { border-color: rgba(76, 175, 80, 0.3); }
+   /* Boże Narodzenie */
+   .theme-boze-narodzenie .cat-badge { background: #ffebee; color: #c62828; }
+   .theme-boze-narodzenie .cat-title { color: #1a0505; }
+   .theme-boze-narodzenie .cat-btn { color: #c62828; }
+   .theme-boze-narodzenie:hover { border-color: rgba(198, 40, 40, 0.3); }
+   /* Organizacja */
+   .theme-organizacja .cat-badge { background: #e8eaf6; color: #1565c0; }
+   .theme-organizacja .cat-title { color: #0d47a1; }
+   .theme-organizacja .cat-btn { color: #1565c0; }
+   .theme-organizacja:hover { border-color: rgba(21, 101, 192, 0.3); }
+   /* Responsywność dla telefonów */
+   @media (max-width: 900px) {
+     .cat-banner-card {
+       grid-template-columns: 1fr;
+     }
+     .cat-content {
+       padding: 30px 25px;
+     }
+     .cat-media-showcase {
+       height: 220px;
+     }
+   }
 </style>
-<h2>🗂️ Kategorie</h2>
-<div class="gallery">
-<!-- Jesień -->
-<a href="kategorie/jesien.html" class="card" style="text-decoration: none; color: inherit;">
-<div class="cat-preview-grid">
-<img src="img/wazon1.jpg" alt="Wazon">
-<img src="img/soon.jpg" alt="Dynia">
-<img src="img/soon.jpg" alt="Grzybki">
-</div>
-<div class="model-info-container">
-<div class="model-id" style="background: rgba(184, 92, 56, 0.1); color: #b85c38;">KATEGORIA SEZONOWA</div>
-<h3>🍂 Jesień</h3>
-<p style="font-size: 0.9em; color: #555; margin-bottom: 15px;">
-         Dynie, wazony i przytulne akcesoria jesienne.
+<h2>🗂️ Odkryj Kategorie</h2>
+<div class="kategorie-container">
+<!-- Baner 1: JESIEŃ -->
+<a href="kategorie/jesien.html" class="cat-banner-card theme-jesien">
+<div class="cat-content">
+<span class="cat-badge">🍁 Kolekcja Sezonowa</span>
+<h3 class="cat-title">Jesienne Dekoracje</h3>
+<p class="cat-desc">
+         Ociepl domowy klimat wyjątkowymi wazonami, dyniami w stylu Modern i przytulnymi akcesoriami.
 </p>
-<div class="price" style="font-size: 1.1em; color: #b85c38; margin-top: auto;">Przeglądaj (4 modele) →</div>
+<div class="cat-btn">Zobacz wszystkie modele ➔</div>
 </div>
-<div class="promo-box" style="background: #fff8f3; color: #8c4327; border-top-color: #fceade;">
-       🍁 Ociepl swoje wnętrze
+<div class="cat-media-showcase">
+<img src="img/wazon1.jpg" alt="Wazon Jesienny" class="cat-img-main">
+<div class="cat-img-stack">
+<img src="img/soon.jpg" alt="Dynia 3D" class="cat-img-sub">
+<img src="img/soon.jpg" alt="Grzybki 3D" class="cat-img-sub">
+</div>
 </div>
 </a>
-<!-- Wielkanoc -->
-<a href="kategorie/wielkanoc.html" class="card" style="text-decoration: none; color: inherit;">
-<div class="cat-preview-grid">
-<img src="img/kurczaczek.jpg" alt="Kurczak">
-<img src="img/baranek.jpg" alt="Baranek">
-<img src="img/krolik20.PNG" alt="Królik">
-</div>
-<div class="model-info-container">
-<div class="model-id" style="background: rgba(76, 175, 80, 0.1); color: #2e7d32;">KATEGORIA ŚWIĄTECZNA</div>
-<h3>🐣 Wielkanoc</h3>
-<p style="font-size: 0.9em; color: #555; margin-bottom: 15px;">
-         Kurczaczki, baranki, króliki i stroiki wielkanocne.
+<!-- Baner 2: WIELKANOC -->
+<a href="kategorie/wielkanoc.html" class="cat-banner-card theme-wielkanoc">
+<div class="cat-content">
+<span class="cat-badge">🌱 Wiosenny Klimat</span>
+<h3 class="cat-title">Święta Wielkanocne</h3>
+<p class="cat-desc">
+         Ożyw swój stół i koszyczek wielkanocny kolorowymi kurczakami, barankami oraz tulipanami.
 </p>
-<div class="price" style="font-size: 1.1em; color: #2e7d32; margin-top: auto;">Przeglądaj (4 modele) →</div>
+<div class="cat-btn">Zobacz wszystkie modele ➔</div>
 </div>
-<div class="promo-box" style="background: #f1f8e9; color: #33691e; border-top-color: #e2f0df;">
-       🌱 Idealne do koszyczka
+<div class="cat-media-showcase">
+<img src="img/kurczaczek.jpg" alt="Kurczak na jajko" class="cat-img-main">
+<div class="cat-img-stack">
+<img src="img/baranek.jpg" alt="Baranek 3D" class="cat-img-sub">
+<img src="img/krolik20.PNG" alt="Królik 3D" class="cat-img-sub">
+</div>
 </div>
 </a>
-<!-- Boże Narodzenie -->
-<a href="kategorie/boze_narodzenie.html" class="card" style="text-decoration: none; color: inherit;">
-<div class="cat-preview-grid">
-<img src="img/soon.jpg" alt="Choinka">
-<img src="img/soon.jpg" alt="Zawieszki">
-<img src="img/soon.jpg" alt="Bałwanek">
-</div>
-<div class="model-info-container">
-<div class="model-id" style="background: rgba(198, 40, 40, 0.1); color: #c62828;">KATEGORIA ŚWIĄTECZNA</div>
-<h3>🎄 Boże Narodzenie</h3>
-<p style="font-size: 0.9em; color: #555; margin-bottom: 15px;">
-         Choinki, nietłukące bombki i dekoracje LED.
+<!-- Baner 3: BOŻE NARODZENIE -->
+<a href="kategorie/boze_narodzenie.html" class="cat-banner-card theme-boze-narodzenie">
+<div class="cat-content">
+<span class="cat-badge">✨ Świąteczna Magia</span>
+<h3 class="cat-title">Boże Narodzenie</h3>
+<p class="cat-desc">
+         Nietłukące się choinki, urocze bałwanki, dekoracyjne lampiony LED i bogaty wybór zawieszek.
 </p>
-<div class="price" style="font-size: 1.1em; color: #c62828; margin-top: auto;">Przeglądaj (4 modele) →</div>
+<div class="cat-btn">Zobacz wszystkie modele ➔</div>
 </div>
-<div class="promo-box" style="background: #fff5f5; color: #9a0007; border-top-color: #ffebee;">
-       🎁 Magia świąt w 3D
+<div class="cat-media-showcase">
+<img src="img/soon.jpg" alt="Choinka 3D" class="cat-img-main">
+<div class="cat-img-stack">
+<img src="img/soon.jpg" alt="Bałwanek 3D" class="cat-img-sub">
+<img src="img/soon.jpg" alt="Lampion 3D" class="cat-img-sub">
+</div>
 </div>
 </a>
-<!-- Organizacja -->
-<a href="kategorie/organizacja.html" class="card" style="text-decoration: none; color: inherit;">
-<div class="cat-preview-grid">
-<img src="img/soon.jpg" alt="Stojak">
-<img src="img/soon.jpg" alt="Organizer">
-<img src="img/soon.jpg" alt="Uchwyt">
-</div>
-<div class="model-info-container">
-<div class="model-id" style="background: rgba(21, 101, 192, 0.1); color: #1565c0;">BIURO & DOM</div>
-<h3>📁 Organizacja</h3>
-<p style="font-size: 0.9em; color: #555; margin-bottom: 15px;">
-         Praktyczne stojaki, uchwyty i organizery na biurko.
+<!-- Baner 4: ORGANIZACJA -->
+<a href="kategorie/organizacja.html" class="cat-banner-card theme-organizacja">
+<div class="cat-content">
+<span class="cat-badge">⚙️ Ergonomia & Biuro</span>
+<h3 class="cat-title">Organizacja Przestrzeni</h3>
+<p class="cat-desc">
+         Praktyczne stojaki na telefony, modułowe przyborniki i uchwyty na kable porządkujące biurko.
 </p>
-<div class="price" style="font-size: 1.1em; color: #1565c0; margin-top: auto;">Przeglądaj produkty →</div>
+<div class="cat-btn">Zobacz wszystkie modele ➔</div>
 </div>
-<div class="promo-box" style="background: #e8eaf6; color: #1a237e; border-top-color: #c5cae9;">
-       ⚙️ Funkcjonalne akcesoria
+<div class="cat-media-showcase">
+<img src="img/soon.jpg" alt="Stojak na Telefon" class="cat-img-main">
+<div class="cat-img-stack">
+<img src="img/soon.jpg" alt="Organizer Biurkowy" class="cat-img-sub">
+<img src="img/soon.jpg" alt="Uchwyt Kabel" class="cat-img-sub">
+</div>
 </div>
 </a>
 </div>
