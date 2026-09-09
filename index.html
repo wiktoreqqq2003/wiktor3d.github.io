@@ -720,13 +720,28 @@
        justify-content: center;
        gap: 15px;
      }
+     /* Optymalizacja nowej sekcji Hero na telefony */
      .hero-box {
-       padding: 50px 20px;
+       padding: 35px 20px !important;
        border-radius: 25px;
      }
-     .hero-title {
-       font-size: 2.5em;
+     .hero-grid {
+       grid-template-columns: 1fr !important;
+       gap: 30px !important;
      }
+     .hero-title {
+       font-size: 2.2em !important;
+       text-align: center !important;
+     }
+     .hero-box p {
+       text-align: center !important;
+       margin-left: auto !important;
+       margin-right: auto !important;
+     }
+     .hero-buttons {
+       justify-content: center !important;
+     }
+     /* Pozostałe sekcje */
      .gallery, .materials-container {
        grid-template-columns: 1fr;
      }
@@ -751,45 +766,87 @@
 </div>
 </nav>
 
-<section class="hero-wrapper">
-<div class="hero-box fade-in visible">
-<div class="hero-badge" style="background: #eef2f6; color: #334155; border: 1px solid #cbd5e1; font-weight: 700; letter-spacing: 1px; padding: 6px 18px;">
-  USŁUGI DRUKU 3D
-</div>
+<section class="hero-wrapper" style="padding: 40px 20px 60px;">
+<div class="hero-box fade-in visible" style="max-width: 1150px; padding: 60px 45px; text-align: left; background: #ffffff;">
+  
+  <div class="hero-grid" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;">
+    
+    <!-- LEWA KOLUMNA: TEKST I PRZYCISKI -->
+    <div>
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: #e0f2fe; color: #0284c7; font-weight: 700; font-size: 0.85em; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.5px;">
+        <span>💡</span> OD POMYŚLU DO GOTOWEGO WYDRUKU
+      </div>
 
-<h1 class="hero-title" style="letter-spacing: -1px; font-weight: 800;">
-  Masz plik do wydruku?<br>
-  <span class="gradient-text">Zrealizujemy Twój projekt</span>
-</h1>
+      <h1 class="hero-title" style="font-size: 3.2em; line-height: 1.15; margin: 0 0 20px 0; letter-spacing: -1px; text-align: left;">
+        Masz pomysł lub gotowy projekt?<br>
+        <span class="gradient-text">Zrobię go i wydrukuję!</span>
+      </h1>
 
-<p style="font-weight: 600; color: #0088cc; margin-top: -10px; margin-bottom: 20px; font-size: 1em; letter-spacing: 0.5px;">
-  Wrocław &bull; Ząbkowice Śląskie &bull; Wysyłka w całą Polskę
-</p>
+      <p style="font-size: 1.1em; color: #475569; line-height: 1.6; margin-bottom: 25px; max-width: 540px;">
+        Masz plik STL, link z sieci, a może tylko szkic w głowie lub uszkodzoną część? Wyślij opis lub plik, a zajmę się resztą – od modelowania po gotowy wydruk 3D.
+      </p>
 
-<p class="hero-subtitle" style="color: #4a5568; max-width: 650px; font-size: 1.05em; line-height: 1.6;">
-  Niezależnie od tego, czy potrzebujesz rzadkiej części zamiennej, prototypu czy detalu użytkowego – prześlij nam plik lub link z sieci, a bezpłatnie oszacujemy koszt wykonania.
-</p>
+      <p style="font-weight: 700; color: #0088cc; margin-bottom: 30px; font-size: 0.95em; letter-spacing: 0.3px;">
+        📍 Wrocław • Ząbkowice Śląskie • Szybka wysyłka cała Polska
+      </p>
 
-<div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 30px auto 25px auto; max-width: 750px;">
-  <span style="background: #ffffff; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85em; color: #475569;">
-    Niezobowiązująca wycena
-  </span>
-  <span style="background: #ffffff; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85em; color: #475569;">
-    Realizacja od 1 sztuki
-  </span>
-  <span style="background: #ffffff; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85em; color: #475569;">
-    Pliki STL, STEP lub linki
-  </span>
-</div>
+      <div class="hero-buttons" style="justify-content: flex-start; gap: 15px;">
+        <a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #0088cc; color: white; padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 1em; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(0, 136, 204, 0.25);">
+          🚀 Wyślij projekt / opis
+        </a>
+        <a href="#materialy" class="hero-cta-secondary" style="text-decoration: none; color: #334155; padding: 16px 28px; border-radius: 12px; font-weight: 600; font-size: 1em; border: 1.5px solid #cbd5e1; background: #f8fafc; transition: all 0.3s ease;">
+          Zobacz materiały
+        </a>
+      </div>
+    </div>
 
-<div class="hero-buttons" style="margin-top: 25px;">
-<a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #0088cc; color: white; padding: 15px 34px; border-radius: 8px; font-weight: 700; font-size: 1em; transition: all 0.3s ease;">
-  Wyślij plik do wyceny
-</a>
-<a href="#materialy" class="hero-cta-secondary" style="text-decoration: none; color: #1e293b; padding: 15px 30px; border-radius: 8px; font-weight: 600; font-size: 1em; border: 1px solid #cbd5e1; background: #ffffff;">
-  Zobacz materiały
-</a>
-</div>
+    <!-- PRAWA KOLUMNA: WIZUALNA KARTA PROCESU (ŻYWA I NOWOCZESNA) -->
+    <div style="background: linear-gradient(145deg, #f8fafc 0%, #eef6ff 100%); border: 1px solid #e2e8f0; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,136,204,0.06);">
+      
+      <div style="font-weight: 800; font-size: 0.9em; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;">
+        Prosty proces realizacji:
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        
+        <!-- Krok 1 -->
+        <div style="background: #ffffff; padding: 16px 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+          <div style="background: #0088cc; color: white; width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; flex-shrink: 0;">1</div>
+          <div>
+            <div style="font-weight: 700; color: #1e293b; font-size: 1em;">Twój pomysł lub plik</div>
+            <div style="font-size: 0.85em; color: #64748b;">Szkic, wymiary, link z sieci lub plik STL/STEP</div>
+          </div>
+        </div>
+
+        <!-- Krok 2 -->
+        <div style="background: #ffffff; padding: 16px 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+          <div style="background: #0284c7; color: white; width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; flex-shrink: 0;">2</div>
+          <div>
+            <div style="font-weight: 700; color: #1e293b; font-size: 1em;">Modelowanie & Szybka Wycena</div>
+            <div style="font-size: 0.85em; color: #64748b;">Przygotuję projekt CAD i zaproponuję materiał</div>
+          </div>
+        </div>
+
+        <!-- Krok 3 -->
+        <div style="background: #ffffff; padding: 16px 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+          <div style="background: #10b981; color: white; width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; flex-shrink: 0;">3</div>
+          <div>
+            <div style="font-weight: 700; color: #1e293b; font-size: 1em;">Precyzyjny Druk 3D</div>
+            <div style="font-size: 0.85em; color: #64748b;">Gotowy przedmiot trafia w Twoje ręce</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #cbd5e1; display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #475569; font-weight: 600;">
+        <span>⏱️ Czas wyceny: ~15 min</span>
+        <span>📦 Wycena: 100% darmowa</span>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 </section>
   
