@@ -197,10 +197,37 @@
      border-color: #cbd5e0;
    }
    @media (max-width: 768px) {
-     .hero-hint {
-         flex-direction: column;
-         text-align: center;
+     .top-nav {
+       flex-direction: column;
+       padding: 15px 20px;
+       gap: 15px;
      }
+     .nav-links {
+       flex-wrap: wrap;
+       justify-content: center;
+       gap: 15px;
+     }
+     .hero-box {
+       padding: 40px 20px !important;
+       border-radius: 20px !important;
+     }
+     .hero-title {
+       font-size: 2.1em !important;
+     }
+     .hero-buttons {
+       flex-direction: column;
+       width: 100%;
+     }
+     .hero-buttons a {
+       width: 100%;
+       box-sizing: border-box;
+       text-align: center;
+     }
+     .gallery, .materials-container {
+       grid-template-columns: 1fr;
+     }
+     .social-item { width: 100%; justify-content: center; box-sizing: border-box; }
+     .fab-button { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
    }
    .gradient-text {
      background: linear-gradient(135deg, #0088cc, #00d4ff);
@@ -696,7 +723,7 @@
  box-shadow: 0 8px 25px rgba(25,118,210,0.4);
  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-@media (max-width: 600px) {
+ (max-width: 600px) {
  .fab-label {
    display: none;
  }
@@ -709,7 +736,7 @@
      opacity: 1;
      transform: translateY(0);
    }
-   @media (max-width: 768px) {
+    (max-width: 768px) {
      .top-nav {
        flex-direction: column;
        padding: 15px 20px;
@@ -766,85 +793,46 @@
 </div>
 </nav>
 
-<section class="hero-wrapper" style="padding: 40px 20px 60px;">
-<div class="hero-box fade-in visible" style="max-width: 1150px; padding: 60px 45px; text-align: left; background: #ffffff;">
+<section class="hero-wrapper" style="padding: 50px 20px 40px;">
+<div class="hero-box fade-in visible" style="max-width: 980px; padding: 60px 40px; text-align: center; background: #ffffff; border: 1px solid #eef2f6; box-shadow: 0 20px 50px rgba(0,0,0,0.04); border-radius: 28px;">
   
-  <div class="hero-grid" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;">
-    
-    <!-- LEWA KOLUMNA: TEKST I PRZYCISKI -->
-    <div>
-      <div style="display: inline-flex; align-items: center; gap: 8px; background: #e0f2fe; color: #0284c7; font-weight: 700; font-size: 0.85em; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.5px;">
-        <span>💡</span> OD POMYŚLU DO GOTOWEGO WYDRUKU
-      </div>
+  <!-- Subtelna lokalizacja / Tag -->
+  <div style="display: inline-block; background: #f1f5f9; color: #475569; font-weight: 600; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 25px; letter-spacing: 0.5px; border: 1px solid #e2e8f0;">
+    DRUK 3D NA ZAMÓWIENIE &bull; WROCŁAW, ZĄBKOWICE ŚL. & CAŁA POLSKA
+  </div>
 
-      <h1 class="hero-title" style="font-size: 3.2em; line-height: 1.15; margin: 0 0 20px 0; letter-spacing: -1px; text-align: left;">
-        Masz pomysł lub gotowy projekt?<br>
-        <span class="gradient-text">Zrobię go i wydrukuję!</span>
-      </h1>
+  <!-- Główny, mocny nagłówek H1 -->
+  <h1 class="hero-title" style="font-size: 3.4em; font-weight: 800; line-height: 1.15; margin: 0 0 20px 0; letter-spacing: -1.2px; color: #0f172a;">
+    Masz pomysł, własny projekt<br>
+    lub szukasz <span class="gradient-text">gotowego modelu?</span>
+  </h1>
 
-      <p style="font-size: 1.1em; color: #475569; line-height: 1.6; margin-bottom: 25px; max-width: 540px;">
-        Masz plik STL, link z sieci, a może tylko szkic w głowie lub uszkodzoną część? Wyślij opis lub plik, a zajmę się resztą – od modelowania po gotowy wydruk 3D.
-      </p>
+  <!-- Podtytuł łączący projektowanie, druk z plików oraz gotowe kategorie -->
+  <p style="font-size: 1.12em; color: #475569; line-height: 1.6; margin: 0 auto 35px auto; max-width: 680px; font-weight: 400;">
+    Zrealizuję Twój pomysł od zera, wydrukuję gotowy plik STL/STEP lub pomogę dobrać wzór z naszych kategorii. Od szybkich prototypów i części zamiennych po dekoracje domowe.
+  </p>
 
-      <p style="font-weight: 700; color: #0088cc; margin-bottom: 30px; font-size: 0.95em; letter-spacing: 0.3px;">
-        📍 Wrocław • Ząbkowice Śląskie • Szybka wysyłka cała Polska
-      </p>
+  <!-- Dwie jasne ścieżki dla klienta (Główny CTA + Kategorie) -->
+  <div class="hero-buttons" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px;">
+    <a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #0088cc; color: white; padding: 16px 36px; border-radius: 12px; font-weight: 700; font-size: 1em; transition: all 0.25 ease; box-shadow: 0 8px 24px rgba(0, 136, 204, 0.25);">
+      Wycena własnego projektu
+    </a>
+    <a href="#kategorie" class="hero-cta-secondary" style="text-decoration: none; color: #0f172a; padding: 16px 32px; border-radius: 12px; font-weight: 600; font-size: 1em; border: 1.5px solid #cbd5e1; background: #ffffff; transition: all 0.25s ease;">
+      Przeglądaj kategorie modeli
+    </a>
+  </div>
 
-      <div class="hero-buttons" style="justify-content: flex-start; gap: 15px;">
-        <a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #0088cc; color: white; padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 1em; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(0, 136, 204, 0.25);">
-          🚀 Wyślij projekt / opis
-        </a>
-        <a href="#materialy" class="hero-cta-secondary" style="text-decoration: none; color: #334155; padding: 16px 28px; border-radius: 12px; font-weight: 600; font-size: 1em; border: 1.5px solid #cbd5e1; background: #f8fafc; transition: all 0.3s ease;">
-          Zobacz materiały
-        </a>
-      </div>
+  <!-- Stonowany pasek zaufania (Trust Bar) bez zbędnych bajerów -->
+  <div style="border-top: 1px solid #f1f5f9; padding-top: 25px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; color: #64748b; font-size: 0.88em; font-weight: 500;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="color: #0088cc; font-weight: 700;">✓</span> Bezpłatna wycena w 15 min
     </div>
-
-    <!-- PRAWA KOLUMNA: WIZUALNA KARTA PROCESU (ŻYWA I NOWOCZESNA) -->
-    <div style="background: linear-gradient(145deg, #f8fafc 0%, #eef6ff 100%); border: 1px solid #e2e8f0; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,136,204,0.06);">
-      
-      <div style="font-weight: 800; font-size: 0.9em; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;">
-        Prosty proces realizacji:
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        
-        <!-- Krok 1 -->
-        <div style="background: #ffffff; padding: 16px 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
-          <div style="background: #0088cc; color: white; width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; flex-shrink: 0;">1</div>
-          <div>
-            <div style="font-weight: 700; color: #1e293b; font-size: 1em;">Twój pomysł lub plik</div>
-            <div style="font-size: 0.85em; color: #64748b;">Szkic, wymiary, link z sieci lub plik STL/STEP</div>
-          </div>
-        </div>
-
-        <!-- Krok 2 -->
-        <div style="background: #ffffff; padding: 16px 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
-          <div style="background: #0284c7; color: white; width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; flex-shrink: 0;">2</div>
-          <div>
-            <div style="font-weight: 700; color: #1e293b; font-size: 1em;">Modelowanie & Szybka Wycena</div>
-            <div style="font-size: 0.85em; color: #64748b;">Przygotuję projekt CAD i zaproponuję materiał</div>
-          </div>
-        </div>
-
-        <!-- Krok 3 -->
-        <div style="background: #ffffff; padding: 16px 20px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
-          <div style="background: #10b981; color: white; width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; flex-shrink: 0;">3</div>
-          <div>
-            <div style="font-weight: 700; color: #1e293b; font-size: 1em;">Precyzyjny Druk 3D</div>
-            <div style="font-size: 0.85em; color: #64748b;">Gotowy przedmiot trafia w Twoje ręce</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #cbd5e1; display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #475569; font-weight: 600;">
-        <span>⏱️ Czas wyceny: ~15 min</span>
-        <span>📦 Wycena: 100% darmowa</span>
-      </div>
-
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="color: #0088cc; font-weight: 700;">✓</span> Druk od 1 sztuki
     </div>
-
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="color: #0088cc; font-weight: 700;">✓</span> Materiały PLA, PETG, TPU, ASA
+    </div>
   </div>
 
 </div>
@@ -973,7 +961,7 @@
    .theme-organizacja .cat-btn { color: #1565c0; }
    .theme-organizacja:hover { border-color: rgba(21, 101, 192, 0.3); }
    
-   @media (max-width: 900px) {
+    (max-width: 900px) {
      .cat-banner-card {
        grid-template-columns: 1fr;
      }
@@ -1263,7 +1251,7 @@
    .mat-asa .mat-badge { background: #f3e5f5; color: #7b1fa2; }
    .mat-asa .mat-title { color: #4a148c; }
    
-   @media (max-width: 850px) {
+    (max-width: 850px) {
      .mat-banner-card {
        grid-template-columns: 1fr;
      }
