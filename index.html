@@ -25,6 +25,9 @@
 <meta property="og:url" content="https://awydrukujse.pl">
 <meta property="og:image" content="https://awydrukujse.pl/img/Logoskleputr.png">
 
+<!-- Skrypt Ochrony Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <!-- Dane strukturalne Google (Precyzyjne pozycjonowanie lokalne) -->
 <script type="application/ld+json">
 {
@@ -540,56 +543,40 @@
      backdrop-filter: blur(5px);
    }
    .modal img { max-width: 90%; max-height: 90vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
-   .fab-container {
+   
+   /* ZESPÓŁ PŁYWAJĄCYCH PRZYCISKÓW (TG BOT + ZAMÓWIENIE) */
+   .fab-group {
      position: fixed;
-     bottom: 30px;
-     right: 30px;
+     bottom: 25px;
+     right: 25px;
      display: flex;
-     align-items: center;
+     flex-direction: column;
+     gap: 12px;
+     align-items: flex-end;
      z-index: 2001;
    }
-   .fab-label {
-     background: white;
-     color: #4285f4;
-     padding: 10px 18px;
-     border-radius: 12px;
-     margin-right: 15px;
-     font-weight: 600;
-     font-size: 0.9em;
-     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-     border: 1px solid #eef2f6;
-     white-space: nowrap;
-     pointer-events: none;
-     opacity: 0;
-     transform: translateX(20px);
-     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-   }
-   .fab-container:hover .fab-label {
-     opacity: 1;
-     transform: translateX(0);
-   }
    .fab-button {
-     position: relative;
-     bottom: auto;
-     right: auto;
-     background: #e3f2fd;
+     background: #1976d2;
      color: white;
-     width: 65px;
-     height: 65px;
+     width: 58px;
+     height: 58px;
      border-radius: 50%;
      display: flex;
      justify-content: center;
      align-items: center;
-     font-size: 32px;
+     font-size: 26px;
      text-decoration: none;
      box-shadow: 0 8px 25px rgba(25,118,210,0.4);
      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
    }
-   @media (max-width: 600px) {
-     .fab-label {
-       display: none;
-     }
+   .fab-tg {
+     background: #0088cc;
+     box-shadow: 0 8px 25px rgba(0,136,204,0.4);
    }
+   .fab-button:hover {
+     transform: scale(1.1);
+   }
+
    .fade-in {
      opacity: 1;
      transform: none;
@@ -651,7 +638,7 @@
        grid-template-columns: 1fr;
      }
      .social-item { width: 100%; justify-content: center; box-sizing: border-box; }
-     .fab-button { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
+     .fab-button { width: 50px; height: 50px; font-size: 22px; }
    }
 </style>
 </head>
@@ -939,11 +926,11 @@
 <div class="custom-order-icon">💡</div>
 <div class="model-info-container">
 <div class="model-id">TWÓJ PROJEKT</div>
-<h3>Masz własny plik?</h3>
-<p style="font-size: 0.9em; color: #555;">Znajdź model na <b>Thingiverse</b>, <b>MakerWorld</b> lub <b>Printables</b> i wyślij nam link w formularzu</p>
+<h3>Masz własny plik lub zdjęcie?</h3>
+<p style="font-size: 0.9em; color: #555;">Znajdź model na <b>Thingiverse</b>, <b>MakerWorld</b> lub <b>Printables</b>, zrób zdjęcie uszkodzonej części i wyślij do bota!</p>
 <div class="price" style="font-size: 1.1em; color: #0088cc;">Wycena indywidualna</div>
 </div>
-<a href="https://t.me/Drukarz3Dbot" target="_blank" class="promo-box" style="background: #0088cc; color: white; text-decoration: none; border:none;">Wyślij plik do bota →</a>
+<a href="https://t.me/Drukarz3Dbot" target="_blank" class="promo-box" style="background: #0088cc; color: white; text-decoration: none; border:none;">Wyślij plik/zdjęcie do bota →</a>
 </div>
 <div class="card">
 <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
@@ -1346,7 +1333,7 @@
 <span>📦</span> Katalog modeli
 </button>
 <button type="button" id="btnCustom" onclick="switchType('custom')" style="padding: 14px 20px; border-radius: 12px; border: none; background: transparent; color: #64748b; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
-<span>💡</span> Własny projekt / STL
+<span>💡</span> Własny projekt / Zdjęcie / STL
 </button>
 </div>
 <form id="orderForm" style="display: grid; gap: 28px;">
@@ -1383,12 +1370,14 @@
 </select>
 </div>
 </div>
-<!-- Opcja Własny Projekt -->
+<!-- Opcja Własny Projekt / Zdjęcie / Plik 3D -->
 <div id="customFields" style="display: none; grid-gap: 16px;">
 <div>
-  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Wgraj plik 3D (.stl, .step, .3mf, .obj)</label>
-  <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.9rem; outline: none; box-sizing: border-box; margin-bottom: 12px;">
+  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Wgraj plik 3D (.stl, .step, .obj) LUB zdjęcie części (z aparatu/galerii)</label>
+  <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj,image/*" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.9rem; outline: none; box-sizing: border-box; margin-bottom: 6px;">
   
+  <div id="fileDetails" style="font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; display: none;"></div>
+
   <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Lub wklej link do modelu / nazwę części</label>
   <input type="text" id="customModelInput" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
 </div>
@@ -1450,6 +1439,12 @@
 <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Uwagi lub szczegółowe wymagania (opcjonalnie)</label>
 <textarea id="desc" placeholder="Wpisz specyficzne wymiary, wypełnienie lub terminy..." style="width: 100%; height: 90px; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; resize: vertical; box-sizing: border-box;"></textarea>
 </div>
+
+<!-- Widget Ochrony przed Spamem (Cloudflare Turnstile) -->
+<div style="display: flex; justify-content: center; margin-bottom: 10px;">
+  <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA"></div>
+</div>
+
 <!-- PRZYCISK I INFORMACJA -->
 <div>
 <button type="submit" id="submitBtn" style="width: 100%; padding: 18px; border: none; border-radius: 14px; background: #1976d2; color: white; font-size: 1.05rem; font-weight: 700; cursor: pointer; box-shadow: 0 8px 20px rgba(25, 118, 210, 0.25); transition: background 0.2s ease;">
@@ -1479,7 +1474,7 @@
    }
 </style>
 
-<!-- NOWA SEKCJA OPINIE GOOGLE -->
+<!-- SEKCJA OPINIE GOOGLE -->
 <section class="fade-in" style="padding: 70px 20px;">
   <div style="text-align: center; margin-bottom: 40px;">
     <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #e2e8f0; padding: 6px 18px; border-radius: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 12px;">
@@ -1584,11 +1579,14 @@
 <img id="modalImg" src="" alt="Powiększenie obrazu">
 </div>
 
-<div class="fab-container">
-<span class="fab-label">Złóż zamówienie tutaj! ✨</span>
-<a href="#zamowienie" class="fab-button">
-   🛒
-</a>
+<!-- PŁYWAJĄCE PRZYCISKI: TELEGRAM BOT + KOSZYK ZAMÓWIENIA -->
+<div class="fab-group">
+  <a href="https://t.me/Drukarz3Dbot" target="_blank" class="fab-button fab-tg" title="Napisz na Telegramie">
+     💬
+  </a>
+  <a href="#zamowienie" class="fab-button" title="Złóż zamówienie">
+     🛒
+  </a>
 </div>
 
 <!-- SKRYPT LOGIKI STRONY -->
@@ -1644,26 +1642,58 @@
     }
   }
 
+  // Walidacja pliku oraz wyświetlanie informacji w czasie rzeczywistym
+  const fileInput = document.getElementById('customFileInput');
+  const fileDetails = document.getElementById('fileDetails');
+  const MAX_SIZE_MB = 45;
+  let isFileTooBig = false;
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+      
+      if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+        isFileTooBig = true;
+        fileDetails.style.display = 'block';
+        fileDetails.style.color = '#dc2626';
+        fileDetails.innerText = `⚠️ Plik jest za duży (${sizeMB} MB). Maksymalny rozmiar to ${MAX_SIZE_MB} MB. Wyślij go wklejając link w polu poniżej.`;
+      } else {
+        isFileTooBig = false;
+        fileDetails.style.display = 'block';
+        fileDetails.style.color = '#059669';
+        fileDetails.innerText = `📎 Wybrano: ${file.name} (${sizeMB} MB)`;
+      }
+    } else {
+      fileDetails.style.display = 'none';
+      isFileTooBig = false;
+    }
+  });
+
   const form = document.getElementById('orderForm');
   const msg = document.getElementById('responseMsg');
   const btn = document.getElementById('submitBtn');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (isFileTooBig) {
+      alert(`Plik przekracza limit ${MAX_SIZE_MB} MB. Zmniejsz wagę pliku lub wklej link do dysku.`);
+      return;
+    }
+
     btn.disabled = true;
     btn.style.opacity = "0.7";
-    btn.innerText = "Wysyłanie zamówienia...";
+    btn.innerText = "⏳ Wysyłanie zapytania i pliku, proszę czekać...";
     msg.innerText = "";
     msg.style.display = "none";
 
-    const fileInput = document.getElementById('customFileInput');
     const hasFile = currentMode === 'custom' && fileInput && fileInput.files.length > 0;
 
     const selectedModel = (currentMode === 'catalog')
       ? document.getElementById('modelSelect').value
-      : (hasFile ? `Plik: ${fileInput.files[0].name}` : (document.getElementById('customModelInput').value || "Własny projekt / plik"));
+      : (hasFile ? `Plik/Zdjęcie: ${fileInput.files[0].name}` : (document.getElementById('customModelInput').value || "Własny projekt / plik"));
 
-    // Tworzenie FormData do wysyłki multipart (z obsługą plików)
     const formData = new FormData();
     formData.append('name', document.getElementById('name').value);
     formData.append('contact', document.getElementById('contact').value);
@@ -1691,6 +1721,7 @@
         msg.style.padding = "16px";
         msg.innerText = "✅ Dziękujemy! Zamówienie zostało wysłane. Skontaktuję się z Tobą najszybciej jak to możliwe.";
         form.reset();
+        fileDetails.style.display = 'none';
       } else {
         throw new Error();
       }
