@@ -128,6 +128,16 @@
    .nav-links a:hover {
      color: #0088cc;
    }
+   .hamburger-btn {
+     display: none;
+     background: transparent;
+     border: none;
+     font-size: 28px;
+     cursor: pointer;
+     color: #1a1a2e;
+     padding: 5px 10px;
+     transition: transform 0.2s ease;
+   }
    .hero-wrapper {
      padding: 60px 20px;
      display: flex;
@@ -590,14 +600,36 @@
    }
    @media (max-width: 768px) {
      .top-nav {
-       flex-direction: column;
-       padding: 15px 20px;
-       gap: 15px;
+       flex-direction: row !important;
+       justify-content: space-between !important;
+       align-items: center !important;
+       padding: 12px 20px !important;
+       position: sticky;
+       top: 0;
+       z-index: 1000;
+     }
+     .hamburger-btn {
+       display: block;
      }
      .nav-links {
-       flex-wrap: wrap;
-       justify-content: center;
-       gap: 15px;
+       display: none;
+       flex-direction: column;
+       position: absolute;
+       top: 100%;
+       left: 0;
+       width: 100%;
+       background: #ffffff;
+       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+       padding: 20px 0;
+       gap: 16px !important;
+       border-top: 1px solid #f0f4f8;
+     }
+     .nav-links.active {
+       display: flex;
+     }
+     .nav-links a {
+       font-size: 1.05em;
+       padding: 8px 0;
      }
      .hero-box {
        padding: 40px 20px !important;
@@ -625,19 +657,22 @@
 </head>
 <body>
 <nav class="top-nav" id="navbar">
-<a href="/" class="nav-logo-container">
-<img src="img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
-<p class="nav-title">awydrukujse.pl</p>
-</a>
-<div class="nav-links">
-<a href="#kategorie">Kategorie</a>
-<a href="#modele">Modele</a>
-<a href="#materialy">Materiały</a>
-<a href="#cennik">Cennik</a>
-<a href="#faq">FAQ</a>
-<a href="#zamowienie" style="color: #4285f4;">Zamów teraz</a>
-<a href="#kontakt" style="color: #ea4335;">Kontakt</a>
-</div>
+  <a href="/" class="nav-logo-container">
+    <img src="img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
+    <p class="nav-title">awydrukujse.pl</p>
+  </a>
+
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Otwórz menu">☰</button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#kategorie" onclick="closeMobileMenu()">Kategorie</a>
+    <a href="#modele" onclick="closeMobileMenu()">Modele</a>
+    <a href="#materialy" onclick="closeMobileMenu()">Materiały</a>
+    <a href="#cennik" onclick="closeMobileMenu()">Cennik</a>
+    <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+    <a href="#zamowienie" style="color: #4285f4;" onclick="closeMobileMenu()">Zamów teraz</a>
+    <a href="#kontakt" style="color: #ea4335;" onclick="closeMobileMenu()">Kontakt</a>
+  </div>
 </nav>
 
 <section class="hero-wrapper" style="padding: 50px 20px 40px;">
@@ -1555,6 +1590,23 @@
 
 <!-- SKRYPT LOGIKI STRONY -->
 <script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  if (hamburgerBtn && navLinks) {
+    hamburgerBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburgerBtn.innerText = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+  }
+
+  function closeMobileMenu() {
+    if (window.innerWidth <= 768 && navLinks && hamburgerBtn) {
+      navLinks.classList.remove('active');
+      hamburgerBtn.innerText = '☰';
+    }
+  }
+
   let currentMode = 'catalog';
   
   function switchType(mode) {
