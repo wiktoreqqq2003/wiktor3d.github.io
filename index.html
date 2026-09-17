@@ -15,11 +15,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="Nw_3i0kBQekvkOqbbmgG3w_P7OKQsgGM94NYEnER3nE" />
 
-<!-- Zoptymalizowany Meta Description pod kątem CTR -->
-<meta name="description" content="Szukasz profesjonalnego druku 3D we Wrocławiu i okolicy? Wyślij plik STL lub wybierz model z katalogu. Szybka wycena, wydruki od 1 sztuki. Zamów online!">
+<!-- Zoptymalizowany Meta Description pod kątem CTR & Cennika -->
+<meta name="description" content="Szybki i precyzyjny druk 3D na zamówienie we Wrocławiu, Oławie i Oleśnicy. Sprawdź cennik, prześlij plik STL lub projekt CAD i otrzymaj darmową wycenę w 15 min!">
 
 <!-- Tagi Open Graph (Podgląd w Social Media) -->
-<meta property="og:title" content="Druk 3D na Zamówienie Wrocław & Online | awydrukujse.pl">
+<meta property="og:title" content="Druk 3D Wrocław & Online | Cennik & Szybka Wycena – awydrukujse.pl">
 <meta property="og:description" content="Profesjonalne usługi druku 3D. Wyślij swój plik STL lub wybierz wzór z katalogu. Szybka wycena i wysoka jakość wykonania.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://awydrukujse.pl">
@@ -41,13 +41,13 @@
     "addressRegion": "Dolny Śląsk",
     "addressCountry": "PL"
   },
-  "areaServed": ["Wrocław", "Oława", "Oleśnica", "Kamieniec Ząbkowicki", "Ząbkowice Śląskie", "Dolny Śląsk", "Polska"],
+  "areaServed": ["Wrocław", "Oława", "Oleśnica", "Kamieniec Ząbkowicki", "Ząbkowice Śląskie", "Rawicz", "Namysłów", "Dolny Śląsk", "Polska"],
   "priceRange": "$$"
 }
 </script>
 
 <!-- Zoptymalizowany Tytuł Strony (SEO + CTR) -->
-<title>Druk 3D na Zamówienie Wrocław & Online | Szybka Wycena – awydrukujse.pl</title>
+<title>Druk 3D Wrocław, Oława, Oleśnica | Cennik & Wycena – awydrukujse.pl</title>
 <link rel="icon" type="image/png" href="img/Logoskleputr.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,14 +113,14 @@
    }
    .nav-links {
      display: flex;
-     gap: 30px;
+     gap: 25px;
      align-items: center;
    }
    .nav-links a {
      color: #444;
      text-decoration: none;
      font-weight: 600;
-     font-size: 0.95em;
+     font-size: 0.9em;
      transition: color 0.3s ease;
      text-transform: uppercase;
      letter-spacing: 0.5px;
@@ -164,29 +164,6 @@
      line-height: 1.15;
      letter-spacing: -1.5px;
    }
-   .hero-hint {
-     display: flex;
-     align-items: center;
-     gap: 15px;
-     background: rgba(25, 118, 210, 0.05);
-     border-left: 4px solid #1976d2;
-     padding: 15px 20px;
-     border-radius: 8px;
-     margin-top: 25px;
-     max-width: 600px;
-     margin-left: auto;
-     margin-right: auto;
-     text-align: left;
-   }
-   .hero-hint p {
-     margin: 0;
-     font-size: 0.95em;
-     color: #4a5568;
-     line-height: 1.5;
-   }
-   .hint-icon {
-     font-size: 1.5em;
-   }
    .hero-cta:hover {
      transform: translateY(-3px);
      box-shadow: 0 10px 20px rgba(25, 118, 210, 0.2);
@@ -196,62 +173,11 @@
      background: #f8fafc;
      border-color: #cbd5e0;
    }
-   @media (max-width: 768px) {
-     .top-nav {
-       flex-direction: column;
-       padding: 15px 20px;
-       gap: 15px;
-     }
-     .nav-links {
-       flex-wrap: wrap;
-       justify-content: center;
-       gap: 15px;
-     }
-     .hero-box {
-       padding: 40px 20px !important;
-       border-radius: 20px !important;
-     }
-     .hero-title {
-       font-size: 2.1em !important;
-     }
-     .hero-buttons {
-       flex-direction: column;
-       width: 100%;
-     }
-     .hero-buttons a {
-       width: 100%;
-       box-sizing: border-box;
-       text-align: center;
-     }
-     .gallery, .materials-container {
-       grid-template-columns: 1fr;
-     }
-     .social-item { width: 100%; justify-content: center; box-sizing: border-box; }
-     .fab-button { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
-   }
    .gradient-text {
      background: linear-gradient(135deg, #0088cc, #00d4ff);
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
      display: inline-block;
-   }
-   .highlight-text {
-     position: relative;
-     display: inline-block;
-     z-index: 1;
-     white-space: nowrap;
-   }
-   .highlight-text::after {
-     content: '';
-     position: absolute;
-     bottom: 8px;
-     left: -2%;
-     width: 104%;
-     height: 14px;
-     background: rgba(0, 136, 204, 0.15);
-     z-index: -1;
-     border-radius: 4px;
-     transform: rotate(-1.5deg);
    }
    .hero-subtitle {
      font-size: 1.25em;
@@ -315,23 +241,6 @@
      display: grid;
      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
      gap: 30px;
-   }
-   .box {
-     background: white;
-     padding: 35px 25px;
-     border-radius: 20px;
-     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-     text-align: center;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
-     font-size: 1.05em;
-     border: 1px solid #f0f4f8;
-   }
-   .box:hover {
-     transform: translateY(-5px);
-     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
    }
    .gallery {
      display: grid;
@@ -442,13 +351,6 @@
      border: 1px solid #ddd;
      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
    }
-   .c-yellow { background-color: #ffd700; }
-   .c-white { background-color: #ffffff; }
-   .c-gold { background-color: #d4af37; }
-   .c-grey { background-color: #808080; }
-   .c-pink { background-color: #ffc0cb; }
-   .c-black { background-color: #222222; }
-   .c-beige { background-color: #F5F5DC; }
    .c-rainbow { background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff); border: none; }
    .card .price {
      font-size: 1.5em;
@@ -488,56 +390,6 @@
    .btn-download:hover {
      background: #333;
      transform: scale(1.05);
-   }
-   .materials-container {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-     gap: 30px;
-     margin-top: 40px;
-   }
-   .material-card {
-     background: white;
-     border-radius: 20px;
-     padding: 40px 30px;
-     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-     text-align: left;
-     border-top: 6px solid #ddd;
-     transition: all 0.3s ease;
-     border: 1px solid #f0f4f8;
-   }
-   .material-card:hover {
-     transform: translateY(-8px);
-     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-   }
-   .mat-pla { border-top-color: #4CAF50; }
-   .mat-petg { border-top-color: #2196F3; }
-   .mat-tpu { border-top-color: #FF9800; }
-   .material-icon {
-     font-size: 3.5em;
-     margin-bottom: 20px;
-   }
-   .material-card h3 {
-     margin-top: 0;
-     color: #111;
-     font-size: 1.5em;
-     font-weight: 800;
-   }
-   .material-card p {
-     color: #555;
-     font-size: 0.95em;
-     line-height: 1.7;
-   }
-   .bio-badge {
-     background: #e8f5e9;
-     color: #2e7d32;
-     padding: 6px 14px;
-     border-radius: 20px;
-     font-size: 0.8em;
-     font-weight: 800;
-     display: inline-block;
-     margin-bottom: 15px;
-     border: 1px solid #c8e6c9;
-     letter-spacing: 0.5px;
    }
    .faq-container {
      max-width: 850px;
@@ -678,56 +530,56 @@
      backdrop-filter: blur(5px);
    }
    .modal img { max-width: 90%; max-height: 90vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
-.fab-container {
- position: fixed;
- bottom: 30px;
- right: 30px;
- display: flex;
- align-items: center;
- z-index: 2001;
-}
-.fab-label {
- background: white;
- color: #4285f4;
- padding: 10px 18px;
- border-radius: 12px;
- margin-right: 15px;
- font-weight: 600;
- font-size: 0.9em;
- box-shadow: 0 5px 20px rgba(0,0,0,0.1);
- border: 1px solid #eef2f6;
- white-space: nowrap;
- pointer-events: none;
- opacity: 0;
- transform: translateX(20px);
- transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.fab-container:hover .fab-label {
- opacity: 1;
- transform: translateX(0);
-}
-.fab-button {
- position: relative;
- bottom: auto;
- right: auto;
- background: #e3f2fd;
- color: white;
- width: 65px;
- height: 65px;
- border-radius: 50%;
- display: flex;
- justify-content: center;
- align-items: center;
- font-size: 32px;
- text-decoration: none;
- box-shadow: 0 8px 25px rgba(25,118,210,0.4);
- transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
- (max-width: 600px) {
- .fab-label {
-   display: none;
- }
-}
+   .fab-container {
+     position: fixed;
+     bottom: 30px;
+     right: 30px;
+     display: flex;
+     align-items: center;
+     z-index: 2001;
+   }
+   .fab-label {
+     background: white;
+     color: #4285f4;
+     padding: 10px 18px;
+     border-radius: 12px;
+     margin-right: 15px;
+     font-weight: 600;
+     font-size: 0.9em;
+     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+     border: 1px solid #eef2f6;
+     white-space: nowrap;
+     pointer-events: none;
+     opacity: 0;
+     transform: translateX(20px);
+     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   }
+   .fab-container:hover .fab-label {
+     opacity: 1;
+     transform: translateX(0);
+   }
+   .fab-button {
+     position: relative;
+     bottom: auto;
+     right: auto;
+     background: #e3f2fd;
+     color: white;
+     width: 65px;
+     height: 65px;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 32px;
+     text-decoration: none;
+     box-shadow: 0 8px 25px rgba(25,118,210,0.4);
+     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   }
+   @media (max-width: 600px) {
+     .fab-label {
+       display: none;
+     }
+   }
    .fade-in {
      opacity: 1;
      transform: none;
@@ -736,7 +588,7 @@
      opacity: 1;
      transform: translateY(0);
    }
-    (max-width: 768px) {
+   @media (max-width: 768px) {
      .top-nav {
        flex-direction: column;
        padding: 15px 20px;
@@ -747,28 +599,22 @@
        justify-content: center;
        gap: 15px;
      }
-     /* Optymalizacja nowej sekcji Hero na telefony */
      .hero-box {
-       padding: 35px 20px !important;
-       border-radius: 25px;
-     }
-     .hero-grid {
-       grid-template-columns: 1fr !important;
-       gap: 30px !important;
+       padding: 40px 20px !important;
+       border-radius: 20px !important;
      }
      .hero-title {
-       font-size: 2.2em !important;
-       text-align: center !important;
-     }
-     .hero-box p {
-       text-align: center !important;
-       margin-left: auto !important;
-       margin-right: auto !important;
+       font-size: 2.1em !important;
      }
      .hero-buttons {
-       justify-content: center !important;
+       flex-direction: column;
+       width: 100%;
      }
-     /* Pozostałe sekcje */
+     .hero-buttons a {
+       width: 100%;
+       box-sizing: border-box;
+       text-align: center;
+     }
      .gallery, .materials-container {
        grid-template-columns: 1fr;
      }
@@ -787,6 +633,7 @@
 <a href="#kategorie">Kategorie</a>
 <a href="#modele">Modele</a>
 <a href="#materialy">Materiały</a>
+<a href="#cennik">Cennik</a>
 <a href="#faq">FAQ</a>
 <a href="#zamowienie" style="color: #4285f4;">Zamów teraz</a>
 <a href="#kontakt" style="color: #ea4335;">Kontakt</a>
@@ -961,7 +808,7 @@
    .theme-organizacja .cat-btn { color: #1565c0; }
    .theme-organizacja:hover { border-color: rgba(21, 101, 192, 0.3); }
    
-    (max-width: 900px) {
+   @media (max-width: 900px) {
      .cat-banner-card {
        grid-template-columns: 1fr;
      }
@@ -1251,7 +1098,7 @@
    .mat-asa .mat-badge { background: #f3e5f5; color: #7b1fa2; }
    .mat-asa .mat-title { color: #4a148c; }
    
-    (max-width: 850px) {
+   @media (max-width: 850px) {
      .mat-banner-card {
        grid-template-columns: 1fr;
      }
@@ -1368,6 +1215,63 @@
 </div>
 </div>
 </div>
+</section>
+
+<!-- SEKCJA CENNIK -->
+<section id="cennik" class="fade-in" style="padding: 60px 20px; background: #ffffff; border-radius: 28px; border: 1px solid #eef2f6; box-shadow: 0 15px 45px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 40px;">
+  <div style="max-width: 980px; margin: 0 auto; text-align: center;">
+    
+    <div style="display: inline-block; background: #e0f2fe; color: #0284c7; font-weight: 700; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 15px; letter-spacing: 0.5px;">
+      TRANSPARENTNE WARUNKI
+    </div>
+    
+    <h2 style="font-size: 2.2em; font-weight: 800; color: #0f172a; margin-bottom: 15px; letter-spacing: -0.5px;">
+      Orientacyjny Cennik Druku 3D
+    </h2>
+    
+    <p style="color: #475569; max-width: 650px; margin: 0 auto 40px auto; font-size: 1.05em; line-height: 1.6;">
+      Każdy projekt wyceniamy indywidualnie na podstawie zużycia materiału oraz czasu pracy drukarki. Zobacz przykładowe progi cenowe:
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left;">
+      
+      <!-- Karta 1 -->
+      <div style="background: #f8fafc; padding: 30px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+        <div style="font-size: 0.82em; font-weight: 700; color: #0088cc; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Proste elementy</div>
+        <h3 style="margin: 0 0 10px 0; font-size: 1.3em; color: #0f172a; font-weight: 700;">Drobne części zamienne</h3>
+        <p style="font-size: 0.9em; color: #64748b; line-height: 1.5; margin-bottom: 20px;">
+          Zaślepki, proste uchwyty, małe zębatki, podkładki. Druk z gotowego pliku STL lub wzoru.
+        </p>
+        <div style="font-size: 1.5em; font-weight: 800; color: #0f172a;">od 15 – 35 zł</div>
+      </div>
+
+      <!-- Karta 2 -->
+      <div style="background: #ffffff; padding: 30px; border-radius: 20px; border: 2px solid #0088cc; box-shadow: 0 8px 25px rgba(0,136,204,0.08);">
+        <div style="font-size: 0.82em; font-weight: 700; color: #0088cc; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Najczęściej wybierane</div>
+        <h3 style="margin: 0 0 10px 0; font-size: 1.3em; color: #0f172a; font-weight: 700;">Elementy techniczne & Obudowy</h3>
+        <p style="font-size: 0.9em; color: #64748b; line-height: 1.5; margin-bottom: 20px;">
+          Wytrzymałe elementy maszyn, obudowy elektroniki, adaptery z PETG / ASA / TPU.
+        </p>
+        <div style="font-size: 1.5em; font-weight: 800; color: #0f172a;">od 40 – 90 zł</div>
+      </div>
+
+      <!-- Karta 3 -->
+      <div style="background: #f8fafc; padding: 30px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+        <div style="font-size: 0.82em; font-weight: 700; color: #0088cc; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Projektowanie od zera</div>
+        <h3 style="margin: 0 0 10px 0; font-size: 1.3em; color: #0f172a; font-weight: 700;">Modelowanie CAD + Druk</h3>
+        <p style="font-size: 0.9em; color: #64748b; line-height: 1.5; margin-bottom: 20px;">
+          Odtworzenie uszkodzonej części ze zdjęcia lub szkicu, wymiarowanie i wykonanie.
+        </p>
+        <div style="font-size: 1.5em; font-weight: 800; color: #0f172a;">Wycena indywidualna</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 30px; font-size: 0.9em; color: #64748b;">
+      💡 Minimum logistyczne zamówienia wynosi 20 zł. <strong>Wycena jest zawsze w 100% darmowa i niezobowiązująca.</strong>
+    </div>
+
+  </div>
 </section>
 
 <section id="faq" class="fade-in">
@@ -1537,25 +1441,91 @@
    }
 </style>
 
-<section class="fade-in">
-<h2>💬 Co mówią klienci?</h2>
-<div class="grid">
-<div class="box">
-<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-<i>„Szybka realizacja i super jakość wydruku 👍”</i>
-<div class="testimonial-author">- Zadowolony Klient</div>
-</div>
-<div class="box">
-<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-<i>„Idealne na prezent, bardzo polecam.”</i>
-<div class="testimonial-author">- Stały Odbiorca</div>
-</div>
-<div class="box">
-<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-<i>„Dobry kontakt, uczciwe ceny.”</i>
-<div class="testimonial-author">- Nowy Nabywca</div>
-</div>
-</div>
+<!-- NOWA SEKCJA OPINIE GOOGLE -->
+<section class="fade-in" style="padding: 70px 20px;">
+  <div style="text-align: center; margin-bottom: 40px;">
+    <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #e2e8f0; padding: 6px 18px; border-radius: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 12px;">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+      Opinie Google &bull; 5.0 ★★★★★
+    </div>
+    <h2 style="margin: 0; font-size: 2.2em; font-weight: 800; color: #0f172a;">Co mówią o nas klienci?</h2>
+  </div>
+
+  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+    
+    <!-- Opinia 1 -->
+    <div style="background: #ffffff; padding: 28px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #0088cc; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em;">M</div>
+            <div>
+              <div style="font-weight: 700; color: #0f172a; font-size: 0.95em;">Michał K.</div>
+              <div style="font-size: 0.78em; color: #64748b;">Wrocław</div>
+            </div>
+          </div>
+          <span style="color: #f59e0b; font-size: 0.95em;">★★★★★</span>
+        </div>
+        <p style="font-size: 0.92em; color: #475569; line-height: 1.6; margin: 0 0 18px 0;">
+          „Dorobiony element do ekspresu do kawy pasuje idealnie! Ekspresowa wycena i szybki odbiór. Bardzo polecam za profesjonalne podejście.”
+        </p>
+      </div>
+      <div style="font-size: 0.78em; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
+        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg> Opinia z Google
+      </div>
+    </div>
+
+    <!-- Opinia 2 -->
+    <div style="background: #ffffff; padding: 28px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #10b981; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em;">P</div>
+            <div>
+              <div style="font-weight: 700; color: #0f172a; font-size: 0.95em;">Piotr W.</div>
+              <div style="font-size: 0.78em; color: #64748b;">Oława</div>
+            </div>
+          </div>
+          <span style="color: #f59e0b; font-size: 0.95em;">★★★★★</span>
+        </div>
+        <p style="font-size: 0.92em; color: #475569; line-height: 1.6; margin: 0 0 18px 0;">
+          „Potrzebowałem nietypowej obudowy do elektroniki z PETG. Projekt ze zdjęcia wyceniony w 15 minut, wydruk gładki i bardzo wytrzymały.”
+        </p>
+      </div>
+      <div style="font-size: 0.78em; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
+        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg> Opinia z Google
+      </div>
+    </div>
+
+    <!-- Opinia 3 -->
+    <div style="background: #ffffff; padding: 28px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #8b5cf6; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em;">K</div>
+            <div>
+              <div style="font-weight: 700; color: #0f172a; font-size: 0.95em;">Kamil T.</div>
+              <div style="font-size: 0.78em; color: #64748b;">Ząbkowice Śląskie</div>
+            </div>
+          </div>
+          <span style="color: #f59e0b; font-size: 0.95em;">★★★★★</span>
+        </div>
+        <p style="font-size: 0.92em; color: #475569; line-height: 1.6; margin: 0 0 18px 0;">
+          „Zamawiałem zestaw wazonów dekoracyjnych. Jakość wykonania bez zastrzeżeń, paczka wysłana błyskawicznie i solidnie spakowana.”
+        </p>
+      </div>
+      <div style="font-size: 0.78em; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
+        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg> Opinia z Google
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 35px;">
+    <a href="https://share.google/5kCklfY6Zj7X7O7Fd" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9em; color: #0088cc; text-decoration: none; background: #ffffff; padding: 12px 26px; border-radius: 30px; border: 1px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.03); transition: all 0.3s ease;">
+      <span>Zobacz naszą wizytówkę w Google Maps ➔</span>
+    </a>
+  </div>
 </section>
 
 <section class="socials-section fade-in">
@@ -1588,7 +1558,10 @@
 
 <footer>
 <a class="footer-cta" href="https://t.me/Drukarz3Dbot" target="_blank">🚀 Zamów przez Telegram</a>
-<p style="margin-top:40px; color:#666; font-size:0.95em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
+<p style="font-size: 0.85em; color: #94a3b8; margin-top: 30px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+  Obsługujemy klientów z miast: Wrocław, Oława, Oleśnica, Rawicz, Namysłów, Ząbkowice Śląskie, Kamieniec Ząbkowicki oraz zapewniamy szybką wysyłkę Paczkomatem w całej Polsce.
+</p>
+<p style="margin-top:20px; color:#666; font-size:0.95em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
 </footer>
 
 <div class="modal" id="modal" onclick="closeModal()">
@@ -1602,7 +1575,7 @@
 </a>
 </div>
 
-<!-- JEDEN POJEDYNCZY, CZYSTY SKRYPT DLA CAŁEJ STRONY -->
+<!-- SKRYPT LOGIKI STRONY -->
 <script>
   let currentMode = 'catalog';
   
