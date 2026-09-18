@@ -32,7 +32,7 @@
 <!-- Skrypt Ochrony Cloudflare Turnstile -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-<!-- Biblioteki Three.js do podglądu plików STL w 3D -->
+<!-- Biblioteki Three.js do podglądu plików STL w 3D oraz analizy wymiarów -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -201,40 +201,11 @@
      max-width: 1100px;
      width: 100%;
      border-radius: 40px;
-     padding: 100px 40px;
+     padding: 80px 40px 60px;
      text-align: center;
      box-shadow: 0 20px 60px rgba(0,0,0,0.06);
      position: relative;
      overflow: hidden;
-   }
-   .hero-badge {
-     background: #fdf6d8;
-     color: #b8860b;
-     padding: 8px 25px;
-     border-radius: 30px;
-     font-size: 0.85em;
-     font-weight: 800;
-     display: inline-block;
-     margin-bottom: 30px;
-     letter-spacing: 1px;
-     text-transform: uppercase;
-   }
-   .hero-title {
-     font-size: 4em;
-     font-weight: 800;
-     color: #1a1a2e;
-     margin: 0 0 15px 0;
-     line-height: 1.15;
-     letter-spacing: -1.5px;
-   }
-   .hero-cta:hover {
-     transform: translateY(-3px);
-     box-shadow: 0 10px 20px rgba(25, 118, 210, 0.2);
-     background: #1565c0;
-   }
-   .hero-cta-secondary:hover {
-     background: #f8fafc;
-     border-color: #cbd5e0;
    }
    .gradient-text {
      background: linear-gradient(135deg, #0088cc, #00d4ff);
@@ -242,12 +213,13 @@
      -webkit-text-fill-color: transparent;
      display: inline-block;
    }
-   .hero-subtitle {
-     font-size: 1.25em;
-     color: #555;
-     max-width: 650px;
-     margin: 0 auto 40px auto;
-     line-height: 1.7;
+   .hero-title {
+     font-size: 3.4em;
+     font-weight: 800;
+     color: #1a1a2e;
+     margin: 0 0 20px 0;
+     line-height: 1.15;
+     letter-spacing: -1.2px;
    }
    .hero-buttons {
      display: flex;
@@ -686,6 +658,46 @@
      box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.15) !important;
    }
 
+   /* Style dla Kafelków Kolorów (Color Swatches) */
+   .color-swatches-grid {
+     display: flex;
+     gap: 10px;
+     flex-wrap: wrap;
+     margin-top: 6px;
+   }
+   .color-swatch-tile {
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     padding: 8px 14px;
+     border: 1.5px solid #cbd5e1;
+     border-radius: 10px;
+     cursor: pointer;
+     background: #ffffff;
+     font-size: 0.85em;
+     font-weight: 600;
+     color: #334155;
+     transition: all 0.2s ease;
+     user-select: none;
+   }
+   .color-swatch-tile:hover {
+     border-color: #0088cc;
+     background: #f8fafc;
+   }
+   .color-swatch-tile.active {
+     border-color: #0088cc;
+     background: #f0f9ff;
+     color: #0088cc;
+     box-shadow: 0 0 0 2px rgba(0, 136, 204, 0.2);
+   }
+   .swatch-circle {
+     width: 14px;
+     height: 14px;
+     border-radius: 50%;
+     display: inline-block;
+     border: 1px solid rgba(0,0,0,0.15);
+   }
+
    @media (max-width: 768px) {
      .top-nav {
        flex-direction: row !important;
@@ -755,7 +767,6 @@
   <div class="nav-links" id="navLinks">
     <a href="#kategorie" onclick="closeMobileMenu()">Kategorie</a>
     <a href="#modele" onclick="closeMobileMenu()">Modele</a>
-    <a href="#przed-po" onclick="closeMobileMenu()">Części</a>
     <a href="#materialy" onclick="closeMobileMenu()">Materiały</a>
     <a href="#cennik" onclick="closeMobileMenu()">Cennik</a>
     <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
@@ -765,7 +776,7 @@
 </nav>
 
 <section class="hero-wrapper" style="padding: 50px 20px 40px;">
-<div class="hero-box fade-in visible" style="max-width: 980px; padding: 60px 40px; text-align: center; background: #ffffff; border: 1px solid #eef2f6; box-shadow: 0 20px 50px rgba(0,0,0,0.04); border-radius: 28px;">
+<div class="hero-box fade-in visible" style="max-width: 980px; padding: 60px 40px 50px; text-align: center; background: #ffffff; border: 1px solid #eef2f6; box-shadow: 0 20px 50px rgba(0,0,0,0.04); border-radius: 28px;">
   
   <div style="display: inline-block; background: #f1f5f9; color: #475569; font-weight: 600; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 25px; letter-spacing: 0.5px; border: 1px solid #e2e8f0;">
     DRUK 3D NA ZAMÓWIENIE &bull; WROCŁAW, ZĄBKOWICE ŚL. & CAŁA POLSKA
@@ -789,7 +800,24 @@
     </a>
   </div>
 
-  <div style="border-top: 1px solid #f1f5f9; padding-top: 25px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; color: #64748b; font-size: 0.88em; font-weight: 500;">
+  <!-- SEKCJA TIMELAPSE / DRUK W AKCJI -->
+  <div style="margin-top: 25px; border-radius: 20px; overflow: hidden; position: relative; max-width: 840px; margin-left: auto; margin-right: auto; box-shadow: 0 12px 35px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
+    <video autoplay loop muted playsinline poster="img/wazon1.jpg" style="width: 100%; height: 280px; object-fit: cover; display: block; filter: brightness(0.9);">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-3d-printer-printing-a-small-object-42171-large.mp4" type="video/mp4">
+      Twój robot nie obsługuje odtwarzacza wideo.
+    </video>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(15, 23, 42, 0.9)); padding: 20px; color: white; text-align: left; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <div>
+        <div style="font-weight: 800; font-size: 1.05em; display: flex; align-items: center; gap: 8px; color: #ffffff;">
+          <span style="width: 10px; height: 10px; background: #22c55e; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #22c55e;"></span> Precyzja druku w akcji
+        </div>
+        <div style="font-size: 0.85em; color: #cbd5e1;">Ciągła kontrola jakości, warstwa po warstwie dla idealnego rezultatu</div>
+      </div>
+      <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 6px 14px; border-radius: 20px; font-size: 0.78em; font-weight: 700; color: #ffffff;">PROCES PRACY 3D</span>
+    </div>
+  </div>
+
+  <div style="border-top: 1px solid #f1f5f9; padding-top: 25px; margin-top: 35px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; color: #64748b; font-size: 0.88em; font-weight: 500;">
     <div style="display: flex; align-items: center; gap: 8px;">
       <span style="color: #0088cc; font-weight: 700;">✓</span> Bezpłatna wycena w 15 min
     </div>
@@ -1107,52 +1135,6 @@
 <span>📂 Przejdź do formularza lub napisz do nas</span>
 </a>
 </div>
-</section>
-
-<!-- SEKCJA PRZED I PO (DORABIANIE CZĘŚCI ZAMIENNYCH) -->
-<section id="przed-po" class="fade-in">
-  <h2>Przed i Po: Dorabianie części zamiennych</h2>
-  <p style="text-align: center; color: #64748b; max-width: 650px; margin: -30px auto 40px auto; font-size: 1em;">
-    Złamał się niedostępny element w aucie, maszynie lub sprzęcie domowym? Odtwarzamy części 1:1 na podstawie uszkodzonych elementów lub szkicu z wymiarami!
-  </p>
-  
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-    
-    <div style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; background: #f8fafc; border-bottom: 1px solid #e2e8f0; text-align: center; font-weight: 700; font-size: 0.85em;">
-        <div style="padding: 10px; color: #ef4444; background: #fef2f2;">❌ USZKODZONY ORYGINAŁ</div>
-        <div style="padding: 10px; color: #16a34a; background: #f0fdf4;">✅ NOWY WYDRUK 3D</div>
-      </div>
-      <div style="padding: 24px;">
-        <h3 style="margin: 0 0 10px 0; font-size: 1.2em; color: #0f172a;">Zębatka / Uchwyt techniczny</h3>
-        <p style="font-size: 0.9em; color: #64748b; margin-bottom: 15px; line-height: 1.5;">
-          Odtworzenie wyłamanych zębów w przekładni. Zastosowano materiał PETG o podwyższonej wytrzymałości mechanicznej i cieplnej.
-        </p>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span style="background: #e0f2fe; color: #0284c7; font-size: 0.78em; font-weight: 700; padding: 4px 10px; border-radius: 6px;">Projekt CAD ze zdjęcia</span>
-          <span style="background: #f1f5f9; color: #475569; font-size: 0.78em; font-weight: 600; padding: 4px 10px; border-radius: 6px;">PETG</span>
-        </div>
-      </div>
-    </div>
-
-    <div style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; background: #f8fafc; border-bottom: 1px solid #e2e8f0; text-align: center; font-weight: 700; font-size: 0.85em;">
-        <div style="padding: 10px; color: #ef4444; background: #fef2f2;">❌ BRAK CZĘŚCI W SKLEPIE</div>
-        <div style="padding: 10px; color: #16a34a; background: #f0fdf4;">✅ ADAPTER NA ZAMÓWIENIE</div>
-      </div>
-      <div style="padding: 24px;">
-        <h3 style="margin: 0 0 10px 0; font-size: 1.2em; color: #0f172a;">Zaślepka & Obudowa samochodowa</h3>
-        <p style="font-size: 0.9em; color: #64748b; margin-bottom: 15px; line-height: 1.5;">
-          Dedykowana obudowa do czujnika z materiału ASA odpornego na wysoką temperaturę pod maską oraz bezpośrednie słońce/UV.
-        </p>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span style="background: #e0f2fe; color: #0284c7; font-size: 0.78em; font-weight: 700; padding: 4px 10px; border-radius: 6px;">Odporność na UV</span>
-          <span style="background: #f1f5f9; color: #475569; font-size: 0.78em; font-weight: 600; padding: 4px 10px; border-radius: 6px;">ASA</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 <section id="materialy" class="fade-in">
@@ -1520,15 +1502,27 @@
 
         <div id="customFields" style="display: none; grid-gap: 16px;">
           <div>
-            <label for="customFileInput" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wgraj plik 3D (.stl, .step, .obj) LUB zdjęcie części</label>
-            <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj,image/*" class="form-input-field" style="margin-bottom: 6px;">
+            <label style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wgraj plik 3D (.stl, .step, .obj) LUB zdjęcie części</label>
+            
+            <!-- STREFA DRAG & DROP -->
+            <div id="dropZone" style="border: 2px dashed #0088cc; background: #f8fafc; border-radius: 16px; padding: 25px 20px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative; margin-bottom: 8px;">
+              <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj,image/*" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 5;">
+              <div id="dropZoneContent">
+                <div style="font-size: 2.2em; margin-bottom: 6px;">📁</div>
+                <p style="margin: 0; font-weight: 700; color: #0f172a; font-size: 0.95em;">Przeciągnij i upuść plik TUTAJ lub <span style="color: #0088cc; text-decoration: underline;">wybierz z dysku</span></p>
+                <p style="margin: 4px 0 0 0; font-size: 0.8em; color: #64748b;">Obsługiwane formaty: .STL, .STEP, .OBJ, .3MF oraz zdjęcia (.jpg, .png)</p>
+              </div>
+            </div>
             
             <div id="fileDetails" style="font-size: 0.85em; font-weight: 600; margin-bottom: 8px; display: none;"></div>
 
-            <!-- Interaktywny podgląd 3D dla plików STL -->
-            <div id="stlPreviewContainer" style="display: none; margin-top: 12px; text-align: center; background: #0f172a; border-radius: 12px; padding: 12px; position: relative;">
-              <p style="color: #94a3b8; font-size: 0.8em; margin: 0 0 8px 0; font-weight: 600;">Interaktywny podgląd 3D pliku STL (przeciągnij myszką, aby obrócić):</p>
-              <div id="stlCanvas" style="width: 100%; height: 260px; border-radius: 8px; overflow: hidden;"></div>
+            <!-- Interaktywny podgląd 3D dla plików STL z automatycznymi wymiarami -->
+            <div id="stlPreviewContainer" style="display: none; margin-top: 12px; text-align: center; background: #0f172a; border-radius: 14px; padding: 14px; position: relative;">
+              <p style="color: #94a3b8; font-size: 0.8em; margin: 0 0 8px 0; font-weight: 600;">Interaktywny podgląd 3D pliku STL (użyj myszki, aby obrócić):</p>
+              <div id="stlCanvas" style="width: 100%; height: 250px; border-radius: 8px; overflow: hidden;"></div>
+              
+              <!-- Odczytane wymiary modelu w mm -->
+              <div id="stlDimensions" style="display: flex; justify-content: center; gap: 12px; margin-top: 12px; color: #e2e8f0; font-size: 0.82em; font-weight: 600; flex-wrap: wrap;"></div>
             </div>
 
             <label for="customModelInput" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-top: 14px; margin-bottom: 6px;">Lub wklej link do modelu / nazwę części</label>
@@ -1536,23 +1530,43 @@
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 16px;">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 20px;">
           <div>
-            <label for="modelColor" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wybrany kolor</label>
-            <select id="modelColor" class="form-input-field">
-              <option value="Biały">⚪ Biały</option>
-              <option value="Czarny">⚫ Czarny</option>
-              <option value="Czerwony">🔴 Czerwony</option>
-              <option value="Niebieski">🔵 Niebieski</option>
-              <option value="Zielony">🟢 Zielony</option>
-              <option value="Żółty">🟡 Żółty</option>
-              <option value="Różowy">🌸 Różowy</option>
-              <option value="Inny (opisz w uwagach)">🎨 Inny (opis w uwagach)</option>
-            </select>
+            <label style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wybrany kolor</label>
+            <input type="hidden" id="modelColor" value="Biały">
+            
+            <!-- PRÓBNIK KOLORÓW (COLOR SWATCHES) -->
+            <div class="color-swatches-grid">
+              <div class="color-swatch-tile active" onclick="selectColorTile(this, 'Biały')">
+                <span class="swatch-circle" style="background: #ffffff;"></span> Biały
+              </div>
+              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Czarny')">
+                <span class="swatch-circle" style="background: #1e293b;"></span> Czarny
+              </div>
+              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Czerwony')">
+                <span class="swatch-circle" style="background: #ef4444;"></span> Czerwony
+              </div>
+              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Niebieski')">
+                <span class="swatch-circle" style="background: #3b82f6;"></span> Niebieski
+              </div>
+              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Zielony')">
+                <span class="swatch-circle" style="background: #22c55e;"></span> Zielony
+              </div>
+              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Żółty')">
+                <span class="swatch-circle" style="background: #eab308;"></span> Żółty
+              </div>
+              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Różowy')">
+                <span class="swatch-circle" style="background: #ec4899;"></span> Różowy
+              </div>
+              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Inny (opis w uwagach)')">
+                <span class="swatch-circle" style="background: linear-gradient(45deg, #f43f5e, #8b5cf6, #06b6d4);"></span> Inny...
+              </div>
+            </div>
           </div>
-          <div>
+
+          <div style="margin-top: 5px;">
             <label for="modelCount" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Ilość sztuk</label>
-            <input type="number" id="modelCount" value="1" min="1" class="form-input-field" style="text-align: center;">
+            <input type="number" id="modelCount" value="1" min="1" class="form-input-field" style="max-width: 150px;">
           </div>
         </div>
       </div>
@@ -1805,12 +1819,47 @@
     }
   }
 
-  // Walidacja pliku oraz podgląd Three.js dla STL
+  // Wybór koloru z kafelków (Color Swatches)
+  function selectColorTile(element, colorValue) {
+    document.querySelectorAll('.color-swatch-tile').forEach(tile => tile.classList.remove('active'));
+    element.classList.add('active');
+    document.getElementById('modelColor').value = colorValue;
+  }
+
+  // Obsługa strefy Drag & Drop
+  const dropZone = document.getElementById('dropZone');
   const fileInput = document.getElementById('customFileInput');
   const fileDetails = document.getElementById('fileDetails');
   const stlPreviewContainer = document.getElementById('stlPreviewContainer');
+  const stlDimensions = document.getElementById('stlDimensions');
   const MAX_SIZE_MB = 45;
   let isFileTooBig = false;
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropZone.style.borderColor = '#005580';
+      dropZone.style.background = '#e0f2fe';
+    }, false);
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropZone.style.borderColor = '#0088cc';
+      dropZone.style.background = '#f8fafc';
+    }, false);
+  });
+
+  dropZone.addEventListener('drop', (e) => {
+    const dt = e.dataTransfer;
+    if (dt.files && dt.files.length > 0) {
+      fileInput.files = dt.files;
+      fileInput.dispatchEvent(new Event('change'));
+    }
+  });
 
   let stlScene, stlCamera, stlRenderer, stlControls, stlAnimId;
 
@@ -1829,9 +1878,9 @@
         isFileTooBig = false;
         fileDetails.style.display = 'block';
         fileDetails.style.color = '#059669';
-        fileDetails.innerText = `📎 Wybrano: ${file.name} (${sizeMB} MB)`;
+        fileDetails.innerText = `📎 Wybrano plik: ${file.name} (${sizeMB} MB)`;
 
-        // Sprawdzanie czy plik to .stl dla aktywowania podglądu 3D
+        // Sprawdzanie czy plik to .stl dla aktywowania podglądu 3D oraz analizy wymiarów
         if (file.name.toLowerCase().endsWith('.stl')) {
           const reader = new FileReader();
           reader.onload = function(e) {
@@ -1857,7 +1906,7 @@
     if (stlAnimId) cancelAnimationFrame(stlAnimId);
 
     const width = container.clientWidth || 300;
-    const height = 260;
+    const height = 250;
 
     stlScene = new THREE.Scene();
     stlScene.background = new THREE.Color(0x0f172a);
@@ -1882,6 +1931,19 @@
     const loader = new THREE.STLLoader();
     const geometry = loader.parse(arrayBuffer);
     geometry.center();
+
+    // Obliczanie precyzyjnych wymiarów modelu w mm (X, Y, Z)
+    geometry.computeBoundingBox();
+    const bbox = geometry.boundingBox;
+    const dimX = Math.round((bbox.max.x - bbox.min.x) * 10) / 10;
+    const dimY = Math.round((bbox.max.y - bbox.min.y) * 10) / 10;
+    const dimZ = Math.round((bbox.max.z - bbox.min.z) * 10) / 10;
+
+    stlDimensions.innerHTML = `
+      <span style="background: rgba(255,255,255,0.08); padding: 5px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">📏 Szerokość (X): <b>${dimX} mm</b></span>
+      <span style="background: rgba(255,255,255,0.08); padding: 5px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">📏 Głębokość (Y): <b>${dimY} mm</b></span>
+      <span style="background: rgba(255,255,255,0.08); padding: 5px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">📏 Wysokość (Z): <b>${dimZ} mm</b></span>
+    `;
 
     const material = new THREE.MeshPhongMaterial({ color: 0x0088cc, specular: 0x222222, shininess: 80 });
     const mesh = new THREE.Mesh(geometry, material);
