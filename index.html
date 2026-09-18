@@ -28,24 +28,65 @@
 <!-- Skrypt Ochrony Cloudflare Turnstile -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-<!-- Dane strukturalne Google (Precyzyjne pozycjonowanie lokalne) -->
+<!-- Dane strukturalne Google (Precyzyjne pozycjonowanie lokalne + FAQ) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "awydrukujse.pl - Usługi Druku 3D",
-  "image": "https://awydrukujse.pl/img/Logoskleputr.png",
-  "description": "Profesjonalny druk 3D na zamówienie, części zamienne, prototypowanie oraz modele z plików STL.",
-  "url": "https://awydrukujse.pl",
-  "email": "awydrukujse@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Wrocław",
-    "addressRegion": "Dolny Śląsk",
-    "addressCountry": "PL"
-  },
-  "areaServed": ["Wrocław", "Oława", "Oleśnica", "Kamieniec Ząbkowicki", "Ząbkowice Śląskie", "Rawicz", "Namysłów", "Dolny Śląsk", "Polska"],
-  "priceRange": "$$"
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "awydrukujse.pl - Usługi Druku 3D",
+      "image": "https://awydrukujse.pl/img/Logoskleputr.png",
+      "description": "Profesjonalny druk 3D na zamówienie, części zamienne, prototypowanie oraz modele z plików STL.",
+      "url": "https://awydrukujse.pl",
+      "email": "awydrukujse@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wrocław",
+        "addressRegion": "Dolny Śląsk",
+        "addressCountry": "PL"
+      },
+      "areaServed": ["Wrocław", "Oława", "Oleśnica", "Kamieniec Ząbkowicki", "Ząbkowice Śląskie", "Rawicz", "Namysłów", "Dolny Śląsk", "Polska"],
+      "priceRange": "$$"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Czy modele można malować po wydrukowaniu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak! Nasze wydruki świetnie przyjmują farby akrylowe. Dla najlepszego efektu polecamy nałożenie wcześniej podkładu modelarskiego."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "W jakim formacie wysłać do Was własny plik?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Najlepiej jeśli podeślesz nam plik w formacie .STL lub .OBJ. Jeśli nie masz pliku, wyślij nam link ze strony (np. Thingiverse, Printables) w bocie Telegram."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy te wydruki są wytrzymałe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co jeśli mój wydruk uszkodzi się w transporcie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Przed wysyłką sprawdzamy każdy detal i solidnie go pakujemy. Jeśli jednak paczka dotrze uszkodzona, daj nam od razu znać na Telegramie – na pewno rozwiążemy ten problem!"
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 
@@ -585,6 +626,57 @@
      opacity: 1;
      transform: translateY(0);
    }
+
+   /* Zoptymalizowane i wyczyszczone style dla Formularza Zamówienia */
+   .order-form-step {
+     background: #ffffff;
+     padding: 28px;
+     border-radius: 20px;
+     border: 1px solid #e2e8f0;
+     box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+   }
+   .order-step-title {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     margin-bottom: 20px;
+   }
+   .order-step-num {
+     background: #0088cc;
+     color: white;
+     width: 26px;
+     height: 26px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 0.85em;
+     font-weight: 800;
+   }
+   .order-step-text {
+     margin: 0;
+     font-size: 1.15em;
+     color: #0f172a;
+     font-weight: 700;
+   }
+   .form-input-field {
+     width: 100%;
+     padding: 12px 14px;
+     border-radius: 10px;
+     border: 1px solid #cbd5e1;
+     background: #ffffff;
+     font-family: inherit;
+     font-size: 0.92em;
+     color: #0f172a;
+     outline: none;
+     box-sizing: border-box;
+     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+   }
+   .form-input-field:focus {
+     border-color: #0088cc !important;
+     box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.15) !important;
+   }
+
    @media (max-width: 768px) {
      .top-nav {
        flex-direction: row !important;
@@ -657,7 +749,7 @@
     <a href="#materialy" onclick="closeMobileMenu()">Materiały</a>
     <a href="#cennik" onclick="closeMobileMenu()">Cennik</a>
     <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-    <a href="#zamowienie" style="color: #4285f4;" onclick="closeMobileMenu()">Zamów teraz</a>
+    <a href="#zamowienie" style="color: #0088cc;" onclick="closeMobileMenu()">Zamów teraz</a>
     <a href="#kontakt" style="color: #ea4335;" onclick="closeMobileMenu()">Kontakt</a>
   </div>
 </nav>
@@ -665,25 +757,21 @@
 <section class="hero-wrapper" style="padding: 50px 20px 40px;">
 <div class="hero-box fade-in visible" style="max-width: 980px; padding: 60px 40px; text-align: center; background: #ffffff; border: 1px solid #eef2f6; box-shadow: 0 20px 50px rgba(0,0,0,0.04); border-radius: 28px;">
   
-  <!-- Subtelna lokalizacja / Tag -->
   <div style="display: inline-block; background: #f1f5f9; color: #475569; font-weight: 600; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 25px; letter-spacing: 0.5px; border: 1px solid #e2e8f0;">
     DRUK 3D NA ZAMÓWIENIE &bull; WROCŁAW, ZĄBKOWICE ŚL. & CAŁA POLSKA
   </div>
 
-  <!-- Główny, mocny nagłówek H1 -->
   <h1 class="hero-title" style="font-size: 3.4em; font-weight: 800; line-height: 1.15; margin: 0 0 20px 0; letter-spacing: -1.2px; color: #0f172a;">
     Masz pomysł, własny projekt<br>
     lub szukasz <span class="gradient-text">gotowego modelu?</span>
   </h1>
 
-  <!-- Podtytuł łączący projektowanie, druk z plików oraz gotowe kategorie -->
   <p style="font-size: 1.12em; color: #475569; line-height: 1.6; margin: 0 auto 35px auto; max-width: 680px; font-weight: 400;">
     Zrealizuję Twój pomysł od zera, wydrukuję gotowy plik STL/STEP lub pomogę dobrać wzór z naszych kategorii. Od szybkich prototypów i części zamiennych po dekoracje domowe.
   </p>
 
-  <!-- Dwie jasne ścieżki dla klienta (Główny CTA + Kategorie) -->
   <div class="hero-buttons" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px;">
-    <a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #0088cc; color: white; padding: 16px 36px; border-radius: 12px; font-weight: 700; font-size: 1em; transition: all 0.25 ease; box-shadow: 0 8px 24px rgba(0, 136, 204, 0.25);">
+    <a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #0088cc; color: white; padding: 16px 36px; border-radius: 12px; font-weight: 700; font-size: 1em; transition: all 0.25s ease; box-shadow: 0 8px 24px rgba(0, 136, 204, 0.25);">
       Wycena własnego projektu
     </a>
     <a href="#kategorie" class="hero-cta-secondary" style="text-decoration: none; color: #0f172a; padding: 16px 32px; border-radius: 12px; font-weight: 600; font-size: 1em; border: 1.5px solid #cbd5e1; background: #ffffff; transition: all 0.25s ease;">
@@ -691,7 +779,6 @@
     </a>
   </div>
 
-  <!-- Stonowany pasek zaufania (Trust Bar) bez zbędnych bajerów -->
   <div style="border-top: 1px solid #f1f5f9; padding-top: 25px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; color: #64748b; font-size: 0.88em; font-weight: 500;">
     <div style="display: flex; align-items: center; gap: 8px;">
       <span style="color: #0088cc; font-weight: 700;">✓</span> Bezpłatna wycena w 15 min
@@ -842,12 +929,12 @@
      }
    }
 </style>
-<h2>🗂️ Odkryj Kategorie</h2>
+<h2>Odkryj Kategorie</h2>
 <div class="kategorie-container">
 <!-- Baner 1: JESIEŃ -->
 <a href="kategorie/jesien.html" class="cat-banner-card theme-jesien">
 <div class="cat-content">
-<span class="cat-badge">🍁 Kolekcja Sezonowa</span>
+<span class="cat-badge">Kolekcja Sezonowa</span>
 <h3 class="cat-title">Jesienne Dekoracje</h3>
 <p class="cat-desc">
           Ociepl domowy klimat wyjątkowymi wazonami, dyniami w stylu Modern i przytulnymi akcesoriami.
@@ -865,7 +952,7 @@
 <!-- Baner 2: WIELKANOC -->
 <a href="kategorie/wielkanoc.html" class="cat-banner-card theme-wielkanoc">
 <div class="cat-content">
-<span class="cat-badge">🌱 Wiosenny Klimat</span>
+<span class="cat-badge">Wiosenny Klimat</span>
 <h3 class="cat-title">Święta Wielkanocne</h3>
 <p class="cat-desc">
           Ożyw swój stół i koszyczek wielkanocny kolorowymi kurczakami, barankami oraz tulipanami.
@@ -883,7 +970,7 @@
 <!-- Baner 3: ORGANIZACJA -->
 <a href="kategorie/organizacja.html" class="cat-banner-card theme-organizacja">
 <div class="cat-content">
-<span class="cat-badge">⚙️ Ergonomia & Biuro</span>
+<span class="cat-badge">Ergonomia & Biuro</span>
 <h3 class="cat-title">Organizacja Przestrzeni</h3>
 <p class="cat-desc">
           Praktyczne stojaki na telefony, modułowe przyborniki i uchwyty na kable porządkujące biurko.
@@ -901,7 +988,7 @@
 <!-- Baner 4: BOŻE NARODZENIE -->
 <a href="kategorie/boze_narodzenie.html" class="cat-banner-card theme-boze-narodzenie">
 <div class="cat-content">
-<span class="cat-badge">✨ Świąteczna Magia</span>
+<span class="cat-badge">Świąteczna Magia</span>
 <h3 class="cat-title">Boże Narodzenie</h3>
 <p class="cat-desc">
           Nietłukące się choinki, urocze bałwanki, dekoracyjne lampiony LED i bogaty wybór zawieszek.
@@ -920,7 +1007,7 @@
 </section>
 
 <section id="modele" class="fade-in">
-<h2>📸 Przykładowe modele</h2>
+<h2>Przykładowe modele</h2>
 <div class="gallery">
 <div class="card custom-order">
 <div class="custom-order-icon">💡</div>
@@ -930,7 +1017,7 @@
 <p style="font-size: 0.9em; color: #555;">Znajdź model na <b>Thingiverse</b>, <b>MakerWorld</b> lub <b>Printables</b>, zrób zdjęcie uszkodzonej części i wyślij do bota!</p>
 <div class="price" style="font-size: 1.1em; color: #0088cc;">Wycena indywidualna</div>
 </div>
-<a href="https://t.me/Drukarz3Dbot" target="_blank" class="promo-box" style="background: #0088cc; color: white; text-decoration: none; border:none;">Wyślij plik/zdjęcie do bota →</a>
+<a href="#zamowienie" class="promo-box" style="background: #0088cc; color: white; text-decoration: none; border:none;">Wyślij plik/zdjęcie do wyceny →</a>
 </div>
 <div class="card">
 <div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
@@ -1006,8 +1093,8 @@
 </div>
 <div class="catalog-download fade-in">
 <p style="margin-bottom: 20px; color: #555;">Chcesz zobaczyć więcej naszych projektów?</p>
-<a href="#" class="btn-download">
-<span>📂 Zobacz pełny katalog (PDF)</span>
+<a href="#zamowienie" class="btn-download">
+<span>📂 Przejdź do formularza lub napisz do nas</span>
 </a>
 </div>
 </section>
@@ -1134,12 +1221,12 @@
      }
    }
 </style>
-<h2>🧵 Poznaj Nasze Materiały</h2>
+<h2>Poznaj Nasze Materiały</h2>
 <div class="materialy-container">
 <!-- PLA -->
 <div class="mat-banner-card mat-pla">
 <div class="mat-content">
-<span class="mat-badge">🌱 Najpopularniejszy & Eko</span>
+<span class="mat-badge">Najpopularniejszy & Eko</span>
 <h3 class="mat-title">PLA</h3>
 <p class="mat-desc">
           Ekologiczne tworzywo pozyskiwane z odnawialnych surowców (np. mączki kukurydzianej). Idealne do wszystkich dekoracji domowych, figurek i wazonów. Posiada świetne wykończenie i bogatą paletę kolorów.
@@ -1164,7 +1251,7 @@
 <!-- PETG -->
 <div class="mat-banner-card mat-petg">
 <div class="mat-content">
-<span class="mat-badge">🛡️ Trwały & Użytkowy</span>
+<span class="mat-badge">Trwały & Użytkowy</span>
 <h3 class="mat-title">PETG</h3>
 <p class="mat-desc">
           Wytrzymały i odporny na uderzenia materiał, który dobrze radzi sobie z wilgocią oraz wyższymi temperaturami. Świetny wybór na przedmioty codziennego użytku, uchwyty i organizery.
@@ -1189,7 +1276,7 @@
 <!-- TPU -->
 <div class="mat-banner-card mat-tpu">
 <div class="mat-content">
-<span class="mat-badge">🌀 Elastyczny jak Guma</span>
+<span class="mat-badge">Elastyczny jak Guma</span>
 <h3 class="mat-title">TPU</h3>
 <p class="mat-desc">
           Unikalny, giętki materiał o właściwościach gumy. Elementy z TPU można zginać i ściskać, a i tak wrócą do swojego pierwotnego kształtu.
@@ -1214,7 +1301,7 @@
 <!-- ASA -->
 <div class="mat-banner-card mat-asa">
 <div class="mat-content">
-<span class="mat-badge">☀️ Odporny na Warunki Zewnętrzne</span>
+<span class="mat-badge">Odporny na Warunki Zewnętrzne</span>
 <h3 class="mat-title">ASA</h3>
 <p class="mat-desc">
           Materiał klasy premium przeznaczony do zadań specjalnych. Charakteryzuje się pełną odpornością na promieniowanie UV oraz zmienne warunki atmosferyczne, dzięki czemu nie blaknie na słońcu.
@@ -1297,7 +1384,7 @@
 </section>
 
 <section id="faq" class="fade-in">
-<h2>❓ Często zadawane pytania (FAQ)</h2>
+<h2>Często zadawane pytania (FAQ)</h2>
 <div class="faq-container">
 <details>
 <summary>Czy modele można malować po wydrukowaniu?</summary>
@@ -1318,161 +1405,150 @@
 </div>
 </section>
 
-<!-- SEKCJA ZAMÓWIENIE -->
-<section id="zamowienie" class="fade-in" style="padding: 80px 15px; background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%); font-family: system-ui, -apple-system, sans-serif;">
-<div style="max-width: 850px; margin: auto; background: #ffffff; padding: 45px 35px; border-radius: 24px; box-shadow: 0 15px 45px rgba(25, 118, 210, 0.06); border: 1px solid #eef2f6;">
-<!-- Nagłówek -->
-<div style="text-align: center; margin-bottom: 35px;">
-<span style="background: #e3f2fd; color: #1976d2; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Prosty proces</span>
-<h2 style="margin: 12px 0 8px 0; font-size: 2.2rem; color: #1e293b; font-weight: 800;">Złóż zamówienie na druk 3D</h2>
-<p style="color: #64748b; font-size: 1rem; margin: 0; max-width: 500px; margin: auto;">Wybierz opcję, uzupełnij szczegóły i wyślij zgłoszenie. Otrzymasz natychmiastowe potwierdzenie.</p>
-</div>
-<!-- Wybór typu zamówienia -->
-<div style="background: #f1f5f9; padding: 6px; border-radius: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 35px;">
-<button type="button" id="btnCatalog" onclick="switchType('catalog')" style="padding: 14px 20px; border-radius: 12px; border: none; background: #ffffff; color: #1976d2; font-weight: 700; font-size: 0.95rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
-<span>📦</span> Katalog modeli
-</button>
-<button type="button" id="btnCustom" onclick="switchType('custom')" style="padding: 14px 20px; border-radius: 12px; border: none; background: transparent; color: #64748b; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
-<span>💡</span> Własny projekt / Zdjęcie / STL
-</button>
-</div>
-<form id="orderForm" style="display: grid; gap: 28px;">
-<!-- KROK 1: WYBÓR MODELU -->
-<div style="background: #fafafa; padding: 24px; border-radius: 18px; border: 1px solid #f1f5f9;">
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-<span style="background: #1976d2; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">1</span>
-<h3 style="margin: 0; font-size: 1.1rem; color: #334155;">Co drukujemy?</h3>
-</div>
-<!-- Opcja Katalog -->
-<div id="catalogFields" style="display: grid; gap: 16px;">
-<div>
-<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Model z oferty</label>
-<select id="modelSelect" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.95rem; color: #1e293b; outline: none; box-sizing: border-box;">
-<option value="#JES-00 - Wazon">#JES-00 - Wazon - 36 zł</option>
-<option value="#JES-01 - Dynia nr 1">#JES-01 - Dynia nr 1 - 30 zł</option>
-<option value="#JES-02 - Dynia nr 2">#JES-02 - Dynia nr 2 - 30 zł</option>
-<option value="#JES-03 - Dynia nr 3">#JES-03 - Dynia nr 3 - 25 zł</option>
-<option value="#JES-04 - Dynia nr 4">#JES-04 - Dynia nr 4 - 22 zł</option>
-<option value="#JES-05 - Dynia nr 5">#JES-05 - Dynia nr 5 - 15 zł</option>
-<option value="#JES-06 - Dynia nr 6">#JES-06 - Dynia nr 6 - 22 zł</option>
-<option value="#001 - Kurczak na jajko">#001 - Kurczak na jajko - 15 zł</option>
-<option value="#003 - Tulipan">#003 - Tulipan - 25 zł</option>
-<option value="#004 - Królik 20cm">#004 - Królik 20cm - 25 zł</option>
-<option value="#005 - Ludzik LEGO 40cm">#005 - Ludzik LEGO 40cm - 160 zł</option>
-<option value="#006 - Litera PI 26cm">#006 - Litera PI 26cm - 45 zł</option>
-<option value="#007 - Uchwyt na ręcznik">#007 - Uchwyt na ręcznik - 5 zł</option>
-<option value="#008 - Pojemnik na leki">#008 - Pojemnik na leki - 18 zł</option>
-<option value="#009 - Klips do kawy">#009 - Klips do kawy - 22 zł</option>
-<option value="#010 - Identyfikator dla psa">#010 - Identyfikator dla psa - 15 zł</option>
-<option value="#011 - Maszynka do cukierków">#011 - Maszynka do cukierków - 36 zł</option>
-<option value="#012 - Dekoracja Dzień Mamy">#012 - Dekoracja Dzień Mamy - 25 zł</option>
-<option value="#013 - Plakietka narodzin">#013 - Plakietka narodzin - 50 zł</option>
-</select>
-</div>
-</div>
-<!-- Opcja Własny Projekt / Zdjęcie / Plik 3D -->
-<div id="customFields" style="display: none; grid-gap: 16px;">
-<div>
-  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Wgraj plik 3D (.stl, .step, .obj) LUB zdjęcie części (z aparatu/galerii)</label>
-  <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj,image/*" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.9rem; outline: none; box-sizing: border-box; margin-bottom: 6px;">
-  
-  <div id="fileDetails" style="font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; display: none;"></div>
+<!-- SEKCJA ZAMÓWIENIE (ODŚWIEŻONA, UJEDNOLICONA I CZYSTA) -->
+<section id="zamowienie" class="fade-in" style="padding: 60px 20px;">
+  <div style="max-width: 850px; margin: auto;">
+    
+    <!-- Nagłówek -->
+    <div style="text-align: center; margin-bottom: 35px;">
+      <div style="display: inline-block; background: #e0f2fe; color: #0284c7; font-weight: 700; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">PROSTY PROCES</div>
+      <h2 style="margin: 0 0 10px 0; font-size: 2.2em; color: #0f172a; font-weight: 800; letter-spacing: -0.5px;">Złóż zamówienie na druk 3D</h2>
+      <p style="color: #64748b; font-size: 1em; margin: 0 auto; max-width: 550px;">Wybierz opcję, uzupełnij szczegóły i wyślij zgłoszenie – darmową wycenę otrzymasz w 15 minut.</p>
+    </div>
 
-  <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Lub wklej link do modelu / nazwę części</label>
-  <input type="text" id="customModelInput" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
-</div>
-</div>
-<!-- Warianty Druków -->
-<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 16px;">
-<div>
-<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Wybrany kolor</label>
-<select id="modelColor" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.95rem; outline: none; box-sizing: border-box;">
-<option value="Biały">⚪ Biały</option>
-<option value="Czarny">⚫ Czarny</option>
-<option value="Czerwony">🔴 Czerwony</option>
-<option value="Niebieski">🔵 Niebieski</option>
-<option value="Zielony">🟢 Zielony</option>
-<option value="Żółty">🟡 Żółty</option>
-<option value="Różowy">🌸 Różowy</option>
-<option value="Inny (opisz w uwagach)">🎨 Inny (opis w uwagach)</option>
-</select>
-</div>
-<div>
-<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Ilość sztuk</label>
-<input type="number" id="modelCount" value="1" min="1" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; text-align: center; outline: none; box-sizing: border-box;">
-</div>
-</div>
-</div>
-<!-- KROK 2: DANE DOKĄD I DLA KOGO -->
-<div style="background: #fafafa; padding: 24px; border-radius: 18px; border: 1px solid #f1f5f9;">
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-<span style="background: #1976d2; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">2</span>
-<h3 style="margin: 0; font-size: 1.1rem; color: #334155;">Dane kontaktowe i dostawa</h3>
-</div>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-<div>
-<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Imię i nazwisko *</label>
-<input type="text" id="name" required placeholder="Jan Kowalski" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
-</div>
-<div>
-<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">E-mail lub telefon *</label>
-<input type="text" id="contact" required placeholder="jan@gmail.com / 600123456" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
-</div>
-</div>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-<div>
-<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Metoda odbioru</label>
-<select id="deliveryInfo" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; background: white; font-size: 0.95rem; outline: none; box-sizing: border-box;">
-<option value="Paczkomat InPost">📦 Paczkomat InPost</option>
-<option value="Kurier">🚚 Kurier</option>
-<option value="Odbiór osobisty">🤝 Odbiór osobisty</option>
-</select>
-</div>
-<div>
-<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Paczkomat lub adres</label>
-<input type="text" id="addressInfo" placeholder="Kod np. WRO123M lub adres" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; box-sizing: border-box;">
-</div>
-</div>
-</div>
-<!-- UWAGI -->
-<div>
-<label style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">Uwagi lub szczegółowe wymagania (opcjonalnie)</label>
-<textarea id="desc" placeholder="Wpisz specyficzne wymiary, wypełnienie lub terminy..." style="width: 100%; height: 90px; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.95rem; outline: none; resize: vertical; box-sizing: border-box;"></textarea>
-</div>
+    <!-- Przełącznik typów zamówienia -->
+    <div style="background: #e2e8f0; padding: 5px; border-radius: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 30px;">
+      <button type="button" id="btnCatalog" onclick="switchType('catalog')" style="padding: 12px 18px; border-radius: 10px; border: none; background: #ffffff; color: #0088cc; font-family: inherit; font-weight: 700; font-size: 0.92em; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <span>📦</span> Katalog modeli
+      </button>
+      <button type="button" id="btnCustom" onclick="switchType('custom')" style="padding: 12px 18px; border-radius: 10px; border: none; background: transparent; color: #64748b; font-family: inherit; font-weight: 600; font-size: 0.92em; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <span>💡</span> Własny projekt / Zdjęcie / STL
+      </button>
+    </div>
 
-<!-- Widget Ochrony przed Spamem (Cloudflare Turnstile) -->
-<div style="display: flex; justify-content: center; margin-bottom: 10px;">
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAAE6SzXcPSZEE1Xkt"></div>
-</div>
+    <form id="orderForm" style="display: grid; gap: 24px;">
+      
+      <!-- KROK 1: CO DRUKUJEMY -->
+      <div class="order-form-step">
+        <div class="order-step-title">
+          <span class="order-step-num">1</span>
+          <h3 class="order-step-text">Co drukujemy?</h3>
+        </div>
 
-<!-- PRZYCISK I INFORMACJA -->
-<div>
-<button type="submit" id="submitBtn" style="width: 100%; padding: 18px; border: none; border-radius: 14px; background: #1976d2; color: white; font-size: 1.05rem; font-weight: 700; cursor: pointer; box-shadow: 0 8px 20px rgba(25, 118, 210, 0.25); transition: background 0.2s ease;">
-          🚀 Wyślij zapytanie o druk
-</button>
-<p style="text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 10px; margin-bottom: 0;">Wysyłka nie zobowiązuje do natychmiastowej płatności. Najpierw potwierdzimy szczegóły.</p>
-</div>
-</form>
-<p id="responseMsg" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; border-radius: 12px; font-size: 0.95rem;"></p>
-</div>
+        <div id="catalogFields" style="display: grid; gap: 16px;">
+          <div>
+            <label for="modelSelect" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Model z oferty</label>
+            <select id="modelSelect" class="form-input-field">
+              <option value="#JES-00 - Wazon">#JES-00 - Wazon - 36 zł</option>
+              <option value="#JES-01 - Dynia nr 1">#JES-01 - Dynia nr 1 - 30 zł</option>
+              <option value="#JES-02 - Dynia nr 2">#JES-02 - Dynia nr 2 - 30 zł</option>
+              <option value="#JES-03 - Dynia nr 3">#JES-03 - Dynia nr 3 - 25 zł</option>
+              <option value="#JES-04 - Dynia nr 4">#JES-04 - Dynia nr 4 - 22 zł</option>
+              <option value="#JES-05 - Dynia nr 5">#JES-05 - Dynia nr 5 - 15 zł</option>
+              <option value="#JES-06 - Dynia nr 6">#JES-06 - Dynia nr 6 - 22 zł</option>
+              <option value="#001 - Kurczak na jajko">#001 - Kurczak na jajko - 15 zł</option>
+              <option value="#003 - Tulipan">#003 - Tulipan - 25 zł</option>
+              <option value="#004 - Królik 20cm">#004 - Królik 20cm - 25 zł</option>
+              <option value="#005 - Ludzik LEGO 40cm">#005 - Ludzik LEGO 40cm - 160 zł</option>
+              <option value="#006 - Litera PI 26cm">#006 - Litera PI 26cm - 45 zł</option>
+              <option value="#007 - Uchwyt na ręcznik">#007 - Uchwyt na ręcznik - 5 zł</option>
+              <option value="#008 - Pojemnik na leki">#008 - Pojemnik na leki - 18 zł</option>
+              <option value="#009 - Klips do kawy">#009 - Klips do kawy - 22 zł</option>
+              <option value="#010 - Identyfikator dla psa">#010 - Identyfikator dla psa - 15 zł</option>
+              <option value="#011 - Maszynka do cukierków">#011 - Maszynka do cukierków - 36 zł</option>
+              <option value="#012 - Dekoracja Dzień Mamy">#012 - Dekoracja Dzień Mamy - 25 zł</option>
+              <option value="#013 - Plakietka narodzin">#013 - Plakietka narodzin - 50 zł</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="customFields" style="display: none; grid-gap: 16px;">
+          <div>
+            <label for="customFileInput" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wgraj plik 3D (.stl, .step, .obj) LUB zdjęcie części</label>
+            <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj,image/*" class="form-input-field" style="margin-bottom: 6px;">
+            
+            <div id="fileDetails" style="font-size: 0.85em; font-weight: 600; margin-bottom: 12px; display: none;"></div>
+
+            <label for="customModelInput" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-top: 10px; margin-bottom: 6px;">Lub wklej link do modelu / nazwę części</label>
+            <input type="text" id="customModelInput" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części" class="form-input-field">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 16px;">
+          <div>
+            <label for="modelColor" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wybrany kolor</label>
+            <select id="modelColor" class="form-input-field">
+              <option value="Biały">⚪ Biały</option>
+              <option value="Czarny">⚫ Czarny</option>
+              <option value="Czerwony">🔴 Czerwony</option>
+              <option value="Niebieski">🔵 Niebieski</option>
+              <option value="Zielony">🟢 Zielony</option>
+              <option value="Żółty">🟡 Żółty</option>
+              <option value="Różowy">🌸 Różowy</option>
+              <option value="Inny (opisz w uwagach)">🎨 Inny (opis w uwagach)</option>
+            </select>
+          </div>
+          <div>
+            <label for="modelCount" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Ilość sztuk</label>
+            <input type="number" id="modelCount" value="1" min="1" class="form-input-field" style="text-align: center;">
+          </div>
+        </div>
+      </div>
+
+      <!-- KROK 2: DANE DOKĄD I DLA KOGO -->
+      <div class="order-form-step">
+        <div class="order-step-title">
+          <span class="order-step-num">2</span>
+          <h3 class="order-step-text">Dane kontaktowe i dostawa</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label for="name" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Imię i nazwisko *</label>
+            <input type="text" id="name" required placeholder="Jan Kowalski" class="form-input-field">
+          </div>
+          <div>
+            <label for="contact" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">E-mail lub telefon *</label>
+            <input type="text" id="contact" required placeholder="jan@gmail.com / 600..." class="form-input-field">
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <label for="deliveryInfo" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Metoda odbioru</label>
+            <select id="deliveryInfo" class="form-input-field">
+              <option value="Paczkomat InPost">📦 Paczkomat InPost</option>
+              <option value="Kurier">🚚 Kurier</option>
+              <option value="Odbiór osobisty">🤝 Odbiór osobisty (Wrocław)</option>
+            </select>
+          </div>
+          <div>
+            <label for="addressInfo" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Paczkomat lub adres</label>
+            <input type="text" id="addressInfo" placeholder="Kod np. WRO123M lub adres" class="form-input-field">
+          </div>
+        </div>
+      </div>
+
+      <!-- UWAGI -->
+      <div class="order-form-step">
+        <label for="desc" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Uwagi lub szczegółowe wymagania (opcjonalnie)</label>
+        <textarea id="desc" placeholder="Wpisz specyficzne wymiary, wypełnienie lub terminy..." class="form-input-field" style="height: 90px; resize: vertical;"></textarea>
+      </div>
+
+      <!-- Widget Ochrony przed Spamem (Cloudflare Turnstile) -->
+      <div style="display: flex; justify-content: center; margin-top: 5px;">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAE6SzXcPSZEE1Xkt"></div>
+      </div>
+
+      <!-- PRZYCISK I INFORMACJA -->
+      <div>
+        <button type="submit" id="submitBtn" style="width: 100%; padding: 16px; border: none; border-radius: 12px; background: #0088cc; color: white; font-family: inherit; font-size: 1.05em; font-weight: 700; cursor: pointer; box-shadow: 0 8px 20px rgba(0, 136, 204, 0.25); transition: all 0.2s ease;">
+          Wyślij zapytanie o druk
+        </button>
+        <p style="text-align: center; font-size: 0.8em; color: #94a3b8; margin-top: 10px; margin-bottom: 0;">Wysyłka nie zobowiązuje do natychmiastowej płatności. Najpierw darmowo wycenimy zamówienie.</p>
+      </div>
+    </form>
+    <p id="responseMsg" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; border-radius: 12px; font-size: 0.95em;"></p>
+  </div>
 </section>
-
-<style>
-   input:focus, textarea:focus {
-       border-color: #1976d2 !important;
-       outline: none;
-       box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.1);
-       background-color: #fff;
-   }
-   #submitBtn:hover {
-       transform: translateY(-3px);
-       box-shadow: 0 15px 40px rgba(25, 118, 210, 0.4);
-       background: #1565c0;
-   }
-   #submitBtn:active {
-       transform: translateY(0);
-   }
-</style>
 
 <!-- SEKCJA OPINIE GOOGLE -->
 <section class="fade-in" style="padding: 70px 20px;">
@@ -1540,7 +1616,7 @@
 </section>
 
 <section class="socials-section fade-in">
-<h2>📱 Znajdź nas w sieci</h2>
+<h2>Znajdź nas w sieci</h2>
 <p style="color: #666; font-size: 1.1em; margin-bottom: 40px;">Obserwuj proces powstawania Twoich zamówień i sprawdzaj nowości!</p>
 <div class="social-links">
 <a href="https://www.instagram.com/awydrukujse/" class="social-item" target="_blank">
@@ -1555,7 +1631,7 @@
 </section>
 
 <section id="kontakt" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 60px; text-align: center; padding-bottom: 50px;">
-<h2>📧 Kontakt</h2>
+<h2>Kontakt</h2>
 <p style="font-size: 1.1em; color: #555; max-width: 600px; margin: auto;">
    Masz własny model do wyceny? A może nietypowe zlecenie? Złapmy się na mailu!
 </p>
@@ -1568,7 +1644,7 @@
 </section>
 
 <footer>
-<a class="footer-cta" href="https://t.me/Drukarz3Dbot" target="_blank">🚀 Zamów przez Telegram</a>
+<a class="footer-cta" href="https://t.me/Drukarz3Dbot" target="_blank">Zamów przez Telegram</a>
 <p style="font-size: 0.85em; color: #94a3b8; margin-top: 30px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
   Obsługujemy klientów z miast: Wrocław, Oława, Oleśnica, Rawicz, Namysłów, Ząbkowice Śląskie, Kamieniec Ząbkowicki oraz zapewniamy szybką wysyłkę Paczkomatem w całej Polsce.
 </p>
@@ -1619,9 +1695,9 @@
     const cusFields = document.getElementById('customFields');
     if (mode === 'catalog') {
       btnCat.style.background = '#ffffff';
-      btnCat.style.color = '#1976d2';
+      btnCat.style.color = '#0088cc';
       btnCat.style.fontWeight = '700';
-      btnCat.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+      btnCat.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)';
       btnCus.style.background = 'transparent';
       btnCus.style.color = '#64748b';
       btnCus.style.fontWeight = '600';
@@ -1630,9 +1706,9 @@
       cusFields.style.display = 'none';
     } else {
       btnCus.style.background = '#ffffff';
-      btnCus.style.color = '#1976d2';
+      btnCus.style.color = '#0088cc';
       btnCus.style.fontWeight = '700';
-      btnCus.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+      btnCus.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)';
       btnCat.style.background = 'transparent';
       btnCat.style.color = '#64748b';
       btnCat.style.fontWeight = '600';
@@ -1704,6 +1780,14 @@
     formData.append('address', document.getElementById('addressInfo').value);
     formData.append('desc', document.getElementById('desc').value);
 
+    // Dołączanie tokenu Cloudflare Turnstile
+    if (typeof turnstile !== 'undefined') {
+      const turnstileToken = turnstile.getResponse();
+      if (turnstileToken) {
+        formData.append('cf-turnstile-response', turnstileToken);
+      }
+    }
+
     if (hasFile) {
       formData.append('file', fileInput.files[0]);
     }
@@ -1722,6 +1806,7 @@
         msg.innerText = "✅ Dziękujemy! Zamówienie zostało wysłane. Skontaktuję się z Tobą najszybciej jak to możliwe.";
         form.reset();
         fileDetails.style.display = 'none';
+        if (typeof turnstile !== 'undefined') turnstile.reset();
       } else {
         throw new Error();
       }
@@ -1735,7 +1820,7 @@
     } finally {
       btn.disabled = false;
       btn.style.opacity = "1";
-      btn.innerText = "🚀 Wyślij zapytanie o druk";
+      btn.innerText = "Wyślij zapytanie o druk";
     }
   });
 
