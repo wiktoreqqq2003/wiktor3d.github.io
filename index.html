@@ -15,6 +15,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="Nw_3i0kBQekvkOqbbmgG3w_P7OKQsgGM94NYEnER3nE" />
 
+<!-- Techniczne SEO & Social Media Share -->
+<link rel="canonical" href="https://awydrukujse.pl/">
+<link rel="apple-touch-icon" sizes="180x180" href="img/Logoskleputr.png">
+
 <!-- Zoptymalizowany Meta Description pod kątem CTR & Cennika -->
 <meta name="description" content="Szybki i precyzyjny druk 3D na zamówienie we Wrocławiu, Oławie i Oleśnicy. Sprawdź cennik, prześlij plik STL lub projekt CAD i otrzymaj darmową wycenę w 15 min!">
 
@@ -27,6 +31,11 @@
 
 <!-- Skrypt Ochrony Cloudflare Turnstile -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<!-- Biblioteki Three.js do podglądu plików STL w 3D -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
 <!-- Dane strukturalne Google (Precyzyjne pozycjonowanie lokalne + FAQ) -->
 <script type="application/ld+json">
@@ -579,7 +588,7 @@
      background: #0099e6;
    }
    .modal {
-     display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+     display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
      justify-content: center; align-items: center; z-index: 2000;
      backdrop-filter: blur(5px);
    }
@@ -627,7 +636,7 @@
      transform: translateY(0);
    }
 
-   /* Zoptymalizowane i wyczyszczone style dla Formularza Zamówienia */
+   /* Style dla Formularza Zamówienia */
    .order-form-step {
      background: #ffffff;
      padding: 28px;
@@ -746,6 +755,7 @@
   <div class="nav-links" id="navLinks">
     <a href="#kategorie" onclick="closeMobileMenu()">Kategorie</a>
     <a href="#modele" onclick="closeMobileMenu()">Modele</a>
+    <a href="#przed-po" onclick="closeMobileMenu()">Części</a>
     <a href="#materialy" onclick="closeMobileMenu()">Materiały</a>
     <a href="#cennik" onclick="closeMobileMenu()">Cennik</a>
     <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
@@ -1099,6 +1109,52 @@
 </div>
 </section>
 
+<!-- SEKCJA PRZED I PO (DORABIANIE CZĘŚCI ZAMIENNYCH) -->
+<section id="przed-po" class="fade-in">
+  <h2>Przed i Po: Dorabianie części zamiennych</h2>
+  <p style="text-align: center; color: #64748b; max-width: 650px; margin: -30px auto 40px auto; font-size: 1em;">
+    Złamał się niedostępny element w aucie, maszynie lub sprzęcie domowym? Odtwarzamy części 1:1 na podstawie uszkodzonych elementów lub szkicu z wymiarami!
+  </p>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+    
+    <div style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; background: #f8fafc; border-bottom: 1px solid #e2e8f0; text-align: center; font-weight: 700; font-size: 0.85em;">
+        <div style="padding: 10px; color: #ef4444; background: #fef2f2;">❌ USZKODZONY ORYGINAŁ</div>
+        <div style="padding: 10px; color: #16a34a; background: #f0fdf4;">✅ NOWY WYDRUK 3D</div>
+      </div>
+      <div style="padding: 24px;">
+        <h3 style="margin: 0 0 10px 0; font-size: 1.2em; color: #0f172a;">Zębatka / Uchwyt techniczny</h3>
+        <p style="font-size: 0.9em; color: #64748b; margin-bottom: 15px; line-height: 1.5;">
+          Odtworzenie wyłamanych zębów w przekładni. Zastosowano materiał PETG o podwyższonej wytrzymałości mechanicznej i cieplnej.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="background: #e0f2fe; color: #0284c7; font-size: 0.78em; font-weight: 700; padding: 4px 10px; border-radius: 6px;">Projekt CAD ze zdjęcia</span>
+          <span style="background: #f1f5f9; color: #475569; font-size: 0.78em; font-weight: 600; padding: 4px 10px; border-radius: 6px;">PETG</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; background: #f8fafc; border-bottom: 1px solid #e2e8f0; text-align: center; font-weight: 700; font-size: 0.85em;">
+        <div style="padding: 10px; color: #ef4444; background: #fef2f2;">❌ BRAK CZĘŚCI W SKLEPIE</div>
+        <div style="padding: 10px; color: #16a34a; background: #f0fdf4;">✅ ADAPTER NA ZAMÓWIENIE</div>
+      </div>
+      <div style="padding: 24px;">
+        <h3 style="margin: 0 0 10px 0; font-size: 1.2em; color: #0f172a;">Zaślepka & Obudowa samochodowa</h3>
+        <p style="font-size: 0.9em; color: #64748b; margin-bottom: 15px; line-height: 1.5;">
+          Dedykowana obudowa do czujnika z materiału ASA odpornego na wysoką temperaturę pod maską oraz bezpośrednie słońce/UV.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="background: #e0f2fe; color: #0284c7; font-size: 0.78em; font-weight: 700; padding: 4px 10px; border-radius: 6px;">Odporność na UV</span>
+          <span style="background: #f1f5f9; color: #475569; font-size: 0.78em; font-weight: 600; padding: 4px 10px; border-radius: 6px;">ASA</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section id="materialy" class="fade-in">
 <style>
    .materialy-container {
@@ -1405,7 +1461,7 @@
 </div>
 </section>
 
-<!-- SEKCJA ZAMÓWIENIE (ODŚWIEŻONA, UJEDNOLICONA I CZYSTA) -->
+<!-- SEKCJA ZAMÓWIENIE -->
 <section id="zamowienie" class="fade-in" style="padding: 60px 20px;">
   <div style="max-width: 850px; margin: auto;">
     
@@ -1467,9 +1523,15 @@
             <label for="customFileInput" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wgraj plik 3D (.stl, .step, .obj) LUB zdjęcie części</label>
             <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj,image/*" class="form-input-field" style="margin-bottom: 6px;">
             
-            <div id="fileDetails" style="font-size: 0.85em; font-weight: 600; margin-bottom: 12px; display: none;"></div>
+            <div id="fileDetails" style="font-size: 0.85em; font-weight: 600; margin-bottom: 8px; display: none;"></div>
 
-            <label for="customModelInput" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-top: 10px; margin-bottom: 6px;">Lub wklej link do modelu / nazwę części</label>
+            <!-- Interaktywny podgląd 3D dla plików STL -->
+            <div id="stlPreviewContainer" style="display: none; margin-top: 12px; text-align: center; background: #0f172a; border-radius: 12px; padding: 12px; position: relative;">
+              <p style="color: #94a3b8; font-size: 0.8em; margin: 0 0 8px 0; font-weight: 600;">Interaktywny podgląd 3D pliku STL (przeciągnij myszką, aby obrócić):</p>
+              <div id="stlCanvas" style="width: 100%; height: 260px; border-radius: 8px; overflow: hidden;"></div>
+            </div>
+
+            <label for="customModelInput" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-top: 14px; margin-bottom: 6px;">Lub wklej link do modelu / nazwę części</label>
             <input type="text" id="customModelInput" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części" class="form-input-field">
           </div>
         </div>
@@ -1536,6 +1598,14 @@
       <!-- Widget Ochrony przed Spamem (Cloudflare Turnstile) -->
       <div style="display: flex; justify-content: center; margin-top: 5px;">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAE6SzXcPSZEE1Xkt"></div>
+      </div>
+
+      <!-- Zgoda RODO -->
+      <div style="text-align: center; margin-top: -5px;">
+        <label style="font-size: 0.78em; color: #64748b; display: inline-flex; align-items: flex-start; gap: 8px; text-align: left; cursor: pointer; max-width: 650px;">
+          <input type="checkbox" required style="margin-top: 2px;">
+          <span>Wyrażam zgodę na przetwarzanie moich danych w celu przygotowania wyceny. Zapoznałem/am się z <a href="#rodoModal" onclick="openRodoModal(event)" style="color: #0088cc; text-decoration: underline;">Polityką Prywatności RODO</a>.</span>
+        </label>
       </div>
 
       <!-- PRZYCISK I INFORMACJA -->
@@ -1648,11 +1718,28 @@
 <p style="font-size: 0.85em; color: #94a3b8; margin-top: 30px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
   Obsługujemy klientów z miast: Wrocław, Oława, Oleśnica, Rawicz, Namysłów, Ząbkowice Śląskie, Kamieniec Ząbkowicki oraz zapewniamy szybką wysyłkę Paczkomatem w całej Polsce.
 </p>
-<p style="margin-top:20px; color:#666; font-size:0.95em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
+<p style="margin-top:20px; color:#666; font-size:0.95em;">
+  &copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone &bull; 
+  <a href="#rodoModal" onclick="openRodoModal(event)" style="color: #94a3b8; text-decoration: underline;">Polityka Prywatności RODO</a>
+</p>
 </footer>
 
 <div class="modal" id="modal" onclick="closeModal()">
 <img id="modalImg" src="" alt="Powiększenie obrazu">
+</div>
+
+<!-- Modal RODO -->
+<div class="modal" id="rodoModal" onclick="closeRodoModal(event)">
+  <div style="background: white; padding: 30px; border-radius: 20px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; text-align: left; color: #1e293b;" onclick="event.stopPropagation()">
+    <h3 style="margin-top: 0; color: #0f172a; font-size: 1.3em;">Polityka Prywatności i RODO</h3>
+    <p style="font-size: 0.88em; color: #475569; line-height: 1.6;">
+      <strong>Administratorem danych osobowych</strong> jest serwis awydrukujse.pl.<br><br>
+      1. <strong>Cel przetwarzania danych:</strong> Dane wprowadzane w formularzu (imię, kontakt, dane dostawy, załączone pliki STL lub zdjęcia) wykorzystywane są wyłącznie do przygotowania darmowej wyceny oraz realizacji usługi druku 3D.<br><br>
+      2. <strong>Bezpieczeństwo plików:</strong> Przesłane pliki projektowe 3D służą wyłącznie do wyceny i wydruku i nie są udostępniane osobom trzecim.<br><br>
+      3. <strong>Twoje prawa:</strong> Masz pełne prawo do wglądu, modyfikacji oraz żądania usunięcia swoich danych. Skontaktuj się z nami na adres: <strong>awydrukujse@gmail.com</strong>.
+    </p>
+    <button type="button" onclick="document.getElementById('rodoModal').style.display='none'" style="background: #0088cc; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 15px; font-family: inherit;">Zamknij</button>
+  </div>
 </div>
 
 <!-- PŁYWAJĄCE PRZYCISKI: TELEGRAM BOT + KOSZYK ZAMÓWIENIA -->
@@ -1718,11 +1805,14 @@
     }
   }
 
-  // Walidacja pliku oraz wyświetlanie informacji w czasie rzeczywistym
+  // Walidacja pliku oraz podgląd Three.js dla STL
   const fileInput = document.getElementById('customFileInput');
   const fileDetails = document.getElementById('fileDetails');
+  const stlPreviewContainer = document.getElementById('stlPreviewContainer');
   const MAX_SIZE_MB = 45;
   let isFileTooBig = false;
+
+  let stlScene, stlCamera, stlRenderer, stlControls, stlAnimId;
 
   fileInput.addEventListener('change', () => {
     if (fileInput.files.length > 0) {
@@ -1733,18 +1823,89 @@
         isFileTooBig = true;
         fileDetails.style.display = 'block';
         fileDetails.style.color = '#dc2626';
-        fileDetails.innerText = `⚠️ Plik jest za duży (${sizeMB} MB). Maksymalny rozmiar to ${MAX_SIZE_MB} MB. Wyślij go wklejając link w polu poniżej.`;
+        fileDetails.innerText = `⚠️ Plik jest za duży (${sizeMB} MB). Maksymalny rozmiar to ${MAX_SIZE_MB} MB. Wyślij go wklejając link poniżej.`;
+        stlPreviewContainer.style.display = 'none';
       } else {
         isFileTooBig = false;
         fileDetails.style.display = 'block';
         fileDetails.style.color = '#059669';
         fileDetails.innerText = `📎 Wybrano: ${file.name} (${sizeMB} MB)`;
+
+        // Sprawdzanie czy plik to .stl dla aktywowania podglądu 3D
+        if (file.name.toLowerCase().endsWith('.stl')) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            renderStlPreview(e.target.result);
+          };
+          reader.readAsArrayBuffer(file);
+        } else {
+          stlPreviewContainer.style.display = 'none';
+        }
       }
     } else {
       fileDetails.style.display = 'none';
+      stlPreviewContainer.style.display = 'none';
       isFileTooBig = false;
     }
   });
+
+  function renderStlPreview(arrayBuffer) {
+    stlPreviewContainer.style.display = 'block';
+    const container = document.getElementById('stlCanvas');
+    container.innerHTML = '';
+
+    if (stlAnimId) cancelAnimationFrame(stlAnimId);
+
+    const width = container.clientWidth || 300;
+    const height = 260;
+
+    stlScene = new THREE.Scene();
+    stlScene.background = new THREE.Color(0x0f172a);
+
+    stlCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    
+    stlRenderer = new THREE.WebGLRenderer({ antialias: true });
+    stlRenderer.setSize(width, height);
+    container.appendChild(stlRenderer.domElement);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    stlScene.add(ambientLight);
+
+    const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    dirLight1.position.set(1, 1, 1).normalize();
+    stlScene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0x0088cc, 0.6);
+    dirLight2.position.set(-1, -1, -1).normalize();
+    stlScene.add(dirLight2);
+
+    const loader = new THREE.STLLoader();
+    const geometry = loader.parse(arrayBuffer);
+    geometry.center();
+
+    const material = new THREE.MeshPhongMaterial({ color: 0x0088cc, specular: 0x222222, shininess: 80 });
+    const mesh = new THREE.Mesh(geometry, material);
+
+    geometry.computeBoundingSphere();
+    const radius = geometry.boundingSphere.radius;
+    stlCamera.position.set(0, 0, radius * 2.4);
+    stlCamera.lookAt(0, 0, 0);
+
+    stlScene.add(mesh);
+
+    if (window.THREE.OrbitControls) {
+      stlControls = new THREE.OrbitControls(stlCamera, stlRenderer.domElement);
+      stlControls.enableDamping = true;
+    }
+
+    function animate() {
+      stlAnimId = requestAnimationFrame(animate);
+      if (stlControls) stlControls.update();
+      else mesh.rotation.y += 0.008;
+      stlRenderer.render(stlScene, stlCamera);
+    }
+    animate();
+  }
 
   const form = document.getElementById('orderForm');
   const msg = document.getElementById('responseMsg');
@@ -1780,7 +1941,7 @@
     formData.append('address', document.getElementById('addressInfo').value);
     formData.append('desc', document.getElementById('desc').value);
 
-    // Dołączanie tokenu Cloudflare Turnstile
+    // Turnstile Token
     if (typeof turnstile !== 'undefined') {
       const turnstileToken = turnstile.getResponse();
       if (turnstileToken) {
@@ -1806,6 +1967,7 @@
         msg.innerText = "✅ Dziękujemy! Zamówienie zostało wysłane. Skontaktuję się z Tobą najszybciej jak to możliwe.";
         form.reset();
         fileDetails.style.display = 'none';
+        stlPreviewContainer.style.display = 'none';
         if (typeof turnstile !== 'undefined') turnstile.reset();
       } else {
         throw new Error();
@@ -1840,6 +2002,17 @@
 
   function closeModal() {
     document.getElementById("modal").style.display = "none";
+  }
+
+  function openRodoModal(e) {
+    e.preventDefault();
+    document.getElementById("rodoModal").style.display = "flex";
+  }
+
+  function closeRodoModal(e) {
+    if (e.target.id === 'rodoModal') {
+      document.getElementById("rodoModal").style.display = "none";
+    }
   }
 
   const elements = document.querySelectorAll('.fade-in');
