@@ -595,6 +595,10 @@
      background: #0088cc;
      box-shadow: 0 8px 25px rgba(0,136,204,0.4);
    }
+  .fab-sms {
+     background: #16a34a;
+     box-shadow: 0 8px 25px rgba(22, 163, 74, 0.4);
+   }
    .fab-button:hover {
      transform: scale(1.1);
    }
@@ -1758,17 +1762,23 @@
 </div>
 </section>
 
-<section id="kontakt" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 60px; text-align: center; padding-bottom: 50px;">
-<h2>Kontakt</h2>
-<p style="font-size: 1.1em; color: #555; max-width: 600px; margin: auto;">
-   Masz własny model do wyceny? A może nietypowe zlecenie? Złapmy się na mailu!
-</p>
-<a href="mailto:awydrukujse@gmail.com" class="contact-btn">
-   ✉️ Wyślij e-mail do nas
-</a>
-<p style="color: #888; font-size: 0.95em;">
-   Lub skopiuj adres: <b style="color:#333;">awydrukujse@gmail.com</b>
-</p>
+<section id="kontakt" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 60px; text-align: center; padding: 50px 20px;">
+  <h2>Kontakt</h2>
+  <p style="font-size: 1.1em; color: #555; max-width: 600px; margin: 0 auto 30px auto;">
+     Masz własny model do wyceny? A może nietypowe zlecenie? Skontaktuj się wygodnie przez SMS, telefon lub e-mail!
+  </p>
+  
+  <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+    <a href="sms:+48508860405" class="contact-btn" style="background: #16a34a; box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3); margin: 0;">
+       📱 Wyślij SMS: 508 860 405
+    </a>
+    <a href="tel:+48508860405" class="contact-btn" style="background: #0284c7; box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3); margin: 0;">
+       📞 Zadzwoń: 508 860 405
+    </a>
+    <a href="mailto:awydrukujse@gmail.com" class="contact-btn" style="margin: 0;">
+       ✉️ Napisz e-mail
+    </a>
+  </div>
 </section>
 
 <footer>
@@ -1801,9 +1811,10 @@
 </div>
 
 <!-- PŁYWAJĄCE PRZYCISKI: TELEGRAM BOT + KOSZYK ZAMÓWIENIA -->
+<!-- PŁYWAJĄCE PRZYCISKI: TELEGRAM BOT + SMS + KOSZYK ZAMÓWIENIA -->
 <div class="fab-group">
-  <a href="https://t.me/Drukarz3Dbot" target="_blank" class="fab-button fab-tg" title="Napisz na Telegramie">
-     💬
+  <a href="sms:+48508860405" class="fab-button fab-sms" title="Wyślij SMS">
+     📱
   </a>
   <a href="#zamowienie" class="fab-button" title="Złóż zamówienie">
      🛒
