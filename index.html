@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<!-- Google tag (gtag.js) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics: domyślnie BEZ zgody, włączane dopiero po kliknięciu "Akceptuję" -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JMW6TQL3YB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
   gtag('js', new Date());
-
   gtag('config', 'G-JMW6TQL3YB');
 </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="Nw_3i0kBQekvkOqbbmgG3w_P7OKQsgGM94NYEnER3nE" />
-
-<!-- Techniczne SEO & Social Media Share -->
+<meta name="google-site-verification" content="Nw_3i0kBQekvkOqbbmgG3w_P7OKQsgGM94NYEnER3nE">
+<title>Druk 3D Wrocław, Oława, Oleśnica | Cennik & Wycena – awydrukujse.pl</title>
+<meta name="description" content="Szybki i precyzyjny druk 3D na zamówienie we Wrocławiu, Oławie i Oleśnicy. Sprawdź cennik, prześlij plik STL lub projekt CAD i otrzymaj darmową wycenę w 15 min!">
 <link rel="canonical" href="https://awydrukujse.pl/">
+<link rel="icon" type="image/png" href="img/Logoskleputr.png">
 <link rel="apple-touch-icon" sizes="180x180" href="img/Logoskleputr.png">
 
-<!-- Zoptymalizowany Meta Description pod kątem CTR & Cennika -->
-<meta name="description" content="Szybki i precyzyjny druk 3D na zamówienie we Wrocławiu, Oławie i Oleśnicy. Sprawdź cennik, prześlij plik STL lub projekt CAD i otrzymaj darmową wycenę w 15 min!">
-
-<!-- Tagi Open Graph (Podgląd w Social Media) -->
 <meta property="og:title" content="Druk 3D Wrocław & Online | Cennik & Szybka Wycena – awydrukujse.pl">
 <meta property="og:description" content="Profesjonalne usługi druku 3D. Wyślij swój plik STL lub wybierz wzór z katalogu. Szybka wycena i wysoka jakość wykonania.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
 <meta property="og:url" content="https://awydrukujse.pl">
 <meta property="og:image" content="https://awydrukujse.pl/img/Logoskleputr.png">
+<meta name="twitter:card" content="summary">
 
-<!-- Skrypt Ochrony Cloudflare Turnstile -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-<!-- Biblioteki Three.js do podglądu plików STL w 3D oraz analizy wymiarów -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-
-<!-- Dane strukturalne Google (Precyzyjne pozycjonowanie lokalne + FAQ) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -49,2098 +42,908 @@
       "description": "Profesjonalny druk 3D na zamówienie, części zamienne, prototypowanie oraz modele z plików STL.",
       "url": "https://awydrukujse.pl",
       "email": "awydrukujse@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Wrocław",
-        "addressRegion": "Dolny Śląsk",
-        "addressCountry": "PL"
-      },
+      "telephone": "+48508860405",
+      "address": { "@type": "PostalAddress", "addressLocality": "Wrocław", "addressRegion": "Dolny Śląsk", "addressCountry": "PL" },
       "areaServed": ["Wrocław", "Oława", "Oleśnica", "Kamieniec Ząbkowicki", "Ząbkowice Śląskie", "Rawicz", "Namysłów", "Dolny Śląsk", "Polska"],
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "sameAs": ["https://www.instagram.com/awydrukujse/", "https://www.tiktok.com/@awydrukujse.pl", "https://share.google/Xt1L10a3l5DjbnmG2"]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Czy modele można malować po wydrukowaniu?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tak! Nasze wydruki świetnie przyjmują farby akrylowe. Dla najlepszego efektu polecamy nałożenie wcześniej podkładu modelarskiego."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "W jakim formacie wysłać do Was własny plik?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Najlepiej jeśli podeślesz nam plik w formacie .STL lub .OBJ. Jeśli nie masz pliku, wyślij nam link ze strony (np. Thingiverse, Printables) w bocie Telegram."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Czy te wydruki są wytrzymałe?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Co jeśli mój wydruk uszkodzi się w transporcie?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Przed wysyłką sprawdzamy każdy detal i solidnie go pakujemy. Jeśli jednak paczka dotrze uszkodzona, daj nam od razu znać na Telegramie – na pewno rozwiążemy ten problem!"
-          }
-        }
+        { "@type": "Question", "name": "Czy modele można malować po wydrukowaniu?", "acceptedAnswer": { "@type": "Answer", "text": "Tak! Nasze wydruki świetnie przyjmują farby akrylowe. Dla najlepszego efektu polecamy nałożenie wcześniej podkładu modelarskiego." } },
+        { "@type": "Question", "name": "W jakim formacie wysłać do Was własny plik?", "acceptedAnswer": { "@type": "Answer", "text": "Najlepiej plik .STL lub .OBJ. Jeśli nie masz pliku, wklej w formularzu link do modelu (np. Thingiverse, Printables) albo wyślij zdjęcie części." } },
+        { "@type": "Question", "name": "Czy te wydruki są wytrzymałe?", "acceptedAnswer": { "@type": "Answer", "text": "Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG)." } },
+        { "@type": "Question", "name": "Co jeśli mój wydruk uszkodzi się w transporcie?", "acceptedAnswer": { "@type": "Answer", "text": "Przed wysyłką sprawdzamy każdy detal i solidnie go pakujemy. Jeśli jednak paczka dotrze uszkodzona, daj nam od razu znać (SMS, telefon lub e-mail) – na pewno rozwiążemy ten problem!" } }
       ]
     }
   ]
 }
 </script>
 
-<!-- Zoptymalizowany Tytuł Strony (SEO + CTR) -->
-<title>Druk 3D Wrocław, Oława, Oleśnica | Cennik & Wycena – awydrukujse.pl</title>
-<link rel="icon" type="image/png" href="img/Logoskleputr.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-   html {
-     scroll-behavior: smooth;
-   }
-   body {
-     margin: 0;
-     font-family: 'Poppins', sans-serif;
-     color: #333;
-     line-height: 1.6;
-     background-color: #f4f7f9;
-     background-image: radial-gradient(#d1dce6 1.5px, transparent 1.5px);
-     background-size: 30px 30px;
-   }
-   .top-nav {
-     background: #ffffff;
-     padding: 15px 40px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     position: sticky;
-     top: 0;
-     z-index: 1000;
-     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-     transition: all 0.3s ease;
-   }
-   .top-nav.scrolled {
-     padding: 8px 40px;
-     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-     background: rgba(255, 255, 255, 0.98);
-   }
-   .nav-logo-container {
-     display: flex;
-     align-items: center;
-     text-decoration: none;
-     gap: 15px;
-   }
-   .nav-logo {
-     height: 60px;
-     width: auto;
-     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-     transition: all 0.3s ease;
-   }
-   .top-nav.scrolled .nav-logo {
-     height: 45px;
-   }
-   .nav-logo:hover {
-     transform: scale(1.05);
-   }
-   .nav-title {
-     font-size: 1.4em;
-     font-weight: 800;
-     color: #1a1a2e;
-     letter-spacing: 0.5px;
-     margin: 0;
-     transition: font-size 0.3s ease;
-   }
-   .top-nav.scrolled .nav-title {
-     font-size: 1.2em;
-   }
-   .nav-links {
-     display: flex;
-     gap: 25px;
-     align-items: center;
-   }
-   .nav-links a {
-     color: #444;
-     text-decoration: none;
-     font-weight: 600;
-     font-size: 0.9em;
-     transition: color 0.3s ease;
-     text-transform: uppercase;
-     letter-spacing: 0.5px;
-   }
-   .nav-links a:hover {
-     color: #0088cc;
-   }
-   .hamburger-btn {
-     display: none;
-     background: transparent;
-     border: none;
-     font-size: 28px;
-     cursor: pointer;
-     color: #1a1a2e;
-     padding: 5px 10px;
-     transition: transform 0.2s ease;
-   }
-   .hero-wrapper {
-     padding: 60px 20px 30px;
-     display: flex;
-     justify-content: center;
-   }
-   .hero-box {
-     background: #ffffff;
-     max-width: 1100px;
-     width: 100%;
-     border-radius: 40px;
-     padding: 80px 40px 60px;
-     text-align: center;
-     box-shadow: 0 20px 60px rgba(0,0,0,0.06);
-     position: relative;
-     overflow: hidden;
-   }
-   .gradient-text {
-     background: linear-gradient(135deg, #0088cc, #00d4ff);
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-     display: inline-block;
-   }
-   .hero-title {
-     font-size: 3.4em;
-     font-weight: 800;
-     color: #1a1a2e;
-     margin: 0 0 20px 0;
-     line-height: 1.15;
-     letter-spacing: -1.2px;
-   }
-   .hero-buttons {
-     display: flex;
-     justify-content: center;
-     gap: 20px;
-     flex-wrap: wrap;
-   }
-   .hero-cta {
-     background: #0088cc;
-     color: white;
-     padding: 16px 45px;
-     border-radius: 50px;
-     text-decoration: none;
-     font-size: 1.15em;
-     display: inline-block;
-     font-weight: 600;
-     transition: all 0.3s ease;
-     box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
-   }
-   .hero-cta:hover {
-     transform: translateY(-4px);
-     box-shadow: 0 12px 30px rgba(0, 136, 204, 0.5);
-     background: #0099e6;
-   }
-   .hero-cta-secondary {
-     background: #f4f7f9;
-     color: #333;
-     padding: 16px 35px;
-     border-radius: 50px;
-     text-decoration: none;
-     font-size: 1.15em;
-     font-weight: 600;
-     transition: all 0.3s ease;
-     border: 2px solid #e0e6ed;
-   }
-   .hero-cta-secondary:hover {
-     background: #eef2f6;
-     border-color: #d1d9e2;
-     transform: translateY(-4px);
-   }
-   section {
-     padding: 70px 20px;
-     max-width: 1100px;
-     margin: auto;
-   }
-   h2 {
-     text-align: center;
-     margin-bottom: 50px;
-     color: #1a1a2e;
-     font-size: 2.4em;
-     font-weight: 800;
-   }
-   .grid {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-     gap: 30px;
-   }
-   .gallery {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-     gap: 30px;
-   }
-   .card {
-     background: white;
-     border-radius: 20px;
-     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-     overflow: hidden;
-     text-align: center;
-     transition: all 0.3s ease;
-     display: flex;
-     flex-direction: column;
-     height: 100%;
-     border: 1px solid #f0f4f8;
-   }
-   .card:hover {
-     transform: translateY(-10px);
-     box-shadow: 0 20px 45px rgba(0,0,0,0.1);
-   }
-   .card.custom-order {
-     border: 2px dashed #0088cc;
-     background: #f0f9ff;
-   }
-   .custom-order-icon {
-     font-size: 4em;
-     margin-top: 20px;
-   }
-   .image-wrapper {
-     position: relative;
-     overflow: hidden;
-     cursor: pointer;
-     border-bottom: 3px solid #f4f7f6;
-   }
-   .image-wrapper img {
-     width: 100%;
-     height: 320px;
-     object-fit: cover;
-     display: block;
-     transition: transform 0.5s ease;
-   }
-   .image-wrapper::after {
-     content: '🔍 Powiększ';
-     position: absolute;
-     inset: 0;
-     background: rgba(0, 136, 204, 0.7);
-     color: white;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-size: 1.3em;
-     font-weight: 600;
-     opacity: 0;
-     transition: opacity 0.3s ease;
-     backdrop-filter: blur(2px);
-   }
-   .card:hover .image-wrapper img {
-     transform: scale(1.08);
-   }
-   .card:hover .image-wrapper::after {
-     opacity: 1;
-   }
-   .model-info-container {
-     padding: 25px 20px;
-     flex-grow: 1;
-     display: flex;
-     flex-direction: column;
-   }
-   .model-id {
-     background: rgba(0, 136, 204, 0.1);
-     color: #0088cc;
-     display: inline-block;
-     padding: 6px 18px;
-     border-radius: 8px;
-     font-weight: 800;
-     font-size: 0.99em;
-     align-self: center;
-     margin-bottom: 15px;
-   }
-   .card h3 {
-     margin: 0 0 10px 0;
-     font-size: 1.25em;
-     font-weight: 600;
-     color: #222;
-   }
-   .card .colors {
-     font-size: 0.9em;
-     color: #666;
-     margin-bottom: 20px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-wrap: wrap;
-     gap: 12px;
-   }
-   .color-item {
-     display: flex;
-     align-items: center;
-   }
-   .color-circle {
-     display: inline-block;
-     width: 14px;
-     height: 14px;
-     border-radius: 50%;
-     margin-right: 6px;
-     border: 1px solid #ddd;
-     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-   }
-   .c-rainbow { background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff); border: none; }
-   .card .price {
-     font-size: 1.5em;
-     font-weight: 800;
-     color: #0088cc;
-     margin-top: auto;
-     margin-bottom: 10px;
-   }
-   .promo-box {
-     background: #fffdf5;
-     border-top: 1px solid #ffecb3;
-     padding: 12px;
-     font-size: 0.85em;
-     color: #b38000;
-     font-weight: 600;
-     min-height: 40px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-   }
-   .catalog-download {
-     text-align: center;
-     margin-top: 50px;
-   }
-   .btn-download {
-     background: #1a1a2e;
-     color: white;
-     padding: 15px 35px;
-     border-radius: 12px;
-     text-decoration: none;
-     font-weight: 600;
-     display: inline-flex;
-     align-items: center;
-     gap: 10px;
-     transition: all 0.3s ease;
-   }
-   .btn-download:hover {
-     background: #333;
-     transform: scale(1.05);
-   }
-   .faq-container {
-     max-width: 850px;
-     margin: auto;
-     text-align: left;
-   }
-   details {
-     background: white;
-     margin-bottom: 18px;
-     border-radius: 16px;
-     box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-     overflow: hidden;
-     border: 1px solid #f0f4f8;
-     transition: all 0.3s ease;
-   }
-   details[open] {
-     box-shadow: 0 10px 30px rgba(0,136,204,0.1);
-     border-color: #cce7f5;
-   }
-   summary {
-     font-weight: 600;
-     padding: 22px 25px;
-     cursor: pointer;
-     font-size: 1.15em;
-     background: #fff;
-     transition: background 0.3s, color 0.3s;
-     color: #222;
-     list-style: none;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-   }
-   summary::-webkit-details-marker {
-     display: none;
-   }
-   summary::after {
-     content: '+';
-     font-size: 1.8em;
-     color: #0088cc;
-     font-weight: 300;
-     transition: transform 0.3s ease;
-     line-height: 1;
-   }
-   details[open] summary::after {
-     transform: rotate(45deg);
-     color: #ea4335;
-   }
-   summary:hover {
-     background: #fcfcfc;
-     color: #0088cc;
-   }
-   details p {
-     padding: 0 25px 25px 25px;
-     margin: 0;
-     color: #666;
-     line-height: 1.7;
-   }
-   .socials-section {
-     text-align: center;
-     padding: 80px 20px;
-     background: transparent;
-   }
-   .social-links {
-     display: flex;
-     justify-content: center;
-     gap: 20px;
-     flex-wrap: wrap;
-   }
-   .social-item {
-     background: white;
-     color: #0088cc;
-     text-decoration: none;
-     font-size: 1.1em;
-     font-weight: 600;
-     display: flex;
-     align-items: center;
-     gap: 12px;
-     padding: 15px 40px;
-     border-radius: 50px;
-     transition: all 0.3s ease;
-     box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-     border: 2px solid #f0f0f0;
-   }
-   .social-item:hover {
-     background: #0088cc;
-     color: white;
-     transform: translateY(-5px);
-     box-shadow: 0 12px 30px rgba(0, 136, 204, 0.3);
-     border-color: #0088cc;
-   }
-   .contact-btn {
-     background: #ea4335;
-     color: white;
-     padding: 18px 45px;
-     border-radius: 50px;
-     text-decoration: none;
-     font-size: 1.2em;
-     font-weight: 600;
-     display: inline-flex;
-     align-items: center;
-     gap: 12px;
-     box-shadow: 0 8px 25px rgba(234, 67, 53, 0.3);
-     transition: all 0.3s ease;
-     margin: 30px 0;
-   }
-   .contact-btn:hover {
-     background: #d33828;
-     transform: translateY(-4px);
-     box-shadow: 0 12px 30px rgba(234, 67, 53, 0.4);
-   }
-   footer {
-     text-align: center;
-     padding: 80px 20px 60px;
-     background: #111;
-     color: #fff;
-     border-top: 5px solid #0088cc;
-   }
-   .footer-cta {
-     background: #0088cc;
-     color: white;
-     padding: 18px 45px;
-     border-radius: 50px;
-     text-decoration: none;
-     font-size: 20px;
-     display: inline-block;
-     font-weight: 600;
-     transition: all 0.3s ease;
-     box-shadow: 0 8px 25px rgba(0,136,204,0.4);
-   }
-   .footer-cta:hover {
-     transform: translateY(-5px);
-     box-shadow: 0 15px 35px rgba(0,136,204,0.6);
-     background: #0099e6;
-   }
-   .modal {
-     display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
-     justify-content: center; align-items: center; z-index: 2000;
-     backdrop-filter: blur(5px);
-   }
-   .modal img { max-width: 90%; max-height: 90vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
-   
-   /* ZESPÓŁ PŁYWAJĄCYCH PRZYCISKÓW (TG BOT + ZAMÓWIENIE) */
-   .fab-group {
-     position: fixed;
-     bottom: 25px;
-     right: 25px;
-     display: flex;
-     flex-direction: column;
-     gap: 12px;
-     align-items: flex-end;
-     z-index: 2001;
-   }
-   .fab-button {
-     background: #1976d2;
-     color: white;
-     width: 58px;
-     height: 58px;
-     border-radius: 50%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-size: 26px;
-     text-decoration: none;
-     box-shadow: 0 8px 25px rgba(25,118,210,0.4);
-     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-   }
-   .fab-tg {
-     background: #0088cc;
-     box-shadow: 0 8px 25px rgba(0,136,204,0.4);
-   }
-  .fab-sms {
-     background: #16a34a;
-     box-shadow: 0 8px 25px rgba(22, 163, 74, 0.4);
-   }
-   .fab-button:hover {
-     transform: scale(1.1);
-   }
+  :root { --blue:#0088cc; --ink:#1a1a2e; --slate:#0f172a; --mut:#64748b; --line:#e2e8f0; --red:#ea4335; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body { margin:0; font-family:'Poppins',sans-serif; color:#333; line-height:1.6; background:#f4f7f9 radial-gradient(#d1dce6 1.5px, transparent 1.5px) 0 0/30px 30px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline:3px solid var(--blue); outline-offset:2px; }
+  img { max-width:100%; }
+  section { padding:70px 20px; max-width:1100px; margin:auto; }
+  h2 { text-align:center; margin:0 0 50px; color:var(--ink); font-size:2.4em; font-weight:800; }
+  .pill { display:inline-block; background:#e0f2fe; color:#0284c7; font-weight:700; font-size:.82em; padding:6px 18px; border-radius:30px; margin-bottom:12px; letter-spacing:.5px; text-transform:uppercase; }
+  .panel { background:#fff; border-radius:28px; border:1px solid #eef2f6; box-shadow:0 15px 45px rgba(0,0,0,.03); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; }
 
-   .fade-in {
-     opacity: 1;
-     transform: none;
-   }
-   .fade-in.visible {
-     opacity: 1;
-     transform: translateY(0);
-   }
+  /* NAV */
+  .top-nav { background:#fff; padding:15px 40px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; box-shadow:0 4px 20px rgba(0,0,0,.05); transition:all .3s ease; }
+  .top-nav.scrolled { padding:8px 40px; box-shadow:0 10px 30px rgba(0,0,0,.1); }
+  .nav-logo-container { display:flex; align-items:center; text-decoration:none; gap:15px; }
+  .nav-logo { height:60px; width:auto; filter:drop-shadow(0 2px 4px rgba(0,0,0,.1)); transition:all .3s ease; }
+  .top-nav.scrolled .nav-logo { height:45px; }
+  .nav-title { font-size:1.4em; font-weight:800; color:var(--ink); letter-spacing:.5px; margin:0; }
+  .top-nav.scrolled .nav-title { font-size:1.2em; }
+  .nav-links { display:flex; gap:22px; align-items:center; }
+  .nav-links a { color:#444; text-decoration:none; font-weight:600; font-size:.88em; text-transform:uppercase; letter-spacing:.5px; transition:color .3s; }
+  .nav-links a:hover { color:var(--blue); }
+  .nav-links a.nav-xmas { color:#c62828; }
+  .nav-links a.nav-order { color:var(--blue); }
+  .nav-links a.nav-contact { color:var(--red); }
+  .hamburger-btn { display:none; background:transparent; border:none; font-size:28px; cursor:pointer; color:var(--ink); padding:5px 10px; }
 
-   /* Style dla Formularza Zamówienia */
-   .order-form-step {
-     background: #ffffff;
-     padding: 28px;
-     border-radius: 20px;
-     border: 1px solid #e2e8f0;
-     box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-   }
-   .order-step-title {
-     display: flex;
-     align-items: center;
-     gap: 10px;
-     margin-bottom: 20px;
-   }
-   .order-step-num {
-     background: #0088cc;
-     color: white;
-     width: 26px;
-     height: 26px;
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     font-size: 0.85em;
-     font-weight: 800;
-   }
-   .order-step-text {
-     margin: 0;
-     font-size: 1.15em;
-     color: #0f172a;
-     font-weight: 700;
-   }
-   .form-input-field {
-     width: 100%;
-     padding: 12px 14px;
-     border-radius: 10px;
-     border: 1px solid #cbd5e1;
-     background: #ffffff;
-     font-family: inherit;
-     font-size: 0.92em;
-     color: #0f172a;
-     outline: none;
-     box-sizing: border-box;
-     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-   }
-   .form-input-field:focus {
-     border-color: #0088cc !important;
-     box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.15) !important;
-   }
+  /* PASEK ŚWIĄTECZNY */
+  .xmas-bar { display:flex; justify-content:center; align-items:center; gap:12px; flex-wrap:wrap; background:linear-gradient(90deg,#b71c1c,#c62828 50%,#2e7d32); color:#fff; text-decoration:none; padding:10px 20px; font-size:.92em; font-weight:600; text-align:center; }
+  .xmas-bar b { background:#fff; color:#c62828; padding:2px 12px; border-radius:20px; font-size:.8em; }
+  .xmas-bar:hover { filter:brightness(1.1); }
 
-   /* Style dla Kafelków Kolorów (Color Swatches) */
-   .color-swatches-grid {
-     display: flex;
-     gap: 10px;
-     flex-wrap: wrap;
-     margin-top: 6px;
-   }
-   .color-swatch-tile {
-     display: inline-flex;
-     align-items: center;
-     gap: 8px;
-     padding: 8px 14px;
-     border: 1.5px solid #cbd5e1;
-     border-radius: 10px;
-     cursor: pointer;
-     background: #ffffff;
-     font-size: 0.85em;
-     font-weight: 600;
-     color: #334155;
-     transition: all 0.2s ease;
-     user-select: none;
-   }
-   .color-swatch-tile:hover {
-     border-color: #0088cc;
-     background: #f8fafc;
-   }
-   .color-swatch-tile.active {
-     border-color: #0088cc;
-     background: #f0f9ff;
-     color: #0088cc;
-     box-shadow: 0 0 0 2px rgba(0, 136, 204, 0.2);
-   }
-   .swatch-circle {
-     width: 14px;
-     height: 14px;
-     border-radius: 50%;
-     display: inline-block;
-     border: 1px solid rgba(0,0,0,0.15);
-   }
+  /* HERO */
+  .hero-wrapper { padding:60px 20px 30px; max-width:none; }
+  .hero-box { max-width:980px; margin:auto; text-align:center; background:#fff; border:1px solid #eef2f6; box-shadow:0 20px 50px rgba(0,0,0,.04); border-radius:28px; padding:80px 40px 60px; }
+  .hero-tag { display:inline-block; background:#f1f5f9; color:#475569; font-weight:600; font-size:.82em; padding:6px 18px; border-radius:30px; margin-bottom:25px; border:1px solid var(--line); }
+  .hero-title { font-size:3.4em; font-weight:800; color:var(--ink); margin:0 0 20px; line-height:1.15; letter-spacing:-1.2px; }
+  .gradient-text { background:linear-gradient(135deg,#0088cc,#00d4ff); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; }
+  .hero-lead { font-size:1.12em; color:#475569; margin:0 auto 35px; max-width:680px; }
+  .hero-buttons { display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:30px; }
+  .btn { text-decoration:none; padding:16px 34px; border-radius:12px; font-weight:700; transition:all .25s ease; display:inline-block; }
+  .btn-main { background:var(--blue); color:#fff; box-shadow:0 8px 24px rgba(0,136,204,.25); }
+  .btn-main:hover { transform:translateY(-4px); background:#0099e6; }
+  .btn-sec { color:var(--slate); border:1.5px solid #cbd5e1; background:#fff; font-weight:600; }
+  .btn-sec:hover { transform:translateY(-4px); background:#f8fafc; }
+  .btn-xmas { color:#c62828; border:1.5px solid #f2d6d6; background:#fff5f5; font-weight:600; }
+  .btn-xmas:hover { transform:translateY(-4px); background:#ffebee; }
+  .perks { border-top:1px solid #f1f5f9; padding-top:25px; display:flex; justify-content:center; gap:10px 30px; flex-wrap:wrap; color:var(--mut); font-size:.88em; font-weight:500; }
+  .perks b { color:var(--blue); }
 
-   @media (max-width: 768px) {
-     .top-nav {
-       flex-direction: row !important;
-       justify-content: space-between !important;
-       align-items: center !important;
-       padding: 12px 20px !important;
-       position: sticky;
-       top: 0;
-       z-index: 1000;
-     }
-     .hamburger-btn {
-       display: block;
-     }
-     .nav-links {
-       display: none;
-       flex-direction: column;
-       position: absolute;
-       top: 100%;
-       left: 0;
-       width: 100%;
-       background: #ffffff;
-       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-       padding: 20px 0;
-       gap: 16px !important;
-       border-top: 1px solid #f0f4f8;
-     }
-     .nav-links.active {
-       display: flex;
-     }
-     .nav-links a {
-       font-size: 1.05em;
-       padding: 8px 0;
-     }
-     .hero-box {
-       padding: 40px 20px !important;
-       border-radius: 20px !important;
-     }
-     .hero-title {
-       font-size: 2.1em !important;
-     }
-     .hero-buttons {
-       flex-direction: column;
-       width: 100%;
-     }
-     .hero-buttons a {
-       width: 100%;
-       box-sizing: border-box;
-       text-align: center;
-     }
-     .gallery, .materials-container {
-       grid-template-columns: 1fr;
-     }
-     .social-item { width: 100%; justify-content: center; box-sizing: border-box; }
-     .fab-button { width: 50px; height: 50px; font-size: 22px; }
-   }
+  /* O NAS */
+  .about { padding:50px 40px; }
+  .about-head { text-align:center; max-width:750px; margin:0 auto 50px; }
+  .about-head h2 { font-size:2.2em; color:var(--slate); letter-spacing:-.5px; margin-bottom:15px; }
+  .about-head p { color:#475569; font-size:1.05em; margin:0; }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; }
+  .step { background:#f8fafc; padding:25px; border-radius:20px; border:1px solid var(--line); }
+  .step i { background:var(--blue); color:#fff; width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-style:normal; font-weight:800; margin-bottom:15px; }
+  .step h3 { margin:0 0 8px; font-size:1.1em; color:var(--slate); }
+  .step p { margin:0; font-size:.88em; color:var(--mut); }
+
+  /* KATEGORIE */
+  .cats { display:flex; flex-direction:column; gap:35px; }
+  .cat { display:grid; grid-template-columns:1fr 1.2fr; background:#fff; border-radius:28px; overflow:hidden; text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); box-shadow:0 12px 35px rgba(0,0,0,.05); transition:all .4s cubic-bezier(.165,.84,.44,1); }
+  .cat:hover { transform:translateY(-6px); box-shadow:0 22px 50px rgba(0,0,0,.12); border-color:var(--c); }
+  .cat-content { padding:40px; display:flex; flex-direction:column; justify-content:center; }
+  .cat .badge { align-self:flex-start; padding:6px 16px; border-radius:20px; font-size:.8em; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; background:var(--b); color:var(--c); }
+  .cat .badge em { background:var(--c); color:#fff; font-style:normal; padding:2px 10px; border-radius:20px; margin-left:8px; letter-spacing:0; }
+  .cat h3 { font-size:2.2em; font-weight:800; margin:0 0 12px; line-height:1.2; color:var(--t); }
+  .cat p { color:#5a6e7f; margin:0 0 25px; }
+  .cat-btn { color:var(--c); font-weight:700; transition:letter-spacing .3s; }
+  .cat:hover .cat-btn { letter-spacing:.5px; }
+  .cat-media { display:grid; grid-template-columns:1.4fr 1fr; gap:12px; padding:18px; background:#f8fafc; align-items:stretch; }
+  .cat-media img { width:100%; object-fit:cover; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,.06); transition:transform .5s ease; }
+  .cat-main { height:100%; min-height:240px; border-radius:20px !important; }
+  .cat-stack { display:flex; flex-direction:column; gap:12px; }
+  .cat-stack img { height:calc(50% - 6px); }
+  .cat:hover img { transform:scale(1.04); }
+
+  /* MODELE */
+  .card { background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,.05); overflow:hidden; text-align:center; transition:all .3s ease; display:flex; flex-direction:column; border:1px solid #f0f4f8; }
+  .card:hover { transform:translateY(-10px); box-shadow:0 20px 45px rgba(0,0,0,.1); }
+  .card.custom { border:2px dashed var(--blue); background:#f0f9ff; }
+  .card .icon { font-size:4em; margin-top:20px; }
+  .img-btn { position:relative; overflow:hidden; cursor:pointer; border:0; border-bottom:3px solid #f4f7f6; padding:0; background:none; display:block; width:100%; }
+  .img-btn img { width:100%; height:320px; object-fit:cover; display:block; transition:transform .5s ease; }
+  .img-btn::after { content:'🔍 Powiększ'; position:absolute; inset:0; background:rgba(0,136,204,.7); color:#fff; display:flex; justify-content:center; align-items:center; font-size:1.3em; font-weight:600; opacity:0; transition:opacity .3s; backdrop-filter:blur(2px); }
+  .card:hover .img-btn img { transform:scale(1.08); }
+  .card:hover .img-btn::after, .img-btn:focus-visible::after { opacity:1; }
+  .info { padding:25px 20px; flex-grow:1; display:flex; flex-direction:column; }
+  .model-id { background:rgba(0,136,204,.1); color:var(--blue); display:inline-block; padding:6px 18px; border-radius:8px; font-weight:800; align-self:center; margin-bottom:15px; }
+  .card h3 { margin:0 0 10px; font-size:1.25em; font-weight:600; color:#222; }
+  .colors { font-size:.9em; color:#666; margin-bottom:20px; }
+  .dot { display:inline-block; width:14px; height:14px; border-radius:50%; margin-right:6px; vertical-align:middle; background:linear-gradient(45deg,#f00,#ff7f00,#ff0,#0f0,#00f); }
+  .price { font-size:1.5em; font-weight:800; color:var(--blue); margin-top:auto; margin-bottom:10px; }
+  .promo { background:#fffdf5; border-top:1px solid #ffecb3; padding:12px; font-size:.85em; color:#b38000; font-weight:600; min-height:44px; display:flex; align-items:center; justify-content:center; text-decoration:none; }
+  .promo.cta { background:var(--blue); color:#fff; border:none; }
+  .more { text-align:center; margin-top:50px; color:#555; }
+  .btn-dark { background:var(--ink); color:#fff; padding:15px 35px; border-radius:12px; text-decoration:none; font-weight:600; display:inline-block; transition:all .3s; }
+  .btn-dark:hover { background:#333; transform:scale(1.05); }
+
+  /* MATERIAŁY */
+  .mats { display:flex; flex-direction:column; gap:30px; }
+  .mat { display:grid; grid-template-columns:1fr 1.2fr; background:linear-gradient(135deg,#fff,var(--g)); border-radius:28px; overflow:hidden; border:1px solid rgba(0,0,0,.06); box-shadow:0 12px 35px rgba(0,0,0,.05); transition:all .4s; }
+  .mat:hover { transform:translateY(-5px); box-shadow:0 20px 45px rgba(0,0,0,.1); }
+  .mat-c { padding:35px 40px; display:flex; flex-direction:column; justify-content:center; }
+  .mat .badge { align-self:flex-start; padding:6px 16px; border-radius:20px; font-size:.8em; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; background:var(--b); color:var(--c); }
+  .mat h3 { font-size:2em; font-weight:800; margin:0 0 10px; color:var(--c); }
+  .mat p { color:#5a6e7f; margin:0 0 20px; }
+  .chips { display:flex; flex-wrap:wrap; gap:10px; }
+  .chips span { background:#f8fafc; border:1px solid var(--line); padding:6px 14px; border-radius:12px; font-size:.85em; font-weight:700; color:#334155; }
+  .mat-v { padding:30px; display:flex; flex-direction:column; justify-content:center; gap:15px; border-left:1px solid #f1f5f9; }
+  .feat { background:#fff; border-radius:18px; padding:16px 20px; display:flex; align-items:center; gap:15px; box-shadow:0 4px 15px rgba(0,0,0,.03); border:1px solid rgba(0,0,0,.04); font-size:.9em; color:#475569; font-weight:600; }
+  .feat span { font-size:1.6em; }
+
+  /* CENNIK */
+  .pricing { margin:40px auto; padding:60px 30px; text-align:center; }
+  .pricing h2 { font-size:2.2em; color:var(--slate); letter-spacing:-.5px; margin-bottom:15px; }
+  .pricing .lead { color:#475569; max-width:650px; margin:0 auto 40px; font-size:1.05em; }
+  .plans { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; text-align:left; max-width:980px; margin:auto; }
+  .plan { background:#f8fafc; padding:30px; border-radius:20px; border:1px solid var(--line); }
+  .plan.hot { background:#fff; border:2px solid var(--blue); box-shadow:0 8px 25px rgba(0,136,204,.08); }
+  .plan small { display:block; font-weight:700; color:var(--blue); text-transform:uppercase; margin-bottom:10px; letter-spacing:.5px; }
+  .plan h3 { margin:0 0 10px; font-size:1.3em; color:var(--slate); }
+  .plan p { font-size:.9em; color:var(--mut); margin:0 0 20px; }
+  .plan b { font-size:1.5em; font-weight:800; color:var(--slate); }
+
+  /* FAQ */
+  .faq { max-width:850px; margin:auto; }
+  details { background:#fff; margin-bottom:18px; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,.04); overflow:hidden; border:1px solid #f0f4f8; transition:all .3s; }
+  details[open] { box-shadow:0 10px 30px rgba(0,136,204,.1); border-color:#cce7f5; }
+  summary { font-weight:600; padding:22px 25px; cursor:pointer; font-size:1.15em; color:#222; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:15px; }
+  summary::-webkit-details-marker { display:none; }
+  summary::after { content:'+'; font-size:1.8em; color:var(--blue); font-weight:300; transition:transform .3s; line-height:1; }
+  details[open] summary::after { transform:rotate(45deg); color:var(--red); }
+  summary:hover { color:var(--blue); }
+  details p { padding:0 25px 25px; margin:0; color:#666; line-height:1.7; }
+
+  /* FORMULARZ */
+  .order { max-width:850px; padding:60px 20px; }
+  .order-head { text-align:center; margin-bottom:35px; }
+  .order-head h2 { font-size:2.2em; color:var(--slate); letter-spacing:-.5px; margin-bottom:10px; }
+  .order-head p { color:var(--mut); margin:0 auto; max-width:550px; }
+  .switch { background:var(--line); padding:5px; border-radius:14px; display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:30px; }
+  .switch button { padding:12px 18px; border-radius:10px; border:none; background:transparent; color:var(--mut); font:inherit; font-weight:600; font-size:.92em; cursor:pointer; transition:all .2s; }
+  .switch button[aria-pressed="true"] { background:#fff; color:var(--blue); font-weight:700; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+  form { display:grid; gap:24px; }
+  .step-box { background:#fff; padding:28px; border-radius:20px; border:1px solid var(--line); box-shadow:0 4px 15px rgba(0,0,0,.02); }
+  .step-title { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+  .step-title i { background:var(--blue); color:#fff; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.85em; font-weight:800; font-style:normal; }
+  .step-title h3 { margin:0; font-size:1.15em; color:var(--slate); }
+  label.lbl { display:block; font-size:.85em; font-weight:600; color:#475569; margin-bottom:6px; }
+  .field { width:100%; padding:12px 14px; border-radius:10px; border:1px solid #cbd5e1; background:#fff; font:inherit; font-size:.92em; color:var(--slate); transition:border-color .2s, box-shadow .2s; }
+  .field:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(0,136,204,.15); }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .fields { display:grid; gap:16px; }
+  .swatches { display:flex; gap:10px; flex-wrap:wrap; }
+  .swatch { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border:1.5px solid #cbd5e1; border-radius:10px; cursor:pointer; background:#fff; font:inherit; font-size:.85em; font-weight:600; color:#334155; transition:all .2s; }
+  .swatch:hover { border-color:var(--blue); background:#f8fafc; }
+  .swatch[aria-pressed="true"] { border-color:var(--blue); background:#f0f9ff; color:var(--blue); box-shadow:0 0 0 2px rgba(0,136,204,.2); }
+  .swatch i { width:14px; height:14px; border-radius:50%; border:1px solid rgba(0,0,0,.15); }
+  .drop { border:2px dashed var(--blue); background:#f8fafc; border-radius:16px; padding:25px 20px; text-align:center; position:relative; transition:all .3s; }
+  .drop.over { border-color:#005580; background:#e0f2fe; }
+  .drop input { position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:pointer; }
+  .drop:focus-within { outline:3px solid var(--blue); outline-offset:2px; }
+  .drop p { margin:0; }
+  .stl-box { display:none; margin-top:12px; text-align:center; background:var(--slate); border-radius:14px; padding:14px; }
+  .stl-box p { color:#94a3b8; font-size:.8em; margin:0 0 8px; font-weight:600; }
+  #stlCanvas { width:100%; height:250px; border-radius:8px; overflow:hidden; }
+  #stlDimensions { display:flex; justify-content:center; gap:12px; margin-top:12px; color:#e2e8f0; font-size:.82em; flex-wrap:wrap; }
+  #stlDimensions span { background:rgba(255,255,255,.08); padding:5px 12px; border-radius:8px; border:1px solid rgba(255,255,255,.1); }
+  .rodo-label { font-size:.78em; color:var(--mut); display:flex; align-items:flex-start; gap:8px; max-width:650px; margin:0 auto; cursor:pointer; }
+  .rodo-label a { color:var(--blue); }
+  #submitBtn { width:100%; padding:16px; border:none; border-radius:12px; background:var(--blue); color:#fff; font:inherit; font-size:1.05em; font-weight:700; cursor:pointer; box-shadow:0 8px 20px rgba(0,136,204,.25); transition:all .2s; }
+  #submitBtn:disabled { opacity:.7; cursor:wait; }
+  .note { text-align:center; font-size:.8em; color:#64748b; margin:10px 0 0; }
+  #responseMsg { display:none; text-align:center; margin-top:20px; font-weight:600; border-radius:12px; padding:16px; }
+  #responseMsg.ok { color:#15803d; background:#f0fdf4; border:1px solid #bbf7d0; }
+  #responseMsg.err { color:#b91c1c; background:#fef2f2; border:1px solid #fecaca; }
+
+  /* OPINIE */
+  .g-badge { display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); padding:6px 18px; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,.03); font-size:.85rem; font-weight:700; color:#1e293b; margin-bottom:12px; }
+  .reviews-head { text-align:center; margin-bottom:40px; }
+  .reviews-head h2 { margin:0; font-size:2.2em; color:var(--slate); }
+  .review { background:#fff; padding:28px; border-radius:20px; border:1px solid var(--line); box-shadow:0 10px 30px rgba(0,0,0,.03); display:flex; flex-direction:column; justify-content:space-between; }
+  .review-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .who { display:flex; align-items:center; gap:12px; }
+  .avatar { width:44px; height:44px; border-radius:50%; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1em; }
+  .who b { display:block; color:var(--slate); font-size:.95em; }
+  .who small { color:var(--mut); font-size:.78em; }
+  .stars { color:#f59e0b; }
+  .review p { font-size:.92em; color:#475569; margin:0 0 18px; }
+  .review footer-src { font-size:.78em; color:#64748b; }
+  .maps-link { display:inline-block; font-weight:600; font-size:.9em; color:var(--blue); text-decoration:none; background:#fff; padding:12px 26px; border-radius:30px; border:1px solid #cbd5e1; }
+
+  /* SOCIAL + KONTAKT */
+  .socials { text-align:center; }
+  .socials p { color:#666; font-size:1.1em; margin:-30px 0 40px; }
+  .social-links { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+  .social-item { background:#fff; color:var(--blue); text-decoration:none; font-size:1.1em; font-weight:600; display:flex; align-items:center; gap:12px; padding:15px 40px; border-radius:50px; transition:all .3s; box-shadow:0 8px 25px rgba(0,0,0,.06); border:2px solid #f0f0f0; }
+  .social-item:hover { background:var(--blue); color:#fff; transform:translateY(-5px); border-color:var(--blue); }
+  .contact { background:#fff; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,.03); margin-bottom:60px; text-align:center; padding:50px 20px; }
+  .contact p { font-size:1.1em; color:#555; max-width:600px; margin:0 auto 30px; }
+  .contact-links { display:flex; justify-content:center; gap:15px; flex-wrap:wrap; }
+  .contact-btn { color:#fff; padding:18px 40px; border-radius:50px; text-decoration:none; font-size:1.15em; font-weight:600; transition:all .3s; background:var(--red); box-shadow:0 8px 25px rgba(234,67,53,.3); }
+  .contact-btn:hover { transform:translateY(-4px); }
+  footer { text-align:center; padding:60px 20px; background:#111; color:#fff; border-top:5px solid var(--blue); }
+  footer p { margin:0; color:#9ca3af; font-size:.95em; }
+  footer a { color:#cbd5e1; }
+
+  /* MODALE, FAB, COOKIES */
+  .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); justify-content:center; align-items:center; z-index:2000; backdrop-filter:blur(5px); }
+  .modal > img { max-width:90%; max-height:90vh; border-radius:12px; box-shadow:0 0 40px rgba(0,0,0,.5); }
+  .rodo-box { background:#fff; padding:30px; border-radius:20px; max-width:600px; width:90%; max-height:80vh; overflow-y:auto; color:#1e293b; }
+  .rodo-box h3 { margin:0 0 10px; color:var(--slate); font-size:1.3em; }
+  .rodo-box p { font-size:.88em; color:#475569; }
+  .rodo-box button { background:var(--blue); color:#fff; border:none; padding:10px 24px; border-radius:8px; font-weight:700; cursor:pointer; margin-top:10px; font-family:inherit; }
+  .fab-group { position:fixed; bottom:25px; right:25px; display:flex; flex-direction:column; gap:12px; z-index:1500; }
+  .fab { color:#fff; width:58px; height:58px; border-radius:50%; display:flex; justify-content:center; align-items:center; font-size:26px; text-decoration:none; transition:transform .3s; background:#1976d2; box-shadow:0 8px 25px rgba(25,118,210,.4); }
+  .fab.sms { background:#16a34a; box-shadow:0 8px 25px rgba(22,163,74,.4); }
+  .fab:hover { transform:scale(1.1); }
+  #cookieBar { display:none; position:fixed; left:15px; right:15px; bottom:15px; max-width:640px; margin:auto; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:0 15px 40px rgba(0,0,0,.2); padding:18px 20px; z-index:3000; font-size:.85em; color:#475569; }
+  #cookieBar p { margin:0 0 12px; }
+  #cookieBar button { font:inherit; font-weight:700; padding:9px 20px; border-radius:10px; cursor:pointer; margin-right:8px; border:1.5px solid #cbd5e1; background:#fff; color:var(--slate); }
+  #cookieBar button.yes { background:var(--blue); border-color:var(--blue); color:#fff; }
+
+  @media (max-width:900px) {
+    .cat, .mat { grid-template-columns:1fr; }
+    .cat-content { padding:30px 25px; }
+    .cat-media { height:220px; }
+    .mat-v { border-left:none; border-top:1px solid #f1f5f9; padding:20px 25px 30px; }
+    .mat-c { padding:30px 25px 20px; }
+  }
+  @media (max-width:768px) {
+    .top-nav, .top-nav.scrolled { padding:12px 20px; }
+    .hamburger-btn { display:block; }
+    .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:#fff; box-shadow:0 15px 30px rgba(0,0,0,.1); padding:20px 0; gap:16px; border-top:1px solid #f0f4f8; }
+    .nav-links.active { display:flex; }
+    .nav-links a { font-size:1.05em; padding:8px 0; }
+    section { padding:50px 16px; }
+    h2 { font-size:1.9em; }
+    .hero-box { padding:40px 20px; border-radius:20px; }
+    .hero-title { font-size:2.1em; }
+    .hero-buttons { flex-direction:column; }
+    .hero-buttons a { text-align:center; }
+    .about { padding:35px 20px; }
+    .grid { grid-template-columns:1fr; }
+    .two-col, .cat-media { grid-template-columns:1fr; }
+    .cat-media { height:auto; }
+    .cat-stack { flex-direction:row; }
+    .cat-stack img { height:120px; width:50%; }
+    .social-item { width:100%; justify-content:center; }
+    .fab { width:50px; height:50px; font-size:22px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } html { scroll-behavior:auto; } }
 </style>
 </head>
 <body>
+
 <nav class="top-nav" id="navbar">
   <a href="/" class="nav-logo-container">
-    <img src="img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
+    <img src="img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo" width="60" height="60">
     <p class="nav-title">awydrukujse.pl</p>
   </a>
-
-  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Otwórz menu">☰</button>
-
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="navLinks">☰</button>
   <div class="nav-links" id="navLinks">
-    <a href="#o-nas" onclick="closeMobileMenu()">O nas</a>
-    <a href="#kategorie" onclick="closeMobileMenu()">Kategorie</a>
-    <a href="#modele" onclick="closeMobileMenu()">Modele</a>
-    <a href="#materialy" onclick="closeMobileMenu()">Materiały</a>
-    <a href="#cennik" onclick="closeMobileMenu()">Cennik</a>
-    <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-    <a href="#zamowienie" style="color: #0088cc;" onclick="closeMobileMenu()">Zamów teraz</a>
-    <a href="#kontakt" style="color: #ea4335;" onclick="closeMobileMenu()">Kontakt</a>
+    <a href="kategorie/boze_narodzenie.html" class="nav-xmas">🎄 Święta</a>
+    <a href="#o-nas">O nas</a>
+    <a href="#kategorie">Kategorie</a>
+    <a href="#modele">Modele</a>
+    <a href="#materialy">Materiały</a>
+    <a href="#cennik">Cennik</a>
+    <a href="#faq">FAQ</a>
+    <a href="#zamowienie" class="nav-order">Zamów teraz</a>
+    <a href="#kontakt" class="nav-contact">Kontakt</a>
   </div>
 </nav>
 
-<section class="hero-wrapper">
-<div class="hero-box fade-in visible" style="max-width: 980px; text-align: center; background: #ffffff; border: 1px solid #eef2f6; box-shadow: 0 20px 50px rgba(0,0,0,0.04); border-radius: 28px;">
-  
-  <div style="display: inline-block; background: #f1f5f9; color: #475569; font-weight: 600; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 25px; letter-spacing: 0.5px; border: 1px solid #e2e8f0;">
-    DRUK 3D NA ZAMÓWIENIE &bull; WROCŁAW, ZĄBKOWICE ŚL. & CAŁA POLSKA
+<a href="kategorie/boze_narodzenie.html" class="xmas-bar">
+  🎄 Nowa kolekcja świąteczna: dziadki do orzechów, renifery, choinki i aniołki <b>ZOBACZ</b>
+</a>
+
+<header class="hero-wrapper">
+  <div class="hero-box">
+    <div class="hero-tag">DRUK 3D NA ZAMÓWIENIE &bull; WROCŁAW, ZĄBKOWICE ŚL. &amp; CAŁA POLSKA</div>
+    <h1 class="hero-title">Masz pomysł, własny projekt<br>lub szukasz <span class="gradient-text">gotowego modelu?</span></h1>
+    <p class="hero-lead">Zrealizuję Twój pomysł od zera, wydrukuję gotowy plik STL/STEP lub pomogę dobrać wzór z naszych kategorii. Od szybkich prototypów i części zamiennych po dekoracje domowe.</p>
+    <div class="hero-buttons">
+      <a href="#zamowienie" class="btn btn-main">Wycena własnego projektu</a>
+      <a href="kategorie/boze_narodzenie.html" class="btn btn-xmas">🎄 Dekoracje świąteczne</a>
+      <a href="#kategorie" class="btn btn-sec">Przeglądaj kategorie modeli</a>
+    </div>
+    <div class="perks">
+      <span><b>✓</b> Bezpłatna wycena w 15 min</span>
+      <span><b>✓</b> Druk od 1 sztuki</span>
+      <span><b>✓</b> Materiały PLA, PETG, TPU, ASA</span>
+    </div>
   </div>
+</header>
 
-  <h1 class="hero-title">
-    Masz pomysł, własny projekt<br>
-    lub szukasz <span class="gradient-text">gotowego modelu?</span>
-  </h1>
+<section id="o-nas">
+  <div class="panel about">
+    <div class="about-head">
+      <span class="pill">Pasja i precyzja</span>
+      <h2>O nas – Jak przekształcamy pomysły w gotowe wydruki</h2>
+      <p>Serwis <strong>awydrukujse.pl</strong> powstał z pasji do nowoczesnych technologii wytwarzania i druku 3D. Pomagamy zarówno klientom indywidualnym, jak i firmom w szybkim urzeczywistnianiu ich pomysłów – od nietuzinkowych dekoracji domowych po wytrzymałe elementy techniczne i części zamienne.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><i>1</i><h3>Wysyłasz zapytanie</h3><p>Przesyłasz nam plik 3D (.STL, .STEP), link ze strony z modelami lub zdjęcie uszkodzonej części.</p></div>
+      <div class="step"><i>2</i><h3>Darmowa wycena</h3><p>W 15 minut analizujemy projekt, dobieramy najlepszy materiał (PLA, PETG, TPU, ASA) i podajemy wycenę.</p></div>
+      <div class="step"><i>3</i><h3>Druk i kontrola</h3><p>Drukujemy model na nowoczesnym, precyzyjnym sprzęcie z dbałością o detale oraz dokładną kontrolą jakości.</p></div>
+      <div class="step"><i>4</i><h3>Wysyłka / odbiór</h3><p>Bezpiecznie pakujemy gotowy produkt i wysyłamy Paczkomatem InPost lub umawiamy się na odbiór we Wrocławiu.</p></div>
+    </div>
+  </div>
+</section>
 
-  <p style="font-size: 1.12em; color: #475569; line-height: 1.6; margin: 0 auto 35px auto; max-width: 680px; font-weight: 400;">
-    Zrealizuję Twój pomysł od zera, wydrukuję gotowy plik STL/STEP lub pomogę dobrać wzór z naszych kategorii. Od szybkich prototypów i części zamiennych po dekoracje domowe.
-  </p>
-
-  <div class="hero-buttons" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
-    <a href="#zamowienie" class="hero-cta" style="text-decoration: none; background: #0088cc; color: white; padding: 16px 36px; border-radius: 12px; font-weight: 700; font-size: 1em; transition: all 0.25s ease; box-shadow: 0 8px 24px rgba(0, 136, 204, 0.25);">
-      Wycena własnego projektu
+<section id="kategorie">
+  <h2>Odkryj Kategorie</h2>
+  <div class="cats">
+    <a href="kategorie/boze_narodzenie.html" class="cat" style="--c:#c62828;--b:#ffebee;--t:#1a0505">
+      <div class="cat-content">
+        <span class="badge">Świąteczna Magia <em>NOWOŚĆ</em></span>
+        <h3>Boże Narodzenie</h3>
+        <p>Dziadki do orzechów, renifery, choinki, aniołki i śnieżynki. Nietłukące się ozdoby w dowolnym kolorze.</p>
+        <div class="cat-btn">Zobacz wszystkie modele ➔</div>
+      </div>
+      <div class="cat-media">
+        <img src="img/soon.jpg" alt="Choinka 3D" class="cat-main" loading="lazy">
+        <div class="cat-stack">
+          <img src="img/soon.jpg" alt="Dziadek do orzechów 3D" loading="lazy">
+          <img src="img/soon.jpg" alt="Renifer 3D" loading="lazy">
+        </div>
+      </div>
     </a>
-    <a href="#kategorie" class="hero-cta-secondary" style="text-decoration: none; color: #0f172a; padding: 16px 32px; border-radius: 12px; font-weight: 600; font-size: 1em; border: 1.5px solid #cbd5e1; background: #ffffff; transition: all 0.25s ease;">
-      Przeglądaj kategorie modeli
+    <a href="kategorie/jesien.html" class="cat" style="--c:#b85c38;--b:#fceade;--t:#2c1810">
+      <div class="cat-content">
+        <span class="badge">Kolekcja Sezonowa</span>
+        <h3>Jesienne Dekoracje</h3>
+        <p>Ociepl domowy klimat wyjątkowymi wazonami, dyniami w stylu Modern i przytulnymi akcesoriami.</p>
+        <div class="cat-btn">Zobacz wszystkie modele ➔</div>
+      </div>
+      <div class="cat-media">
+        <img src="img/wazon1.jpg" alt="Wazon jesienny" class="cat-main" loading="lazy">
+        <div class="cat-stack">
+          <img src="img/dynia_mix.jpg" alt="Dynie 3D" loading="lazy">
+          <img src="img/dynia_wysoka_srednia.jpg" alt="Dynia wysoka" loading="lazy">
+        </div>
+      </div>
+    </a>
+    <a href="kategorie/wielkanoc.html" class="cat" style="--c:#2e7d32;--b:#e8f5e9;--t:#1b3017">
+      <div class="cat-content">
+        <span class="badge">Wiosenny Klimat</span>
+        <h3>Święta Wielkanocne</h3>
+        <p>Ożyw swój stół i koszyczek wielkanocny kolorowymi kurczakami, barankami oraz tulipanami.</p>
+        <div class="cat-btn">Zobacz wszystkie modele ➔</div>
+      </div>
+      <div class="cat-media">
+        <img src="img/kurczaczek.jpg" alt="Kurczak na jajko" class="cat-main" loading="lazy">
+        <div class="cat-stack">
+          <img src="img/soon.jpg" alt="Wielkanocna dekoracja – wkrótce" loading="lazy">
+          <img src="img/krolik20.PNG" alt="Królik 3D" loading="lazy">
+        </div>
+      </div>
+    </a>
+    <a href="kategorie/organizacja.html" class="cat" style="--c:#1565c0;--b:#e8eaf6;--t:#0d47a1">
+      <div class="cat-content">
+        <span class="badge">Ergonomia &amp; Biuro</span>
+        <h3>Organizacja Przestrzeni</h3>
+        <p>Praktyczne stojaki na telefony, modułowe przyborniki i uchwyty na kable porządkujące biurko.</p>
+        <div class="cat-btn">Zobacz wszystkie modele ➔</div>
+      </div>
+      <div class="cat-media">
+        <img src="img/uchwyt_recznik.PNG" alt="Uchwyt na ręcznik" class="cat-main" loading="lazy">
+        <div class="cat-stack">
+          <img src="img/klipskawa.PNG" alt="Klips do kawy" loading="lazy">
+          <img src="img/Pojemniknaleki.PNG" alt="Pojemnik na leki" loading="lazy">
+        </div>
+      </div>
     </a>
   </div>
-
-  <div style="border-top: 1px solid #f1f5f9; padding-top: 25px; margin-top: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; color: #64748b; font-size: 0.88em; font-weight: 500;">
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <span style="color: #0088cc; font-weight: 700;">✓</span> Bezpłatna wycena w 15 min
-    </div>
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <span style="color: #0088cc; font-weight: 700;">✓</span> Druk od 1 sztuki
-    </div>
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <span style="color: #0088cc; font-weight: 700;">✓</span> Materiały PLA, PETG, TPU, ASA
-    </div>
-  </div>
-
-</div>
 </section>
 
-<!-- NOWA SEKCJA: O NAS & JAK DZIAŁAMY -->
-<section id="o-nas" class="fade-in" style="padding: 50px 20px 70px;">
-  <div style="background: #ffffff; border-radius: 28px; border: 1px solid #eef2f6; padding: 50px 40px; box-shadow: 0 15px 45px rgba(0,0,0,0.03);">
-    
-    <div style="text-align: center; max-width: 750px; margin: 0 auto 50px auto;">
-      <div style="display: inline-block; background: #e0f2fe; color: #0284c7; font-weight: 700; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
-        PASJA I PRECYZJA
+<section id="modele">
+  <h2>Przykładowe modele</h2>
+  <div class="grid">
+    <div class="card custom">
+      <div class="icon">💡</div>
+      <div class="info">
+        <div class="model-id">TWÓJ PROJEKT</div>
+        <h3>Masz własny plik lub zdjęcie?</h3>
+        <p style="font-size:.9em;color:#555">Znajdź model na <b>Thingiverse</b>, <b>MakerWorld</b> lub <b>Printables</b>, zrób zdjęcie uszkodzonej części i wyślij przez formularz poniżej.</p>
+        <div class="price" style="font-size:1.1em">Wycena indywidualna</div>
       </div>
-      <h2 style="margin: 0 0 15px 0; font-size: 2.2em; font-weight: 800; color: #0f172a; letter-spacing: -0.5px;">
-        O nas – Jak przekształcamy pomysły w gotowe wydruki
-      </h2>
-      <p style="color: #475569; font-size: 1.05em; line-height: 1.7; margin: 0;">
-        Serwis <strong>awydrukujse.pl</strong> powstał z pasji do nowoczesnych technologii wytwarzania i druku 3D. Pomagamy zarówno klientom indywidualnym, jak i firmom w szybkim urzeczywistnianiu ich pomysłów – od nietuzinkowych dekoracji domowych po wytrzymałe elementy techniczne i części zamienne.
-      </p>
+      <a href="#zamowienie" class="promo cta">Wyślij plik/zdjęcie do wyceny →</a>
     </div>
 
-    <!-- KROKI PROCESU (JAK DZIAŁAMY) -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
-      
-      <!-- Kroki 1 -->
-      <div style="background: #f8fafc; padding: 25px; border-radius: 20px; border: 1px solid #e2e8f0; position: relative;">
-        <div style="background: #0088cc; color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px;">1</div>
-        <h3 style="margin: 0 0 8px 0; font-size: 1.1em; color: #0f172a; font-weight: 700;">Wysyłasz zapytanie</h3>
-        <p style="margin: 0; font-size: 0.88em; color: #64748b; line-height: 1.6;">
-          Przesyłasz nam plik 3D (.STL, .STEP), link ze strony z modelami lub zdjęcie uszkodzonej części.
-        </p>
-      </div>
-
-      <!-- Kroki 2 -->
-      <div style="background: #f8fafc; padding: 25px; border-radius: 20px; border: 1px solid #e2e8f0; position: relative;">
-        <div style="background: #0088cc; color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px;">2</div>
-        <h3 style="margin: 0 0 8px 0; font-size: 1.1em; color: #0f172a; font-weight: 700;">Darmowa wycena</h3>
-        <p style="margin: 0; font-size: 0.88em; color: #64748b; line-height: 1.6;">
-          W 15 minut analizujemy projekt, dobieramy najlepszy materiał (PLA, PETG, TPU, ASA) i podajemy wycenę.
-        </p>
-      </div>
-
-      <!-- Kroki 3 -->
-      <div style="background: #f8fafc; padding: 25px; border-radius: 20px; border: 1px solid #e2e8f0; position: relative;">
-        <div style="background: #0088cc; color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px;">3</div>
-        <h3 style="margin: 0 0 8px 0; font-size: 1.1em; color: #0f172a; font-weight: 700;">Druk i Kontrola</h3>
-        <p style="margin: 0; font-size: 0.88em; color: #64748b; line-height: 1.6;">
-          Drukujemy model na nowoczesnym, precyzyjnym sprzęcie z dbałością o detale oraz dokładną kontrolą jakości.
-        </p>
-      </div>
-
-      <!-- Kroki 4 -->
-      <div style="background: #f8fafc; padding: 25px; border-radius: 20px; border: 1px solid #e2e8f0; position: relative;">
-        <div style="background: #0088cc; color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px;">4</div>
-        <h3 style="margin: 0 0 8px 0; font-size: 1.1em; color: #0f172a; font-weight: 700;">Wysyłka / Odbiór</h3>
-        <p style="margin: 0; font-size: 0.88em; color: #64748b; line-height: 1.6;">
-          Bezpiecznie pakujemy gotowy produkt i wysyłamy Paczkomatem InPost lub umawiamy się na odbiór we Wrocławiu.
-        </p>
-      </div>
-
+    <div class="card">
+      <button type="button" class="img-btn" data-zoom="img/pi.PNG" aria-label="Powiększ zdjęcie: Litera pi"><img src="img/pi.PNG" alt="Litera pi 26 cm" loading="lazy" width="400" height="320"></button>
+      <div class="info"><div class="model-id">ID: #006</div><h3>Litera pi - 26cm</h3><div class="colors"><span class="dot"></span>Dowolny kolor</div><div class="price">45 zł</div></div>
+      <div class="promo">Gadżet na biurko matematyka.</div>
     </div>
-
+    <div class="card">
+      <button type="button" class="img-btn" data-zoom="img/brelok_pies.jpg" aria-label="Powiększ zdjęcie: Identyfikator dla zwierzaka"><img src="img/brelok_pies.jpg" alt="Identyfikator dla zwierzaka" loading="lazy" width="400" height="320"></button>
+      <div class="info"><div class="model-id">ID: #010</div><h3>Identyfikator dla zwierzaka</h3><div class="colors"><span class="dot"></span>Dowolny kolor</div><div class="price">15 zł</div></div>
+      <div class="promo">Napisz do mnie po twój wymarzony kolor</div>
+    </div>
+    <div class="card">
+      <button type="button" class="img-btn" data-zoom="img/cukierki.jpg" aria-label="Powiększ zdjęcie: Maszynka do cukierków"><img src="img/cukierki.jpg" alt="Maszynka do cukierków" loading="lazy" width="400" height="320"></button>
+      <div class="info"><div class="model-id">ID: #011</div><h3>Maszynka do cukierków</h3><div class="colors"><span class="dot"></span>Dowolny kolor</div><div class="price">36 zł</div></div>
+      <div class="promo">Idealny gadżet dla najmłodszych!</div>
+    </div>
+    <div class="card">
+      <button type="button" class="img-btn" data-zoom="img/dziecko.jpg" aria-label="Powiększ zdjęcie: Plakietka z narodzin dziecka"><img src="img/dziecko.jpg" alt="Plakietka z narodzin dziecka" loading="lazy" width="400" height="320"></button>
+      <div class="info"><div class="model-id">ID: #013</div><h3>Plakietka z narodzin dziecka</h3><div class="colors"><span class="dot"></span>Dowolny kolor</div><div class="price">50 zł</div></div>
+      <div class="promo">Magiczna pamiątka, która pozostaje na zawsze!</div>
+    </div>
+    <div class="card">
+      <a href="kategorie/boze_narodzenie.html" class="img-btn" aria-label="Zobacz kolekcję świąteczną"><img src="img/soon.jpg" alt="Kolekcja świąteczna" loading="lazy" width="400" height="320"></a>
+      <div class="info"><div class="model-id" style="background:#ffebee;color:#c62828">🎄 NOWOŚĆ</div><h3>Kolekcja świąteczna</h3><div class="colors"><span class="dot"></span>Dowolny kolor</div><div class="price" style="color:#c62828">Wkrótce</div></div>
+      <a href="kategorie/boze_narodzenie.html" class="promo" style="background:#fff5f5;color:#9a0007">Zobacz dziadki, renifery i choinki →</a>
+    </div>
+  </div>
+  <div class="more">
+    <p>Chcesz zobaczyć więcej naszych projektów?</p>
+    <a href="#zamowienie" class="btn-dark">📂 Przejdź do formularza lub napisz do nas</a>
   </div>
 </section>
 
-<section id="kategorie" class="fade-in">
-<style>
-   .kategorie-container {
-     display: flex;
-     flex-direction: column;
-     gap: 35px;
-     margin-top: 25px;
-   }
-   .cat-banner-card {
-     display: grid;
-     grid-template-columns: 1fr 1.2fr;
-     background: #ffffff;
-     border-radius: 28px;
-     overflow: hidden;
-     text-decoration: none;
-     color: inherit;
-     border: 1px solid rgba(0, 0, 0, 0.06);
-     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
-     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-     position: relative;
-   }
-   .cat-banner-card:hover {
-     transform: translateY(-6px) scale(1.01);
-     box-shadow: 0 22px 50px rgba(0, 0, 0, 0.12);
-   }
-   .cat-content {
-     padding: 40px;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     z-index: 2;
-   }
-   .cat-badge {
-     align-self: flex-start;
-     padding: 6px 16px;
-     border-radius: 20px;
-     font-size: 0.8em;
-     font-weight: 800;
-     letter-spacing: 1px;
-     text-transform: uppercase;
-     margin-bottom: 15px;
-   }
-   .cat-title {
-     font-size: 2.2em;
-     font-weight: 800;
-     margin: 0 0 12px 0;
-     line-height: 1.2;
-   }
-   .cat-desc {
-     font-size: 1em;
-     color: #5a6e7f;
-     margin-bottom: 25px;
-     line-height: 1.6;
-   }
-   .cat-btn {
-     display: inline-flex;
-     align-items: center;
-     gap: 10px;
-     font-weight: 700;
-     font-size: 1.05em;
-     transition: gap 0.3s ease;
-   }
-   .cat-banner-card:hover .cat-btn {
-     gap: 16px;
-   }
-   .cat-media-showcase {
-     display: grid;
-     grid-template-columns: 1.4fr 1fr;
-     gap: 12px;
-     padding: 18px;
-     background: #f8fafc;
-     position: relative;
-     align-items: center;
-   }
-   .cat-img-main {
-     width: 100%;
-     height: 100%;
-     min-height: 240px;
-     object-fit: cover;
-     border-radius: 20px;
-     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-     transition: transform 0.5s ease;
-   }
-   .cat-img-stack {
-     display: flex;
-     flex-direction: column;
-     gap: 12px;
-     height: 100%;
-   }
-   .cat-img-sub {
-     width: 100%;
-     height: calc(50% - 6px);
-     object-fit: cover;
-     border-radius: 16px;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-     transition: transform 0.5s ease;
-   }
-   .cat-banner-card:hover .cat-img-main {
-     transform: scale(1.03);
-   }
-   .cat-banner-card:hover .cat-img-sub {
-     transform: scale(1.05);
-   }
-   .theme-jesien .cat-badge { background: #fceade; color: #b85c38; }
-   .theme-jesien .cat-title { color: #2c1810; }
-   .theme-jesien .cat-btn { color: #b85c38; }
-   .theme-jesien:hover { border-color: rgba(184, 92, 56, 0.3); }
-   
-   .theme-wielkanoc .cat-badge { background: #e8f5e9; color: #2e7d32; }
-   .theme-wielkanoc .cat-title { color: #1b3017; }
-   .theme-wielkanoc .cat-btn { color: #2e7d32; }
-   .theme-wielkanoc:hover { border-color: rgba(76, 175, 80, 0.3); }
-   
-   .theme-boze-narodzenie .cat-badge { background: #ffebee; color: #c62828; }
-   .theme-boze-narodzenie .cat-title { color: #1a0505; }
-   .theme-boze-narodzenie .cat-btn { color: #c62828; }
-   .theme-boze-narodzenie:hover { border-color: rgba(198, 40, 40, 0.3); }
-   
-   .theme-organizacja .cat-badge { background: #e8eaf6; color: #1565c0; }
-   .theme-organizacja .cat-title { color: #0d47a1; }
-   .theme-organizacja .cat-btn { color: #1565c0; }
-   .theme-organizacja:hover { border-color: rgba(21, 101, 192, 0.3); }
-   
-   @media (max-width: 900px) {
-     .cat-banner-card {
-       grid-template-columns: 1fr;
-     }
-     .cat-content {
-       padding: 30px 25px;
-     }
-     .cat-media-showcase {
-       height: 220px;
-     }
-   }
-</style>
-<h2>Odkryj Kategorie</h2>
-<div class="kategorie-container">
-<!-- Baner 1: JESIEŃ -->
-<a href="kategorie/jesien.html" class="cat-banner-card theme-jesien">
-<div class="cat-content">
-<span class="cat-badge">Kolekcja Sezonowa</span>
-<h3 class="cat-title">Jesienne Dekoracje</h3>
-<p class="cat-desc">
-          Ociepl domowy klimat wyjątkowymi wazonami, dyniami w stylu Modern i przytulnymi akcesoriami.
-</p>
-<div class="cat-btn">Zobacz wszystkie modele ➔</div>
-</div>
-<div class="cat-media-showcase">
-<img src="img/wazon1.jpg" alt="Wazon Jesienny" class="cat-img-main">
-<div class="cat-img-stack">
-<img src="img/dynia_mix.jpg" alt="Dynia" class="cat-img-sub">
-<img src="img/dynia_wysoka_srednia.jpg" alt="Grzybki 3D" class="cat-img-sub">
-</div>
-</div>
-</a>
-<!-- Baner 2: WIELKANOC -->
-<a href="kategorie/wielkanoc.html" class="cat-banner-card theme-wielkanoc">
-<div class="cat-content">
-<span class="cat-badge">Wiosenny Klimat</span>
-<h3 class="cat-title">Święta Wielkanocne</h3>
-<p class="cat-desc">
-          Ożyw swój stół i koszyczek wielkanocny kolorowymi kurczakami, barankami oraz tulipanami.
-</p>
-<div class="cat-btn">Zobacz wszystkie modele ➔</div>
-</div>
-<div class="cat-media-showcase">
-<img src="img/kurczaczek.jpg" alt="Kurczak na jajko" class="cat-img-main">
-<div class="cat-img-stack">
-<img src="img/soon.jpg" alt="soon" class="cat-img-sub">
-<img src="img/krolik20.PNG" alt="Królik 3D" class="cat-img-sub">
-</div>
-</div>
-</a>
-<!-- Baner 3: ORGANIZACJA -->
-<a href="kategorie/organizacja.html" class="cat-banner-card theme-organizacja">
-<div class="cat-content">
-<span class="cat-badge">Ergonomia & Biuro</span>
-<h3 class="cat-title">Organizacja Przestrzeni</h3>
-<p class="cat-desc">
-          Praktyczne stojaki na telefony, modułowe przyborniki i uchwyty na kable porządkujące biurko.
-</p>
-<div class="cat-btn">Zobacz wszystkie modele ➔</div>
-</div>
-<div class="cat-media-showcase">
-<img src="img/uchwyt_recznik.PNG" alt="Stojak na Telefon" class="cat-img-main">
-<div class="cat-img-stack">
-<img src="img/klipskawa.PNG" alt="Organizer Biurkowy" class="cat-img-sub">
-<img src="img/Pojemniknaleki.PNG" alt="Uchwyt Kabel" class="cat-img-sub">
-</div>
-</div>
-</a>
-<!-- Baner 4: BOŻE NARODZENIE -->
-<a href="kategorie/boze_narodzenie.html" class="cat-banner-card theme-boze-narodzenie">
-<div class="cat-content">
-<span class="cat-badge">Świąteczna Magia</span>
-<h3 class="cat-title">Boże Narodzenie</h3>
-<p class="cat-desc">
-          Nietłukące się choinki, urocze bałwanki, dekoracyjne lampiony LED i bogaty wybór zawieszek.
-</p>
-<div class="cat-btn">Zobacz wszystkie modele ➔</div>
-</div>
-<div class="cat-media-showcase">
-<img src="img/soon.jpg" alt="Choinka 3D" class="cat-img-main">
-<div class="cat-img-stack">
-<img src="img/soon.jpg" alt="Bałwanek 3D" class="cat-img-sub">
-<img src="img/soon.jpg" alt="Lampion 3D" class="cat-img-sub">
-</div>
-</div>
-</a>
-</div>
-</section>
-
-<section id="modele" class="fade-in">
-<h2>Przykładowe modele</h2>
-<div class="gallery">
-<div class="card custom-order">
-<div class="custom-order-icon">💡</div>
-<div class="model-info-container">
-<div class="model-id">TWÓJ PROJEKT</div>
-<h3>Masz własny plik lub zdjęcie?</h3>
-<p style="font-size: 0.9em; color: #555;">Znajdź model na <b>Thingiverse</b>, <b>MakerWorld</b> lub <b>Printables</b>, zrób zdjęcie uszkodzonej części i wyślij do bota!</p>
-<div class="price" style="font-size: 1.1em; color: #0088cc;">Wycena indywidualna</div>
-</div>
-<a href="#zamowienie" class="promo-box" style="background: #0088cc; color: white; text-decoration: none; border:none;">Wyślij plik/zdjęcie do wyceny →</a>
-</div>
-<div class="card">
-<div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
-<img src="img/pi.PNG" alt="Pi">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #006</div>
-<h3>Litera pi - 26cm</h3>
-<div class="colors">
-<div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-</div>
-<div class="price">45 zł</div>
-</div>
-<div class="promo-box">Gadżet na biurko matematyka.</div>
-</div>
-<div class="card">
-<div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
-<img src="img/brelok_pies.jpg" alt="brelok">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #010</div>
-<h3>Identyfikator dla zwierzaka</h3>
-<div class="colors">
-<div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-</div>
-<div class="price">15 zł</div>
-</div>
-<div class="promo-box">Napisz do mnie po twój wymarzony kolor</div>
-</div>
-<div class="card">
-<div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
-<img src="img/cukierki.jpg" alt="soon">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #011</div>
-<h3>Maszynka do cukierków</h3>
-<div class="colors">
-<div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-</div>
-<div class="price">36 zł</div>
-</div>
-<div class="promo-box">Idealny gadżet dla najmłodszych!</div>
-</div>
-<div class="card">
-<div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
-<img src="img/dzienmamy.jpg" alt="soon">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #012</div>
-<h3>Dekoracja na Dzień Mamy</h3>
-<div class="colors">
-<div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-</div>
-<div class="price">25 zł</div>
-</div>
-<div class="promo-box">Możliwość druku wielokolorowego</div>
-</div>
-<div class="card">
-<div class="image-wrapper" onclick="openModal(this.querySelector('img').src)">
-<img src="img/dziecko.jpg" alt="dziecko">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #013</div>
-<h3>Plakietka z narodzin dziecka</h3>
-<div class="colors">
-<div class="color-item"><span class="color-circle c-rainbow"></span>Dowolny kolor</div>
-</div>
-<div class="price">50 zł</div>
-</div>
-<div class="promo-box">Magiczna pamiątka która pozostaje na zawsze!</div>
-</div>
-
-</div>
-<div class="catalog-download fade-in">
-<p style="margin-bottom: 20px; color: #555;">Chcesz zobaczyć więcej naszych projektów?</p>
-<a href="#zamowienie" class="btn-download">
-<span>📂 Przejdź do formularza lub napisz do nas</span>
-</a>
-</div>
-</section>
-
-<section id="materialy" class="fade-in">
-<style>
-   .materialy-container {
-     display: flex;
-     flex-direction: column;
-     gap: 30px;
-     margin-top: 25px;
-   }
-   .mat-banner-card {
-     display: grid;
-     grid-template-columns: 1fr 1.2fr;
-     background: #ffffff;
-     border-radius: 28px;
-     overflow: hidden;
-     border: 1px solid rgba(0, 0, 0, 0.06);
-     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
-     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-     position: relative;
-   }
-   .mat-banner-card:hover {
-     transform: translateY(-5px) scale(1.005);
-     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
-   }
-   .mat-content {
-     padding: 35px 40px;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-   }
-   .mat-badge {
-     align-self: flex-start;
-     padding: 6px 16px;
-     border-radius: 20px;
-     font-size: 0.8em;
-     font-weight: 800;
-     letter-spacing: 1px;
-     text-transform: uppercase;
-     margin-bottom: 12px;
-   }
-   .mat-title {
-     font-size: 2em;
-     font-weight: 800;
-     margin: 0 0 10px 0;
-     line-height: 1.2;
-   }
-   .mat-desc {
-     font-size: 0.98em;
-     color: #5a6e7f;
-     margin-bottom: 20px;
-     line-height: 1.6;
-   }
-   .mat-bullets {
-     display: flex;
-     flex-wrap: wrap;
-     gap: 10px;
-   }
-   .mat-bullet-item {
-     background: #f8fafc;
-     border: 1px solid #e2e8f0;
-     padding: 6px 14px;
-     border-radius: 12px;
-     font-size: 0.85em;
-     font-weight: 700;
-     color: #334155;
-   }
-   .mat-visual-side {
-     padding: 30px;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     gap: 15px;
-     position: relative;
-     border-left: 1px solid #f1f5f9;
-   }
-   .mat-feature-box {
-     background: #ffffff;
-     border-radius: 18px;
-     padding: 16px 20px;
-     display: flex;
-     align-items: center;
-     gap: 15px;
-     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-     border: 1px solid rgba(0, 0, 0, 0.04);
-   }
-   .mat-feature-box span {
-     font-size: 1.6em;
-   }
-   .mat-feature-box div {
-     font-size: 0.9em;
-     color: #475569;
-     font-weight: 600;
-   }
-   .mat-pla { background: linear-gradient(135deg, #ffffff, #f4fbf7); }
-   .mat-pla .mat-badge { background: #e8f5e9; color: #2e7d32; }
-   .mat-pla .mat-title { color: #1b4332; }
-   
-   .mat-petg { background: linear-gradient(135deg, #ffffff, #f0f7ff); }
-   .mat-petg .mat-badge { background: #e3f2fd; color: #1565c0; }
-   .mat-petg .mat-title { color: #0d47a1; }
-   
-   .mat-tpu { background: linear-gradient(135deg, #ffffff, #fffdf0); }
-   .mat-tpu .mat-badge { background: #fff8e1; color: #f57f17; }
-   .mat-tpu .mat-title { color: #e65100; }
-   
-   .mat-asa { background: linear-gradient(135deg, #ffffff, #fcf8ff); }
-   .mat-asa .mat-badge { background: #f3e5f5; color: #7b1fa2; }
-   .mat-asa .mat-title { color: #4a148c; }
-   
-   @media (max-width: 850px) {
-     .mat-banner-card {
-       grid-template-columns: 1fr;
-     }
-     .mat-visual-side {
-       border-left: none;
-       border-top: 1px solid #f1f5f9;
-       padding: 20px 25px 30px;
-     }
-     .mat-content {
-       padding: 30px 25px 20px;
-     }
-   }
-</style>
-<h2>Poznaj Nasze Materiały</h2>
-<div class="materialy-container">
-<!-- PLA -->
-<div class="mat-banner-card mat-pla">
-<div class="mat-content">
-<span class="mat-badge">Najpopularniejszy & Eko</span>
-<h3 class="mat-title">PLA</h3>
-<p class="mat-desc">
-          Ekologiczne tworzywo pozyskiwane z odnawialnych surowców (np. mączki kukurydzianej). Idealne do wszystkich dekoracji domowych, figurek i wazonów. Posiada świetne wykończenie i bogatą paletę kolorów.
-</p>
-<div class="mat-bullets">
-<span class="mat-bullet-item">🌿 Biodegradowalny</span>
-<span class="mat-bullet-item">✨ Wysoka estetyka</span>
-<span class="mat-bullet-item">🎨 Bardzo dużo kolorów</span>
-</div>
-</div>
-<div class="mat-visual-side">
-<div class="mat-feature-box">
-<span>🏠</span>
-<div>Dedykowany do dekoracji wnętrz i na półkę</div>
-</div>
-<div class="mat-feature-box">
-<span>🎯</span>
-<div>Idealne odwzorowanie drobnych detali</div>
-</div>
-</div>
-</div>
-<!-- PETG -->
-<div class="mat-banner-card mat-petg">
-<div class="mat-content">
-<span class="mat-badge">Trwały & Użytkowy</span>
-<h3 class="mat-title">PETG</h3>
-<p class="mat-desc">
-          Wytrzymały i odporny na uderzenia materiał, który dobrze radzi sobie z wilgocią oraz wyższymi temperaturami. Świetny wybór na przedmioty codziennego użytku, uchwyty i organizery.
-</p>
-<div class="mat-bullets">
-<span class="mat-bullet-item">💧 Odporny na wodę</span>
-<span class="mat-bullet-item">💪 Bardzo mocny</span>
-<span class="mat-bullet-item">☀️ Odporniejszy na ciepło</span>
-</div>
-</div>
-<div class="mat-visual-side">
-<div class="mat-feature-box">
-<span>🔑</span>
-<div>Na breloki, uchwyty i akcesoria biurkowe</div>
-</div>
-<div class="mat-feature-box">
-<span>🛠️</span>
-<div>Wysoka odporność na pęknięcia i zarysowania</div>
-</div>
-</div>
-</div>
-<!-- TPU -->
-<div class="mat-banner-card mat-tpu">
-<div class="mat-content">
-<span class="mat-badge">Elastyczny jak Guma</span>
-<h3 class="mat-title">TPU</h3>
-<p class="mat-desc">
-          Unikalny, giętki materiał o właściwościach gumy. Elementy z TPU można zginać i ściskać, a i tak wrócą do swojego pierwotnego kształtu.
-</p>
-<div class="mat-bullets">
-<span class="mat-bullet-item">🔄 Pełna elastyczność</span>
-<span class="mat-bullet-item">🛡️ Amortyzuje uderzenia</span>
-<span class="mat-bullet-item">⛓️ Trudny do zniszczenia</span>
-</div>
-</div>
-<div class="mat-visual-side">
-<div class="mat-feature-box">
-<span>📱</span>
-<div>Na etui, odbojniki, podkładki i uszczelki</div>
-</div>
-<div class="mat-feature-box">
-<span>💥</span>
-<div>Absorbuje wstrząsy i uderzenia</div>
-</div>
-</div>
-</div>
-<!-- ASA -->
-<div class="mat-banner-card mat-asa">
-<div class="mat-content">
-<span class="mat-badge">Odporny na Warunki Zewnętrzne</span>
-<h3 class="mat-title">ASA</h3>
-<p class="mat-desc">
-          Materiał klasy premium przeznaczony do zadań specjalnych. Charakteryzuje się pełną odpornością na promieniowanie UV oraz zmienne warunki atmosferyczne, dzięki czemu nie blaknie na słońcu.
-</p>
-<div class="mat-bullets">
-<span class="mat-bullet-item">☀️ Odporny na słońce / UV</span>
-<span class="mat-bullet-item">🌧️ Na zewnątrz budynku</span>
-<span class="mat-bullet-item">🔥 Wysoka wytrzymałość</span>
-</div>
-</div>
-<div class="mat-visual-side">
-<div class="mat-feature-box">
-<span>🏡</span>
-<div>Na dekoracje ogrodowe, tabliczki i elementy zewnętrzne</div>
-</div>
-<div class="mat-feature-box">
-<span>🎨</span>
-<div>Kolory nie żółkną i nie blakną z czasem</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- SEKCJA CENNIK -->
-<section id="cennik" class="fade-in" style="padding: 60px 20px; background: #ffffff; border-radius: 28px; border: 1px solid #eef2f6; box-shadow: 0 15px 45px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 40px;">
-  <div style="max-width: 980px; margin: 0 auto; text-align: center;">
-    
-    <div style="display: inline-block; background: #e0f2fe; color: #0284c7; font-weight: 700; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 15px; letter-spacing: 0.5px;">
-      TRANSPARENTNE WARUNKI
-    </div>
-    
-    <h2 style="font-size: 2.2em; font-weight: 800; color: #0f172a; margin-bottom: 15px; letter-spacing: -0.5px;">
-      Orientacyjny Cennik Druku 3D
-    </h2>
-    
-    <p style="color: #475569; max-width: 650px; margin: 0 auto 40px auto; font-size: 1.05em; line-height: 1.6;">
-      Każdy projekt wyceniamy indywidualnie na podstawie zużycia materiału oraz czasu pracy drukarki. Zobacz przykładowe progi cenowe:
-    </p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left;">
-      
-      <!-- Karta 1 -->
-      <div style="background: #f8fafc; padding: 30px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-        <div style="font-size: 0.82em; font-weight: 700; color: #0088cc; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Proste elementy</div>
-        <h3 style="margin: 0 0 10px 0; font-size: 1.3em; color: #0f172a; font-weight: 700;">Drobne części zamienne</h3>
-        <p style="font-size: 0.9em; color: #64748b; line-height: 1.5; margin-bottom: 20px;">
-          Zaślepki, proste uchwyty, małe zębatki, podkładki. Druk z gotowego pliku STL lub wzoru.
-        </p>
-        <div style="font-size: 1.5em; font-weight: 800; color: #0f172a;">od 15 – 35 zł</div>
-      </div>
-
-      <!-- Karta 2 -->
-      <div style="background: #ffffff; padding: 30px; border-radius: 20px; border: 2px solid #0088cc; box-shadow: 0 8px 25px rgba(0,136,204,0.08);">
-        <div style="font-size: 0.82em; font-weight: 700; color: #0088cc; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Najczęściej wybierane</div>
-        <h3 style="margin: 0 0 10px 0; font-size: 1.3em; color: #0f172a; font-weight: 700;">Elementy techniczne & Obudowy</h3>
-        <p style="font-size: 0.9em; color: #64748b; line-height: 1.5; margin-bottom: 20px;">
-          Wytrzymałe elementy maszyn, obudowy elektroniki, adaptery z PETG / ASA / TPU.
-        </p>
-        <div style="font-size: 1.5em; font-weight: 800; color: #0f172a;">od 40 – 90 zł</div>
-      </div>
-
-      <!-- Karta 3 -->
-      <div style="background: #f8fafc; padding: 30px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-        <div style="font-size: 0.82em; font-weight: 700; color: #0088cc; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Projektowanie od zera</div>
-        <h3 style="margin: 0 0 10px 0; font-size: 1.3em; color: #0f172a; font-weight: 700;">Modelowanie CAD + Druk</h3>
-        <p style="font-size: 0.9em; color: #64748b; line-height: 1.5; margin-bottom: 20px;">
-          Odtworzenie uszkodzonej części ze zdjęcia lub szkicu, wymiarowanie i wykonanie.
-        </p>
-        <div style="font-size: 1.5em; font-weight: 800; color: #0f172a;">Wycena indywidualna</div>
-      </div>
-
-    </div>
-
-    <div style="margin-top: 30px; font-size: 0.9em; color: #64748b;">
-      💡 Minimum logistyczne zamówienia wynosi 20 zł. <strong>Wycena jest zawsze w 100% darmowa i niezobowiązująca.</strong>
-    </div>
-
+<section id="materialy">
+  <h2>Poznaj Nasze Materiały</h2>
+  <div class="mats">
+    <article class="mat" style="--c:#2e7d32;--b:#e8f5e9;--g:#f4fbf7">
+      <div class="mat-c"><span class="badge">Najpopularniejszy &amp; Eko</span><h3>PLA</h3>
+        <p>Ekologiczne tworzywo pozyskiwane z odnawialnych surowców (np. mączki kukurydzianej). Idealne do wszystkich dekoracji domowych, figurek i wazonów. Posiada świetne wykończenie i bogatą paletę kolorów.</p>
+        <div class="chips"><span>🌿 Biodegradowalny</span><span>✨ Wysoka estetyka</span><span>🎨 Bardzo dużo kolorów</span></div></div>
+      <div class="mat-v"><div class="feat"><span>🏠</span><div>Dedykowany do dekoracji wnętrz i na półkę</div></div><div class="feat"><span>🎯</span><div>Idealne odwzorowanie drobnych detali</div></div></div>
+    </article>
+    <article class="mat" style="--c:#0d47a1;--b:#e3f2fd;--g:#f0f7ff">
+      <div class="mat-c"><span class="badge">Trwały &amp; Użytkowy</span><h3>PETG</h3>
+        <p>Wytrzymały i odporny na uderzenia materiał, który dobrze radzi sobie z wilgocią oraz wyższymi temperaturami. Świetny wybór na przedmioty codziennego użytku, uchwyty i organizery.</p>
+        <div class="chips"><span>💧 Odporny na wodę</span><span>💪 Bardzo mocny</span><span>☀️ Odporniejszy na ciepło</span></div></div>
+      <div class="mat-v"><div class="feat"><span>🔑</span><div>Na breloki, uchwyty i akcesoria biurkowe</div></div><div class="feat"><span>🛠️</span><div>Wysoka odporność na pęknięcia i zarysowania</div></div></div>
+    </article>
+    <article class="mat" style="--c:#e65100;--b:#fff8e1;--g:#fffdf0">
+      <div class="mat-c"><span class="badge">Elastyczny jak guma</span><h3>TPU</h3>
+        <p>Unikalny, giętki materiał o właściwościach gumy. Elementy z TPU można zginać i ściskać, a i tak wrócą do swojego pierwotnego kształtu.</p>
+        <div class="chips"><span>🔄 Pełna elastyczność</span><span>🛡️ Amortyzuje uderzenia</span><span>⛓️ Trudny do zniszczenia</span></div></div>
+      <div class="mat-v"><div class="feat"><span>📱</span><div>Na etui, odbojniki, podkładki i uszczelki</div></div><div class="feat"><span>💥</span><div>Absorbuje wstrząsy i uderzenia</div></div></div>
+    </article>
+    <article class="mat" style="--c:#6a1b9a;--b:#f3e5f5;--g:#fcf8ff">
+      <div class="mat-c"><span class="badge">Odporny na warunki zewnętrzne</span><h3>ASA</h3>
+        <p>Materiał klasy premium przeznaczony do zadań specjalnych. Charakteryzuje się pełną odpornością na promieniowanie UV oraz zmienne warunki atmosferyczne, dzięki czemu nie blaknie na słońcu.</p>
+        <div class="chips"><span>☀️ Odporny na słońce / UV</span><span>🌧️ Na zewnątrz budynku</span><span>🔥 Wysoka wytrzymałość</span></div></div>
+      <div class="mat-v"><div class="feat"><span>🏡</span><div>Na dekoracje ogrodowe, tabliczki i elementy zewnętrzne</div></div><div class="feat"><span>🎨</span><div>Kolory nie żółkną i nie blakną z czasem</div></div></div>
+    </article>
   </div>
 </section>
 
-<section id="faq" class="fade-in">
-<h2>Często zadawane pytania (FAQ)</h2>
-<div class="faq-container">
-<details>
-<summary>Czy modele można malować po wydrukowaniu?</summary>
-<p>Tak! Nasze wydruki świetnie przyjmują farby akrylowe. Dla najlepszego efektu polecamy nałożenie wcześniej podkładu modelarskiego (np. w sprayu).</p>
-</details>
-<details>
-<summary>W jakim formacie wysłać do Was własny plik?</summary>
-<p>Najlepiej jeśli podeślesz nam plik w formacie <b>.STL</b> lub <b>.OBJ</b>. Jeśli nie masz pliku, wyślij nam link ze strony (np. <b>Thingiverse</b>, <b>Printables</b>) w bocie Telegram.</p>
-</details>
-<details>
-<summary>Czy te wydruki są wytrzymałe?</summary>
-<p>Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG).</p>
-</details>
-<details>
-<summary>Co jeśli mój wydruk uszkodzi się w transporcie?</summary>
-<p>Przed wysyłką sprawdzamy każdy detal i solidnie go pakujemy. Jeśli jednak paczka dotrze uszkodzona, daj nam od razu znać na Telegramie – na pewno rozwiążemy ten problem!</p>
-</details>
-</div>
+<section id="cennik" class="panel pricing">
+  <span class="pill">Transparentne warunki</span>
+  <h2>Orientacyjny Cennik Druku 3D</h2>
+  <p class="lead">Każdy projekt wyceniamy indywidualnie na podstawie zużycia materiału oraz czasu pracy drukarki. Zobacz przykładowe progi cenowe:</p>
+  <div class="plans">
+    <div class="plan"><small>Proste elementy</small><h3>Drobne części zamienne</h3><p>Zaślepki, proste uchwyty, małe zębatki, podkładki. Druk z gotowego pliku STL lub wzoru.</p><b>od 15 – 35 zł</b></div>
+    <div class="plan hot"><small>Najczęściej wybierane</small><h3>Elementy techniczne &amp; obudowy</h3><p>Wytrzymałe elementy maszyn, obudowy elektroniki, adaptery z PETG / ASA / TPU.</p><b>od 40 – 90 zł</b></div>
+    <div class="plan"><small>Projektowanie od zera</small><h3>Modelowanie CAD + druk</h3><p>Odtworzenie uszkodzonej części ze zdjęcia lub szkicu, wymiarowanie i wykonanie.</p><b>Wycena indywidualna</b></div>
+  </div>
+  <p style="margin-top:30px;font-size:.9em;color:var(--mut)">💡 Minimum logistyczne zamówienia wynosi 20 zł. <strong>Wycena jest zawsze w 100% darmowa i niezobowiązująca.</strong></p>
 </section>
 
-<!-- SEKCJA ZAMÓWIENIE -->
-<section id="zamowienie" class="fade-in" style="padding: 60px 20px;">
-  <div style="max-width: 850px; margin: auto;">
-    
-    <!-- Nagłówek -->
-    <div style="text-align: center; margin-bottom: 35px;">
-      <div style="display: inline-block; background: #e0f2fe; color: #0284c7; font-weight: 700; font-size: 0.82em; padding: 6px 18px; border-radius: 30px; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">PROSTY PROCES</div>
-      <h2 style="margin: 0 0 10px 0; font-size: 2.2em; color: #0f172a; font-weight: 800; letter-spacing: -0.5px;">Złóż zamówienie na druk 3D</h2>
-      <p style="color: #64748b; font-size: 1em; margin: 0 auto; max-width: 550px;">Wybierz opcję, uzupełnij szczegóły i wyślij zgłoszenie – darmową wycenę otrzymasz w 15 minut.</p>
-    </div>
-
-    <!-- Przełącznik typów zamówienia -->
-    <div style="background: #e2e8f0; padding: 5px; border-radius: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 30px;">
-      <button type="button" id="btnCatalog" onclick="switchType('catalog')" style="padding: 12px 18px; border-radius: 10px; border: none; background: #ffffff; color: #0088cc; font-family: inherit; font-weight: 700; font-size: 0.92em; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <span>📦</span> Katalog modeli
-      </button>
-      <button type="button" id="btnCustom" onclick="switchType('custom')" style="padding: 12px 18px; border-radius: 10px; border: none; background: transparent; color: #64748b; font-family: inherit; font-weight: 600; font-size: 0.92em; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <span>💡</span> Własny projekt / Zdjęcie / STL
-      </button>
-    </div>
-
-    <form id="orderForm" style="display: grid; gap: 24px;">
-      
-      <!-- KROK 1: CO DRUKUJEMY -->
-      <div class="order-form-step">
-        <div class="order-step-title">
-          <span class="order-step-num">1</span>
-          <h3 class="order-step-text">Co drukujemy?</h3>
-        </div>
-
-        <div id="catalogFields" style="display: grid; gap: 16px;">
-          <div>
-            <label for="modelSelect" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Model z oferty</label>
-            <select id="modelSelect" class="form-input-field">
-              <option value="#JES-00 - Wazon">#JES-00 - Wazon - 36 zł</option>
-              <option value="#JES-01 - Dynia nr 1">#JES-01 - Dynia nr 1 - 30 zł</option>
-              <option value="#JES-02 - Dynia nr 2">#JES-02 - Dynia nr 2 - 30 zł</option>
-              <option value="#JES-03 - Dynia nr 3">#JES-03 - Dynia nr 3 - 25 zł</option>
-              <option value="#JES-04 - Dynia nr 4">#JES-04 - Dynia nr 4 - 22 zł</option>
-              <option value="#JES-05 - Dynia nr 5">#JES-05 - Dynia nr 5 - 15 zł</option>
-              <option value="#JES-06 - Dynia nr 6">#JES-06 - Dynia nr 6 - 22 zł</option>
-              <option value="#001 - Kurczak na jajko">#001 - Kurczak na jajko - 15 zł</option>
-              <option value="#003 - Tulipan">#003 - Tulipan - 25 zł</option>
-              <option value="#004 - Królik 20cm">#004 - Królik 20cm - 25 zł</option>
-              <option value="#005 - Ludzik LEGO 40cm">#005 - Ludzik LEGO 40cm - 160 zł</option>
-              <option value="#006 - Litera PI 26cm">#006 - Litera PI 26cm - 45 zł</option>
-              <option value="#007 - Uchwyt na ręcznik">#007 - Uchwyt na ręcznik - 5 zł</option>
-              <option value="#008 - Pojemnik na leki">#008 - Pojemnik na leki - 18 zł</option>
-              <option value="#009 - Klips do kawy">#009 - Klips do kawy - 22 zł</option>
-              <option value="#010 - Identyfikator dla psa">#010 - Identyfikator dla psa - 15 zł</option>
-              <option value="#011 - Maszynka do cukierków">#011 - Maszynka do cukierków - 36 zł</option>
-              <option value="#012 - Dekoracja Dzień Mamy">#012 - Dekoracja Dzień Mamy - 25 zł</option>
-              <option value="#013 - Plakietka narodzin">#013 - Plakietka narodzin - 50 zł</option>
-            </select>
-          </div>
-        </div>
-
-        <div id="customFields" style="display: none; grid-gap: 16px;">
-          <div>
-            <label style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wgraj plik 3D (.stl, .step, .obj) LUB zdjęcie części</label>
-            
-            <!-- STREFA DRAG & DROP -->
-            <div id="dropZone" style="border: 2px dashed #0088cc; background: #f8fafc; border-radius: 16px; padding: 25px 20px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative; margin-bottom: 8px;">
-              <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj,image/*" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 5;">
-              <div id="dropZoneContent">
-                <div style="font-size: 2.2em; margin-bottom: 6px;">📁</div>
-                <p style="margin: 0; font-weight: 700; color: #0f172a; font-size: 0.95em;">Przeciągnij i upuść plik TUTAJ lub <span style="color: #0088cc; text-decoration: underline;">wybierz z dysku</span></p>
-                <p style="margin: 4px 0 0 0; font-size: 0.8em; color: #64748b;">Obsługiwane formaty: .STL, .STEP, .OBJ, .3MF oraz zdjęcia (.jpg, .png)</p>
-              </div>
-            </div>
-            
-            <div id="fileDetails" style="font-size: 0.85em; font-weight: 600; margin-bottom: 8px; display: none;"></div>
-
-            <!-- Interaktywny podgląd 3D dla plików STL z automatycznymi wymiarami -->
-            <div id="stlPreviewContainer" style="display: none; margin-top: 12px; text-align: center; background: #0f172a; border-radius: 14px; padding: 14px; position: relative;">
-              <p style="color: #94a3b8; font-size: 0.8em; margin: 0 0 8px 0; font-weight: 600;">Interaktywny podgląd 3D pliku STL (użyj myszki, aby obrócić):</p>
-              <div id="stlCanvas" style="width: 100%; height: 250px; border-radius: 8px; overflow: hidden;"></div>
-              
-              <!-- Odczytane wymiary modelu w mm -->
-              <div id="stlDimensions" style="display: flex; justify-content: center; gap: 12px; margin-top: 12px; color: #e2e8f0; font-size: 0.82em; font-weight: 600; flex-wrap: wrap;"></div>
-            </div>
-
-            <label for="customModelInput" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-top: 14px; margin-bottom: 6px;">Lub wklej link do modelu / nazwę części</label>
-            <input type="text" id="customModelInput" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części" class="form-input-field">
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 20px;">
-          <div>
-            <label style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Wybrany kolor</label>
-            <input type="hidden" id="modelColor" value="Biały">
-            
-            <!-- PRÓBNIK KOLORÓW (COLOR SWATCHES) -->
-            <div class="color-swatches-grid">
-              <div class="color-swatch-tile active" onclick="selectColorTile(this, 'Biały')">
-                <span class="swatch-circle" style="background: #ffffff;"></span> Biały
-              </div>
-              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Czarny')">
-                <span class="swatch-circle" style="background: #1e293b;"></span> Czarny
-              </div>
-              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Czerwony')">
-                <span class="swatch-circle" style="background: #ef4444;"></span> Czerwony
-              </div>
-              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Niebieski')">
-                <span class="swatch-circle" style="background: #3b82f6;"></span> Niebieski
-              </div>
-              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Zielony')">
-                <span class="swatch-circle" style="background: #22c55e;"></span> Zielony
-              </div>
-              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Żółty')">
-                <span class="swatch-circle" style="background: #eab308;"></span> Żółty
-              </div>
-              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Różowy')">
-                <span class="swatch-circle" style="background: #ec4899;"></span> Różowy
-              </div>
-              <div class="color-swatch-tile" onclick="selectColorTile(this, 'Inny (opis w uwagach)')">
-                <span class="swatch-circle" style="background: linear-gradient(45deg, #f43f5e, #8b5cf6, #06b6d4);"></span> Inny...
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 5px;">
-            <label for="modelCount" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Ilość sztuk</label>
-            <input type="number" id="modelCount" value="1" min="1" class="form-input-field" style="max-width: 150px;">
-          </div>
-        </div>
-      </div>
-
-      <!-- KROK 2: DANE DOKĄD I DLA KOGO -->
-      <div class="order-form-step">
-        <div class="order-step-title">
-          <span class="order-step-num">2</span>
-          <h3 class="order-step-text">Dane kontaktowe i dostawa</h3>
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <div>
-            <label for="name" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Imię i nazwisko *</label>
-            <input type="text" id="name" required placeholder="Jan Kowalski" class="form-input-field">
-          </div>
-          <div>
-            <label for="contact" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">E-mail lub telefon *</label>
-            <input type="text" id="contact" required placeholder="jan@gmail.com / 600..." class="form-input-field">
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div>
-            <label for="deliveryInfo" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Metoda odbioru</label>
-            <select id="deliveryInfo" class="form-input-field">
-              <option value="Paczkomat InPost">📦 Paczkomat InPost</option>
-              <option value="Kurier">🚚 Kurier</option>
-              <option value="Odbiór osobisty">🤝 Odbiór osobisty (Wrocław)</option>
-            </select>
-          </div>
-          <div>
-            <label for="addressInfo" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Paczkomat lub adres</label>
-            <input type="text" id="addressInfo" placeholder="Kod np. WRO123M lub adres" class="form-input-field">
-          </div>
-        </div>
-      </div>
-
-      <!-- UWAGI -->
-      <div class="order-form-step">
-        <label for="desc" style="display: block; font-size: 0.85em; font-weight: 600; color: #475569; margin-bottom: 6px;">Uwagi lub szczegółowe wymagania (opcjonalnie)</label>
-        <textarea id="desc" placeholder="Wpisz specyficzne wymiary, wypełnienie lub terminy..." class="form-input-field" style="height: 90px; resize: vertical;"></textarea>
-      </div>
-
-      <!-- Widget Ochrony przed Spamem (Cloudflare Turnstile) -->
-      <div style="display: flex; justify-content: center; margin-top: 5px;">
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAE6SzXcPSZEE1Xkt"></div>
-      </div>
-
-      <!-- Zgoda RODO -->
-      <div style="text-align: center; margin-top: -5px;">
-        <label style="font-size: 0.78em; color: #64748b; display: inline-flex; align-items: flex-start; gap: 8px; text-align: left; cursor: pointer; max-width: 650px;">
-          <input type="checkbox" required style="margin-top: 2px;">
-          <span>Wyrażam zgodę na przetwarzanie moich danych w celu przygotowania wyceny. Zapoznałem/am się z <a href="#rodoModal" onclick="openRodoModal(event)" style="color: #0088cc; text-decoration: underline;">Polityką Prywatności RODO</a>.</span>
-        </label>
-      </div>
-
-      <!-- PRZYCISK I INFORMACJA -->
-      <div>
-        <button type="submit" id="submitBtn" style="width: 100%; padding: 16px; border: none; border-radius: 12px; background: #0088cc; color: white; font-family: inherit; font-size: 1.05em; font-weight: 700; cursor: pointer; box-shadow: 0 8px 20px rgba(0, 136, 204, 0.25); transition: all 0.2s ease;">
-          Wyślij zapytanie o druk
-        </button>
-        <p style="text-align: center; font-size: 0.8em; color: #94a3b8; margin-top: 10px; margin-bottom: 0;">Wysyłka nie zobowiązuje do natychmiastowej płatności. Najpierw darmowo wycenimy zamówienie.</p>
-      </div>
-    </form>
-    <p id="responseMsg" style="display: none; text-align: center; margin-top: 20px; font-weight: 600; border-radius: 12px; font-size: 0.95em;"></p>
+<section id="faq">
+  <h2>Często zadawane pytania (FAQ)</h2>
+  <div class="faq">
+    <details><summary>Czy modele można malować po wydrukowaniu?</summary><p>Tak! Nasze wydruki świetnie przyjmują farby akrylowe. Dla najlepszego efektu polecamy nałożenie wcześniej podkładu modelarskiego (np. w sprayu).</p></details>
+    <details><summary>W jakim formacie wysłać do Was własny plik?</summary><p>Najlepiej plik w formacie <b>.STL</b> lub <b>.OBJ</b>. Jeśli nie masz pliku, wklej w formularzu link do modelu (np. <b>Thingiverse</b>, <b>Printables</b>) albo wyślij zdjęcie części.</p></details>
+    <details><summary>Czy te wydruki są wytrzymałe?</summary><p>Oczywiście! Wszystko zależy od użytego materiału. Do figurek stosujemy klasyczne ustawienia, ale jeśli potrzebujesz części mechanicznej, użyjemy mocniejszego materiału (np. PETG).</p></details>
+    <details><summary>Co jeśli mój wydruk uszkodzi się w transporcie?</summary><p>Przed wysyłką sprawdzamy każdy detal i solidnie go pakujemy. Jeśli jednak paczka dotrze uszkodzona, daj nam od razu znać (SMS, telefon lub e-mail) – na pewno rozwiążemy ten problem!</p></details>
   </div>
 </section>
 
-<!-- SEKCJA OPINIE GOOGLE -->
-<section class="fade-in" style="padding: 70px 20px;">
-  <div style="text-align: center; margin-bottom: 40px;">
-    <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #e2e8f0; padding: 6px 18px; border-radius: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); font-size: 0.85rem; font-weight: 700; color: #1e293b; margin-bottom: 12px;">
-      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+<section id="zamowienie" class="order">
+  <div class="order-head">
+    <span class="pill">Prosty proces</span>
+    <h2>Złóż zamówienie na druk 3D</h2>
+    <p>Wybierz opcję, uzupełnij szczegóły i wyślij zgłoszenie – darmową wycenę otrzymasz w 15 minut.</p>
+  </div>
+
+  <div class="switch" role="group" aria-label="Rodzaj zamówienia">
+    <button type="button" id="btnCatalog" aria-pressed="true">📦 Katalog modeli</button>
+    <button type="button" id="btnCustom" aria-pressed="false">💡 Własny projekt / zdjęcie / STL</button>
+  </div>
+
+  <form id="orderForm">
+    <div class="step-box">
+      <div class="step-title"><i>1</i><h3>Co drukujemy?</h3></div>
+
+      <div id="catalogFields" class="fields">
+        <div>
+          <label class="lbl" for="modelSelect">Model z oferty</label>
+          <select id="modelSelect" class="field"></select>
+        </div>
+      </div>
+
+      <div id="customFields" class="fields" style="display:none">
+        <div>
+          <label class="lbl" for="customFileInput">Wgraj plik 3D (.stl, .step, .obj) LUB zdjęcie części</label>
+          <div class="drop" id="dropZone">
+            <input type="file" id="customFileInput" accept=".stl,.step,.stp,.3mf,.obj,image/*">
+            <div style="font-size:2.2em;margin-bottom:6px">📁</div>
+            <p style="font-weight:700;color:var(--slate);font-size:.95em">Przeciągnij i upuść plik TUTAJ lub <span style="color:var(--blue);text-decoration:underline">wybierz z dysku</span></p>
+            <p style="margin-top:4px;font-size:.8em;color:var(--mut)">Obsługiwane formaty: .STL, .STEP, .OBJ, .3MF oraz zdjęcia (.jpg, .png)</p>
+          </div>
+          <div id="fileDetails" role="status" style="font-size:.85em;font-weight:600;margin-top:8px;display:none"></div>
+          <div class="stl-box" id="stlPreviewContainer">
+            <p>Interaktywny podgląd 3D pliku STL (użyj myszki, aby obrócić):</p>
+            <div id="stlCanvas"></div>
+            <div id="stlDimensions"></div>
+          </div>
+        </div>
+        <div>
+          <label class="lbl" for="customModelInput">Lub wklej link do modelu / nazwę części</label>
+          <input type="text" id="customModelInput" class="field" placeholder="Np. link do Thingiverse / MakerWorld lub nazwa części">
+        </div>
+      </div>
+
+      <div class="fields" style="margin-top:20px">
+        <div>
+          <span class="lbl" id="colorLbl">Wybrany kolor</span>
+          <input type="hidden" id="modelColor" value="Biały">
+          <div class="swatches" id="swatches" role="group" aria-labelledby="colorLbl"></div>
+        </div>
+        <div>
+          <label class="lbl" for="modelCount">Ilość sztuk</label>
+          <input type="number" id="modelCount" class="field" value="1" min="1" style="max-width:150px">
+        </div>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><i>2</i><h3>Dane kontaktowe i dostawa</h3></div>
+      <div class="two-col" style="margin-bottom:16px">
+        <div><label class="lbl" for="name">Imię i nazwisko *</label><input type="text" id="name" class="field" required autocomplete="name" placeholder="Jan Kowalski"></div>
+        <div><label class="lbl" for="contact">E-mail lub telefon *</label><input type="text" id="contact" class="field" required autocomplete="email" placeholder="jan@gmail.com / 600..."></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <label class="lbl" for="deliveryInfo">Metoda odbioru</label>
+          <select id="deliveryInfo" class="field">
+            <option value="Paczkomat InPost">📦 Paczkomat InPost</option>
+            <option value="Kurier">🚚 Kurier</option>
+            <option value="Odbiór osobisty">🤝 Odbiór osobisty (Wrocław)</option>
+          </select>
+        </div>
+        <div><label class="lbl" for="addressInfo">Paczkomat lub adres</label><input type="text" id="addressInfo" class="field" autocomplete="street-address" placeholder="Kod np. WRO123M lub adres"></div>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <label class="lbl" for="desc">Uwagi lub szczegółowe wymagania (opcjonalnie)</label>
+      <textarea id="desc" class="field" style="height:90px;resize:vertical" placeholder="Wpisz specyficzne wymiary, wypełnienie lub terminy..."></textarea>
+    </div>
+
+    <div style="display:flex;justify-content:center"><div class="cf-turnstile" data-sitekey="0x4AAAAAAE6SzXcPSZEE1Xkt"></div></div>
+
+    <label class="rodo-label">
+      <input type="checkbox" required style="margin-top:2px">
+      <span>Wyrażam zgodę na przetwarzanie moich danych w celu przygotowania wyceny. Zapoznałem/am się z <a href="#rodoModal" data-open="rodoModal">Polityką Prywatności RODO</a>.</span>
+    </label>
+
+    <div>
+      <button type="submit" id="submitBtn">Wyślij zapytanie o druk</button>
+      <p class="note">Wysyłka nie zobowiązuje do natychmiastowej płatności. Najpierw darmowo wycenimy zamówienie.</p>
+    </div>
+  </form>
+  <p id="responseMsg" role="status"></p>
+</section>
+
+<section>
+  <div class="reviews-head">
+    <div class="g-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
       Opinie Google &bull; 5.0 ★★★★★
     </div>
-    <h2 style="margin: 0; font-size: 2.2em; font-weight: 800; color: #0f172a;">Co mówią o nas klienci?</h2>
+    <h2>Co mówią o nas klienci?</h2>
   </div>
-
-  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-    
-    <!-- Opinia 1 -->
-    <div style="background: #ffffff; padding: 28px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+  <div class="grid">
+    <div class="review">
       <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 44px; height: 44px; border-radius: 50%; background: #0088cc; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em;">P</div>
-            <div>
-              <div style="font-weight: 700; color: #0f172a; font-size: 0.95em;">Patryk K.</div>
-              <div style="font-size: 0.78em; color: #64748b;">Wrocław</div>
-            </div>
-          </div>
-          <span style="color: #f59e0b; font-size: 0.95em;">★★★★★</span>
-        </div>
-        <p style="font-size: 0.92em; color: #475569; line-height: 1.6; margin: 0 0 18px 0;">
-          Fantastyczna jakość wydruków, miły i pomocny właściciel
-        </p>
+        <div class="review-top"><div class="who"><div class="avatar" style="background:#0088cc">P</div><div><b>Patryk K.</b><small>Wrocław</small></div></div><span class="stars" aria-label="5 gwiazdek">★★★★★</span></div>
+        <p>Fantastyczna jakość wydruków, miły i pomocny właściciel</p>
       </div>
-      <div style="font-size: 0.78em; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
-        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg> Opinia z Google
-      </div>
+      <small style="color:#64748b">Opinia z Google</small>
     </div>
-
-    <!-- Opinia 2 -->
-    <div style="background: #ffffff; padding: 28px; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+    <div class="review">
       <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 44px; height: 44px; border-radius: 50%; background: #10b981; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em;">M</div>
-            <div>
-              <div style="font-weight: 700; color: #0f172a; font-size: 0.95em;">Margo</div>
-              <div style="font-size: 0.78em; color: #64748b;">Wrocław</div>
-            </div>
-          </div>
-          <span style="color: #f59e0b; font-size: 0.95em;">★★★★★</span>
-        </div>
-        <p style="font-size: 0.92em; color: #475569; line-height: 1.6; margin: 0 0 18px 0;">
-          Super firmą, sprawny kontakt i miły właściciel. Zaproponowałem swój projekt i otrzymałem wydruk następnego dnia! Polecam
-        </p>
+        <div class="review-top"><div class="who"><div class="avatar" style="background:#10b981">M</div><div><b>Margo</b><small>Wrocław</small></div></div><span class="stars" aria-label="5 gwiazdek">★★★★★</span></div>
+        <p>Super firma, sprawny kontakt i miły właściciel. Zaproponowałem swój projekt i otrzymałem wydruk następnego dnia! Polecam</p>
       </div>
-      <div style="font-size: 0.78em; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
-        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg> Opinia z Google
-      </div>
+      <small style="color:#64748b">Opinia z Google</small>
     </div>
-
   </div>
+  <div style="text-align:center;margin-top:35px"><a class="maps-link" href="https://share.google/Xt1L10a3l5DjbnmG2" target="_blank" rel="noopener">Zobacz naszą wizytówkę w Google Maps ➔</a></div>
+</section>
 
-  <div style="text-align: center; margin-top: 35px;">
-    <a href="https://share.google/Xt1L10a3l5DjbnmG2" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9em; color: #0088cc; text-decoration: none; background: #ffffff; padding: 12px 26px; border-radius: 30px; border: 1px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.03); transition: all 0.3s ease;">
-      <span>Zobacz naszą wizytówkę w Google Maps ➔</span>
-    </a>
+<section class="socials">
+  <h2>Znajdź nas w sieci</h2>
+  <p>Obserwuj proces powstawania Twoich zamówień i sprawdzaj nowości!</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/awydrukujse/" class="social-item" target="_blank" rel="noopener"><span>📸</span><span>Instagram</span></a>
+    <a href="https://www.tiktok.com/@awydrukujse.pl" class="social-item" target="_blank" rel="noopener"><span>🎵</span><span>TikTok</span></a>
   </div>
 </section>
 
-<section class="socials-section fade-in">
-<h2>Znajdź nas w sieci</h2>
-<p style="color: #666; font-size: 1.1em; margin-bottom: 40px;">Obserwuj proces powstawania Twoich zamówień i sprawdzaj nowości!</p>
-<div class="social-links">
-<a href="https://www.instagram.com/awydrukujse/" class="social-item" target="_blank">
-<span class="social-icon">📸</span>
-<span>Instagram</span>
-</a>
-<a href="https://www.tiktok.com/@awydrukujse.pl" class="social-item" target="_blank">
-<span class="social-icon">🎵</span>
-<span>TikTok</span>
-</a>
-</div>
-</section>
-
-<section id="kontakt" class="fade-in" style="background:#fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); margin-bottom: 60px; text-align: center; padding: 50px 20px;">
+<section id="kontakt" class="contact" style="max-width:1100px">
   <h2>Kontakt</h2>
-  <p style="font-size: 1.1em; color: #555; max-width: 600px; margin: 0 auto 30px auto;">
-     Masz własny model do wyceny? A może nietypowe zlecenie? Skontaktuj się wygodnie przez SMS, telefon lub e-mail!
-  </p>
-  
-  <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-    <a href="sms:+48508860405" class="contact-btn" style="background: #16a34a; box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3); margin: 0;">
-       📱 Wyślij SMS: 508 860 405
-    </a>
-    <a href="tel:+48508860405" class="contact-btn" style="background: #0284c7; box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3); margin: 0;">
-       📞 Zadzwoń: 508 860 405
-    </a>
-    <a href="mailto:awydrukujse@gmail.com" class="contact-btn" style="margin: 0;">
-       ✉️ Napisz e-mail
-    </a>
+  <p>Masz własny model do wyceny? A może nietypowe zlecenie? Skontaktuj się wygodnie przez SMS, telefon lub e-mail!</p>
+  <div class="contact-links">
+    <a href="sms:+48508860405" class="contact-btn" style="background:#16a34a;box-shadow:0 8px 25px rgba(22,163,74,.3)">📱 Wyślij SMS: 508 860 405</a>
+    <a href="tel:+48508860405" class="contact-btn" style="background:#0284c7;box-shadow:0 8px 25px rgba(2,132,199,.3)">📞 Zadzwoń: 508 860 405</a>
+    <a href="mailto:awydrukujse@gmail.com" class="contact-btn">✉️ Napisz e-mail</a>
   </div>
 </section>
 
 <footer>
-<p style="margin-top:20px; color:#666; font-size:0.95em;">
-  &copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone &bull; 
-  <a href="#rodoModal" onclick="openRodoModal(event)" style="color: #94a3b8; text-decoration: underline;">Polityka Prywatności RODO</a>
-</p>
+  <p>&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone &bull; <a href="#rodoModal" data-open="rodoModal">Polityka Prywatności RODO</a> &bull; <a href="#" id="cookieSettings">Ustawienia cookies</a></p>
 </footer>
 
-<div class="modal" id="modal" onclick="closeModal()">
-<img id="modalImg" src="" alt="Powiększenie obrazu">
-</div>
+<div class="modal" id="imgModal" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie"><img id="modalImg" src="" alt="Powiększenie obrazu"></div>
 
-<!-- Modal RODO -->
-<div class="modal" id="rodoModal" onclick="closeRodoModal(event)">
-  <div style="background: white; padding: 30px; border-radius: 20px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; text-align: left; color: #1e293b;" onclick="event.stopPropagation()">
-    <h3 style="margin-top: 0; color: #0f172a; font-size: 1.3em;">Polityka Prywatności i RODO</h3>
-    <p style="font-size: 0.88em; color: #475569; line-height: 1.6;">
-      <strong>Administratorem danych osobowych</strong> jest serwis awydrukujse.pl.<br><br>
-      1. <strong>Cel przetwarzania danych:</strong> Dane wprowadzane w formularzu (imię, kontakt, dane dostawy, załączone pliki STL lub zdjęcia) wykorzystywane są wyłącznie do przygotowania darmowej wyceny oraz realizacji usługi druku 3D.<br><br>
-      2. <strong>Bezpieczeństwo plików:</strong> Przesłane pliki projektowe 3D służą wyłącznie do wyceny i wydruku i nie są udostępniane osobom trzecim.<br><br>
-      3. <strong>Twoje prawa:</strong> Masz pełne prawo do wglądu, modyfikacji oraz żądania usunięcia swoich danych. Skontaktuj się z nami na adres: <strong>awydrukujse@gmail.com</strong>.
-    </p>
-    <button type="button" onclick="document.getElementById('rodoModal').style.display='none'" style="background: #0088cc; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 15px; font-family: inherit;">Zamknij</button>
+<div class="modal" id="rodoModal" role="dialog" aria-modal="true" aria-labelledby="rodoTitle">
+  <div class="rodo-box">
+    <h3 id="rodoTitle">Polityka Prywatności i RODO</h3>
+    <p><strong>Administratorem danych osobowych</strong> jest serwis awydrukujse.pl.</p>
+    <p>1. <strong>Cel przetwarzania danych:</strong> Dane wprowadzane w formularzu (imię, kontakt, dane dostawy, załączone pliki STL lub zdjęcia) wykorzystywane są wyłącznie do przygotowania darmowej wyceny oraz realizacji usługi druku 3D.</p>
+    <p>2. <strong>Bezpieczeństwo plików:</strong> Przesłane pliki projektowe 3D służą wyłącznie do wyceny i wydruku i nie są udostępniane osobom trzecim.</p>
+    <p>3. <strong>Cookies i analityka:</strong> Za Twoją zgodą korzystamy z Google Analytics do statystyk odwiedzin. Bez zgody analityka jest wyłączona. Zgodę możesz zmienić w stopce w „Ustawieniach cookies”. Formularz chroni usługa Cloudflare Turnstile, która może przetwarzać dane techniczne przeglądarki w celu odróżnienia człowieka od bota.</p>
+    <p>4. <strong>Twoje prawa:</strong> Masz pełne prawo do wglądu, modyfikacji oraz żądania usunięcia swoich danych. Skontaktuj się z nami na adres: <strong>awydrukujse@gmail.com</strong>.</p>
+    <button type="button" data-close="rodoModal">Zamknij</button>
   </div>
 </div>
 
-<!-- PŁYWAJĄCE PRZYCISKI: TELEGRAM BOT + KOSZYK ZAMÓWIENIA -->
-<!-- PŁYWAJĄCE PRZYCISKI: TELEGRAM BOT + SMS + KOSZYK ZAMÓWIENIA -->
 <div class="fab-group">
-  <a href="sms:+48508860405" class="fab-button fab-sms" title="Wyślij SMS">
-     📱
-  </a>
-  <a href="#zamowienie" class="fab-button" title="Złóż zamówienie">
-     🛒
-  </a>
+  <a href="sms:+48508860405" class="fab sms" title="Wyślij SMS" aria-label="Wyślij SMS">📱</a>
+  <a href="#zamowienie" class="fab" title="Złóż zamówienie" aria-label="Złóż zamówienie">🛒</a>
 </div>
 
-<!-- SKRYPT LOGIKI STRONY -->
+<div id="cookieBar" role="dialog" aria-label="Zgoda na cookies">
+  <p>Używamy Google Analytics, aby zrozumieć, jak korzystasz ze strony. Robimy to tylko za Twoją zgodą. Szczegóły w <a href="#rodoModal" data-open="rodoModal" style="color:var(--blue)">Polityce Prywatności</a>.</p>
+  <button type="button" class="yes" id="cookieYes">Akceptuję</button>
+  <button type="button" id="cookieNo">Odrzucam</button>
+</div>
+
 <script>
-  // Logika hamburgera mobilnego
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const navLinks = document.getElementById('navLinks');
+  const $ = id => document.getElementById(id);
 
-  if (hamburgerBtn && navLinks) {
-    hamburgerBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburgerBtn.innerText = navLinks.classList.contains('active') ? '✕' : '☰';
-    });
-  }
+  /* ===== DANE ===== */
+  const XMAS = ['#BN-01 - Dziadek do orzechów klasyczny', '#BN-02 - Dziadek do orzechów żołnierz', '#BN-03 - Renifer stojący', '#BN-04 - Renifer low poly', '#BN-05 - Choinka ażurowa', '#BN-06 - Choinka spiralna', '#BN-07 - Choinka piętrowa', '#BN-08 - Aniołek świąteczny', '#BN-09 - Zestaw śnieżynek'];
+  const MODELS = [
+    ['#JES-00 - Wazon', 36], ['#JES-01 - Dynia nr 1', 30], ['#JES-02 - Dynia nr 2', 30], ['#JES-03 - Dynia nr 3', 25],
+    ['#JES-04 - Dynia nr 4', 22], ['#JES-05 - Dynia nr 5', 15], ['#JES-06 - Dynia nr 6', 22], ['#001 - Kurczak na jajko', 15],
+    ['#003 - Tulipan', 25], ['#004 - Królik 20cm', 25], ['#005 - Ludzik LEGO 40cm', 160], ['#006 - Litera PI 26cm', 45],
+    ['#007 - Uchwyt na ręcznik', 5], ['#008 - Pojemnik na leki', 18], ['#009 - Klips do kawy', 22], ['#010 - Identyfikator dla psa', 15],
+    ['#011 - Maszynka do cukierków', 36], ['#012 - Dekoracja Dzień Mamy', 25], ['#013 - Plakietka narodzin', 50]
+  ];
+  const COLORS = [['Biały', '#ffffff'], ['Czarny', '#1e293b'], ['Czerwony', '#ef4444'], ['Niebieski', '#3b82f6'], ['Zielony', '#22c55e'], ['Żółty', '#eab308'], ['Różowy', '#ec4899'], ['Inny (opis w uwagach)', 'linear-gradient(45deg,#f43f5e,#8b5cf6,#06b6d4)']];
 
-  function closeMobileMenu() {
-    if (window.innerWidth <= 768 && navLinks && hamburgerBtn) {
-      navLinks.classList.remove('active');
-      hamburgerBtn.innerText = '☰';
-    }
+  /* ===== BUDOWANIE FORMULARZA ===== */
+  $('modelSelect').innerHTML =
+    '<optgroup label="🎄 Boże Narodzenie (wycena indywidualna)">' + XMAS.map(v => `<option value="${v}">${v} - wkrótce</option>`).join('') + '</optgroup>' +
+    '<optgroup label="Pozostałe modele">' + MODELS.map(([v, p]) => `<option value="${v}">${v} - ${p} zł</option>`).join('') + '</optgroup>';
+
+  $('swatches').innerHTML = COLORS.map(([n, c], i) =>
+    `<button type="button" class="swatch" data-color="${n}" aria-pressed="${i === 0}"><i style="background:${c}"></i>${n.startsWith('Inny') ? 'Inny...' : n}</button>`).join('');
+  $('swatches').addEventListener('click', e => {
+    const b = e.target.closest('.swatch'); if (b) setColor(b.dataset.color);
+  });
+  function setColor(name) {
+    $('modelColor').value = name;
+    document.querySelectorAll('.swatch').forEach(s => s.setAttribute('aria-pressed', s.dataset.color === name));
   }
 
   let currentMode = 'catalog';
-  
   function switchType(mode) {
     currentMode = mode;
-    const btnCat = document.getElementById('btnCatalog');
-    const btnCus = document.getElementById('btnCustom');
-    const catFields = document.getElementById('catalogFields');
-    const cusFields = document.getElementById('customFields');
-    if (mode === 'catalog') {
-      btnCat.style.background = '#ffffff';
-      btnCat.style.color = '#0088cc';
-      btnCat.style.fontWeight = '700';
-      btnCat.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)';
-      btnCus.style.background = 'transparent';
-      btnCus.style.color = '#64748b';
-      btnCus.style.fontWeight = '600';
-      btnCus.style.boxShadow = 'none';
-      catFields.style.display = 'grid';
-      cusFields.style.display = 'none';
-    } else {
-      btnCus.style.background = '#ffffff';
-      btnCus.style.color = '#0088cc';
-      btnCus.style.fontWeight = '700';
-      btnCus.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)';
-      btnCat.style.background = 'transparent';
-      btnCat.style.color = '#64748b';
-      btnCat.style.fontWeight = '600';
-      btnCat.style.boxShadow = 'none';
-      catFields.style.display = 'none';
-      cusFields.style.display = 'grid';
-    }
+    $('btnCatalog').setAttribute('aria-pressed', mode === 'catalog');
+    $('btnCustom').setAttribute('aria-pressed', mode === 'custom');
+    $('catalogFields').style.display = mode === 'catalog' ? 'grid' : 'none';
+    $('customFields').style.display = mode === 'custom' ? 'grid' : 'none';
   }
+  $('btnCatalog').addEventListener('click', () => switchType('catalog'));
+  $('btnCustom').addEventListener('click', () => switchType('custom'));
 
-  // Wybór koloru z kafelków (Color Swatches)
-  function selectColorTile(element, colorValue) {
-    document.querySelectorAll('.color-swatch-tile').forEach(tile => tile.classList.remove('active'));
-    element.classList.add('active');
-    document.getElementById('modelColor').value = colorValue;
+  /* ===== MENU MOBILNE ===== */
+  const burger = $('hamburgerBtn'), links = $('navLinks');
+  function setMenu(open) {
+    links.classList.toggle('active', open);
+    burger.textContent = open ? '✕' : '☰';
+    burger.setAttribute('aria-expanded', open);
   }
+  burger.addEventListener('click', () => setMenu(!links.classList.contains('active')));
+  links.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
 
-  // Obsługa strefy Drag & Drop
-  const dropZone = document.getElementById('dropZone');
-  const fileInput = document.getElementById('customFileInput');
-  const fileDetails = document.getElementById('fileDetails');
-  const stlPreviewContainer = document.getElementById('stlPreviewContainer');
-  const stlDimensions = document.getElementById('stlDimensions');
+  window.addEventListener('scroll', () => $('navbar').classList.toggle('scrolled', window.scrollY > 50), { passive: true });
+
+  /* ===== MODALE ===== */
+  function openM(id) { $(id).style.display = 'flex'; }
+  function closeM(id) { $(id).style.display = 'none'; }
+  document.addEventListener('click', e => {
+    const z = e.target.closest('[data-zoom]');
+    if (z) { $('modalImg').src = z.dataset.zoom; openM('imgModal'); return; }
+    const o = e.target.closest('[data-open]');
+    if (o) { e.preventDefault(); openM(o.dataset.open); return; }
+    const c = e.target.closest('[data-close]');
+    if (c) { closeM(c.dataset.close); return; }
+    if (e.target.classList.contains('modal')) e.target.style.display = 'none';
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+  });
+
+  /* ===== ZGODA NA COOKIES (Google Analytics) ===== */
+  function consent(granted) {
+    gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+    try { localStorage.setItem('cookieConsent', granted ? 'yes' : 'no'); } catch (_) {}
+    $('cookieBar').style.display = 'none';
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('cookieConsent'); } catch (_) {}
+  if (saved === 'yes') consent(true);
+  else if (saved !== 'no') $('cookieBar').style.display = 'block';
+  $('cookieYes').addEventListener('click', () => consent(true));
+  $('cookieNo').addEventListener('click', () => consent(false));
+  $('cookieSettings').addEventListener('click', e => { e.preventDefault(); $('cookieBar').style.display = 'block'; });
+
+  /* ===== PLIK + PODGLĄD STL (Three.js ładowany dopiero, gdy jest potrzebny) ===== */
   const MAX_SIZE_MB = 45;
   let isFileTooBig = false;
+  const dropZone = $('dropZone'), fileInput = $('customFileInput'), fileDetails = $('fileDetails'), stlBox = $('stlPreviewContainer');
 
-  ['dragenter', 'dragover'].forEach(eventName => {
-    dropZone.addEventListener(eventName, (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      dropZone.style.borderColor = '#005580';
-      dropZone.style.background = '#e0f2fe';
-    }, false);
+  ['dragenter', 'dragover'].forEach(ev => dropZone.addEventListener(ev, e => { e.preventDefault(); dropZone.classList.add('over'); }));
+  ['dragleave', 'drop'].forEach(ev => dropZone.addEventListener(ev, e => { e.preventDefault(); dropZone.classList.remove('over'); }));
+  dropZone.addEventListener('drop', e => {
+    if (e.dataTransfer.files.length) { fileInput.files = e.dataTransfer.files; fileInput.dispatchEvent(new Event('change')); }
   });
 
-  ['dragleave', 'drop'].forEach(eventName => {
-    dropZone.addEventListener(eventName, (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      dropZone.style.borderColor = '#0088cc';
-      dropZone.style.background = '#f8fafc';
-    }, false);
-  });
-
-  dropZone.addEventListener('drop', (e) => {
-    const dt = e.dataTransfer;
-    if (dt.files && dt.files.length > 0) {
-      fileInput.files = dt.files;
-      fileInput.dispatchEvent(new Event('change'));
-    }
-  });
-
-  let stlScene, stlCamera, stlRenderer, stlControls, stlAnimId;
-
-  fileInput.addEventListener('change', () => {
-    if (fileInput.files.length > 0) {
-      const file = fileInput.files[0];
-      const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-      
-      if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-        isFileTooBig = true;
-        fileDetails.style.display = 'block';
-        fileDetails.style.color = '#dc2626';
-        fileDetails.innerText = `⚠️ Plik jest za duży (${sizeMB} MB). Maksymalny rozmiar to ${MAX_SIZE_MB} MB. Wyślij go wklejając link poniżej.`;
-        stlPreviewContainer.style.display = 'none';
-      } else {
-        isFileTooBig = false;
-        fileDetails.style.display = 'block';
-        fileDetails.style.color = '#059669';
-        fileDetails.innerText = `📎 Wybrano plik: ${file.name} (${sizeMB} MB)`;
-
-        // Sprawdzanie czy plik to .stl dla aktywowania podglądu 3D oraz analizy wymiarów
-        if (file.name.toLowerCase().endsWith('.stl')) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            renderStlPreview(e.target.result);
-          };
-          reader.readAsArrayBuffer(file);
-        } else {
-          stlPreviewContainer.style.display = 'none';
-        }
-      }
-    } else {
-      fileDetails.style.display = 'none';
-      stlPreviewContainer.style.display = 'none';
-      isFileTooBig = false;
-    }
-  });
-
-  function renderStlPreview(arrayBuffer) {
-    stlPreviewContainer.style.display = 'block';
-    const container = document.getElementById('stlCanvas');
-    container.innerHTML = '';
-
-    if (stlAnimId) cancelAnimationFrame(stlAnimId);
-
-    const width = container.clientWidth || 300;
-    const height = 250;
-
-    stlScene = new THREE.Scene();
-    stlScene.background = new THREE.Color(0x0f172a);
-
-    stlCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    
-    stlRenderer = new THREE.WebGLRenderer({ antialias: true });
-    stlRenderer.setSize(width, height);
-    container.appendChild(stlRenderer.domElement);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-    stlScene.add(ambientLight);
-
-    const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
-    dirLight1.position.set(1, 1, 1).normalize();
-    stlScene.add(dirLight1);
-
-    const dirLight2 = new THREE.DirectionalLight(0x0088cc, 0.6);
-    dirLight2.position.set(-1, -1, -1).normalize();
-    stlScene.add(dirLight2);
-
-    const loader = new THREE.STLLoader();
-    const geometry = loader.parse(arrayBuffer);
-    geometry.center();
-
-    // Obliczanie precyzyjnych wymiarów modelu w mm (X, Y, Z)
-    geometry.computeBoundingBox();
-    const bbox = geometry.boundingBox;
-    const dimX = Math.round((bbox.max.x - bbox.min.x) * 10) / 10;
-    const dimY = Math.round((bbox.max.y - bbox.min.y) * 10) / 10;
-    const dimZ = Math.round((bbox.max.z - bbox.min.z) * 10) / 10;
-
-    stlDimensions.innerHTML = `
-      <span style="background: rgba(255,255,255,0.08); padding: 5px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">📏 Szerokość (X): <b>${dimX} mm</b></span>
-      <span style="background: rgba(255,255,255,0.08); padding: 5px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">📏 Głębokość (Y): <b>${dimY} mm</b></span>
-      <span style="background: rgba(255,255,255,0.08); padding: 5px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">📏 Wysokość (Z): <b>${dimZ} mm</b></span>
-    `;
-
-    const material = new THREE.MeshPhongMaterial({ color: 0x0088cc, specular: 0x222222, shininess: 80 });
-    const mesh = new THREE.Mesh(geometry, material);
-
-    geometry.computeBoundingSphere();
-    const radius = geometry.boundingSphere.radius;
-    stlCamera.position.set(0, 0, radius * 2.4);
-    stlCamera.lookAt(0, 0, 0);
-
-    stlScene.add(mesh);
-
-    if (window.THREE.OrbitControls) {
-      stlControls = new THREE.OrbitControls(stlCamera, stlRenderer.domElement);
-      stlControls.enableDamping = true;
-    }
-
-    function animate() {
-      stlAnimId = requestAnimationFrame(animate);
-      if (stlControls) stlControls.update();
-      else mesh.rotation.y += 0.008;
-      stlRenderer.render(stlScene, stlCamera);
-    }
-    animate();
+  function loadScript(src) {
+    return new Promise((ok, fail) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = fail; document.head.appendChild(s); });
+  }
+  let threeReady;
+  function ensureThree() {
+    return threeReady || (threeReady = loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js')
+      .then(() => loadScript('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js'))
+      .then(() => loadScript('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js')));
   }
 
-  const form = document.getElementById('orderForm');
-  const msg = document.getElementById('responseMsg');
-  const btn = document.getElementById('submitBtn');
+  let stlRenderer, stlControls, stlAnimId;
+  function disposeStl() {
+    if (stlAnimId) cancelAnimationFrame(stlAnimId);
+    stlAnimId = null;
+    if (stlControls) { stlControls.dispose(); stlControls = null; }
+    if (stlRenderer) { stlRenderer.dispose(); stlRenderer = null; }
+    $('stlCanvas').innerHTML = '';
+    stlBox.style.display = 'none';
+  }
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    if (isFileTooBig) {
-      alert(`Plik przekracza limit ${MAX_SIZE_MB} MB. Zmniejsz wagę pliku lub wklej link do dysku.`);
+  fileInput.addEventListener('change', () => {
+    disposeStl();
+    if (!fileInput.files.length) { fileDetails.style.display = 'none'; isFileTooBig = false; return; }
+    const file = fileInput.files[0];
+    const sizeMB = (file.size / 1048576).toFixed(2);
+    fileDetails.style.display = 'block';
+    if (file.size > MAX_SIZE_MB * 1048576) {
+      isFileTooBig = true;
+      fileDetails.style.color = '#dc2626';
+      fileDetails.textContent = `⚠️ Plik jest za duży (${sizeMB} MB). Maksymalny rozmiar to ${MAX_SIZE_MB} MB. Wklej link do modelu poniżej.`;
       return;
+    }
+    isFileTooBig = false;
+    fileDetails.style.color = '#047857';
+    fileDetails.textContent = `📎 Wybrano plik: ${file.name} (${sizeMB} MB)`;
+    if (file.name.toLowerCase().endsWith('.stl')) {
+      const reader = new FileReader();
+      reader.onload = async e => {
+        try { await ensureThree(); renderStl(e.target.result); } catch (_) { disposeStl(); }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  });
+
+  function renderStl(buffer) {
+    stlBox.style.display = 'block';
+    const box = $('stlCanvas'), w = box.clientWidth || 300, h = 250;
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0f172a);
+    const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 5000);
+    stlRenderer = new THREE.WebGLRenderer({ antialias: true });
+    stlRenderer.setSize(w, h);
+    box.appendChild(stlRenderer.domElement);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+    const l1 = new THREE.DirectionalLight(0xffffff, 0.8); l1.position.set(1, 1, 1).normalize(); scene.add(l1);
+    const l2 = new THREE.DirectionalLight(0x0088cc, 0.6); l2.position.set(-1, -1, -1).normalize(); scene.add(l2);
+
+    const geometry = new THREE.STLLoader().parse(buffer);
+    geometry.center();
+    geometry.computeBoundingBox();
+    const s = new THREE.Vector3(); geometry.boundingBox.getSize(s);
+    const r = v => Math.round(v * 10) / 10;
+    $('stlDimensions').innerHTML =
+      `<span>📏 Szerokość (X): <b>${r(s.x)} mm</b></span><span>📏 Głębokość (Y): <b>${r(s.y)} mm</b></span><span>📏 Wysokość (Z): <b>${r(s.z)} mm</b></span>`;
+
+    const mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({ color: 0x0088cc, specular: 0x222222, shininess: 80 }));
+    scene.add(mesh);
+    geometry.computeBoundingSphere();
+    camera.position.set(0, 0, geometry.boundingSphere.radius * 2.4);
+    camera.lookAt(0, 0, 0);
+    if (THREE.OrbitControls) { stlControls = new THREE.OrbitControls(camera, stlRenderer.domElement); stlControls.enableDamping = true; }
+
+    (function animate() {
+      stlAnimId = requestAnimationFrame(animate);
+      if (stlControls) stlControls.update(); else mesh.rotation.y += 0.008;
+      stlRenderer.render(scene, camera);
+    })();
+  }
+
+  /* ===== WYSYŁKA FORMULARZA ===== */
+  const form = $('orderForm'), msg = $('responseMsg'), btn = $('submitBtn');
+  function showMsg(ok, text) { msg.className = ok ? 'ok' : 'err'; msg.style.display = 'block'; msg.textContent = text; }
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (isFileTooBig) { showMsg(false, `❌ Plik przekracza limit ${MAX_SIZE_MB} MB. Zmniejsz go lub wklej link do modelu.`); return; }
+
+    let token = '';
+    if (typeof turnstile !== 'undefined') {
+      token = turnstile.getResponse();
+      if (!token) { showMsg(false, '❌ Potwierdź, że nie jesteś robotem (pole weryfikacji powyżej) i spróbuj ponownie.'); return; }
     }
 
     btn.disabled = true;
-    btn.style.opacity = "0.7";
-    btn.innerText = "⏳ Wysyłanie zapytania i pliku, proszę czekać...";
-    msg.innerText = "";
-    msg.style.display = "none";
+    btn.textContent = '⏳ Wysyłanie zapytania i pliku, proszę czekać...';
+    msg.style.display = 'none';
 
-    const hasFile = currentMode === 'custom' && fileInput && fileInput.files.length > 0;
+    const hasFile = currentMode === 'custom' && fileInput.files.length > 0;
+    const model = currentMode === 'catalog'
+      ? $('modelSelect').value
+      : (hasFile ? `Plik/Zdjęcie: ${fileInput.files[0].name}` : ($('customModelInput').value || 'Własny projekt / plik'));
 
-    const selectedModel = (currentMode === 'catalog')
-      ? document.getElementById('modelSelect').value
-      : (hasFile ? `Plik/Zdjęcie: ${fileInput.files[0].name}` : (document.getElementById('customModelInput').value || "Własny projekt / plik"));
-
-    const formData = new FormData();
-    formData.append('name', document.getElementById('name').value);
-    formData.append('contact', document.getElementById('contact').value);
-    formData.append('modelId', selectedModel);
-    formData.append('color', document.getElementById('modelColor').value);
-    formData.append('count', document.getElementById('modelCount').value);
-    formData.append('delivery', document.getElementById('deliveryInfo').value);
-    formData.append('address', document.getElementById('addressInfo').value);
-    formData.append('desc', document.getElementById('desc').value);
-
-    // Turnstile Token
-    if (typeof turnstile !== 'undefined') {
-      const turnstileToken = turnstile.getResponse();
-      if (turnstileToken) {
-        formData.append('cf-turnstile-response', turnstileToken);
-      }
-    }
-
-    if (hasFile) {
-      formData.append('file', fileInput.files[0]);
-    }
+    const fd = new FormData();
+    fd.append('name', $('name').value);
+    fd.append('contact', $('contact').value);
+    fd.append('modelId', model);
+    fd.append('color', $('modelColor').value);
+    fd.append('count', $('modelCount').value);
+    fd.append('delivery', $('deliveryInfo').value);
+    fd.append('address', $('addressInfo').value);
+    fd.append('desc', $('desc').value);
+    if (token) fd.append('cf-turnstile-response', token);
+    if (hasFile) fd.append('file', fileInput.files[0]);
 
     try {
-      const response = await fetch('https://small-pond-c873.awydrukujse.workers.dev/', {
-        method: 'POST',
-        body: formData
-      });
-      if (response.ok) {
-        msg.style.display = "block";
-        msg.style.color = "#15803d";
-        msg.style.background = "#f0fdf4";
-        msg.style.border = "1px solid #bbf7d0";
-        msg.style.padding = "16px";
-        msg.innerText = "✅ Dziękujemy! Zamówienie zostało wysłane. Skontaktuję się z Tobą najszybciej jak to możliwe.";
-        form.reset();
-        fileDetails.style.display = 'none';
-        stlPreviewContainer.style.display = 'none';
-        if (typeof turnstile !== 'undefined') turnstile.reset();
-      } else {
-        throw new Error();
-      }
-    } catch (error) {
-      msg.style.display = "block";
-      msg.style.color = "#b91c1c";
-      msg.style.background = "#fef2f2";
-      msg.style.border = "1px solid #fecaca";
-      msg.style.padding = "16px";
-      msg.innerText = "❌ Wystąpił błąd podczas wysyłania. Sprawdź rozmiar pliku lub spróbuj ponownie.";
+      const res = await fetch('https://small-pond-c873.awydrukujse.workers.dev/', { method: 'POST', body: fd });
+      if (!res.ok) throw new Error();
+      showMsg(true, '✅ Dziękujemy! Zamówienie zostało wysłane. Skontaktuję się z Tobą najszybciej jak to możliwe.');
+      form.reset();
+      setColor('Biały');
+      switchType('catalog');
+      disposeStl();
+      fileDetails.style.display = 'none';
+      isFileTooBig = false;
+    } catch (_) {
+      showMsg(false, '❌ Wystąpił błąd podczas wysyłania. Sprawdź rozmiar pliku lub spróbuj ponownie.');
     } finally {
+      if (typeof turnstile !== 'undefined') turnstile.reset();
       btn.disabled = false;
-      btn.style.opacity = "1";
-      btn.innerText = "Wyślij zapytanie o druk";
+      btn.textContent = 'Wyślij zapytanie o druk';
     }
   });
-
-  window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  function openModal(src) {
-    document.getElementById("modalImg").src = src;
-    document.getElementById("modal").style.display = "flex";
-  }
-
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-  }
-
-  function openRodoModal(e) {
-    e.preventDefault();
-    document.getElementById("rodoModal").style.display = "flex";
-  }
-
-  function closeRodoModal(e) {
-    if (e.target.id === 'rodoModal') {
-      document.getElementById("rodoModal").style.display = "none";
-    }
-  }
-
-  const elements = document.querySelectorAll('.fade-in');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    elements.forEach(el => observer.observe(el));
-  } else {
-    elements.forEach(el => el.classList.add('visible'));
-  }
 </script>
 </body>
 </html>
