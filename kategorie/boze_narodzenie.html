@@ -69,6 +69,12 @@
   .hero-subtitle { font-size:1.15em; color:var(--muted); max-width:700px; margin:0 auto 25px; }
   .perks { display:flex; flex-wrap:wrap; gap:10px 25px; justify-content:center; font-weight:600; font-size:.95em; color:var(--green); }
 
+  /* Styl dla powiadomienia o nowych modelach */
+  .updates-notice { background:#fff; border:1px solid var(--line); border-radius:20px; padding:20px 30px; text-align:center; margin-bottom:25px; box-shadow:0 10px 30px rgba(198,40,40,.04); display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:15px; }
+  .updates-notice p { margin:0; font-size:.95em; color:var(--muted); font-weight:500; }
+  .updates-notice a { color:var(--red); font-weight:700; text-decoration:none; transition:color .2s; }
+  .updates-notice a:hover { color:var(--red-dark); text-decoration:underline; }
+
   .filters { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:35px; }
   .chip { font:inherit; font-weight:600; font-size:.9em; cursor:pointer; padding:10px 22px; border-radius:30px; border:2px solid var(--line); background:#fff; color:var(--ink); transition:all .25s; }
   .chip:hover { border-color:var(--red); color:var(--red); }
@@ -160,6 +166,11 @@
 </header>
 
 <section>
+  <!-- Informacja o nowych modelach i social mediach -->
+  <div class="updates-notice">
+    <p>💡 Na bieżąco dodajemy nowe modele do naszej świątecznej oferty – zachęcamy do zaobserwowania nas na <a href="https://www.instagram.com/awydrukujse/" target="_blank" rel="noopener">Instagramie</a>, aby niczego nie przegapić!</p>
+  </div>
+
   <div class="filters" id="filters" role="group" aria-label="Filtruj modele">
     <button type="button" class="chip" data-cat="all" aria-pressed="true">✨ Wszystkie<span>9</span></button>
     <button type="button" class="chip" data-cat="dziadki" aria-pressed="false">🎅 Dziadki do orzechów<span>2</span></button>
@@ -168,11 +179,7 @@
     <button type="button" class="chip" data-cat="aniolki" aria-pressed="false">👼 Aniołki i śnieżynki<span>2</span></button>
   </div>
 
-  <!-- Aby podmienić zdjęcie: zmień oba "../img/soon.jpg" w danej karcie (data-zoom i src).
-       Aby dodać cenę: zamień "Wkrótce" na np. "35 zł". -->
   <div class="gallery" id="gallery">
-
-    <div class="gallery" id="gallery">
 
     <article class="card" data-cat="dziadki">
       <button type="button" class="img-btn" data-zoom="../img/dziadek_beben.webp" aria-label="Powiększ zdjęcie: Dziadek do orzechów z bębnami"><span class="tag">Nowość</span><img src="../img/dziadek_beben.webp" alt="Dziadek do orzechów z bębnami wydrukowany w 3D" loading="lazy" width="400" height="320"></button>
@@ -268,7 +275,7 @@
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie"><img id="modalImg" src="" alt="Powiększone zdjęcie"></div>
 
 <script>
-  /* Filtry (bez JS wszystkie modele są po prostu widoczne) */
+  /* Filtry */
   const chips = document.querySelectorAll('.chip'), cards = document.querySelectorAll('.card');
   document.getElementById('filters').addEventListener('click', e => {
     const b = e.target.closest('.chip'); if (!b) return;
