@@ -3,381 +3,313 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bożonarodzeniowe dekoracje 3D - awydrukujse.pl</title>
+<title>Bożonarodzeniowe dekoracje 3D – dziadki do orzechów, renifery, choinki | awydrukujse.pl</title>
+<meta name="description" content="Świąteczne dekoracje drukowane w 3D: dziadki do orzechów, renifery, choinki, aniołki i śnieżynki. Druk na zamówienie, dowolny kolor, wycena w 15 minut.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
-   html {
-     scroll-behavior: smooth;
-   }
-   body {
-     margin: 0;
-     font-family: 'Poppins', sans-serif;
-     color: #1c2826;
-     line-height: 1.6;
-     background-color: #f7faf9;
-     background-image: radial-gradient(#d0e0db 1.5px, transparent 1.5px);
-     background-size: 30px 30px;
-   }
-   .top-nav {
-     background: #ffffff;
-     padding: 15px 40px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     position: sticky;
-     top: 0;
-     z-index: 1000;
-     box-shadow: 0 4px 20px rgba(198, 40, 40, 0.08);
-     transition: all 0.3s ease;
-   }
-   .top-nav.scrolled {
-     padding: 8px 40px;
-     box-shadow: 0 10px 30px rgba(198, 40, 40, 0.12);
-     background: rgba(255, 255, 255, 0.98);
-   }
-   .nav-logo-container {
-     display: flex;
-     align-items: center;
-     text-decoration: none;
-     gap: 15px;
-   }
-   .nav-logo {
-     height: 60px;
-     width: auto;
-     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-     transition: all 0.3s ease;
-   }
-   .top-nav.scrolled .nav-logo {
-     height: 45px;
-   }
-   .nav-title {
-     font-size: 1.4em;
-     font-weight: 800;
-     color: #1c2826;
-     letter-spacing: 0.5px;
-     margin: 0;
-   }
-   .back-btn {
-     color: #c62828;
-     text-decoration: none;
-     font-weight: 600;
-     font-size: 0.95em;
-     transition: color 0.3s ease;
-     display: flex;
-     align-items: center;
-     gap: 8px;
-   }
-   .back-btn:hover {
-     color: #b71c1c;
-   }
-   .hero-wrapper {
-     padding: 60px 20px;
-     display: flex;
-     justify-content: center;
-   }
-   .hero-box {
-     background: #ffffff;
-     max-width: 1100px;
-     width: 100%;
-     border-radius: 40px;
-     padding: 80px 40px;
-     text-align: center;
-     box-shadow: 0 20px 60px rgba(198, 40, 40, 0.06);
-     border: 1px solid #f2d6d6;
-   }
-   .hero-badge {
-     background: #ffebee;
-     color: #c62828;
-     padding: 8px 25px;
-     border-radius: 30px;
-     font-size: 0.85em;
-     font-weight: 800;
-     display: inline-block;
-     margin-bottom: 25px;
-     letter-spacing: 1px;
-     text-transform: uppercase;
-   }
-   .hero-title {
-     font-size: 3.5em;
-     font-weight: 800;
-     color: #1a0505;
-     margin: 0 0 20px 0;
-     line-height: 1.15;
-     letter-spacing: -1.5px;
-   }
-   .gradient-text {
-     background: linear-gradient(135deg, #c62828, #2e7d32);
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-     display: inline-block;
-   }
-   .hero-subtitle {
-     font-size: 1.2em;
-     color: #4a5d58;
-     max-width: 650px;
-     margin: 0 auto 30px auto;
-     line-height: 1.7;
-   }
-   section {
-     padding: 40px 20px 70px;
-     max-width: 1100px;
-     margin: auto;
-   }
-   .gallery {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-     gap: 30px;
-   }
-   .card {
-     background: white;
-     border-radius: 20px;
-     box-shadow: 0 10px 30px rgba(198, 40, 40, 0.05);
-     overflow: hidden;
-     text-align: center;
-     transition: all 0.3s ease;
-     display: flex;
-     flex-direction: column;
-     height: 100%;
-     border: 1px solid #f5e6e6;
-   }
-   .card:hover {
-     transform: translateY(-10px);
-     box-shadow: 0 20px 45px rgba(198, 40, 40, 0.12);
-   }
-   .image-wrapper {
-     position: relative;
-     overflow: hidden;
-     cursor: pointer;
-     border-bottom: 3px solid #f7faf9;
-   }
-   .image-wrapper img {
-     width: 100%;
-     height: 320px;
-     object-fit: cover;
-     display: block;
-     transition: transform 0.5s ease;
-   }
-   .image-wrapper::after {
-     content: '🔍 Powiększ';
-     position: absolute;
-     inset: 0;
-     background: rgba(198, 40, 40, 0.75);
-     color: white;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-size: 1.3em;
-     font-weight: 600;
-     opacity: 0;
-     transition: opacity 0.3s ease;
-     backdrop-filter: blur(2px);
-   }
-   .card:hover .image-wrapper img {
-     transform: scale(1.08);
-   }
-   .card:hover .image-wrapper::after {
-     opacity: 1;
-   }
-   .model-info-container {
-     padding: 25px 20px;
-     flex-grow: 1;
-     display: flex;
-     flex-direction: column;
-   }
-   .model-id {
-     background: rgba(198, 40, 40, 0.1);
-     color: #c62828;
-     display: inline-block;
-     padding: 6px 18px;
-     border-radius: 8px;
-     font-weight: 800;
-     font-size: 0.9em;
-     align-self: center;
-     margin-bottom: 15px;
-   }
-   .card h3 {
-     margin: 0 0 10px 0;
-     font-size: 1.25em;
-     font-weight: 600;
-     color: #1a0505;
-   }
-   .card .price {
-     font-size: 1.5em;
-     font-weight: 800;
-     color: #c62828;
-     margin-top: auto;
-     margin-bottom: 10px;
-   }
-   .promo-box {
-     background: #fff5f5;
-     border-top: 1px solid #ffebee;
-     padding: 12px;
-     font-size: 0.85em;
-     color: #9a0007;
-     font-weight: 600;
-     min-height: 40px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-   }
-   .fab-container {
-     position: fixed;
-     bottom: 30px;
-     right: 30px;
-     display: flex;
-     align-items: center;
-     z-index: 2001;
-   }
-   .fab-button {
-     background: #c62828;
-     color: white;
-     width: 65px;
-     height: 65px;
-     border-radius: 50%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-size: 32px;
-     text-decoration: none;
-     box-shadow: 0 8px 25px rgba(198, 40, 40, 0.4);
-     transition: all 0.3s ease;
-   }
-   .fab-button:hover {
-     transform: scale(1.08);
-     background: #b71c1c;
-   }
-   footer {
-     text-align: center;
-     padding: 60px 20px;
-     background: #0f1715;
-     color: #fff;
-     border-top: 5px solid #c62828;
-   }
-   .footer-cta {
-     background: #c62828;
-     color: white;
-     padding: 16px 40px;
-     border-radius: 50px;
-     text-decoration: none;
-     font-size: 18px;
-     display: inline-block;
-     font-weight: 600;
-     transition: all 0.3s ease;
-   }
-   .footer-cta:hover {
-     background: #e53935;
-     transform: translateY(-3px);
-   }
+  :root {
+    --red: #c62828; --red-dark: #b71c1c; --green: #2e7d32;
+    --ink: #1c2826; --ink-deep: #1a0505; --muted: #4a5d58;
+    --bg: #f7faf9; --line: #f2d6d6;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; font-family: 'Poppins', sans-serif; color: var(--ink); line-height: 1.6;
+    background-color: var(--bg);
+    background-image: radial-gradient(#d0e0db 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+  }
+  a:focus-visible, button:focus-visible, .image-wrapper:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+  /* NAV */
+  .top-nav {
+    background: #fff; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(198,40,40,.08); transition: all .3s ease;
+  }
+  .top-nav.scrolled { padding: 8px 40px; box-shadow: 0 10px 30px rgba(198,40,40,.12); background: rgba(255,255,255,.98); }
+  .nav-logo-container { display: flex; align-items: center; text-decoration: none; gap: 15px; }
+  .nav-logo { height: 60px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,.1)); transition: all .3s ease; }
+  .top-nav.scrolled .nav-logo { height: 45px; }
+  .nav-title { font-size: 1.4em; font-weight: 800; color: var(--ink); letter-spacing: .5px; margin: 0; }
+  .back-btn { color: var(--red); text-decoration: none; font-weight: 600; font-size: .95em; transition: color .3s ease; }
+  .back-btn:hover { color: var(--red-dark); }
+
+  /* HERO */
+  .hero-wrapper { padding: 60px 20px 30px; display: flex; justify-content: center; }
+  .hero-box {
+    position: relative; overflow: hidden; background: #fff; max-width: 1100px; width: 100%;
+    border-radius: 40px; padding: 80px 40px; text-align: center;
+    box-shadow: 0 20px 60px rgba(198,40,40,.06); border: 1px solid var(--line);
+  }
+  #snow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-badge {
+    background: #ffebee; color: var(--red); padding: 8px 25px; border-radius: 30px;
+    font-size: .85em; font-weight: 800; display: inline-block; margin-bottom: 25px; letter-spacing: 1px;
+  }
+  .hero-title { font-size: 3.5em; font-weight: 800; color: var(--ink-deep); margin: 0 0 20px; line-height: 1.15; letter-spacing: -1.5px; }
+  .gradient-text {
+    background: linear-gradient(135deg, var(--red), var(--green));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;
+  }
+  .hero-subtitle { font-size: 1.2em; color: var(--muted); max-width: 650px; margin: 0 auto 30px; line-height: 1.7; }
+  .hero-perks { display: flex; flex-wrap: wrap; gap: 10px 25px; justify-content: center; font-weight: 600; font-size: .95em; color: var(--green); }
+
+  section { padding: 30px 20px 60px; max-width: 1100px; margin: auto; }
+
+  /* FILTERS */
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 35px; }
+  .chip {
+    font: inherit; font-weight: 600; font-size: .9em; cursor: pointer; padding: 10px 22px; border-radius: 30px;
+    border: 2px solid var(--line); background: #fff; color: var(--ink); transition: all .25s ease;
+  }
+  .chip:hover { border-color: var(--red); color: var(--red); }
+  .chip[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: #fff; box-shadow: 0 8px 20px rgba(198,40,40,.25); }
+  .chip .count { opacity: .7; margin-left: 6px; font-weight: 400; }
+
+  /* GALLERY */
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+  .card {
+    background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(198,40,40,.05); overflow: hidden;
+    text-align: center; transition: all .3s ease; display: flex; flex-direction: column; border: 1px solid #f5e6e6;
+    animation: pop .45s ease both;
+  }
+  @keyframes pop { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+  .card:hover { transform: translateY(-10px); box-shadow: 0 20px 45px rgba(198,40,40,.12); }
+  .image-wrapper { position: relative; overflow: hidden; cursor: pointer; border-bottom: 3px solid var(--bg); }
+  .image-wrapper img { width: 100%; height: 320px; object-fit: cover; display: block; transition: transform .5s ease; }
+  .image-wrapper::after {
+    content: '🔍 Powiększ'; position: absolute; inset: 0; background: rgba(198,40,40,.75); color: #fff;
+    display: flex; justify-content: center; align-items: center; font-size: 1.3em; font-weight: 600;
+    opacity: 0; transition: opacity .3s ease; backdrop-filter: blur(2px);
+  }
+  .card:hover .image-wrapper img { transform: scale(1.08); }
+  .card:hover .image-wrapper::after, .image-wrapper:focus-visible::after { opacity: 1; }
+  .tag {
+    position: absolute; top: 14px; left: 14px; z-index: 2; background: #fff; color: var(--green);
+    font-size: .75em; font-weight: 800; padding: 4px 12px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  }
+  .model-info-container { padding: 25px 20px 15px; flex-grow: 1; display: flex; flex-direction: column; }
+  .model-id {
+    background: rgba(198,40,40,.1); color: var(--red); display: inline-block; padding: 6px 18px;
+    border-radius: 8px; font-weight: 800; font-size: .9em; align-self: center; margin-bottom: 15px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1.2em; font-weight: 600; color: var(--ink-deep); }
+  .card .desc { margin: 0 0 12px; font-size: .88em; color: var(--muted); }
+  .card .price { font-size: 1.5em; font-weight: 800; color: var(--red); margin-top: auto; }
+  .promo-box {
+    background: #fff5f5; border-top: 1px solid #ffebee; padding: 12px; font-size: .85em; color: #9a0007;
+    font-weight: 600; min-height: 44px; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* INSTAGRAM */
+  .insta {
+    margin: 0 auto; max-width: 1100px; border-radius: 30px; padding: 50px 30px; text-align: center; color: #fff;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d 55%, #fcb045);
+    box-shadow: 0 20px 50px rgba(131,58,180,.25);
+  }
+  .insta h2 { margin: 0 0 10px; font-size: 1.9em; font-weight: 800; line-height: 1.25; }
+  .insta p { margin: 0 auto 25px; max-width: 560px; opacity: .95; }
+  .insta a {
+    display: inline-block; background: #fff; color: #c13584; font-weight: 800; text-decoration: none;
+    padding: 14px 36px; border-radius: 50px; transition: all .3s ease;
+  }
+  .insta a:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,.25); }
+
+  /* FOOTER + FAB */
+  footer { text-align: center; padding: 60px 20px; background: #0f1715; color: #fff; border-top: 5px solid var(--red); margin-top: 70px; }
+  .footer-cta {
+    background: var(--red); color: #fff; padding: 16px 40px; border-radius: 50px; text-decoration: none;
+    font-size: 18px; display: inline-block; font-weight: 600; transition: all .3s ease;
+  }
+  .footer-cta:hover { background: #e53935; transform: translateY(-3px); }
+  .fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 2001; }
+  .fab-button {
+    background: var(--red); color: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex;
+    justify-content: center; align-items: center; font-size: 32px; text-decoration: none;
+    box-shadow: 0 8px 25px rgba(198,40,40,.4); transition: all .3s ease;
+  }
+  .fab-button:hover { transform: scale(1.08); background: var(--red-dark); }
+
+  /* MODAL */
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: flex; justify-content: center; align-items: center; z-index: 3000; }
+  .modal img { max-width: 90%; max-height: 90vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+
+  @media (max-width: 700px) {
+    .top-nav, .top-nav.scrolled { padding: 10px 16px; }
+    .nav-title { font-size: 1.1em; }
+    .nav-logo { height: 42px; }
+    .hero-box { padding: 50px 20px; border-radius: 28px; }
+    .hero-title { font-size: 2.2em; letter-spacing: -.5px; }
+    .hero-subtitle { font-size: 1.05em; }
+    .insta h2 { font-size: 1.5em; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
 </style>
 </head>
 <body>
+
 <nav class="top-nav" id="navbar">
-<a href="../index.html" class="nav-logo-container">
-<img src="../img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
-<p class="nav-title">awydrukujse.pl</p>
-</a>
-<a href="../index.html" class="back-btn">
-   ← Powrót do strony głównej
-</a>
+  <a href="../index.html" class="nav-logo-container">
+    <img src="../img/Logoskleputr.png" alt="Logo awydrukujse" class="nav-logo">
+    <p class="nav-title">awydrukujse.pl</p>
+  </a>
+  <a href="../index.html" class="back-btn">← Strona główna</a>
 </nav>
-<section class="hero-wrapper">
-<div class="hero-box">
-<div class="hero-badge">🎄 KOLEKCJA ŚWIĄTECZNA</div>
-<h1 class="hero-title">
-       Bożonarodzeniowe Dekoracje <span class="gradient-text">3D</span>
-</h1>
-<p class="hero-subtitle">
-     Stwórz magiczny, świąteczny klimat! Odkryj wyjątkowe choinki, bombki, zawieszki i figurki, które podkreślą wyjątkowość Świąt Bożego Narodzenia.
-</p>
-</div>
-</section>
+
+<header class="hero-wrapper">
+  <div class="hero-box">
+    <canvas id="snow" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge">🎄 KOLEKCJA ŚWIĄTECZNA</div>
+      <h1 class="hero-title">Bożonarodzeniowe Dekoracje <span class="gradient-text">3D</span></h1>
+      <p class="hero-subtitle">Dziadki do orzechów, renifery, choinki, aniołki i śnieżynki. Nietłukące się ozdoby, które wrócą na Twoją półkę za rok i za dwa.</p>
+      <div class="hero-perks">
+        <span>✓ Dowolny kolor</span>
+        <span>✓ Druk od 1 sztuki</span>
+        <span>✓ Wycena w kilka chwil</span>
+      </div>
+    </div>
+  </div>
+</header>
+
 <section>
-<div class="gallery">
-<div class="card">
-<div class="image-wrapper" onclick="openModal('../img/soon.jpg')">
-<img src="../img/soon.jpg" alt="Ażurowa Choinka">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #BN-01</div>
-<h3>Ażurowa Choinka 3D</h3>
-<div class="price">Wkrótce</div>
-</div>
-<div class="promo-box">Zmieści się na każdym biurku</div>
-</div>
-<div class="card">
-<div class="image-wrapper" onclick="openModal('../img/soon.jpg')">
-<img src="../img/soon.jpg" alt="Zestaw Zawieszek">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #BN-02</div>
-<h3>Zestaw Bombek / Zawieszek</h3>
-<div class="price">Wkrótce</div>
-</div>
-<div class="promo-box">Lekkie i bezpieczne ozdoby na choinkę</div>
-</div>
-<div class="card">
-<div class="image-wrapper" onclick="openModal('../img/soon.jpg')">
-<img src="../img/soon.jpg" alt="Bałwanek 3D">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #BN-03</div>
-<h3>Figurka Bałwanka</h3>
-<div class="price">Wkrótce</div>
-</div>
-<div class="promo-box">Możliwość druku wielokolorowego</div>
-</div>
-<div class="card">
-<div class="image-wrapper" onclick="openModal('../img/soon.jpg')">
-<img src="../img/soon.jpg" alt="Lampion Świąteczny">
-</div>
-<div class="model-info-container">
-<div class="model-id">ID: #BN-04</div>
-<h3>Lampion na Świeczkę LED</h3>
-<div class="price">Wkrótce</div>
-</div>
-<div class="promo-box">Buduje niesamowity, ciepły nastrój</div>
-</div>
-</div>
+  <div class="filters" id="filters" role="group" aria-label="Filtruj modele"></div>
+  <div class="gallery" id="gallery"></div>
 </section>
-<footer>
-<a class="footer-cta" href="../index.html#zamowienie">🛒 Złóż zamówienie na te modele</a>
-<p style="margin-top:30px; color:#68867f; font-size:0.9em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
-</footer>
-<div class="fab-container">
-<a href="../index.html#zamowienie" class="fab-button" title="Złóż zamówienie">
-   🛒
-</a>
+
+<div class="insta">
+  <h2>📸 Chcesz więcej świątecznych inspiracji?</h2>
+  <p>Zapraszamy na nasz Instagram: pokazujemy gotowe wydruki, nowe modele i to, jak powstają Twoje zamówienia.</p>
+  <a href="https://www.instagram.com/awydrukujse/" target="_blank" rel="noopener">Odwiedź @awydrukujse</a>
 </div>
+
+<footer>
+  <a class="footer-cta" href="../index.html#zamowienie">🛒 Złóż zamówienie na te modele</a>
+  <p style="margin-top:30px; color:#68867f; font-size:.9em;">&copy; 2026 awydrukujse.pl - Wszystkie prawa zastrzeżone</p>
+</footer>
+
+<div class="fab-container">
+  <a href="../index.html#zamowienie" class="fab-button" title="Złóż zamówienie" aria-label="Złóż zamówienie">🛒</a>
+</div>
+
 <script>
- window.addEventListener('scroll', () => {
-   const navbar = document.getElementById('navbar');
-   if (window.scrollY > 50) {
-     navbar.classList.add('scrolled');
-   } else {
-     navbar.classList.remove('scrolled');
-   }
- });
- function openModal(src) {
-   const modal = document.createElement('div');
-   modal.style.position = 'fixed';
-   modal.style.inset = '0';
-   modal.style.background = 'rgba(0,0,0,0.85)';
-   modal.style.display = 'flex';
-   modal.style.justifyContent = 'center';
-   modal.style.alignItems = 'center';
-   modal.style.zIndex = '3000';
-   modal.onclick = () => modal.remove();
-   const img = document.createElement('img');
-   img.src = src;
-   img.style.maxWidth = '90%';
-   img.style.maxHeight = '90vh';
-   img.style.borderRadius = '15px';
-   img.style.boxShadow = '0 10px 40px rgba(0,0,0,0.5)';
-   modal.appendChild(img);
-   document.body.appendChild(modal);
- }
+  // ====== TUTAJ EDYTUJESZ MODELE ======
+  // Gdy będą gotowe zdjęcia i ceny: podmień "img" na np. '../img/choinka1.jpg'
+  // i "price" na np. '35 zł'. Reszta strony zaktualizuje się sama.
+  const PLACEHOLDER = '../img/soon.jpg';
+  const CATEGORIES = [
+    { key: 'dziadki',  label: '🎅 Dziadki do orzechów' },
+    { key: 'renifery', label: '🦌 Renifery' },
+    { key: 'choinki',  label: '🎄 Choinki' },
+    { key: 'aniolki',  label: '👼 Aniołki i śnieżynki' }
+  ];
+  const PRODUCTS = [
+    { id: 'BN-01', cat: 'dziadki',  name: 'Dziadek do orzechów – z bębnami',  desc: 'Wartownik w wysokiej czapce, jak z bajki.',        promo: 'Możliwość druku wielokolorowego', tag: 'Nowość', price: 'Wkrótce', img: PLACEHOLDER },
+    { id: 'BN-02', cat: 'dziadki',  name: 'Dziadek do orzechów – ryflowany',   desc: 'Paradny mundur i dumna postawa.',                    promo: 'Idealny na komodę lub parapet',  tag: 'Nowość', price: 'Wkrótce', img: PLACEHOLDER },
+    { id: 'BN-03', cat: 'renifery', name: 'Renifer ryflowany',                desc: 'Smukła figurka z porożem na stół lub kominek.',     promo: 'Świetnie wygląda w zestawie',    tag: 'Nowość', price: 'Wkrótce', img: PLACEHOLDER },
+    { id: 'BN-04', cat: 'renifery', name: 'Renifer',               desc: 'Geometryczny, nowoczesny styl.',                     promo: 'Dowolny kolor filamentu',        tag: 'Nowość', price: 'Wkrótce', img: PLACEHOLDER },
+    { id: 'BN-05', cat: 'choinki',  name: 'Choinka v1',                  desc: 'Lekka konstrukcja z wycięciami na światełka.',       promo: 'Zmieści się na każdym biurku',   tag: 'Nowość', price: 'Wkrótce', img: PLACEHOLDER },
+    { id: 'BN-06', cat: 'choinki',  name: 'Choinka v2',                 desc: 'Efektowna, wijąca się forma.',                       promo: 'Wersja mini i duża',             tag: 'Nowość', price: 'Wkrótce', img: PLACEHOLDER },
+    { id: 'BN-07', cat: 'choinki',  name: 'Choinka v3',                 desc: 'Klasyczny kształt z warstwami gałęzi.',              promo: 'Nietłukąca, bezpieczna dla dzieci', tag: 'Nowość', price: 'Wkrótce', img: PLACEHOLDER },
+    { id: 'BN-08', cat: 'aniolki',  name: 'Aniołek świąteczny',               desc: 'Delikatna figurka ze skrzydłami.',                   promo: 'Na stół lub na choinkę',         tag: 'Nowość', price: 'Wkrótce', img: PLACEHOLDER },
+    { id: 'BN-09', cat: 'aniolki',  name: 'Zestaw śnieżynek',                 desc: 'Zawieszki w kilku wzorach, do powieszenia na nitce.', promo: 'Lekkie ozdoby na choinkę',      tag: 'Zestaw', price: 'Wkrótce', img: PLACEHOLDER }
+  ];
+
+  // ====== RENDEROWANIE ======
+  const gallery = document.getElementById('gallery');
+  const filters = document.getElementById('filters');
+  let active = 'all';
+
+  function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  function renderFilters() {
+    const all = [{ key: 'all', label: '✨ Wszystkie' }, ...CATEGORIES];
+    filters.innerHTML = all.map(c => {
+      const n = c.key === 'all' ? PRODUCTS.length : PRODUCTS.filter(p => p.cat === c.key).length;
+      return `<button class="chip" data-cat="${c.key}" aria-pressed="${c.key === active}">${c.label}<span class="count">${n}</span></button>`;
+    }).join('');
+  }
+
+  function renderCards() {
+    const list = active === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === active);
+    gallery.innerHTML = list.map((p, i) => `
+      <article class="card" style="animation-delay:${i * 50}ms">
+        <div class="image-wrapper" tabindex="0" role="button" aria-label="Powiększ zdjęcie: ${esc(p.name)}" data-img="${esc(p.img)}">
+          <span class="tag">${esc(p.tag)}</span>
+          <img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">
+        </div>
+        <div class="model-info-container">
+          <div class="model-id">ID: #${esc(p.id)}</div>
+          <h3>${esc(p.name)}</h3>
+          <p class="desc">${esc(p.desc)}</p>
+          <div class="price">${esc(p.price)}</div>
+        </div>
+        <div class="promo-box">${esc(p.promo)}</div>
+      </article>`).join('');
+  }
+
+  filters.addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    active = b.dataset.cat; renderFilters(); renderCards();
+  });
+
+  function openModal(src) {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `<img src="${src}" alt="Powiększone zdjęcie">`;
+    const close = () => { modal.remove(); document.removeEventListener('keydown', onKey); };
+    const onKey = e => { if (e.key === 'Escape') close(); };
+    modal.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(modal);
+  }
+  gallery.addEventListener('click', e => {
+    const w = e.target.closest('.image-wrapper'); if (w) openModal(w.dataset.img);
+  });
+  gallery.addEventListener('keydown', e => {
+    const w = e.target.closest('.image-wrapper');
+    if (w && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openModal(w.dataset.img); }
+  });
+
+  renderFilters(); renderCards();
+
+  // ====== NAWIGACJA ======
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
+
+  // ====== ŚNIEG W HERO ======
+  (function () {
+    const c = document.getElementById('snow'), ctx = c.getContext('2d');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let w, h, flakes = [];
+    function size() {
+      const r = c.parentElement.getBoundingClientRect();
+      w = c.width = r.width; h = c.height = r.height;
+      flakes = Array.from({ length: Math.round(w / 14) }, () => ({
+        x: Math.random() * w, y: Math.random() * h, r: Math.random() * 2.6 + 1,
+        s: Math.random() * .7 + .3, d: Math.random() * Math.PI * 2
+      }));
+    }
+    function tick() {
+      ctx.clearRect(0, 0, w, h);
+      flakes.forEach(f => {
+        f.y += f.s; f.d += .01; f.x += Math.sin(f.d) * .4;
+        if (f.y > h + 5) { f.y = -5; f.x = Math.random() * w; }
+        ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(120,170,190,.45)'; ctx.fill();
+      });
+      requestAnimationFrame(tick);
+    }
+    size(); tick();
+    window.addEventListener('resize', size);
+  })();
 </script>
 </body>
 </html>
