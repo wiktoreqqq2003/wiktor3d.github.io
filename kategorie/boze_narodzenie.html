@@ -30,7 +30,8 @@
       "mainEntity": [
         { "@type": "Question", "name": "Czy ozdoby świąteczne z druku 3D się tłuką?", "acceptedAnswer": { "@type": "Answer", "text": "Nie. Wydruki z PLA lub PETG nie tłuką się jak szkło, a do tego są lekkie, więc bezpieczne dla dzieci i zwierząt. Na życzenie drukujemy z PETG, który jest dodatkowo odporny na uderzenia i wilgoć." } },
         { "@type": "Question", "name": "Czy mogę wybrać kolor ozdób?", "acceptedAnswer": { "@type": "Answer", "text": "Tak, każdy model drukujemy w dowolnym dostępnym kolorze. Wybrane modele można też wydrukować wielokolorowo." } },
-        { "@type": "Question", "name": "Jak zamówić ozdoby i kiedy je dostanę?", "acceptedAnswer": { "@type": "Answer", "text": "Wybierz model w formularzu zamówienia, a wycenę przygotujemy w 15 minut. Gotowe ozdoby wysyłamy Paczkomatem InPost lub kurierem, można też odebrać je osobiście we Wrocławiu. Przed świętami zamawiaj z wyprzedzeniem." } }
+        { "@type": "Question", "name": "Jak zamówić ozdoby i kiedy je dostanę?", "acceptedAnswer": { "@type": "Answer", "text": "Wybierz model w formularzu zamówienia, a wycenę przygotujemy w 15 minut. Gotowe ozdoby wysyłamy Paczkomatem InPost lub kurierem, można też odebrać je osobiście we Wrocławiu. Przed świętami zamawiaj z wyprzedzeniem." } },
+        { "@type": "Question", "name": "Czy do ozdób można używać świeczek z prawdziwym ogniem?", "acceptedAnswer": { "@type": "Answer", "text": "Nie, ale mamy na to sposób: tealighty LED. Prawdziwy ogień odpada, bo materiał może się nagrzać, odkształcić, a nawet spalić. Tealighty LED dają ten sam klimat, są bezpieczne i dostępne w wielu sklepach." } }
       ]
     }
   ]
@@ -69,10 +70,27 @@
   .hero-subtitle { font-size:1.15em; color:var(--muted); max-width:700px; margin:0 auto 25px; }
   .perks { display:flex; flex-wrap:wrap; gap:10px 25px; justify-content:center; font-weight:600; font-size:.95em; color:var(--green); }
 
-  .updates-notice { background:#fff; border:1px solid var(--line); border-radius:20px; padding:20px 30px; text-align:center; margin-bottom:25px; box-shadow:0 10px 30px rgba(198,40,40,.04); display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:15px; }
-  .updates-notice p { margin:0; font-size:.95em; color:var(--muted); font-weight:500; line-height:1.5; }
-  .updates-notice a { color:var(--red); font-weight:700; text-decoration:none; transition:color .2s; }
-  .updates-notice a:hover { color:var(--red-dark); text-decoration:underline; }
+  /* Personalizacja: karta + kupon */
+  .perso { position:relative; display:grid; grid-template-columns:1fr 270px; background:#fff; border-radius:28px; margin-bottom:40px; border:1px solid var(--line); box-shadow:0 18px 50px rgba(198,40,40,.08); }
+  .perso::before { content:''; position:absolute; left:0; top:22px; bottom:22px; width:5px; border-radius:0 6px 6px 0; background:linear-gradient(180deg,var(--red),var(--green)); }
+  .perso-main { padding:36px 36px 36px 44px; }
+  .perso-eyebrow { margin:0 0 8px; font-size:.72em; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--green); }
+  .perso h2 { margin:0 0 26px; font-size:1.7em; font-weight:800; line-height:1.2; letter-spacing:-.5px; color:var(--ink-deep); }
+  .perso-items { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:22px; }
+  .perso-item { display:flex; gap:14px; align-items:flex-start; }
+  .perso-ico { flex:none; width:46px; height:46px; border-radius:15px; background:linear-gradient(135deg,#ffebee,#e8f5e9); display:grid; place-items:center; font-size:1.3em; }
+  .perso-item h3 { margin:0 0 2px; font-size:.95em; font-weight:600; color:var(--ink-deep); }
+  .perso-item p { margin:0; font-size:.82em; color:var(--muted); line-height:1.5; }
+
+  .perso-ticket { position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:6px; padding:30px 24px; color:#fff; border-radius:0 28px 28px 0; background:linear-gradient(145deg,var(--red),var(--red-dark)); }
+  .perso-ticket::before { content:''; position:absolute; left:0; top:18px; bottom:18px; border-left:2px dashed rgba(255,255,255,.55); }
+  .perso-ticket::after { content:''; position:absolute; left:-13px; top:-13px; width:26px; height:26px; border-radius:50%; background:var(--bg); box-shadow:0 calc(100% + 0px) 0 transparent; }
+  .notch-b { position:absolute; left:-13px; bottom:-13px; width:26px; height:26px; border-radius:50%; background:var(--bg); }
+  .ticket-label { font-size:.7em; font-weight:800; letter-spacing:3px; text-transform:uppercase; opacity:.85; }
+  .ticket-big { font-size:1.55em; font-weight:800; line-height:1.15; }
+  .ticket-sub { font-size:.82em; opacity:.9; margin-bottom:10px; }
+  .ticket-btn { display:inline-block; background:#fff; color:var(--red); font-weight:800; font-size:.85em; text-decoration:none; padding:10px 22px; border-radius:40px; transition:all .3s; }
+  .ticket-btn:hover { transform:translateY(-3px); box-shadow:0 10px 22px rgba(0,0,0,.25); }
 
   .filters { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:35px; }
   .chip { font:inherit; font-weight:600; font-size:.9em; cursor:pointer; padding:10px 22px; border-radius:30px; border:2px solid var(--line); background:#fff; color:var(--ink); transition:all .25s; }
@@ -127,6 +145,14 @@
   .modal { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; justify-content:center; align-items:center; z-index:3000; }
   .modal img { max-width:90%; max-height:90vh; border-radius:15px; box-shadow:0 10px 40px rgba(0,0,0,.5); }
 
+  @media (max-width:800px) {
+    .perso { grid-template-columns:1fr; }
+    .perso-main { padding:30px 24px 26px 30px; }
+    .perso-ticket { border-radius:0 0 28px 28px; padding:26px 24px; }
+    .perso-ticket::before { left:18px; right:18px; top:0; bottom:auto; border-left:0; border-top:2px dashed rgba(255,255,255,.55); }
+    .perso-ticket::after { left:-13px; top:-13px; }
+    .notch-b { left:auto; right:-13px; bottom:auto; top:-13px; }
+  }
   @media (max-width:700px) {
     .top-nav, .top-nav.scrolled { padding:10px 16px; }
     .nav-title { font-size:1.1em; }
@@ -135,6 +161,7 @@
     h1 { font-size:2.1em; letter-spacing:-.5px; }
     .text-panel { padding:30px 22px; }
     .insta h2 { font-size:1.5em; }
+    .perso h2 { font-size:1.4em; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition:none !important; } html { scroll-behavior:auto; } }
 </style>
@@ -164,9 +191,33 @@
 </header>
 
 <section>
-  <!-- Informacja o personalizacji, własnych zestawach, rabatach i Instagramie -->
-  <div class="updates-notice">
-    <p>💡 <strong>Personalizuj swoje dekoracje:</strong> Wszystkie modele wykonujemy w różnych kolorach i rozmiarach (cena różni się w zależności od wymiarów). Chcesz stworzyć własną kompozycję? <strong>Zawsze możesz skomponować własny zestaw w atrakcyjnej cenie z rabatem!</strong> Gotowe inspiracje i przykładowe zestawy znajdziesz na naszym <a href="https://www.instagram.com/awydrukujse/" target="_blank" rel="noopener">Instagramie @awydrukujse</a>.</p>
+  <!-- Personalizacja, własne zestawy, rabat i Instagram -->
+  <div class="perso">
+    <div class="perso-main">
+      <p class="perso-eyebrow">Personalizacja</p>
+      <h2>Twoje dekoracje, Twoje zasady</h2>
+      <div class="perso-items">
+        <div class="perso-item">
+          <div class="perso-ico" aria-hidden="true">🎨</div>
+          <div><h3>Dowolny kolor</h3><p>Każdy model wykonamy w kolorze, który pasuje do Twojego wnętrza.</p></div>
+        </div>
+        <div class="perso-item">
+          <div class="perso-ico" aria-hidden="true">📐</div>
+          <div><h3>Różne rozmiary</h3><p>Mała ozdoba czy duża figura? Cena zależy od wymiarów. Poniżej znajdują się modele w podstawowych rozmiarach</p></div>
+        </div>
+        <div class="perso-item">
+          <div class="perso-ico" aria-hidden="true">🎁</div>
+          <div><h3>Własny zestaw</h3><p>Skomponuj kompozycję z kilku modeli. Gotowe inspiracje są na naszym Instagramie.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="perso-ticket">
+      <span class="notch-b" aria-hidden="true"></span>
+      <span class="ticket-label">Zestaw</span>
+      <span class="ticket-big">Atrakcyjna cena</span>
+      <span class="ticket-sub">na własną kompozycję</span>
+      <a class="ticket-btn" href="https://www.instagram.com/awydrukujse/" target="_blank" rel="noopener">Zobacz inspiracje →</a>
+    </div>
   </div>
 
   <div class="filters" id="filters" role="group" aria-label="Filtruj modele">
@@ -268,6 +319,7 @@
       <div><h3>Dowolny kolor</h3><p>Biel jak śnieg, klasyczna czerwień, zieleń choinki albo coś, co pasuje do Twojego wnętrza.</p></div>
       <div><h3>Wycena w 15 minut</h3><p>Wybierasz model w formularzu, a my odpisujemy z ceną i terminem. Wycena jest darmowa i niezobowiązująca.</p></div>
       <div><h3>Własny pomysł</h3><p>Masz własny model lub zdjęcie ozdoby? Wydrukujemy też gotowy plik STL, możesz go dołączyć w formularzu.</p></div>
+      <div><h3>Tylko świeczki LED</h3><p>Ozdoby pięknie wyglądają z podświetleniem, ale używaj wyłącznie tealightów LED. Prawdziwy płomień może spalić materiał. Tealighty LED kupisz w wielu sklepach lub u nas.</p></div>
     </div>
   </div>
 </section>
@@ -278,6 +330,7 @@
     <details><summary>Czy ozdoby świąteczne z druku 3D się tłuką?</summary><p>Nie. Wydruki z PLA lub PETG nie tłuką się jak szkło, a do tego są lekkie, więc bezpieczne dla dzieci i zwierząt. Na życzenie drukujemy z PETG, który jest dodatkowo odporny na uderzenia i wilgoć.</p></details>
     <details><summary>Czy mogę wybrać kolor ozdób?</summary><p>Tak, każdy model drukujemy w dowolnym dostępnym kolorze. Wybrane modele można też wydrukować wielokolorowo.</p></details>
     <details><summary>Jak zamówić ozdoby i kiedy je dostanę?</summary><p>Wybierz model w formularzu zamówienia, a wycenę przygotujemy w 15 minut. Gotowe ozdoby wysyłamy Paczkomatem InPost lub kurierem, można też odebrać je osobiście we Wrocławiu. Przed świętami zamawiaj z wyprzedzeniem.</p></details>
+    <details><summary>Czy do ozdób można używać świeczek z prawdziwym ogniem?</summary><p>Nie, ale mamy na to sposób: tealighty LED. Prawdziwy ogień odpada, bo materiał może się nagrzać, odkształcić, a nawet spalić. Tealighty LED dają ten sam klimat, są bezpieczne i dostępne w wielu sklepach oraz u nas.</p></details>
   </div>
 </section>
 
