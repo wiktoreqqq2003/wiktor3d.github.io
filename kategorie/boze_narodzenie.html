@@ -90,12 +90,11 @@
   .card:hover .img-btn img { transform:scale(1.08); }
   .card:hover .img-btn::after, .img-btn:focus-visible::after { opacity:1; }
   .tag { position:absolute; top:14px; left:14px; z-index:2; background:#fff; color:var(--green); font-size:.75em; font-weight:800; padding:4px 12px; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,.12); }
-  .info { padding:25px 20px 15px; flex-grow:1; display:flex; flex-direction:column; }
+  .info { padding:25px 20px 20px; flex-grow:1; display:flex; flex-direction:column; justify-content:center; }
   .model-id { background:rgba(198,40,40,.1); color:var(--red); display:inline-block; padding:6px 18px; border-radius:8px; font-weight:800; font-size:.9em; align-self:center; margin-bottom:15px; }
-  .card h2 { margin:0 0 8px; font-size:1.2em; font-weight:600; color:var(--ink-deep); }
-  .card .desc { margin:0 0 12px; font-size:.88em; color:var(--muted); }
+  .card h2 { margin:0 0 12px; font-size:1.2em; font-weight:600; color:var(--ink-deep); }
   .price { font-size:1.5em; font-weight:800; color:var(--red); margin-top:auto; }
-  .promo { background:#fff5f5; border-top:1px solid #ffebee; padding:12px; font-size:.85em; color:#9a0007; font-weight:600; min-height:44px; display:flex; align-items:center; justify-content:center; }
+  .promo { background:#fff5f5; border-top:1px solid #ffebee; padding:12px; font-size:.85em; color:#9a0007; font-weight:600; min-height:48px; display:flex; align-items:center; justify-content:center; text-align:center; }
 
   .text-panel { background:#fff; border:1px solid var(--line); border-radius:28px; padding:45px 40px; box-shadow:0 15px 45px rgba(198,40,40,.04); }
   .text-panel h2 { margin:0 0 15px; font-size:1.8em; color:var(--ink-deep); }
@@ -183,85 +182,78 @@
     <!-- S1 -->
     <article class="card" data-cat="renifery">
       <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Renifer"><span class="tag">Nowość</span><img src="../img/soon.jpg" alt="Renifer wydrukowany w 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S1</div><h2>Renifer</h2><p class="desc">Smukła figurka na stół.</p><div class="price">28 zł</div></div>
-      <div class="promo">Świetnie wygląda w zestawie</div>
+      <div class="info"><div class="model-id">Kod: S1</div><h2>Renifer</h2><div class="price">28 zł</div></div>
+      <div class="promo">Smukła figurka z efektownym porożem</div>
     </article>
 
     <!-- S2 -->
     <article class="card" data-cat="renifery">
       <button type="button" class="img-btn" data-zoom="../img/renifer_ryfel.webp" aria-label="Powiększ zdjęcie: Renifer ryflowany"><span class="tag">Nowość</span><img src="../img/renifer_ryfel.webp" alt="Renifer ryflowany wydrukowany w 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S2</div><h2>Renifer ryflowany</h2><p class="desc">Wzór w delikatne prążki.</p><div class="price">25 zł</div></div>
-      <div class="promo">Dowolny kolor filamentu</div>
+      <div class="info"><div class="model-id">Kod: S2</div><h2>Renifer ryflowany</h2><div class="price">25 zł</div></div>
+      <div class="promo">Wzór w delikatne prążki</div>
     </article>
 
     <!-- S3 -->
     <article class="card" data-cat="aniolki">
       <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Aniołek"><span class="tag">Nowość</span><img src="../img/soon.jpg" alt="Aniołek, figurka z druku 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S3</div><h2>Aniołek</h2><p class="desc">Delikatna figurka ze skrzydłami.</p><div class="price">25 zł</div></div>
-      <div class="promo">Na stół lub parapet</div>
+      <div class="info"><div class="model-id">Kod: S3</div><h2>Aniołek</h2><div class="price">25 zł</div></div>
+      <div class="promo">Delikatna figurka ze skrzydłami</div>
     </article>
 
     <!-- S4 -->
     <article class="card" data-cat="choinki">
       <button type="button" class="img-btn" data-zoom="../img/choinka_ryfel.webp" aria-label="Powiększ zdjęcie: Choinka bubble ryflowana"><span class="tag">Nowość</span><img src="../img/choinka_ryfel.webp" alt="Choinka bubble ryflowana z druku 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S4</div><h2>Choinka bubble ryflowana</h2><p class="desc">Choinka z prążkowanych kulek.</p><div class="price">Wkrótce</div></div>
-      <div class="promo">Dostępna w różnych kolorach</div>
+      <div class="info"><div class="model-id">Kod: S4</div><h2>Choinka bubble ryflowana</h2><div class="price">35 zł</div></div>
+      <div class="promo">Nowoczesny kształt z kulek w prążki</div>
     </article>
 
     <!-- S5 -->
     <article class="card" data-cat="choinki">
       <button type="button" class="img-btn" data-zoom="../img/choinka_fuzzy.webp" aria-label="Powiększ zdjęcie: Choinka bubble ryflowana"><span class="tag">Nowość</span><img src="../img/choinka_fuzzy.webp" alt="Choinka bubble ryflowana z druku 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S5</div><h2>Choinka bubble ryflowana</h2><p class="desc">Choinka o fakturze śniegu.</p><div class="price">35 zł</div></div>
-      <div class="promo">Wygląda jak ze śniegu</div>
+      <div class="info"><div class="model-id">Kod: S5</div><h2>Choinka bubble</h2><div class="price">Wkrótce</div></div>
+      <div class="promo">Chropowata struktura imitująca śnieg</div>
     </article>
 
     <!-- S6 -->
     <article class="card" data-cat="choinki">
       <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Choinka żeberkowa"><span class="tag">Nowość</span><img src="../img/soon.jpg" alt="Choinka żeberkowa z druku 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S6</div><h2>Choinka żeberkowa</h2><p class="desc">Nowoczesna choinka z żeberkami.</p><div class="price">26 zł</div></div>
-      <div class="promo">Nietłukąca i bezpieczna ozdoba</div>
+      <div class="info"><div class="model-id">Kod: S6</div><h2>Choinka żeberkowa</h2><div class="price">26 zł</div></div>
+      <div class="promo">Współczesna choinka z pionowym ryflowaniem</div>
     </article>
 
     <!-- S7 -->
     <article class="card" data-cat="dziadki">
       <button type="button" class="img-btn" data-zoom="../img/dziadek_beben.webp" aria-label="Powiększ zdjęcie: Dziadek do orzechów ryflowany"><span class="tag">Nowość</span><img src="../img/dziadek_beben.webp" alt="Dziadek do orzechów ryflowany z druku 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S7</div><h2>Dziadek do orzechów ryflowany</h2><p class="desc">Klasyczny dziadek do orzechów.</p><div class="price">25 zł</div></div>
-      <div class="promo">Druk jedno lub wielokolorowy</div>
+      <div class="info"><div class="model-id">Kod: S7</div><h2>Dziadek do orzechów</h2><div class="price">20 zł</div></div>
+      <div class="promo">Dostojny wartownik w wysokiej czapce</div>
     </article>
 
     <!-- S8 -->
     <article class="card" data-cat="dziadki">
       <button type="button" class="img-btn" data-zoom="../img/dziadek_ryfel.webp" aria-label="Powiększ zdjęcie: Dziadek do orzechów ryflowany"><span class="tag">Nowość</span><img src="../img/dziadek_ryfel.webp" alt="Dziadek do orzechów ryflowany" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S8</div><h2>Dziadek do orzechów ryflowany</h2><p class="desc">Mniejszy dziadek w mundurze.</p><div class="price">20 zł</div></div>
-      <div class="promo">Idealny na komodę</div>
+      <div class="info"><div class="model-id">Kod: S8</div><h2>Dziadek do orzechów ryflowany</h2><div class="price">25 zł</div></div>
+      <div class="promo">Paradny mundur i prążkowana faktura</div>
     </article>
 
     <!-- S9 -->
-    <article class="card" data-cat="choinki">
-      <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Choinka bubble ryflowana"><span class="tag">Nowość</span><img src="../img/soon.jpg" alt="Choinka bubble ryflowana" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S9</div><h2>Choinka bubble ryflowana</h2><p class="desc">Niewielka choinka z kulek.</p><div class="price">Wkrótce</div></div>
-      <div class="promo">Dobrze wygląda w zestawie</div>
+    <article class="card" data-cat="aniolki">
+      <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Podstawka"><span class="tag">Nowość</span><img src="../img/soon.jpg" alt="Podstawka pod dekoracje z druku 3D" loading="lazy" width="400" height="320"></button>
+      <div class="info"><div class="model-id">Kod: S9</div><h2>Podstawka</h2><div class="price">30 zł</div></div>
+      <div class="promo">Dedykowana podstawka pod ozdoby świąteczne</div>
     </article>
 
     <!-- S10 -->
     <article class="card" data-cat="aniolki">
-      <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Podstawka"><span class="tag">Nowość</span><img src="../img/soon.jpg" alt="Podstawka pod dekoracje z druku 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S10</div><h2>Podstawka</h2><p class="desc">Dedykowana podstawka pod figurki.</p><div class="price">30 zł</div></div>
-      <div class="promo">Pasuje do wszystkich figurek</div>
+      <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Śnieżynki"><span class="tag">Zestaw</span><img src="../img/soon.jpg" alt="Zestaw śnieżynek z druku 3D" loading="lazy" width="400" height="320"></button>
+      <div class="info"><div class="model-id">Kod: S10</div><h2>Śnieżynki</h2><div class="price">25 zł</div></div>
+      <div class="promo">Zestaw lekkich zawieszek choinkowych</div>
     </article>
 
     <!-- S11 -->
     <article class="card" data-cat="aniolki">
-      <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Śnieżynki"><span class="tag">Zestaw</span><img src="../img/soon.jpg" alt="Zestaw śnieżynek z druku 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S11</div><h2>Śnieżynki</h2><p class="desc">Lekkie śnieżynki na choinkę.</p><div class="price">25 zł</div></div>
-      <div class="promo">Komplet zawieszek na choinkę</div>
-    </article>
-
-    <!-- S12 -->
-    <article class="card" data-cat="aniolki">
       <button type="button" class="img-btn" data-zoom="../img/soon.jpg" aria-label="Powiększ zdjęcie: Mały bałwan"><span class="tag">Nowość</span><img src="../img/soon.jpg" alt="Mały bałwan z druku 3D" loading="lazy" width="400" height="320"></button>
-      <div class="info"><div class="model-id">Kod: S12</div><h2>Mały bałwan</h2><p class="desc">Mała figurka uśmiechniętego bałwanka.</p><div class="price">20 zł</div></div>
-      <div class="promo">Fajny drobiazg na prezent</div>
+      <div class="info"><div class="model-id">Kod: S11</div><h2>Mały bałwan</h2><div class="price">20 zł</div></div>
+      <div class="promo">Uroczy bałwanek idealny na stół</div>
     </article>
 
   </div>
