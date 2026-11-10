@@ -15,8 +15,8 @@
 </script>
 
 <meta name="google-site-verification" content="Nw_3i0kBQekvkOqbbmgG3w_P7OKQsgGM94NYEnER3nE">
-<title>Druk 3D Wrocław, Oława, Oleśnica | Cennik & Wycena – awydrukujse.pl</title>
-<meta name="description" content="Szybki i precyzyjny druk 3D na zamówienie we Wrocławiu, Oławie i Oleśnicy. Sprawdź cennik, prześlij plik STL lub projekt CAD i otrzymaj darmową wycenę w 15 min!">
+<title>Druk 3D Wrocław, Ząbkowice Śląskie i cała Polska – awydrukujse.pl</title>
+<meta name="description" content="Szybki i precyzyjny druk 3D na zamówienie we Wrocławiu, Ząbkowicach Śląskich i okolicy. Sprawdź cennik, prześlij plik STL lub projekt CAD i otrzymaj darmową wycenę!">
 <link rel="canonical" href="https://awydrukujse.pl/">
 <link rel="icon" type="image/png" href="img/Logoskleputr.png">
 <link rel="apple-touch-icon" sizes="180x180" href="img/Logoskleputr.png">
@@ -483,11 +483,6 @@
       <div class="info"><div class="model-id">ID: #013</div><h3>Plakietka z narodzin dziecka</h3><div class="colors"><span class="dot"></span>Dowolny kolor</div><div class="price">50 zł</div></div>
       <div class="promo">Magiczna pamiątka, która pozostaje na zawsze!</div>
     </div>
-    <div class="card">
-      <a href="kategorie/boze_narodzenie.html" class="img-btn" aria-label="Zobacz kolekcję świąteczną"><img src="img/soon.jpg" alt="Kolekcja świąteczna" loading="lazy" width="400" height="320"></a>
-      <div class="info"><div class="model-id" style="background:#ffebee;color:#c62828">🎄 NOWOŚĆ</div><h3>Kolekcja świąteczna</h3><div class="colors"><span class="dot"></span>Dowolny kolor</div><div class="price" style="color:#c62828">Wkrótce</div></div>
-      <a href="kategorie/boze_narodzenie.html" class="promo" style="background:#fff5f5;color:#9a0007">Zobacz dziadki, renifery i choinki →</a>
-    </div>
   </div>
   <div class="more">
     <p>Chcesz zobaczyć więcej naszych projektów?</p>
@@ -723,7 +718,19 @@
   const $ = id => document.getElementById(id);
 
   /* ===== DANE ===== */
-  const XMAS = ['#BN-01 - Dziadek do orzechów klasyczny', '#BN-02 - Dziadek do orzechów żołnierz', '#BN-03 - Renifer stojący', '#BN-04 - Renifer low poly', '#BN-05 - Choinka ażurowa', '#BN-06 - Choinka spiralna', '#BN-07 - Choinka piętrowa', '#BN-08 - Aniołek świąteczny', '#BN-09 - Zestaw śnieżynek'];
+  /* Kolekcja świąteczna: kody jak na stronie kategorie/boze_narodzenie.html (cena null = wkrótce) */
+  const XMAS = [
+    ['#S1 - Renifer', 28],
+    ['#S2 - Renifer ryflowany', 25],
+    ['#S3 - Aniołek', 25],
+    ['#S4 - Choinka bubble ryflowana', 35],
+    ['#S5 - Choinka bubble', null],
+    ['#S6 - Choinka żeberkowa', 26],
+    ['#S7 - Dziadek do orzechów', 20],
+    ['#S8 - Dziadek do orzechów ryflowany', 25],
+    ['#S9 - Podstawka', 30],
+    ['#S10 - Śnieżynki (zestaw 8 szt.)', 25]
+  ];
   const MODELS = [
     ['#JES-00 - Wazon', 36], ['#JES-01 - Dynia nr 1', 30], ['#JES-02 - Dynia nr 2', 30], ['#JES-03 - Dynia nr 3', 25],
     ['#JES-04 - Dynia nr 4', 22], ['#JES-05 - Dynia nr 5', 15], ['#JES-06 - Dynia nr 6', 22], ['#001 - Kurczak na jajko', 15],
@@ -735,7 +742,7 @@
 
   /* ===== BUDOWANIE FORMULARZA ===== */
   $('modelSelect').innerHTML =
-    '<optgroup label="🎄 Boże Narodzenie (wycena indywidualna)">' + XMAS.map(v => `<option value="${v}">${v} - wkrótce</option>`).join('') + '</optgroup>' +
+    '<optgroup label="🎄 Boże Narodzenie">' + XMAS.map(([v, p]) => `<option value="${v}">${v} - ${p === null ? 'wkrótce' : p + ' zł'}</option>`).join('') + '</optgroup>' +
     '<optgroup label="Pozostałe modele">' + MODELS.map(([v, p]) => `<option value="${v}">${v} - ${p} zł</option>`).join('') + '</optgroup>';
 
   $('swatches').innerHTML = COLORS.map(([n, c], i) =>
